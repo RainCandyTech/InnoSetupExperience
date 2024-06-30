@@ -1,0 +1,30 @@
+// 雨糖科技 Inno Setup 安装体验脚本 - 主要函数
+// Made with love by RainCandy Technology
+// 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
+
+// 本脚本代码主要用于使用雨糖科技 Inno Setup 安装体验封装的 Windows 驱动程序。
+
+[CustomMessages]
+
+[Run]
+
+[Code]
+procedure ButtonOnClickDevMgmt(Sender: TObject);
+var  // 在安装界面的按钮点击后，触发启动设备管理器的操作
+  ResultCode: integer;
+begin
+  ShellExec('', ExpandConstant('{sys}\devmgmt.msc'), '', '', SW_SHOW, ewNoWait, ResultCode)
+end;
+
+function IsDenyUnspecDevice(): Boolean;
+var  // 检查注册表是否存在设备安装限制相关键值
+  DeviceUnspecDenyState: Cardinal;
+begin
+  result:= false;
+  RegQueryDWordValue(HKLM, 'SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions', 'DenyUnspecified', DeviceUnspecDenyState)
+  if (DeviceUnspecDenyState = 1) then
+  begin
+    Log('[RainCandy Technology Inno Setup Experience] Warning: The OS has been configured to block installation for all device that is not specified in group policy!');
+    result := true;
+  end;
+end;
