@@ -10,7 +10,7 @@
 #define MyAppMainNameCT " WPS Office "
 #define MyAppVersion "12.1.0.17158"
 #define MyAppMajorVersion "12"
-#define MyAppMarketVersion "2024"
+#define MyAppMarketVersion "2023"
 //#define MyAppPublisher "RainCandy Technology"
 #define MyAppPublisher "Kingsoft Office Software"
 //#define MyAppURL "http://raincandy.tech/"
@@ -464,10 +464,6 @@ Name: main\ksorcnet\cooperation; Description: "{cm:RCTISEToInst, WPS 协作}";
 Name: main\ksorcnonet; Description: "{cm:RCTISEInstOfflineVer} ({cm:RCTISEDisableOnlineSvc})"; Flags: exclusive;
 Name: main\pintotaskbar; Description: "{cm:CreateQuickLaunchIcon} (如果已勾选创建桌面快捷方式)"; Flags: dontinheritcheck;
 Name: main\iscreatenewfile; Description: "在多组件模式下，在启动程序时直接进入编辑状态"; Flags: dontinheritcheck;
-Name: wpspdf; Description: "WPS PDF"; Types: default; Flags: fixed;
-//Name: wpspdf\normal; Description: "{cm:RCTISEInstNormal}"; Flags: exclusive;
-//Name: wpspdf\pdfadvanced; Description: "{cm:RCTISEInstAsPremium} ({cm:RCTISEFeatureIsExp}, {cm:RCTASEditNotAvailable})"; Flags: exclusive; 
-//Name: wpspdf\disable; Description: "{cm:RCTISEDisableFeature} ({cm:RCTISEFeatureIsExp})"; Flags: exclusive;
 Name: extra; Description: "{cm:RCTISEExtraFeature}"; Types: default; Flags: fixed;
 Name: extra\ksovba; Description: "{cm:RCTISEToInst, {cm:RCTISELibrarySupport,VBA}}"; Types: default;
 //Name: experimental; Description: "{cm:RCTISEExpFeature}"; Types: default; Flags: fixed;
@@ -475,6 +471,7 @@ Name: extra\ksovba; Description: "{cm:RCTISEToInst, {cm:RCTISELibrarySupport,VBA
 //Name: experimental\ksorcofd\fileassoc; Description: "{cm:AssocFileExtension,{#MyAppMainName},OFD}"; Flags: dontinheritcheck;
 //Name: experimental\ksorcuof; Description: "{cm:RCTISEToEnable, UOF} 格式支持"; Types: default; Flags: fixed;
 //Name: experimental\ksorcuof\enableforofficialdocs; Description: "让 WPS 公文使用 UOF 格式保存（需在下方勾选启用公文功能）"; 
+//Name: experimental\pdfadvanced; Description: "{cm:RCTISEEnablePremium,WPS PDF} ({cm:RCTASEditNotAvailable})"; 
 //Name: experimental\officialdocs; Description: "启用「WPS 文字」的公文相关功能"; 
 //Name: experimental\officialdocs\writernouof; Description: "禁用「WPS 文字」的 UOF 格式支持以确保能够正常调用公文模板";
 
