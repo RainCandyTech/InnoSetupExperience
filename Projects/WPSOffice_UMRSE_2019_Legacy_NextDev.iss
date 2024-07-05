@@ -51,8 +51,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v5.6.1.10_240629"
-//#define RCAllowPartnerLink "false"
+#define RCInnoExpVer "v5.6.1.10_240703"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 
@@ -141,10 +140,10 @@ chinesesimp.BeveledLabel=爱与梦想的数字魔法
 //chinesetrad.BeveledLabel=愛與夢想的數位魔法
 //japanese.BeveledLabel=愛と夢のためのデジタル魔法
 
-// 20240610_RainCandyTech_SloganAtISEBegin
+// 20240703_RainCandyTech_SloganAtISEBegin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放，年轻绚烂%n%n{#MyAppExtraInfo}
-//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放，年輕絢爛%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
+//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
 //dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
 //french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
 //german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
@@ -222,13 +221,13 @@ begin
   begin  // 检测 WPS Office 的 64 位版本是否已经在电脑上提前安装，如检查到则弹窗退出
     Log('[RainCandy Technology Inno Setup Experience] Error: {#MyAppMainName} (x64) is already installed...');
     if (languageName = 'chinesesimp') then begin
-    	SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgAppAlreadyInst'), ['{#MyAppMainNameCS}的 64 位版本']) + #13 + CustomMessage('RCTMsgMustUninstExistVer')  + #13#13 + CustomMessage('RCTMsgSetupExit'),mbError, MB_OK, MB_OK);
+    	MsgBox(FmtMessage(CustomMessage('RCTMsgAppAlreadyInst'), ['{#MyAppMainNameCS}的 64 位版本']) + #13 + CustomMessage('RCTMsgMustUninstExistVer')  + #13#13 + CustomMessage('RCTMsgSetupExit'),mbError, MB_OK);
     end;
     if (languageName = 'chinesetrad') then begin
-    	SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgAppAlreadyInst'), ['{#MyAppMainNameCT}的 64 位元版本']) + #13 + CustomMessage('RCTMsgMustUninstExistVer')  + #13#13 + CustomMessage('RCTMsgSetupExit'),mbError, MB_OK, MB_OK);
+    	MsgBox(FmtMessage(CustomMessage('RCTMsgAppAlreadyInst'), ['{#MyAppMainNameCT}的 64 位元版本']) + #13 + CustomMessage('RCTMsgMustUninstExistVer')  + #13#13 + CustomMessage('RCTMsgSetupExit'),mbError, MB_OK);
     end;
     if (languageName <> 'chinesesimp') and (languageName <> 'chinesetrad') then begin
-    	SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgAppAlreadyInst'), ['{#MyAppMainName} (64-bit version)']) + #13 + CustomMessage('RCTMsgMustUninstExistVer')  + #13#13 + CustomMessage('RCTMsgSetupExit'),mbError, MB_OK, MB_OK);
+    	MsgBox(FmtMessage(CustomMessage('RCTMsgAppAlreadyInst'), ['{#MyAppMainName} (64-bit version)']) + #13 + CustomMessage('RCTMsgMustUninstExistVer')  + #13#13 + CustomMessage('RCTMsgSetupExit'),mbError, MB_OK);
     end;
     Result := False;
     Exit;
@@ -242,8 +241,8 @@ begin
 
   Log('[RainCandy Technology Inno Setup Experience] Info: Pre-install check passed...'); 
 
-  if (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then
-  begin  // 如果找到禁止播放 BGM 占位符，则禁止 BGM 播放
+  if (RCTIsSilent = true) or (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then
+  begin  // 如果静默安装或找到禁止播放 BGM 占位符，则禁止 BGM 播放
     Log('[RainCandy Technology Inno Setup Experience] Info: Config "NoBGM_RCTechSetup" detected, disable music playing!');
     RCTech_DoNotPlayBGM := True;
   end else begin
@@ -300,7 +299,10 @@ begin
   end;
 
   // Splash 开屏图片展示
-  val:=callplug(0,ExpandConstant('{tmp}\AdvSplash.dll'),'show','2400','1400','400','-1',ExpandConstant('{tmp}\Splash'),'','','','','');
+  if (RCTIsSilent = false) then
+  begin
+    val:=callplug(0,ExpandConstant('{tmp}\AdvSplash.dll'),'show','2400','1400','400','-1',ExpandConstant('{tmp}\Splash'),'','','','','');
+  end;
 
   Log('[RainCandy Technology Inno Setup Experience] Info: Prepare Complete...');
 end;
@@ -378,6 +380,9 @@ Source: "E:\Development\WPS Office\Conf_1Addon\iscreatenewfile.ini"; DestDir: {t
 ; 启用协作选项和新版 WPS 365 安装界面（12）
 //Source: "E:\Development\WPS Office\Conf_1Addon\cooperation.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnet\cooperation;
 
+; 静默运行 WPS 安装程序
+Source: "E:\Development\WPS Office\Conf_1Addon\silentsetup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
+
 ; PDF 高级功能支持（实验功能）
 Source: "E:\Development\WPS Office\Conf_1Addon\pdfadvanced.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: wpspdf\pdfadvanced;
 
@@ -418,7 +423,8 @@ Source: "E:\Development\WPS Office\Conf_{#MyAppPublishType}\oem_setup{#RCAppConf
 //Source: "E:\Development\WPS Office\EditVersion365\*.*"; DestDir: {tmp}\OemFile\cfgs; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main\ksorcnet;
 
 ; Windows 8 安装劫持补丁
-//Source: "E:\Development\WPS Office\W8ClientPatch\wpsw8patch_{#MyAppArchitecture}.dll"; DestName: "wpsw8patch.dll"; DestDir: {sysnative}; Flags: overwritereadonly; Check: RCTIsWin8Client; Components: main;
+//Source: "E:\Development\WPS Office\W8ClientPatch\wpsw8patch_x86.dll"; DestName: "wpsw8patch.dll"; DestDir: {syswow64}; Flags: overwritereadonly; Check: RCTIsWin8Client; Components: main;
+//Source: "E:\Development\WPS Office\W8ClientPatch\wpsw8patch_x64.dll"; DestName: "wpsw8patch.dll"; DestDir: {sysnative}; Flags: overwritereadonly 64bit; Check: RCTIsWin8Client; Components: main;
 
 ; 雨科软件研究项目配置
 Source: "E:\Development\WPS Office\zMNConfig\MNConfig_{#MyAppMajorVersion}{#RCAppConfType}.ini"; DestName: "MNConfig.ini"; DestDir: {tmp}\OemFile\cfgs\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
@@ -446,16 +452,17 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\uof_nowriter.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\officialdocs\writernouof;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\officialdocs.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\officialdocs;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\oem_setup.ini {tmp}\oem.ini"; Flags: runhidden; Components: main;
+Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\silentsetup.ini {tmp}\oem.ini"; Flags: runhidden skipifnotsilent; Components: main;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\pintotaskbar.ini {tmp}\oem.ini"; Flags: runhidden; Components: main\pintotaskbar;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\iscreatenewfile.ini {tmp}\oem.ini"; Flags: runhidden; Components: main\iscreatenewfile;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\cooperation.ini {tmp}\oem.ini"; Flags: runhidden; Components: main\ksorcnet\cooperation;
 Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Components: main;
 //Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoofd"; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},OFD}"; check: WPS{#MyAppArchRC}Main; Components: experimental\ksorcofd\fileassoc; BeforeInstall: SetMarqueeProgress(True);
-Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-showallinone"; StatusMsg: "正在等待选择窗口管理模式..."; Flags: skipifdoesntexist; check: not KSOClassicMode; Components: main; BeforeInstall: SetMarqueeProgress(False);
+Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-showallinone"; StatusMsg: "正在等待选择窗口管理模式..."; Flags: skipifdoesntexist skipifsilent; check: not KSOClassicMode; Components: main; BeforeInstall: SetMarqueeProgress(False);
 //Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-rebuildicon"; StatusMsg: "{cm:RCTISERunIconSetup}"; check: WPS{#MyAppArchRC}Main; BeforeInstall: SetMarqueeProgress(True);
 Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unassopdf"; StatusMsg: "{cm:RCTISERunIconSetup}"; check: WPS{#MyAppArchRC}Main; Components: wpspdf\disable; BeforeInstall: SetMarqueeProgress(True);
 
-; 重命名 wpspdf.exe 以组织其被启动
+; 重命名 wpspdf.exe 以阻止其被启动
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C move ""{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpspdf.exe"" ""{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpspdf.exe.BAK"""; check: WPS{#MyAppArchRC}Main; Components: wpspdf\disable;
 
 ; 安装 VBA 运行库（金山办公官方安装包）
@@ -489,7 +496,7 @@ Name: experimental; Description: "{cm:RCTISEExpFeature}"; Types: default; Flags:
 //Name: experimental\ksorcofd\fileassoc; Description: "{cm:AssocFileExtension,{#MyAppMainName},OFD}"; Flags: dontinheritcheck;
 //Name: experimental\ksorcuof; Description: "{cm:RCTISEToEnable, UOF} 格式支持（不推荐与公文功能一同开启）"; Flags: dontinheritcheck;
 //Name: experimental\ksorcuof\enableforofficialdocs; Description: "让 WPS 公文使用 UOF 格式保存（需在下方勾选启用公文功能）"; 
-Name: experimental\pdfadvanced; Description: "{cm:RCTISEEnablePremium,WPS PDF} ({cm:RCTASEditNotAvailable})"; 
+Name: experimental\pdfadvanced; Description: "{cm:RCTISEToEnablePremium,WPS PDF} ({cm:RCTASEditNotAvailable})"; 
 Name: experimental\officialdocs; Description: "启用「WPS 文字」的公文相关功能"; 
 //Name: experimental\officialdocs\writernouof; Description: "禁用「WPS 文字」的 UOF 格式支持以确保能够正常调用公文模板";
 

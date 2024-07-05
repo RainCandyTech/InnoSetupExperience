@@ -152,3 +152,16 @@ begin  // 检查安装体验报告的系统架构是否为 ARM64
     result:= true;
   end;
 end;
+
+function RCTIsSilent(): Boolean;
+var
+  j: Integer;
+begin
+  Result := False;
+  for j := 1 to ParamCount do
+    if (CompareText(ParamStr(j), '/silent') = 0) or (CompareText(ParamStr(j), '/verysilent') = 0) then
+    begin
+      Result := True;
+      Break;
+    end;
+end;
