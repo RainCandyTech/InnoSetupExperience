@@ -22,9 +22,9 @@
 //#define MyAppExtraInfo "Source of artwork: にゃるら (@nyalra)"   ;c5
 //#define MyAppExtraInfo "Artwork: pixiv @MIWV"   ;c6
 //#define MyAppExtraInfo "Artwork: @shiro96haru"   ;c7
-#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
+//#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
 //#define MyAppExtraInfo "Artwork: ちょうはつ (@L_hair_)"   ;b2
-//#define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
+#define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
 //#define MyAppExtraInfo "Artwork: zer0円ぜろえん💸 (@zer0801192)"   ;b5
 //#define MyAppExtraInfo "Artwork: pixiv @messyCode&"   ;b6
 //#define MyAppExtraInfo "Artwork: いくしー (@Ixy)"   ;b7
@@ -51,7 +51,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v5.6.1.10_240709"
+#define RCInnoExpVer "v5.6.1.10_240719"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 
@@ -100,7 +100,7 @@ Uninstallable=no
 SetupIconFile="..\Icons\WPSOffice_Business.ico"
 //SetupIconFile="..\Icons\WPSOffice_WPS365.ico"
 DisableWelcomePage=false
-WizardImageFile="..\Artworks\WizModernImage-b0.bmp"
+WizardImageFile="..\Artworks\WizModernImage-b4.bmp"
 //WizardImageFile="..\Artworks\wpsoffice.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
@@ -134,11 +134,11 @@ Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; License
 //Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
-// 20240621_RainCandyTech_ISEBeveledLabel
-BeveledLabel=Digital Magic for Love & Dream
-chinesesimp.BeveledLabel=爱与梦想的数字魔法
-//chinesetrad.BeveledLabel=愛與夢想的數位魔法
-//japanese.BeveledLabel=愛と夢のためのデジタル魔法
+// 20240717_RainCandyTech_11th_ISEBeveledLabel
+BeveledLabel=To feel something.
+//chinesesimp.BeveledLabel=感知内心 触碰万物
+//chinesetrad.BeveledLabel=感知內心 觸碰萬物
+//japanese.BeveledLabel=あなたの夢が実現するのを見たいから
 
 // 20240703_RainCandyTech_SloganAtISEBegin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
@@ -173,10 +173,10 @@ chinesesimp.ClickFinish=点击“完成”退出安装程序。%n%n{#MyAppExtraI
 //spanish.ClickFinish=Haga clic en Finalizar para salir del programa de instalación.%n%n{#MyAppExtraInfo}
 //ukrainian.ClickFinish=Натисніть «Готово» для виходу з програми встановлення.%n%n{#MyAppExtraInfo}
 
-// 20240526_RainCandyTech_FinishReboot
+// 20240712_RainCandyTech_FinishReboot
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
 FinishedRestartLabel=To complete the installation of [name], Setup must restart your computer. Would you like to restart now?%n%n{#MyAppExtraInfo}
-chinesesimp.FinishedRestartLabel=为完成 [name] 的安装，安装程序必须重新启动您的电脑。要立即重启吗？%n%n{#MyAppExtraInfo}
+chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。要立即重启吗？%n%n{#MyAppExtraInfo}
 //chinesetrad.FinishedRestartLabel=要完成 [name] 的安裝，安裝程式必須重新啟動您的電腦。您想要現在重新啟動電腦嗎？%n%n{#MyAppExtraInfo}
 //dutch.FinishedRestartLabel=Setup moet de computer opnieuw opstarten om de installatie van [name] te voltooien. Wilt u nu opnieuw opstarten?%n%n{#MyAppExtraInfo}
 //french.FinishedRestartLabel=L'assistant doit redémarrer votre ordinateur pour terminer l'installation de [name].%n%nVoulez-vous redémarrer maintenant ?%n%n{#MyAppExtraInfo}
@@ -191,12 +191,12 @@ chinesesimp.FinishedRestartLabel=为完成 [name] 的安装，安装程序必须
 //ukrainian.FinishedRestartLabel=Для завершення встановлення [name] необхідно перезавантажити ваш комп’ютер. Перезавантажити комп’ютер зараз?%n%n{#MyAppExtraInfo}
 
 [Code]
-var //全局变量
+var // 全局变量
   languageName: string;
   Version: TWindowsVersion;
 
 function InitializeSetup: Boolean;
-var  //安装程序加载
+var  // 安装程序加载
   BGMusicFile: string;
   BGMusicType: string;
   val: Integer;
@@ -255,7 +255,7 @@ begin
     //SuppressibleMsgBox(CustomMessage('RCTMsgWarnUserBGMWillPlay') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);  
   end;
 
-  //测试版弹窗
+  // 测试版弹窗
   if (RCTech_DebugVersion = true) then begin
     Log('[RainCandy Technology Inno Setup Experience] Info: This application is a debug version.');
     SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
@@ -287,7 +287,7 @@ begin
     //BASSMOD_Free;
     //BASSMOD_MusicFree;
   //end;
-  //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true))) then begin
+  //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true) then begin
     //Log('[RainCandy Technology Inno Setup Experience] Info: Plugin BASSMOD prepare complete, start music playing...');
     //BASSMOD_MusicPlay;
   //end;
@@ -310,7 +310,7 @@ end;
 procedure InitializeWizard();
 //var
   //BackgroundImage: TBitmapImage;
-begin  //安装向导加载
+begin  // 安装向导加载
   Log('[RainCandy Technology Inno Setup Experience] Info: Initializing Wizard...');
   //BackgroundImage := TBitmapImage.Create(MainForm);
   //BackgroundImage.Parent := MainForm;
@@ -321,7 +321,7 @@ begin  //安装向导加载
 end;
 
 procedure DeinitializeSetup();
-begin   //安装程序退出
+begin   // 安装程序退出
   Log('[RainCandy Technology Inno Setup Experience] Info: Deinitializing Setup...');
   //BASSMOD_Free;
   if (WPSIA32Main = false) and (WPSAMD64Main = false) and (WPSHKCUMain = false) and (RCTIsWin8Client = true) then
@@ -335,7 +335,7 @@ begin   //安装程序退出
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
-begin  //跳过不必要页面
+begin  // 跳过不必要页面
   result := false;
   //if (PageID = wpLicense) then result := true;
   //if (PageID = wpReady) then result := true;
@@ -460,7 +460,7 @@ Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}
 //Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoofd"; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},OFD}"; check: WPS{#MyAppArchRC}Main; Components: experimental\ksorcofd\fileassoc; BeforeInstall: SetMarqueeProgress(True);
 Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-showallinone"; StatusMsg: "正在等待选择窗口管理模式..."; Flags: skipifdoesntexist skipifsilent; check: not KSOClassicMode; Components: main; BeforeInstall: SetMarqueeProgress(False);
 //Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-rebuildicon"; StatusMsg: "{cm:RCTISERunIconSetup}"; check: WPS{#MyAppArchRC}Main; BeforeInstall: SetMarqueeProgress(True);
-Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unassopdf"; StatusMsg: "{cm:RCTISERunIconSetup}"; check: WPS{#MyAppArchRC}Main; Components: wpspdf\disable; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unassopdf"; StatusMsg: "{cm:RCTISERunIconSetup}"; check: WPS{#MyAppArchRC}Main; Components: wpspdf\disable; BeforeInstall: SetMarqueeProgress(True);
 
 ; 重命名 wpspdf.exe 以阻止其被启动
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C move ""{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpspdf.exe"" ""{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpspdf.exe.BAK"""; check: WPS{#MyAppArchRC}Main; Components: wpspdf\disable;
@@ -479,7 +479,7 @@ Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ks
 
 [Types]
 // 安装类型
-Name: "default"; Description: "{cm:RCTISEDefaultInstType}"; Flags: iscustom
+Name: "default"; Description: "{cm:RCTISEDefaultInstType}"; Flags: iscustom;
 
 [Components]
 // 安装程序参数

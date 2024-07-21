@@ -22,9 +22,9 @@
 //#define MyAppExtraInfo "Source of artwork: にゃるら (@nyalra)"   ;c5
 //#define MyAppExtraInfo "Artwork: pixiv @MIWV"   ;c6
 //#define MyAppExtraInfo "Artwork: @shiro96haru"   ;c7
-#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
+//#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
 //#define MyAppExtraInfo "Artwork: ちょうはつ (@L_hair_)"   ;b2
-//#define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
+#define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
 //#define MyAppExtraInfo "Artwork: zer0円ぜろえん💸 (@zer0801192)"   ;b5
 //#define MyAppExtraInfo "Artwork: pixiv @messyCode&"   ;b6
 //#define MyAppExtraInfo "Artwork: いくしー (@Ixy)"   ;b7
@@ -51,8 +51,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.1.2_240709"
-//#define RCAllowPartnerLink "false"
+#define RCInnoExpVer "v6.3.1.2_240719"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 
@@ -101,7 +100,7 @@ Uninstallable=no
 SetupIconFile="..\Icons\WPSOffice_Business.ico"
 //SetupIconFile="..\Icons\WPSOffice_WPS365.ico"
 DisableWelcomePage=false
-WizardImageFile="..\Artworks\WizModernImage-b0.bmp"
+WizardImageFile="..\Artworks\WizModernImage-b4.bmp"
 //WizardImageFile="..\Artworks\wpsoffice.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
@@ -135,11 +134,11 @@ Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; License
 //Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
-// 20240621_RainCandyTech_ISEBeveledLabel
-BeveledLabel=Digital Magic for Love & Dream
-chinesesimp.BeveledLabel=爱与梦想的数字魔法
-//chinesetrad.BeveledLabel=愛與夢想的數位魔法
-//japanese.BeveledLabel=愛と夢のためのデジタル魔法
+// 20240717_RainCandyTech_11th_ISEBeveledLabel
+BeveledLabel=To feel something.
+//chinesesimp.BeveledLabel=感知内心 触碰万物
+//chinesetrad.BeveledLabel=感知內心 觸碰萬物
+//japanese.BeveledLabel=あなたの夢が実現するのを見たいから
 
 // 20240703_RainCandyTech_SloganAtISEBegin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
@@ -174,10 +173,10 @@ chinesesimp.ClickFinish=点击“完成”退出安装程序。%n%n{#MyAppExtraI
 //spanish.ClickFinish=Haga clic en Finalizar para salir del programa de instalación.%n%n{#MyAppExtraInfo}
 //ukrainian.ClickFinish=Натисніть «Готово» для виходу з програми встановлення.%n%n{#MyAppExtraInfo}
 
-// 20240526_RainCandyTech_FinishReboot
+// 20240712_RainCandyTech_FinishReboot
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
 FinishedRestartLabel=To complete the installation of [name], Setup must restart your computer. Would you like to restart now?%n%n{#MyAppExtraInfo}
-chinesesimp.FinishedRestartLabel=为完成 [name] 的安装，安装程序必须重新启动您的电脑。要立即重启吗？%n%n{#MyAppExtraInfo}
+chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。要立即重启吗？%n%n{#MyAppExtraInfo}
 //chinesetrad.FinishedRestartLabel=要完成 [name] 的安裝，安裝程式必須重新啟動您的電腦。您想要現在重新啟動電腦嗎？%n%n{#MyAppExtraInfo}
 //dutch.FinishedRestartLabel=Setup moet de computer opnieuw opstarten om de installatie van [name] te voltooien. Wilt u nu opnieuw opstarten?%n%n{#MyAppExtraInfo}
 //french.FinishedRestartLabel=L'assistant doit redémarrer votre ordinateur pour terminer l'installation de [name].%n%nVoulez-vous redémarrer maintenant ?%n%n{#MyAppExtraInfo}
@@ -192,12 +191,12 @@ chinesesimp.FinishedRestartLabel=为完成 [name] 的安装，安装程序必须
 //ukrainian.FinishedRestartLabel=Для завершення встановлення [name] необхідно перезавантажити ваш комп’ютер. Перезавантажити комп’ютер зараз?%n%n{#MyAppExtraInfo}
 
 [Code]
-var //全局变量
+var // 全局变量
   languageName: string;
   Version: TWindowsVersion;
 
 function InitializeSetup: Boolean;
-var  //安装程序加载
+var  // 安装程序加载
   BGMusicFile: string;
   BGMusicType: string;
   val: Integer;
@@ -256,7 +255,7 @@ begin
     //SuppressibleMsgBox(CustomMessage('RCTMsgWarnUserBGMWillPlay') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);  
   end;
 
-  //测试版弹窗
+  // 测试版弹窗
   if (RCTech_DebugVersion = true) then begin
     Log('[RainCandy Technology Inno Setup Experience] Info: This application is a debug version.');
     SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
@@ -288,7 +287,7 @@ begin
     //BASSMOD_Free;
     //BASSMOD_MusicFree;
   //end;
-  //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true))) then begin
+  //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true) then begin
     //Log('[RainCandy Technology Inno Setup Experience] Info: Plugin BASSMOD prepare complete, start music playing...');
     //BASSMOD_MusicPlay;
   //end;
@@ -311,7 +310,7 @@ end;
 procedure InitializeWizard();
 //var
   //BackgroundImage: TBitmapImage;
-begin  //安装向导加载
+begin  // 安装向导加载
   Log('[RainCandy Technology Inno Setup Experience] Info: Initializing Wizard...');
   //BackgroundImage := TBitmapImage.Create(MainForm);
   //BackgroundImage.Parent := MainForm;
@@ -322,7 +321,7 @@ begin  //安装向导加载
 end;
 
 procedure DeinitializeSetup();
-begin   //安装程序退出
+begin   // 安装程序退出
   Log('[RainCandy Technology Inno Setup Experience] Info: Deinitializing Setup...');
   //BASSMOD_Free;
   if (WPSIA32Main = false) and (WPSAMD64Main = false) and (WPSHKCUMain = false) and (RCTIsWin8Client = true) then
@@ -336,7 +335,7 @@ begin   //安装程序退出
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
-begin  //跳过不必要页面
+begin  // 跳过不必要页面
   result := false;
   //if (PageID = wpLicense) then result := true;
   //if (PageID = wpReady) then result := true;
@@ -424,8 +423,8 @@ Source: "E:\Development\WPS Office\Conf_{#MyAppPublishType}\oem_setup{#RCAppConf
 //Source: "E:\Development\WPS Office\EditVersion365\*.*"; DestDir: {tmp}\OemFile\cfgs; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main\ksorcnet;
 
 ; Windows 8 安装劫持补丁
-Source: "E:\Development\WPS Office\W8ClientPatch\wpsw8patch_x86.dll"; DestName: "wpsw8patch.dll"; DestDir: {syswow64}; Flags: overwritereadonly; Check: RCTIsWin8Client; Components: main;
-//Source: "E:\Development\WPS Office\W8ClientPatch\wpsw8patch_x64.dll"; DestName: "wpsw8patch.dll"; DestDir: {sysnative}; Flags: overwritereadonly 64bit; Check: RCTIsWin8Client; Components: main;
+Source: "E:\Development\WPS Office\W8ClientPatch\wpsw8patch_x86.dll"; DestName: "wpsw8patch.dll"; DestDir: {syswow64}; Flags: overwritereadonly; Check: RCTIsWin8Client; Components: main; MinVersion: 6.2; OnlyBelowVersion: 10.0;
+//Source: "E:\Development\WPS Office\W8ClientPatch\wpsw8patch_x64.dll"; DestName: "wpsw8patch.dll"; DestDir: {sysnative}; Flags: overwritereadonly 64bit; Check: RCTIsWin8Client; Components: main; MinVersion: 6.2; OnlyBelowVersion: 10.0;
 
 ; 雨科软件研究项目配置
 Source: "E:\Development\WPS Office\zMNConfig\MNConfig_{#MyAppMajorVersion}{#RCAppConfType}.ini"; DestName: "MNConfig.ini"; DestDir: {tmp}\OemFile\cfgs\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
@@ -439,10 +438,10 @@ Source: "E:\Software\WPS Office\1Extracted\WPS{#MyAppTypeVersion}_{#MyAppVersion
 
 [Registry]
 ; 本段处理程序在注册表中的键值
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: string; ValueName: VerifierDlls; ValueData: "wpsw8patch.dll"; check: RCTIsWin8Client;
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierDebug; ValueData: 0; check: RCTIsWin8Client;
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierFlags; ValueData: 2147483648; check: RCTIsWin8Client;
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: GlobalFlag; ValueData: 256; check: RCTIsWin8Client;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: string; ValueName: VerifierDlls; ValueData: "wpsw8patch.dll"; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierDebug; ValueData: 0; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierFlags; ValueData: 2147483648; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: GlobalFlag; ValueData: 256; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
 
 [Run]
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\pdfadvanced.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\pdfadvanced;
@@ -475,12 +474,12 @@ Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ks
 //Filename: "{sys}\msiexec.exe"; StatusMsg: "{cm:RCTISERunExtraSetupPrepare, VBA 支持库}"; Parameters: "/i ""{tmp}\VBA\Vba71_2052.msi"" /passive"; check: WPS{#MyAppArchRC}Main; Components: extra\ksovba;
 
 ; 删除 Windows 8.x 客户端安装补丁
-Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}";Parameters: "/C del %windir%\System32\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;
-Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}";Parameters: "/C del %windir%\SysWOW64\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;
+Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\System32\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;
+Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\SysWOW64\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;
 
 [Types]
 // 安装类型
-Name: "default"; Description: "{cm:RCTISEDefaultInstType}"; Flags: iscustom
+Name: "default"; Description: "{cm:RCTISEDefaultInstType}"; Flags: iscustom;
 
 [Components]
 // 安装程序参数
