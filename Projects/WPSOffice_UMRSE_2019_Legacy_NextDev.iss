@@ -51,7 +51,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v5.6.1.10_240719"
+#define RCInnoExpVer "v5.6.1.10_240723"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 
@@ -487,18 +487,18 @@ Name: main; Description: "{cm:RCTISEMainApp}"; Types: default; Flags: fixed;
 Name: main\ksorcnet; Description: "{cm:RCTISEInstOnlineVer}"; Flags: exclusive;
 //Name: main\ksorcnet\cooperation; Description: "{cm:RCTISEToInst, WPS 协作}";
 Name: main\ksorcnonet; Description: "{cm:RCTISEInstOfflineVer} ({cm:RCTISEDisableOnlineSvc})"; Flags: exclusive;
-Name: main\pintotaskbar; Description: "{cm:CreateQuickLaunchIcon} (如果已勾选创建桌面快捷方式)"; Flags: dontinheritcheck;
-Name: main\iscreatenewfile; Description: "在多组件模式下，在启动程序时直接进入编辑状态"; Flags: dontinheritcheck;
+Name: main\pintotaskbar; Description: "如果选择创建桌面快捷方式，则将程序图标固定到任务栏"; Flags: dontinheritcheck;
+Name: main\iscreatenewfile; Description: "在多组件模式下，使程序在启动时直接进入编辑状态"; Flags: dontinheritcheck;
 Name: extra; Description: "{cm:RCTISEExtraFeature}"; Types: default; Flags: fixed;
 Name: extra\ksovba; Description: "{cm:RCTISEToInst, {cm:RCTISELibrarySupport,VBA}}"; Types: default; Flags: fixed;
 Name: experimental; Description: "{cm:RCTISEExpFeature}"; Types: default; Flags: fixed;
-//Name: experimental\ksorcofd; Description: "{cm:RCTISEToInst,{cm:RCTISEFileFormatSupport,OFD}}"; Flags: dontinheritcheck;
-//Name: experimental\ksorcofd\fileassoc; Description: "{cm:AssocFileExtension,{#MyAppMainName},OFD}"; Flags: dontinheritcheck;
+//Name: experimental\ksorcofd; Description: "{cm:RCTISEToInst,{cm:RCTISEFileFormatSupport, OFD}}"; Flags: dontinheritcheck;
+//Name: experimental\ksorcofd\fileassoc; Description: "{cm:RCTISEAssocFileExtension,OFD}"; Flags: dontinheritcheck;
 //Name: experimental\ksorcuof; Description: "{cm:RCTISEToEnable, UOF} 格式支持（不推荐与公文功能一同开启）"; Flags: dontinheritcheck;
 //Name: experimental\ksorcuof\enableforofficialdocs; Description: "让 WPS 公文使用 UOF 格式保存（需在下方勾选启用公文功能）"; 
-Name: experimental\pdfadvanced; Description: "{cm:RCTISEToEnablePremium,WPS PDF} ({cm:RCTASEditNotAvailable})"; 
-Name: experimental\officialdocs; Description: "启用「WPS 文字」的公文相关功能"; 
-//Name: experimental\officialdocs\writernouof; Description: "禁用「WPS 文字」的 UOF 格式支持以确保能够正常调用公文模板";
+Name: experimental\pdfadvanced; Description: "{cm:RCTISEToEnablePremium, WPS PDF } ({cm:RCTASEditNotAvailable})"; 
+Name: experimental\officialdocs; Description: "启用 WPS 文字的公文相关功能"; 
+//Name: experimental\officialdocs\writernouof; Description: "禁用 WPS 文字的 UOF 格式支持以确保能够正常调用公文模板";
 
 [Tasks]
 // 安装程序可选任务

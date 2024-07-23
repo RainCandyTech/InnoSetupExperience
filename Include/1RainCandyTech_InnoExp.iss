@@ -9,7 +9,7 @@
 AboutSetupNote=Built with RainCandy Technology Inno Setup%nExperience Version {#RCInnoExpVer}.
 
 [CustomMessages]
-// 20240612_RainCandyTech_InnoSetupExp_Strings
+// 20240723_RainCandyTech_InnoSetupExp_Strings
 // 对于中文，组件名称以英文打头的话，应在前面加空格
 RCTISEMainApp=Main Application
 RCTISEInstNormal=Normal Installation
@@ -39,8 +39,9 @@ RCTISEEnablePremium=Enable Premium Features
 RCTISEInstAsPremium=Install with Premium Features
 RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
+RCTISEAssocFileExtension=Associate %1 file extension
 
-// 20240627_RainCandyTech_InnoSetupExp_Messages
+// 20240723_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
@@ -65,7 +66,7 @@ RCTMsgFollowSteps= Please follow these steps:
 RCTMsgStepNumber=Step %1:
 RCTMsgRequireAMD64=This application requires an x86_64 / AMD64 architecture operating system.
 RCTMsgFreeProvideNotice=Important: This application is provided "as is" FOR FREE.%nIf you paid for this application and need assistance, please contact the seller directly. 
-RCTMsgWebGetUpdateNotice=You can get the latest version or its future updates of the application at RainCandy Technology Website (http://raincandy.tech/).
+RCTMsgWebGetUpdateNotice=You can get the latest version or its future updates of the application at RainCandy Technology website (http://raincandy.tech/).
 
 // 20240629_RainCandyTech_WinDrv_Strings
 WinDrvSignModeSelect=Signature Mode Select

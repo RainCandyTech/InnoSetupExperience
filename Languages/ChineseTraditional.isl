@@ -239,7 +239,7 @@ WizardInstalling=正在安裝
 InstallingLabel=請稍候，安裝程式正在將 [name] 安裝到您的電腦上
 
 ; *** "Setup Completed" wizard page
-FinishedHeadingLabel=[name] 安裝完成
+FinishedHeadingLabel=完成 [name] 安裝
 FinishedLabelNoIcons=安裝程式已經將 [name] 安裝在您的電腦上。
 FinishedLabel=安裝程式已經將 [name] 安裝在您的電腦中，您可以選擇程式的圖示來執行該應用程式。
 ClickFinish=按 「完成」 以結束安裝程式。

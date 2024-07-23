@@ -9,11 +9,11 @@
 japanese.AboutSetupNote=RainCandy Technology Inno Setup Experience%nVersion {#RCInnoExpVer} で構築されています。
 
 [CustomMessages]
-// 20240612_RainCandyTech_InnoSetupExp_Strings
+// 20240723_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 japanese.RCTISEMainApp=主プログラム
 japanese.RCTISEInstNormal=一般インストール
-japanese.RCTISEInstWithoutNet=ネットワーク機能を無効にしてインストール
+japanese.RCTISEInstWithoutNet=ネットワークを必要とする機能を無効にする
 japanese.RCTISEInstOnlineVer=オンライン版をインストール
 japanese.RCTISEInstOfflineVer=オフライン版をインストール
 japanese.RCTISEDefaultInstType=デフォルトのインストール
@@ -25,13 +25,13 @@ japanese.RCTISEFeatureIsDebug=デバッグ
 japanese.RCTISEToInst=%1 をインストール
 japanese.RCTISEToEnable=%1 を有効にする
 japanese.RCTISEToEnablePremium=%1 のプレミアム機能を有効にします
-japanese.RCTISEToLaunch=%1 を起動します
+//japanese.RCTISEToLaunch=%1 を起動します
+//japanese.RCTISEFileFormatSupport=%1 Format Support
+//japanese.RCTISELibrarySupport=%1 Support Libary
+japanese.RCTISEDisableOnlineSvc=ネットワークサービスを無効にする
 japanese.RCTISERunInstPrepare=インストールの準備中。しばらくお待ちください...
 japanese.RCTISERunAppSetupForUser=ポップアップウィンドウでインストールの次の手順に進んでください...
 japanese.RCTISERunFinishingInst=インストールを完了しています。 しばらくお待ちください...
-japanese.RCTISERunExtraSetupPrepare=%1 を準備中です。しばらくお待ちください...
-japanese.RCTISERunIconSetup=アイコンを設定しています。しばらくお待ちください...
-japanese.RCTISERunInstCert=証明書をインストールしています。しばらくお待ちください...
 japanese.RCTISERunExtraSetupPrepare=「%1」を準備しています。しばらくお待ちください...
 japanese.RCTISERunIconSetup=アイコンを設定しています。しばらくお待ちください...
 japanese.RCTISERunInstCert=証明書をインストールしています。しばらくお待ちください...
@@ -39,6 +39,7 @@ japanese.RCTISEEnablePremium=プレミアム機能を有効にする
 japanese.RCTISEInstAsPremium=プレミアム機能でインストール
 japanese.RCTISEDisableFeature=この機能を無効にする
 japanese.RCTISEOSArchARM64=ARM64 アーキテクチャ OS
+japanese.RCTISEAssocFileExtension=%1 ファイル拡張子を関連付ける
 
 // 20240627_RainCandyTech_InnoSetupExp_Messages
 japanese.RCTMsgSetupContinue=セットアップは続行されます。

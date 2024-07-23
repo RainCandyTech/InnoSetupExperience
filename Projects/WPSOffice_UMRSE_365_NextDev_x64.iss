@@ -51,7 +51,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.1.2_240719"
+#define RCInnoExpVer "v6.3.3.0_240723"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 
@@ -477,13 +477,13 @@ Name: main\iscreatenewfile; Description: "在多组件模式下，在启动程�
 Name: extra; Description: "{cm:RCTISEExtraFeature}"; Types: default; Flags: fixed;
 Name: extra\ksovba; Description: "{cm:RCTISEToInst, {cm:RCTISELibrarySupport,VBA}}"; Types: default;
 //Name: experimental; Description: "{cm:RCTISEExpFeature}"; Types: default; Flags: fixed;
-//Name: experimental\ksorcofd; Description: "{cm:RCTISEToInst,{cm:RCTISEFileFormatSupport,OFD}}"; Flags: dontinheritcheck;
-//Name: experimental\ksorcofd\fileassoc; Description: "{cm:AssocFileExtension,{#MyAppMainName},OFD}"; Flags: dontinheritcheck;
+//Name: experimental\ksorcofd; Description: "{cm:RCTISEToInst,{cm:RCTISEFileFormatSupport, OFD}}"; Flags: dontinheritcheck;
+//Name: experimental\ksorcofd\fileassoc; Description: "{cm:RCTISEAssocFileExtension,OFD}"; Flags: dontinheritcheck;
 //Name: experimental\ksorcuof; Description: "{cm:RCTISEToEnable, UOF} 格式支持"; Types: default; Flags: fixed;
 //Name: experimental\ksorcuof\enableforofficialdocs; Description: "让 WPS 公文使用 UOF 格式保存（需在下方勾选启用公文功能）"; 
-//Name: experimental\pdfadvanced; Description: "{cm:RCTISEToEnablePremium,WPS PDF} ({cm:RCTASEditNotAvailable})"; 
-//Name: experimental\officialdocs; Description: "启用「WPS 文字」的公文相关功能"; 
-//Name: experimental\officialdocs\writernouof; Description: "禁用「WPS 文字」的 UOF 格式支持以确保能够正常调用公文模板";
+//Name: experimental\pdfadvanced; Description: "{cm:RCTISEToEnablePremium, WPS PDF } ({cm:RCTASEditNotAvailable})"; 
+//Name: experimental\officialdocs; Description: "启用 WPS 文字的公文相关功能"; 
+//Name: experimental\officialdocs\writernouof; Description: "禁用 WPS 文字的 UOF 格式支持以确保能够正常调用公文模板";
 
 [Tasks]
 // 安装程序可选任务

@@ -9,10 +9,10 @@
 chinesetrad.AboutSetupNote=使用雨糖科技 Inno Setup 安裝體驗 {#RCInnoExpVer}%n版本進行構建。
 
 // 20231114_RainCandyTech_ChineseSetupName
-chinesetrad.FinishedHeadingLabel=完成 [name] 安裝
+//chinesetrad.FinishedHeadingLabel=完成 [name] 安裝
 
 [CustomMessages]
-// 20240612_RainCandyTech_InnoSetupExp_Strings
+// 20240723_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 chinesetrad.RCTISEMainApp=主程式
 chinesetrad.RCTISEInstNormal=一般安裝
@@ -27,9 +27,9 @@ chinesetrad.RCTISEFeatureIsExp=實驗功能
 chinesetrad.RCTISEFeatureIsDebug=除錯
 chinesetrad.RCTISEToInst=安裝%1
 chinesetrad.RCTISEToEnable=啟用%1
-chinesetrad.RCTISEToEnablePremium=啟用「%1」高階功能
-chinesetrad.RCTISEToLaunch=啟動「%1」
-chinesetrad.RCTISEFileFormatSupport=「%1」格式支援
+chinesetrad.RCTISEToEnablePremium=啟用%1高階功能
+//chinesetrad.RCTISEToLaunch=啟動「%1」
+chinesetrad.RCTISEFileFormatSupport=%1 格式支援
 chinesetrad.RCTISELibrarySupport=%1 支持庫
 chinesetrad.RCTISEDisableOnlineSvc=禁用聯網服務
 chinesetrad.RCTISERunInstPrepare=正在準備安裝程式，請稍候...
@@ -42,6 +42,7 @@ chinesetrad.RCTISEEnablePremium=啟用高階功能
 chinesetrad.RCTISEInstAsPremium=安裝並啟用高階功能
 chinesetrad.RCTISEDisableFeature=禁用此功能
 chinesetrad.RCTISEOSArchARM64=ARM64 架構的作業系統
+chinesesimp.RCTISEAssocFileExtension=建立 %1 格式檔案關聯
 
 // 20240627_RainCandyTech_InnoSetupExp_Messages
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。

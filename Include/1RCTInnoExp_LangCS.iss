@@ -22,7 +22,7 @@ chinesesimp.SelectTasksLabel2=选择您想要安装程序在安装{#MyAppNameCS}时执行的附加
 chinesesimp.FinishedRestartMessage=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。%n%n要立即重启吗？
 
 [CustomMessages]
-// 20240612_RainCandyTech_InnoSetupExp_Strings
+// 20240723_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 chinesesimp.RCTISEMainApp=主程序
 chinesesimp.RCTISEInstNormal=一般安装
@@ -37,9 +37,9 @@ chinesesimp.RCTISEFeatureIsExp=实验功能
 chinesesimp.RCTISEFeatureIsDebug=调试
 chinesesimp.RCTISEToInst=安装%1
 chinesesimp.RCTISEToEnable=启用%1
-chinesesimp.RCTISEToEnablePremium=启用「%1」高级功能
-chinesesimp.RCTISEToLaunch=启动「%1」
-chinesesimp.RCTISEFileFormatSupport=「%1」格式支持
+chinesesimp.RCTISEToEnablePremium=启用%1高级功能
+//chinesesimp.RCTISEToLaunch=启动「%1」
+chinesesimp.RCTISEFileFormatSupport=%1 格式支持
 chinesesimp.RCTISELibrarySupport=%1 支持库
 chinesesimp.RCTISEDisableOnlineSvc=禁用联网服务
 chinesesimp.RCTISERunInstPrepare=正在准备安装程序，请稍候...
@@ -52,6 +52,7 @@ chinesesimp.RCTISEEnablePremium=启用高级功能
 chinesesimp.RCTISEInstAsPremium=安装并启用高级功能
 chinesesimp.RCTISEDisableFeature=禁用此功能
 chinesesimp.RCTISEOSArchARM64=ARM64 架构的操作系统
+chinesesimp.RCTISEAssocFileExtension=建立 %1 格式文件关联
 
 // 20240627_RainCandyTech_InnoSetupExp_Messages
 chinesesimp.RCTMsgSetupContinue=安装程序现在将继续。
