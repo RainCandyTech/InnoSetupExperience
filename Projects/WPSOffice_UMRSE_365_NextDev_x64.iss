@@ -190,6 +190,30 @@ chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序
 //spanish.FinishedRestartLabel=Para completar la instalación de [name], su sistema debe reiniciarse. ¿Desea reiniciarlo ahora?%n%n{#MyAppExtraInfo}
 //ukrainian.FinishedRestartLabel=Для завершення встановлення [name] необхідно перезавантажити ваш комп’ютер. Перезавантажити комп’ютер зараз?%n%n{#MyAppExtraInfo}
 
+// 20240803_RainCandyTech_BTR-IjichiNijika_ISESelectTasksDesc
+//SelectTasksDesc=My dream might come true soon...
+//chinesesimp.SelectTasksDesc=我的梦想，搞不好能实现......
+//chinesetrad.SelectTasksDesc=我的夢想，搞不好能實現......
+//japanese.SelectTasksDesc=私の夢、叶っちゃうかもな......
+
+// 20240803_RainCandyTech_BTR-YamadaRyo_ISEBeveledLabel
+//BeveledLabel=Once you give up your individuality, it's the same as death
+//chinesesimp.BeveledLabel=一旦舍弃了个性，就跟死了没区别
+//chinesetrad.BeveledLabel=一旦捨棄了個性，就跟死了沒區別
+//japanese.BeveledLabel=個性捨てたら死んでるのと一緒だよ
+
+// 20240803_RainCandyTech_BTR-KitaIkuyo_ISEBeveledLabel
+//BeveledLabel=I mean, don't you feel like a band is a second family?
+//chinesesimp.BeveledLabel=你想啊，乐队就像是第二个家庭吧？
+//chinesetrad.BeveledLabel=你想啊，樂隊就像是第二個家庭吧？
+//japanese.BeveledLabel=だってバンドって、第２の家族って感じしない？
+
+// 20240810_RainCandyTech_BTR-GotohHitori_ISEBeveledLabel
+//BeveledLabel=It's the kind of miracle most people never experience!
+//chinesesimp.BeveledLabel=这样的奇迹，恐怕这辈子再也不会发生了
+//chinesetrad.BeveledLabel=這樣的奇蹟，恐怕這輩子再也不會發生了
+//japanese.BeveledLabel=こんな奇跡、多分一生起こらない
+
 [Code]
 var // 全局变量
   languageName: string;
