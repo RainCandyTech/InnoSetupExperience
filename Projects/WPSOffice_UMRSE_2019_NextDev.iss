@@ -51,7 +51,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.0_240723"
+#define RCInnoExpVer "v6.3.3.0_240816"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 
@@ -381,10 +381,10 @@ end;
 Source: "E:\Development\WPS Office\Splash\*.*"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; 视觉效果文件
-//Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression
+//Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; BGM 文件
-//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
+//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 Source: "..\Plugins\1BGM\music_wps.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; OEM 内容

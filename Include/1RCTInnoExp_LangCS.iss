@@ -108,7 +108,7 @@ chinesesimp.WDrvFMBootModeLegacy=您正在使用传统 BIOS 启动模式。
 chinesesimp.WDrvFMBootModeUEFI=您正在使用 UEFI 启动模式。
 chinesesimp.WDrvFMBootModeUnknown=我们无法确定您正在使用的启动模式。
 chinesesimp.RCTDisplayDrvUninstInstruction=如果您遇到了问题，请先尝试卸载这些现有的设备驱动，然后再次运行安装程序。您可能需要一些工具，例如 Display Driver Uninstaller (DDU)。
-chinesesimp.WDrvDenyUnspecDeviceInstWarning=操作系统设置了组策略规则，禁止特定情况下的设备安装。此问题可能会导致驱动程序安装失败。%n%n如要解决此问题，请在组策略管理器中禁用设备的安装限制，重新启动计算机，然后重新运行安装程序。
+chinesesimp.WDrvDenyUnspecDeviceInstWarning=操作系统设置了组策略规则，禁止特定情况下的设备安装。此问题可能会导致驱动程序安装失败。%n%n如要解决此问题，请在组策略编辑器中禁用设备的安装限制，重新启动计算机，然后重新运行安装程序。
 
 // 20240526_RainCandyTech_AppSolution_Strings
 chinesesimp.RCTASEditNotAvailable=编辑功能不可用

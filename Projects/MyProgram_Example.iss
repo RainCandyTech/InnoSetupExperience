@@ -44,7 +44,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.0_240723"
+#define RCInnoExpVer "v6.3.3.0_240816"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 

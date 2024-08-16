@@ -381,10 +381,10 @@ end;
 Source: "E:\Development\WPS Office\Splash\*.*"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; 视觉效果文件
-//Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression
+//Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; BGM 文件
-//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
+//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 Source: "..\Plugins\1BGM\music_wps.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; OEM 内容

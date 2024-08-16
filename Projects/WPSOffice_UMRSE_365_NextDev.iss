@@ -51,7 +51,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.0_240723"
+#define RCInnoExpVer "v6.3.3.0_240816"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 
@@ -381,10 +381,10 @@ end;
 Source: "E:\Development\WPS Office\Splash\*.*"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; 视觉效果文件
-//Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression
+//Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; BGM 文件
-//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
+//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 Source: "..\Plugins\1BGM\music_wps.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; OEM 内容
@@ -511,8 +511,8 @@ Name: main; Description: "{cm:RCTISEMainApp}"; Types: default; Flags: fixed;
 Name: main\ksorcnet; Description: "{cm:RCTISEInstOnlineVer}"; Flags: exclusive;
 Name: main\ksorcnet\cooperation; Description: "{cm:RCTISEToInst, WPS 协作}";
 Name: main\ksorcnonet; Description: "{cm:RCTISEInstOfflineVer} ({cm:RCTISEDisableOnlineSvc})"; Flags: exclusive;
-Name: main\pintotaskbar; Description: "{cm:CreateQuickLaunchIcon} (如果已勾选创建桌面快捷方式)"; Flags: dontinheritcheck;
-Name: main\iscreatenewfile; Description: "在多组件模式下，在启动程序时直接进入编辑状态"; Flags: dontinheritcheck;
+Name: main\pintotaskbar; Description: "如果选择创建桌面快捷方式，则将程序图标固定到任务栏"; Flags: dontinheritcheck;
+Name: main\iscreatenewfile; Description: "在多组件模式下，使程序在启动时直接进入编辑状态"; Flags: dontinheritcheck;
 Name: extra; Description: "{cm:RCTISEExtraFeature}"; Types: default; Flags: fixed;
 Name: extra\ksovba; Description: "{cm:RCTISEToInst, {cm:RCTISELibrarySupport,VBA}}"; Types: default;
 //Name: experimental; Description: "{cm:RCTISEExpFeature}"; Types: default; Flags: fixed;
