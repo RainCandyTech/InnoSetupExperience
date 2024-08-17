@@ -44,7 +44,7 @@ chinesetrad.RCTISEEnablePremium=啟用高階功能
 chinesetrad.RCTISEInstAsPremium=安裝並啟用高階功能
 chinesetrad.RCTISEDisableFeature=禁用此功能
 chinesetrad.RCTISEOSArchARM64=ARM64 架構的作業系統
-chinesesimp.RCTISEAssocFileExtension=建立 %1 格式檔案關聯
+chinesetrad.RCTISEAssocFileExtension=建立 %1 格式檔案關聯
 
 // 20240817_RainCandyTech_InnoSetupExp_Messages
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。

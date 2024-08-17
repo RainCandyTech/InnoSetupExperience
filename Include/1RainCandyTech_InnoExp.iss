@@ -41,6 +41,7 @@ RCTISEEnablePremium=Enable Premium Features
 RCTISEInstAsPremium=Install with Premium Features
 RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
+RCTISEAssocFileExtension=Associate %1 file extension
 
 // 20240817_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.

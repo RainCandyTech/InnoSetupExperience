@@ -41,6 +41,7 @@ japanese.RCTISEEnablePremium=プレミアム機能を有効にする
 japanese.RCTISEInstAsPremium=プレミアム機能でインストール
 japanese.RCTISEDisableFeature=この機能を無効にする
 japanese.RCTISEOSArchARM64=ARM64 アーキテクチャ OS
+japanese.RCTISEAssocFileExtension=%1 ファイル拡張子を関連付ける
 
 // 20240817_RainCandyTech_InnoSetupExp_Messages
 japanese.RCTMsgSetupContinue=セットアップは続行されます。
