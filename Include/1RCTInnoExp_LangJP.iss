@@ -9,14 +9,16 @@
 japanese.AboutSetupNote=RainCandy Technology Inno Setup Experience%nVersion {#RCInnoExpVer} で構築されています。
 
 [CustomMessages]
-// 20240723_RainCandyTech_InnoSetupExp_Strings
+// 20240817_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 japanese.RCTISEMainApp=主プログラム
 japanese.RCTISEInstNormal=一般インストール
-japanese.RCTISEInstWithoutNet=ネットワークを必要とする機能を無効にする
+japanese.RCTISEInstWithoutNet=ネットワーク機能を無効にしてインストール
 japanese.RCTISEInstOnlineVer=オンライン版をインストール
 japanese.RCTISEInstOfflineVer=オフライン版をインストール
 japanese.RCTISEDefaultInstType=デフォルトのインストール
+japanese.RCTISEFullInstType=フルインストール
+japanese.RCTISECustomInstType=カスタムインストール
 japanese.RCTISEExtraComponents=追加コンポーネント
 japanese.RCTISEExtraFeature=追加機能
 japanese.RCTISEExpFeature=実験機能
@@ -25,13 +27,13 @@ japanese.RCTISEFeatureIsDebug=デバッグ
 japanese.RCTISEToInst=%1 をインストール
 japanese.RCTISEToEnable=%1 を有効にする
 japanese.RCTISEToEnablePremium=%1 のプレミアム機能を有効にします
-//japanese.RCTISEToLaunch=%1 を起動します
-//japanese.RCTISEFileFormatSupport=%1 Format Support
-//japanese.RCTISELibrarySupport=%1 Support Libary
-japanese.RCTISEDisableOnlineSvc=ネットワークサービスを無効にする
+japanese.RCTISEToLaunch=%1 を起動します
 japanese.RCTISERunInstPrepare=インストールの準備中。しばらくお待ちください...
 japanese.RCTISERunAppSetupForUser=ポップアップウィンドウでインストールの次の手順に進んでください...
 japanese.RCTISERunFinishingInst=インストールを完了しています。 しばらくお待ちください...
+japanese.RCTISERunExtraSetupPrepare=%1 を準備中です。しばらくお待ちください...
+japanese.RCTISERunIconSetup=アイコンを設定しています。しばらくお待ちください...
+japanese.RCTISERunInstCert=証明書をインストールしています。しばらくお待ちください...
 japanese.RCTISERunExtraSetupPrepare=「%1」を準備しています。しばらくお待ちください...
 japanese.RCTISERunIconSetup=アイコンを設定しています。しばらくお待ちください...
 japanese.RCTISERunInstCert=証明書をインストールしています。しばらくお待ちください...
@@ -39,9 +41,8 @@ japanese.RCTISEEnablePremium=プレミアム機能を有効にする
 japanese.RCTISEInstAsPremium=プレミアム機能でインストール
 japanese.RCTISEDisableFeature=この機能を無効にする
 japanese.RCTISEOSArchARM64=ARM64 アーキテクチャ OS
-japanese.RCTISEAssocFileExtension=%1 ファイル拡張子を関連付ける
 
-// 20240627_RainCandyTech_InnoSetupExp_Messages
+// 20240817_RainCandyTech_InnoSetupExp_Messages
 japanese.RCTMsgSetupContinue=セットアップは続行されます。
 japanese.RCTMsgSetupExit=セットアップが終了します。
 japanese.RCTMsgAskContinue=続けますか？
@@ -67,6 +68,8 @@ japanese.RCTMsgStepNumber=ステップ %1：
 japanese.RCTMsgRequireAMD64=このプログラムには、x86_64 / AMD64 アーキテクチャの OS が必要です。
 japanese.RCTMsgFreeProvideNotice=重要：このアプリは「現状有姿」で無料で提供されます。%nアプリの料金を支払っていてサポートが必要な場合は、販売者に直接お問い合わせください。
 japanese.RCTMsgWebGetUpdateNotice=アプリケーションの最新バージョンまたは将来のアップデートは、RainCandy Technology Web サイト (http://raincandy.tech/) で入手できます。
+japanese.RCTMsgNewInstDelConfNotice=クリーンインストールを実行しますか?これにより、既存のユーザー設定が削除されます。
+japanese.RCTMsgDelUserConfFailed=ユーザー設定を削除できませんでした。
 
 // 20240629_RainCandyTech_WinDrv_Strings
 japanese.WinDrvSignModeSelect=署名モード選択

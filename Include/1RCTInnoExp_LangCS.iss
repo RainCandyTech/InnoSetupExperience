@@ -14,15 +14,16 @@ chinesesimp.FinishedHeadingLabel=已完成{#MyAppNameCS}安装
 chinesesimp.FinishedLabelNoIcons=安装程序已在您的电脑中安装了{#MyAppNameCS}。
 chinesesimp.FinishedLabel=安装程序已在您的电脑中安装了{#MyAppNameCS}。您可以通过已安装的快捷方式运行此应用程序。
 chinesesimp.InstallingLabel=安装程序正在将{#MyAppNameCS}安装到您的电脑，请稍候。
-chinesesimp.ReadyLabel1=安装程序准备就绪，现在可以开始将 {#MyAppNameCS}安装到您的电脑。
+chinesesimp.ReadyLabel1=安装程序准备就绪，现在可以开始将{#MyAppNameCS}安装到您的电脑。
 chinesesimp.SelectDirDesc=您想将{#MyAppNameCS}安装在哪里？
 chinesesimp.SelectDirLabel3=安装程序将安装{#MyAppNameCS}到下面的文件夹中。
 chinesesimp.SelectTasksLabel2=选择您想要安装程序在安装{#MyAppNameCS}时执行的附加任务，然后点击“下一步”。
 //chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。要立即重启吗？
 chinesesimp.FinishedRestartMessage=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。%n%n要立即重启吗？
+chinesesimp.PreparingDesc=安装程序正在准备安装{#MyAppNameCS}到您的电脑。
 
 [CustomMessages]
-// 20240723_RainCandyTech_InnoSetupExp_Strings
+// 20240817_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 chinesesimp.RCTISEMainApp=主程序
 chinesesimp.RCTISEInstNormal=一般安装
@@ -30,6 +31,8 @@ chinesesimp.RCTISEInstWithoutNet=禁用联网功能
 chinesesimp.RCTISEInstOnlineVer=安装联网版本
 chinesesimp.RCTISEInstOfflineVer=安装离线版本
 chinesesimp.RCTISEDefaultInstType=默认安装
+chinesesimp.RCTISEFullInstType=完整安装
+chinesesimp.RCTISECustomInstType=自定义安装
 chinesesimp.RCTISEExtraComponents=额外组件
 chinesesimp.RCTISEExtraFeature=额外功能
 chinesesimp.RCTISEExpFeature=实验功能
@@ -54,7 +57,7 @@ chinesesimp.RCTISEDisableFeature=禁用此功能
 chinesesimp.RCTISEOSArchARM64=ARM64 架构的操作系统
 chinesesimp.RCTISEAssocFileExtension=建立 %1 格式文件关联
 
-// 20240627_RainCandyTech_InnoSetupExp_Messages
+// 20240817_RainCandyTech_InnoSetupExp_Messages
 chinesesimp.RCTMsgSetupContinue=安装程序现在将继续。
 chinesesimp.RCTMsgSetupExit=安装程序现在将退出。
 chinesesimp.RCTMsgAskContinue=您想继续吗？
@@ -80,6 +83,8 @@ chinesesimp.RCTMsgStepNumber=第 %1 步：
 chinesesimp.RCTMsgRequireAMD64=本程序要求 x86_64 / AMD64 架构的操作系统。
 chinesesimp.RCTMsgFreeProvideNotice=重要提示：本应用程序「按原样」免费提供。%n如果您付费获得了本应用程序，且需要任何协助的话，请直接与卖家进行联系。
 chinesesimp.RCTMsgWebGetUpdateNotice=您可以在雨糖科技网站（http://raincandy.tech/）获取本应用程序的最新版本或后续更新。
+chinesesimp.RCTMsgNewInstDelConfNotice=是否进行全新安装？这将删除现有的用户配置。
+chinesesimp.RCTMsgDelUserConfFailed=删除用户配置失败。
 
 // 20240629_RainCandyTech_WinDrv_Strings
 chinesesimp.WinDrvSignModeSelect=签名模式选择

@@ -9,7 +9,7 @@
 AboutSetupNote=Built with RainCandy Technology Inno Setup%nExperience Version {#RCInnoExpVer}.
 
 [CustomMessages]
-// 20240723_RainCandyTech_InnoSetupExp_Strings
+// 20240817_RainCandyTech_InnoSetupExp_Strings
 // 对于中文，组件名称以英文打头的话，应在前面加空格
 RCTISEMainApp=Main Application
 RCTISEInstNormal=Normal Installation
@@ -17,6 +17,8 @@ RCTISEInstWithoutNet=Disable Network Features
 RCTISEInstOnlineVer=Install Online Version
 RCTISEInstOfflineVer=Install Offline Version
 RCTISEDefaultInstType=Default Installation
+RCTISEFullInstType=Full Installation
+RCTISECustomInstType=Custom Installation
 RCTISEExtraComponents=Extra Components
 RCTISEExtraFeature=Extra Features
 RCTISEExpFeature=Experimental Features
@@ -39,9 +41,8 @@ RCTISEEnablePremium=Enable Premium Features
 RCTISEInstAsPremium=Install with Premium Features
 RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
-RCTISEAssocFileExtension=Associate %1 file extension
 
-// 20240723_RainCandyTech_InnoSetupExp_Messages
+// 20240817_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
@@ -66,7 +67,9 @@ RCTMsgFollowSteps= Please follow these steps:
 RCTMsgStepNumber=Step %1:
 RCTMsgRequireAMD64=This application requires an x86_64 / AMD64 architecture operating system.
 RCTMsgFreeProvideNotice=Important: This application is provided "as is" FOR FREE.%nIf you paid for this application and need assistance, please contact the seller directly. 
-RCTMsgWebGetUpdateNotice=You can get the latest version or its future updates of the application at RainCandy Technology website (http://raincandy.tech/).
+RCTMsgWebGetUpdateNotice=You can get the latest version or its future updates of the application at RainCandy Technology Website (http://raincandy.tech/).
+RCTMsgNewInstDelConfNotice=Do you want to perform a clean installation? This will delete the existing user configurations.
+RCTMsgDelUserConfFailed=Failed to delete user configurations.
 
 // 20240629_RainCandyTech_WinDrv_Strings
 WinDrvSignModeSelect=Signature Mode Select
