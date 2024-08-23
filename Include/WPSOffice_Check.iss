@@ -45,9 +45,22 @@ var  // 检查 WPS Office 是否为经典模式
   RCTech_KSOAppMode: string;
 begin
   result:= false;
-  RegQueryStringValue(HKLM32, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
+  RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   if (RCTech_KSOAppMode = 'classical') then begin
     Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in classic mode.');
     result:= true;
   end;
 end;
+
+function KSOPrometheusMode(): Boolean;
+var  // 检查 WPS Office 是否为整合模式
+  RCTech_KSOAppMode: string;
+begin
+  result:= false;
+  RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
+  if (RCTech_KSOAppMode = 'prome_fushion') then begin
+    Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in prometheus mode.');
+    result:= true;
+  end;
+end;
+

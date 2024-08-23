@@ -27,7 +27,7 @@ RCTISEFeatureIsDebug=Debug
 RCTISEToInst=Install %1
 RCTISEToEnable=Enable %1
 RCTISEToEnablePremium=Enable Premium Features for %1
-RCTISEToLaunch=Launch %1
+RCTISEToLaunch=Launch "%1"
 RCTISEFileFormatSupport=%1 Format Support
 RCTISELibrarySupport=%1 Support Libary
 RCTISEDisableOnlineSvc=Disable Online Services
@@ -99,7 +99,7 @@ WDrvFMBootModeHowToASUSExtra=For some particular motherboard model, like some H8
 WDrvFMBootModeLegacy=You are now using legacy BIOS boot mode. 
 WDrvFMBootModeUEFI=You are now using UEFI boot mode.
 WDrvFMBootModeUnknown=We can't determine which boot mode you're using.
-RCTDisplayDrvUninstInstruction=In case of you are having trouble, try to uninstalling these existing drivers, then run the setup again. You may need some tools like Display Driver Uninstaller (DDU).
+RCTDisplayDrvUninstInstruction=In case of you are having trouble, try to uninstalling these existing drivers, then run the setup again. You may need some tools like "Display Driver Uninstaller" (DDU).
 WDrvDenyUnspecDeviceInstWarning=The operating system has been configured to block device installation under the rules of group policy. This problem may cause failure of the driver installation.%n%nTo solve this problem, please disable device install limitations in group policy editor, reboot the computer, and then try to run setup again.
 
 // 20240526_RainCandyTech_AppSolution_Strings
