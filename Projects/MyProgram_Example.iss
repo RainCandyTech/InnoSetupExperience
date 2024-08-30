@@ -55,7 +55,7 @@
 #include "..\Include\1RainCandyTech_InnoExp.iss"
 #include "..\Include\1RCTInnoExp_LangCS.iss"
 #include "..\Include\1RCTInnoExp_LangCT.iss"
-#include "..\Include\1RCTInnoExp_LangJP.iss"
+//#include "..\Include\1RCTInnoExp_LangJP.iss"
 //#include "..\Include\BASSMOD.iss"
 #include "..\Include\ufMOD.iss"
 //#include "..\Include\Splash.iss"
@@ -98,7 +98,7 @@ WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //SetupLogging=yes
 MinVersion=6.1
 //WizardStyle=modern
-//WindowVisible=yes
+WindowVisible=yes
 VersionInfoDescription={#MyAppName}
 VersionInfoOriginalFileName={#MyAppOutputName}.exe
 RestartIfNeededByRun=no

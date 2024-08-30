@@ -23,13 +23,13 @@
 //#define MyAppExtraInfo "Artwork: pixiv @MIWV"   ;c6
 //#define MyAppExtraInfo "Artwork: @shiro96haru"   ;c7
 //#define MyAppExtraInfo "Artwork: らぐほのえりか (@ragho_net)"   ;c8
+//#define MyAppExtraInfo "Artwork: 上倉エク (@ekureea)"   ;c9
 //#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
 //#define MyAppExtraInfo "Artwork: ちょうはつ (@L_hair_)"   ;b2
 #define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
 //#define MyAppExtraInfo "Artwork: いくしー (@Ixy)"   ;b7
 //#define MyAppExtraInfo "Artwork: pixiv @messyCode&"   ;b240401
 //#define MyAppExtraInfo "Artwork: KRSK (@SK_tsu96)"   ;b240515
-//#define MyAppExtraInfo "Artwork: zer0円ぜろえん💸 (@zer0801192)"   ;b240520
 //#define MyAppExtraInfo "Artwork: pixiv @画师JW"   ;c240216
 #define MyAppExeName "WPSOffice.exe"
 #define MyAppOutputName "WPSOffice_RainCandySE"
