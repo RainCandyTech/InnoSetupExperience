@@ -21,30 +21,33 @@
 //#define MyAppExtraInfo "Source of artwork: にゃるら (@nyalra)"   ;c5
 //#define MyAppExtraInfo "Artwork: pixiv @MIWV"   ;c6
 //#define MyAppExtraInfo "Artwork: @shiro96haru"   ;c7
+//#define MyAppExtraInfo "Artwork: らぐほのえりか (@ragho_net)"   ;c8
+//#define MyAppExtraInfo "Artwork: 上倉エク (@ekureea)"   ;c9
 //#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
 //#define MyAppExtraInfo "Artwork: ちょうはつ (@L_hair_)"   ;b2
 //#define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
-//#define MyAppExtraInfo "Artwork: zer0円ぜろえん💸 (@zer0801192)"   ;b5
-//#define MyAppExtraInfo "Artwork: pixiv @messyCode&"   ;b6
 //#define MyAppExtraInfo "Artwork: いくしー (@Ixy)"   ;b7
-//#define MyAppExtraInfo "Artwork: KRSK (@SK_tsu96)"   ;b9
+//#define MyAppExtraInfo "Artwork: pixiv @messyCode&"   ;b240401
+//#define MyAppExtraInfo "Artwork: KRSK (@SK_tsu96)"   ;b240515
 //#define MyAppExtraInfo "Artwork: pixiv @画师JW"   ;c240216
 #define MyAppExeName "Game.exe"
 #define MyAppOutputName "MyProgram_Example"
+//#define MyAppTypeVersion ""
 #define MyAppRevisionVer "rNext"
 #define MyAppRevisionDate "180529"
 #define MyAppSetupBGMType "xm"
-#define MyAppSetupStyle "Office2007.cjstyles"
+//#define MyAppSetupStyle "Office2007.cjstyles"
 #define MyAppArchitecture "x86"
 #define MyAppArchRC "IA32"
 #define MyAppArchRCShort "32"
 #define MyAppIsDebugVersion "true"
+//#define MyAppPublishType ""
 #define MyAppIsNeedStoreApp "false"
 #define RCExtraStoreApp ""
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.1_240820"
+#define RCInnoExpVer "v6.3.3.1_240829"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
@@ -101,7 +104,7 @@ VersionInfoOriginalFileName={#MyAppOutputName}.exe
 RestartIfNeededByRun=no
 DefaultGroupName={#MyAppName}
 PrivilegesRequired=admin
-UninstallDisplayIcon={app}\MyProg.exe
+UninstallDisplayIcon={app}\Game.exe
 //signtool=CSignTool
 
 [Languages]
@@ -112,7 +115,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl";
 //Name: "french"; MessagesFile: "compiler:Languages\French.isl";
 //Name: "german"; MessagesFile: "compiler:Languages\German.isl";
 //Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl";
-Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
+//Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
 //Name: "korean"; MessagesFile: "..\Languages\Korean.isl";  ;这份语言文件用于 Inno Setup 5 版本安装包
 //Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
 //Name: "polish"; MessagesFile: "compiler:Languages\Polish.isl";
@@ -122,10 +125,10 @@ Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
 //Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
-// 20240717_RainCandyTech_11th_ISEBeveledLabel
+// 20240830_RainCandyTech_11th_ISEBeveledLabel
 BeveledLabel=To feel something.
-//chinesesimp.BeveledLabel=感知内心 触碰万物
-//chinesetrad.BeveledLabel=感知內心 觸碰萬物
+chinesesimp.BeveledLabel=感触万物
+//chinesetrad.BeveledLabel=感觸萬物
 //japanese.BeveledLabel=あなたの夢が実現するのを見たいから
 
 // 20240703_RainCandyTech_SloganAtISEBegin
@@ -136,7 +139,7 @@ chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結
 //french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
 //german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
 //italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
+//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
 //korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
 //polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
 //portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
@@ -153,7 +156,7 @@ chinesetrad.ClickFinish=按 「完成」 以結束安裝程式。%n%n{#MyAppExtr
 //french.ClickFinish=Veuillez cliquer sur Terminer pour quitter l'assistant d'installation.%n%n{#MyAppExtraInfo}
 //german.ClickFinish=Klicken Sie auf "Fertigstellen", um das Setup zu beenden.%n%n{#MyAppExtraInfo}
 //italian.ClickFinish=Seleziona "Fine" per uscire dall'installazione.%n%n{#MyAppExtraInfo}
-japanese.ClickFinish=セットアップを終了するには「完了」をクリックしてください。%n%n{#MyAppExtraInfo}
+//japanese.ClickFinish=セットアップを終了するには「完了」をクリックしてください。%n%n{#MyAppExtraInfo}
 //korean.ClickFinish=설치를 종료하려면 마침을 클릭하십시오.%n%n{#MyAppExtraInfo}
 //polish.ClickFinish=Kliknij przycisk Zakończ, aby zakończyć instalację.%n%n{#MyAppExtraInfo}
 //portuguese.ClickFinish=Clique em Concluir para finalizar o Assistente de Instalação.%n%n{#MyAppExtraInfo}
@@ -170,7 +173,7 @@ chinesetrad.FinishedRestartLabel=要完成 [name] 的安裝，安裝程式必須
 //french.FinishedRestartLabel=L'assistant doit redémarrer votre ordinateur pour terminer l'installation de [name].%n%nVoulez-vous redémarrer maintenant ?%n%n{#MyAppExtraInfo}
 //german.FinishedRestartLabel=Um die Installation von [name] abzuschließen, muss das Setup Ihren Computer neu starten. Möchten Sie jetzt neu starten?%n%n{#MyAppExtraInfo}
 //italian.FinishedRestartLabel=Per completare l'installazione di [name], è necessario riavviare il sistema.%n%nVuoi riavviare adesso?%n%n{#MyAppExtraInfo}
-japanese.FinishedRestartLabel=[name] のインストールを完了するためには、コンピューターを再起動する必要があります。すぐに再起動しますか？%n%n{#MyAppExtraInfo}
+//japanese.FinishedRestartLabel=[name] のインストールを完了するためには、コンピューターを再起動する必要があります。すぐに再起動しますか？%n%n{#MyAppExtraInfo}
 //korean.FinishedRestartLabel=[name] 설치를 완료하려면 컴퓨터를 다시 시작해야 합니다. 지금 다시 시작하시겠습니까?%n%n{#MyAppExtraInfo}
 //polish.FinishedRestartLabel=Aby zakończyć instalację aplikacji [name], instalator musi ponownie uruchomić komputer. Czy chcesz teraz uruchomić komputer ponownie?%n%n{#MyAppExtraInfo}
 //portuguese.FinishedRestartLabel=Para completar a instalação do [name], o Assistente de Instalação deverá reiniciar o seu computador. Deseja reiniciar agora?%n%n{#MyAppExtraInfo}
@@ -219,7 +222,7 @@ var  // 安装程序加载
 begin
   Log('[RainCandy Technology Inno Setup Experience] Info: Initializing Setup...');
   //Log('[RainCandy Technology Inno Setup Experience] Info: Placeholder Message');
-  //ExtractTemporaryFile('Background.bmp');
+  ExtractTemporaryFile('Background.bmp');
   //ExtractTemporaryFile('AdvSplash.dll');
   //ExtractTemporaryFile('{#MyAppSetupStyle}');
   Result := True;
@@ -277,7 +280,7 @@ begin
     //BASSMOD_Free;
     //BASSMOD_MusicFree;
   //end;
-  //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true))) then begin
+  //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true) then begin
     //Log('[RainCandy Technology Inno Setup Experience] Info: Plugin BASSMOD prepare complete, start music playing...');
     //BASSMOD_MusicPlay;
   //end;
@@ -298,16 +301,16 @@ begin
 end;
 
 procedure InitializeWizard();
-//var
-  //BackgroundImage: TBitmapImage;
+var
+  BackgroundImage: TBitmapImage;
 begin  // 安装向导加载
   Log('[RainCandy Technology Inno Setup Experience] Info: Initializing Wizard...');
-  //BackgroundImage := TBitmapImage.Create(MainForm);
-  //BackgroundImage.Parent := MainForm;
-  //BackgroundImage.SetBounds(0, 0, MainForm.ClientWidth, MainForm.ClientHeight);
-  //BackgroundImage.Stretch := True;
-  //BackgroundImage.Bitmap.LoadFromFile(ExpandConstant('{tmp}\Background.bmp'));
-  //Log('[RainCandy Technology Inno Setup Experience] Background Load Complete...');
+  BackgroundImage := TBitmapImage.Create(MainForm);
+  BackgroundImage.Parent := MainForm;
+  BackgroundImage.SetBounds(0, 0, MainForm.ClientWidth, MainForm.ClientHeight);
+  BackgroundImage.Stretch := True;
+  BackgroundImage.Bitmap.LoadFromFile(ExpandConstant('{tmp}\Background.bmp'));
+  Log('[RainCandy Technology Inno Setup Experience] Background Load Complete...');
 end;
 
 procedure DeinitializeSetup();
@@ -333,13 +336,13 @@ end;
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
 ; 全屏安装背景图 20230923 Updated （一般不启用）
 //Source: "..\Plugins\Background_Win.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
-//Source: "..\Plugins\Background_NGO.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
+Source: "..\Plugins\Background_NGO.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
 
 ; 视觉效果文件
 //Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; BGM 文件
-//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
+//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 Source: "..\Plugins\1BGM\music_mysetup_example.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
 
 ; 主程序文件
@@ -349,6 +352,7 @@ Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Fl
 
 [Types]
 // 安装类型
+//Name: "default"; Description: "{cm:RCTISEDefaultInstType}"; Flags: iscustom;
 
 [Components]
 // 安装程序参数

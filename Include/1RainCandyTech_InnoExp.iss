@@ -9,46 +9,48 @@
 AboutSetupNote=Built with RainCandy Technology Inno Setup%nExperience Version {#RCInnoExpVer}.
 
 [CustomMessages]
-// 20240819_RainCandyTech_InnoSetupExp_Strings
+// 20240829_RainCandyTech_InnoSetupExp_Strings
 // 对于中文，组件名称以英文打头的话，应在前面加空格
-RCTISEMainApp=Main Application
-RCTISEInstNormal=Normal Installation
-RCTISEInstWithoutNet=Disable Network Features
-RCTISEInstOnlineVer=Install Online Version
-RCTISEInstOfflineVer=Install Offline Version
-RCTISEDefaultInstType=Default Installation
-RCTISEFullInstType=Full Installation
-RCTISECustomInstType=Custom Installation
-RCTISEExtraComponents=Extra Components
-RCTISEExtraFeature=Extra Features
-RCTISEExpFeature=Experimental Features
+RCTISEMainApp=Main application
+RCTISEInstNormal=Normal installation
+RCTISEInstWithoutNet=Disable network features
+RCTISEInstOnlineVer=Install online version
+RCTISEInstOfflineVer=Install offline version
+RCTISEDefaultInstType=Default installation
+//RCTISEFullInstType=Full installation
+RCTISECustomInstType=Custom installation
+RCTISEExtraComponents=Extra components
+RCTISEExtraFeature=Extra features
+RCTISEExpFeature=Experimental features
 RCTISEFeatureIsExp=Experimental
 RCTISEFeatureIsDebug=Debug
 RCTISEToInst=Install %1
 RCTISEToEnable=Enable %1
-RCTISEToEnablePremium=Enable Premium Features for %1
+RCTISEToEnablePremium=Enable premium features for %1
 RCTISEToLaunch=Launch "%1"
-RCTISEFileFormatSupport=%1 Format Support
-RCTISELibrarySupport=%1 Support Libary
-RCTISEDisableOnlineSvc=Disable Online Services
+RCTISEFileFormatSupport=%1 format support
+RCTISELibrarySupport=%1 support library
+RCTISEDisableOnlineSvc=Disable online services
 RCTISERunInstPrepare=Preparing installation. Please wait...
 RCTISERunMainAppPrepare=Preparing main application. Please wait...
 RCTISERunAppSetupForUser=Please proceed to the next step of installation in the pop-up window...
 RCTISERunFinishingInst=Completing installation. Please wait...
 RCTISERunExtraSetupPrepare=Preparing%1. Please wait...
 RCTISERunIconSetup=Setting icons. Please wait...
-RCTISERunInstCert=Installing Certificates. Please wait... 
-RCTISEEnablePremium=Enable Premium Features
-RCTISEInstAsPremium=Install with Premium Features
+RCTISERunInstCert=Installing certificates. Please wait... 
+RCTISERunRegFonts=Registering fonts. Please wait... 
+RCTISERunRegApp=Registering application. Please wait... 
+RCTISEEnablePremium=Enable premium features
+RCTISEInstAsPremium=Install with premium features
 RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
 RCTISEAssocFileExtension=Associate %1 file extension
 
-// 20240817_RainCandyTech_InnoSetupExp_Messages
+// 20240829_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
-RCTMsgDebugNotice=This version of the application should only be used by RainCandy Technology and our friends for testing purposes. Please send your feedback to RainCandy Technology for any problems found during testing. Thank you!
+RCTMsgDebugNotice=This version of the application should only be used by RainCandy Technology and our friends for testing purposes. Please send your feedback to RainCandy Technology for any problems found during the test process. Thank you!
 RCTMsgRebootRequired=You must restart your computer before the installation. Please save all your work, restart your computer, and then run the setup again.
 RCTMsgAppAlreadyInst=It seems that you have already installed %1 on your computer.
 RCTMsgAskUserPlayBGM=Do you want to play the background music of the setup?%n%nClick Yes, Setup will play its background music during the installation. %nClick No, the music will not be played.
