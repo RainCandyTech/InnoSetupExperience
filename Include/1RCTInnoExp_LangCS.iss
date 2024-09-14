@@ -1,12 +1,12 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - 额外字符串参数（简体中文）
+// 雨糖科技安装体验脚本 - 额外字符串参数（简体中文）
 // Made with love by RainCandy Technology
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
-// 本脚本代码为雨糖科技 Inno Setup 安装体验的额外字符串提供本地化支持。
+// 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
 
 [Messages]
 // 20240610_RainCandyTech_ISEMain
-chinesesimp.AboutSetupNote=使用雨糖科技 Inno Setup 安装体验 {#RCInnoExpVer}%n版本进行构建。
+chinesesimp.AboutSetupNote=使用雨糖科技安装体验 {#RCInnoExpVer} 版本进行%n构建。
 
 // 20240709_RainCandyTech_ChineseSetupName
 chinesesimp.WelcomeLabel1=欢迎使用{#MyAppNameCS}安装向导
@@ -107,7 +107,7 @@ chinesesimp.WDrvPreInstChkSameErrNotFoundDesc=安装程序将继续。%n如果您遇到了其他
 chinesesimp.WDrvPreInstChkNowNotice=现在，您需要打开“设备管理器”，检查“显示适配器”分类中是否存在出现感叹号图标的设备。%n如有，请双击图标，查看其中是否存在“代码 %1”的报错信息。
 chinesesimp.WDrvPostInstChkNowNotice=现在，您需要启动 GPU-Z 以确认显卡能够正常工作。%n请在 GPU-Z 中选择您的 NVIDIA 显卡，并检查显卡的频率与显存信息是否可被正常读取。%n%n如果程序无法获得正确的信息，则您的显卡可能存在问题，例如电源线未插或显卡本身已损坏。
 chinesesimp.WDrvFMConfHasError=看起来您的计算机当前的固件配置（UEFI BIOS 设置）可能存在问题。
-chinesesimp.WDrvFMBootModeIs=操作系统当前正在使用的引导模式是：
+//chinesesimp.WDrvFMBootModeIs=操作系统当前正在使用的引导模式是：
 chinesesimp.WDrvFMBootModeHowTo=请通过 Windows PE 维护盘 / 系统盘、MBR2GPT 实用程序等工具将操作系统所在硬盘的分区表转换为 GPT / GUID 格式。然后请务必进行系统引导修复，以完成向 UEFI 引导模式的转换。
 //chinesesimp.WDrvFMBootModeUEFIIgnore=如果您现在已经在使用 UEFI 引导模式，则忽略本步骤。
 chinesesimp.WDrvFMBootModeDisableCSM=请转到 UEFI BIOS 设置界面，找到并关闭“兼容性支持模块”（简称 CSM）选项。

@@ -53,7 +53,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v5.6.1.12_240911"
+#define RCInnoExpVer "v5.6.1.13_240915"
 #define RCAppConfType "_Legacy"
 #define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "E:\Development\WPS Office"
@@ -94,7 +94,7 @@ OutputDir="..\Output"
 OutputBaseFilename={#MyAppOutputName}_{#MyAppMarketVersion}_{#MyAppVersion}_{#MyAppRevisionVer}_{#MyAppRevisionDate}
 //OutputBaseFilename={#MyAppOutputName}_{#MyAppMarketVersion}_{#MyAppVersion}_{#MyAppArchitecture}_{#MyAppRevisionVer}_{#MyAppRevisionDate}
 //OutputBaseFilename=wpssetup
-Compression=lzma2
+Compression=lzma2/ultra64
 SolidCompression=yes
 DefaultDirName={pf}\Kingsoft\WPS Office
 //ArchitecturesAllowed=win64
@@ -142,26 +142,26 @@ Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; License
 
 [Messages]
 // 20240913_RainCandyTech_ISEBeveledLabel
-BeveledLabel=for the youth that blooms
+BeveledLabel=For the youth that blooms
 chinesesimp.BeveledLabel=大鸣大放 年轻绚烂
 //chinesetrad.BeveledLabel=大鳴大放 年輕絢爛
 //japanese.BeveledLabel=若さを開花させる
 
-// 20240913_RainCandyTech_SloganAtISEBegin
-ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+// 20240915_RainCandyTech_SloganAtISEBegin
+ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
 chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
 //chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
-//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%n若さを開花させる%n%n{#MyAppExtraInfo}
+//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
 
 // 20240206_RainCandyTech_Finish
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
@@ -370,7 +370,7 @@ end;
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin  // 跳过不必要页面
   result := false;
-  //if (PageID = wpLicense) then result := true;
+  if (PageID = wpLicense) then result := true;
   //if (PageID = wpReady) then result := true;
   //if (PageID = wpInfoBefore) then result := true;
   //if (PageID = wpInfoAfter) then result := true;
@@ -558,9 +558,9 @@ Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,Inst
 //Filename: "{sys}\msiexec.exe"; StatusMsg: "{cm:RCTISERunExtraSetupPrepare, VBA 支持库}"; Parameters: "/i ""{tmp}\VBA\Vba71_2052.msi"" /passive"; check: WPS{#MyAppArchRC}Main; Components: extra\ksovba; Languages: chinesesimp; 
 
 ; 清理部分占用空间大的组件的备份，优化程序占用的磁盘空间
-Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='utility\backup\OemFile\addons_raincandy'"
-Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='utility\backup\OemFile\fzfonts_raincandy'"
-Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='utility\backup\OemFile\ofdplugin_raincandy'"
+Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='utility\backup\OemFile\addons_raincandy'"; check: WPS{#MyAppArchRC}Main; Components: main;
+Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='utility\backup\OemFile\fzfonts_raincandy'"; check: WPS{#MyAppArchRC}Main; Components: main;
+Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='utility\backup\OemFile\ofdplugin_raincandy'"; check: WPS{#MyAppArchRC}Main; Components: main;
 
 ; 删除 Windows 8.x 客户端安装补丁
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\System32\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;

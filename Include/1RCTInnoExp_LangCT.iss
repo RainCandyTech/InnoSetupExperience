@@ -1,12 +1,12 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - 额外字符串参数（繁体中文）
+// 雨糖科技安装体验脚本 - 额外字符串参数（繁体中文）
 // Made with love by RainCandy Technology
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
-// 本脚本代码为雨糖科技 Inno Setup 安装体验的额外字符串提供本地化支持。
+// 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
 
 [Messages]
 // 20240610_RainCandyTech_ISEMain
-chinesetrad.AboutSetupNote=使用雨糖科技 Inno Setup 安裝體驗 {#RCInnoExpVer}%n版本進行構建。
+chinesetrad.AboutSetupNote=使用雨糖科技安裝體驗 {#RCInnoExpVer} 版本進行%n構建。
 
 // 20231114_RainCandyTech_ChineseSetupName
 //chinesetrad.FinishedHeadingLabel=完成 [name] 安裝
@@ -95,7 +95,7 @@ chinesetrad.WDrvPreInstChkSameErrNotFoundDesc=安裝程序將繼續。%n如果您遇到了其他
 chinesetrad.WDrvPreInstChkNowNotice=現在，您需要打開「裝置管理員」，檢查「顯示卡」分類中是否存在出現感嘆號圖示的設備。%n如有，請按兩下圖示，查看其中是否存在「代碼 %1」的報錯信息。
 chinesetrad.WDrvPostInstChkNowNotice=現在，您需要啟動 GPU-Z 以確認顯示卡能夠正常工作。%n請在 GPU-Z 中選擇您的 NVIDIA 顯示卡，並檢查顯示卡的頻率與顯存信息是否可被正常讀取。%n%n如果應用程式無法獲得正確的信息，則您的顯示卡可能存在問題，例如電源線未插或顯示卡本身已%n損壞。
 chinesetrad.WDrvFMConfHasError=看起來您的計算機當前的固件配置（UEFI BIOS 設置）可能存在問題。
-chinesetrad.WDrvFMBootModeIs=作業系統當前正在使用的引導模式是：
+//chinesetrad.WDrvFMBootModeIs=作業系統當前正在使用的引導模式是：
 chinesetrad.WDrvFMBootModeHowTo=請通過 Windows 恢復環境 / 安裝媒體、MBR2GPT 實用程序等工具將作業系統所在硬碟的分區錶轉換為 GPT / GUID 格式。然後請務必進行系統引導修復，以完成向 UEFI 引導模式的轉換。
 //chinesetrad.WDrvFMBootModeUEFIIgnore=如果您現在已經在使用 UEFI 引導模式，則忽略本步驟。
 chinesetrad.WDrvFMBootModeDisableCSM=請轉到 UEFI BIOS 設置界面，找到並關閉「相容性支援模組」（簡稱 CSM）選項。

@@ -84,7 +84,7 @@ AboutSetupMenuItem=關於安裝程式 (&A)...
 AboutSetupTitle=關於安裝程式
 AboutSetupMessage=%1 版本 %2%n%3%n%n%1 網址:%n%4
 AboutSetupNote=
-TranslatorNote=為適應雨糖科技 Inno Setup 安裝體驗，對語言支援%n進行了修改。
+TranslatorNote=為適應雨糖科技安裝體驗，對語言支援進行了修改。
 
 ; *** Buttons
 ButtonBack=< 上一步(&B)

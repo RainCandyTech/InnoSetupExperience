@@ -1,12 +1,12 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - 主要函数
+// 雨糖科技安装体验脚本 - 主要函数
 // Made with love by RainCandy Technology
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
-// 本脚本代码为雨糖科技 Inno Setup 安装体验脚本的主要函数。
+// 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
 [Messages]
 // 20240610_RainCandyTech_ISEMain
-AboutSetupNote=Built with RainCandy Technology Inno Setup%nExperience Version {#RCInnoExpVer}.
+AboutSetupNote=Built with RainCandy Technology Setup%nExperience Version {#RCInnoExpVer}.
 
 [CustomMessages]
 // 20240829_RainCandyTech_InnoSetupExp_Strings
@@ -46,14 +46,14 @@ RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
 RCTISEAssocFileExtension=Associate %1 file extension
 
-// 20240829_RainCandyTech_InnoSetupExp_Messages
+// 20240915_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
 RCTMsgDebugNotice=This version of the application should only be used by RainCandy Technology and our friends for testing purposes. Please send your feedback to RainCandy Technology for any problems found during the test process. Thank you!
 RCTMsgRebootRequired=You must restart your computer before the installation. Please save all your work, restart your computer, and then run the setup again.
 RCTMsgAppAlreadyInst=It seems that you have already installed %1 on your computer.
-RCTMsgAskUserPlayBGM=Do you want to play the background music of the setup?%n%nClick Yes, Setup will play its background music during the installation. %nClick No, the music will not be played.
+RCTMsgAskUserPlayBGM=Do you want to play the background music of the setup?%n%nClick Yes, setup will play its background music during the installation. %nClick No, the music will not be played.
 RCTMsgWarnUserBGMWillPlay=Please notice that this installer have its own background music, and it will start playing when the setup wizard is loaded.%n%nTo avoid disturbing your surroundings, you should now immediately adjust the system volume or speaker volume, or mute / turn off the speakers.
 RCTMsgRestartInstAfterAction=After completing the operation, please run the setup again.
 RCTMsgOSNotMeetRequirement=Your computer is running an operating system that does not meet the system requirements (%1).
@@ -93,7 +93,7 @@ WDrvPreInstChkSameErrNotFoundDesc=Setup will continue.%nIf you have other error 
 WDrvPreInstChkNowNotice=Now, you need to open the Device Manager and see if there are any devices with exclamation mark icon in%nthe "Display adapters" category. If so, double-click the icon to check if it has a "Code %1" error.
 WDrvPostInstChkNowNotice=Now, you need to launch GPU-Z to confirm your graphics card is working properly.%nPlease select your NVIDIA graphics card in GPU-Z and check whether the clock and memory info could be%nread by the application.%n%nIf the application couldn't get the proper information, there might be some issues with your graphics card,%nlike an unplugged power cable or a damaged graphics card.
 WDrvFMConfHasError=It seems that there is a problem with your computer's current firmware / UEFI BIOS configuration.
-WDrvFMBootModeIs=The current operating system boot mode is: 
+//WDrvFMBootModeIs=The current operating system boot mode is: 
 WDrvFMBootModeHowTo=Please convert the partition table of the disk containing the operating system to GPT/GUID format. You can use tools such as Windows recovery environment / installation media, MBR2GPT utility and so on. Then, make sure to perform a system boot repair to complete the conversion to UEFI boot mode.
 //WDrvFMBootModeUEFIIgnore=(Skip this step if you are already using UEFI boot mode.)
 WDrvFMBootModeDisableCSM=Enter the UEFI BIOS settings, then find and disable the "Compatibility Support Module" (CSM) option.
@@ -151,9 +151,9 @@ end;
 
 function RCTIs32BitOS(): Boolean;
 begin  // 检查安装体验报告的系统架构是否为 32 位
-  result:= true;
-  if IsWin64 then begin
-    result:= false;
+  result:= false;
+  if not IsWin64 then begin
+    result:= true;
   end;
 end;
 

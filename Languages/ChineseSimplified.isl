@@ -96,7 +96,7 @@ AboutSetupMenuItem=关于安装程序(&A)...
 AboutSetupTitle=关于安装程序
 AboutSetupMessage=%1 版本 %2%n%3%n%n%1 主页：%n%4
 AboutSetupNote=
-TranslatorNote=简体中文翻译由 Kira (847320916@qq.com) 维护，%n为适配雨糖科技 Inno Setup 安装体验有所修改。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-Chinese-%nSimplified-Translation
+TranslatorNote=简体中文翻译由 Kira (847320916@qq.com) 维护，%n为适配雨糖科技安装体验有所修改。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-%nChinese-Simplified-Translation
 
 ; *** 按钮
 ButtonBack=< 上一步(&B)

@@ -2,7 +2,7 @@
 ; Made with love by RainCandy Technology
 ; 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
-; 本脚本以《Heaven For Death》为例，展示雨科 Inno Setup 安装体验的功能。
+; 本脚本以《Heaven For Death》为例，展示雨糖科技安装体验的功能。
 
 #define MyAppName "My Program"
 #define MyAppNameCS "我的程序"
@@ -47,7 +47,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.2_240911"
+#define RCInnoExpVer "v6.3.3.3_240915"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
@@ -86,7 +86,7 @@ OutputDir=userdocs:Inno Setup Examples Output
 OutputBaseFilename={#MyAppOutputName}
 Compression=lzma2
 SolidCompression=yes
-DefaultDirName={autopf}\My Program
+DefaultDirName={pf}\My Program
 //ArchitecturesAllowed=win64
 //ArchitecturesInstallIn64BitMode=x64
 //Uninstallable=no
@@ -96,11 +96,11 @@ DisableWelcomePage=false
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //SetupLogging=yes
-MinVersion=6.1
+//MinVersion=6.1
 //WizardStyle=modern
 WindowVisible=yes
 VersionInfoDescription={#MyAppName}
-VersionInfoOriginalFileName={#MyAppOutputName}.exe
+//VersionInfoOriginalFileName={#MyAppOutputName}.exe
 RestartIfNeededByRun=no
 DefaultGroupName={#MyAppName}
 PrivilegesRequired=admin
@@ -126,26 +126,26 @@ Name: "english"; MessagesFile: "compiler:Default.isl";
 
 [Messages]
 // 20240913_RainCandyTech_ISEBeveledLabel
-BeveledLabel=for the youth that blooms
+BeveledLabel=For the youth that blooms
 chinesesimp.BeveledLabel=大鸣大放 年轻绚烂
 //chinesetrad.BeveledLabel=大鳴大放 年輕絢爛
 //japanese.BeveledLabel=若さを開花させる
 
-// 20240913_RainCandyTech_SloganAtISEBegin
-ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+// 20240915_RainCandyTech_SloganAtISEBegin
+ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
 chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
 chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
-//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
-//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%n若さを開花させる%n%n{#MyAppExtraInfo}
+//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
 
 // 20240206_RainCandyTech_Finish
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用

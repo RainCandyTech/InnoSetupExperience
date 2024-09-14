@@ -18,6 +18,7 @@ begin
 end;
 
 // 通过调用 kernel32.dll，获取系统当前的启动环境 
+// 返回值：-1: Failed; 0: Unknown; 1: Legacy BIOS; 2: UEFI; 3: Not implemented
 function GetFirmwareType(var FirmwareType: Integer): Boolean;
 external 'GetFirmwareType@kernel32.dll stdcall';
 

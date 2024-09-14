@@ -18,9 +18,11 @@ var  // 检查是否安装 WPS Office 64 位主程序
   WPSInstArch: string;
 begin
   result:= false;
-  RegQueryStringValue(HKLM64, 'SOFTWARE\Kingsoft\Office\6.0\Common', 'Architecture', WPSInstArch)
-  if (IsWin64) and (WPSInstArch = 'x64') and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpsoffice.exe'))) then begin
-    result:= true;
+  if (IsWin64) then begin
+    RegQueryStringValue(HKLM64, 'SOFTWARE\Kingsoft\Office\6.0\Common', 'Architecture', WPSInstArch)
+    if (WPSInstArch = 'x64') and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpsoffice.exe'))) then begin
+      result:= true;
+    end;
   end;
 end;
 
