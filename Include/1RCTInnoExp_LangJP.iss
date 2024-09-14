@@ -46,7 +46,7 @@ japanese.RCTISEDisableFeature=この機能を無効にする
 japanese.RCTISEOSArchARM64=ARM64 アーキテクチャ OS
 japanese.RCTISEAssocFileExtension=%1 ファイル拡張子を関連付ける
 
-// 20240817_RainCandyTech_InnoSetupExp_Messages
+// 20240903_RainCandyTech_InnoSetupExp_Messages
 japanese.RCTMsgSetupContinue=セットアップは続行されます。
 japanese.RCTMsgSetupExit=セットアップが終了します。
 japanese.RCTMsgAskContinue=続けますか？
@@ -71,11 +71,11 @@ japanese.RCTMsgFollowSteps=以下の手順に従ってください：
 japanese.RCTMsgStepNumber=ステップ %1：
 japanese.RCTMsgRequireAMD64=このプログラムには、x86_64 / AMD64 アーキテクチャの OS が必要です。
 japanese.RCTMsgFreeProvideNotice=重要：このアプリは「現状有姿」で無料で提供されます。%nアプリの料金を支払っていてサポートが必要な場合は、販売者に直接お問い合わせください。
-japanese.RCTMsgWebGetUpdateNotice=アプリケーションの最新バージョンまたは将来のアップデートは、RainCandy Technology Web サイト (http://raincandy.tech/) で入手できます。
+japanese.RCTMsgWebGetUpdateNotice=アプリケーションの最新バージョンまたは将来のアップデートは、RainCandy Technology 公式サイト (http://raincandy.tech/) で入手できます。
 japanese.RCTMsgNewInstDelConfNotice=クリーンインストールを実行しますか?これにより、既存のユーザー設定が削除されます。
 japanese.RCTMsgDelUserConfFailed=ユーザー設定を削除できませんでした。
 
-// 20240629_RainCandyTech_WinDrv_Strings
+// 20240911_RainCandyTech_WinDrv_Strings
 japanese.WinDrvSignModeSelect=署名モード選択
 japanese.WinDrvSignModeOption=署名モード %1
 japanese.WDrvDeviceManager=デバイス マネージャー
@@ -103,6 +103,8 @@ japanese.WDrvFMBootModeUEFI=UEFI 起動モードを使用しています。
 japanese.WDrvFMBootModeUnknown=使用中の起動モードを特定できませんでした。
 japanese.RCTDisplayDrvUninstInstruction=問題が発生した場合は、まず既存のデバイスドライバーをアンインストールしてから、再度インストールプログラムを実行してみてください。「Display Driver Uninstaller」(DDU) のようなツールが必要になるかもしれません。
 japanese.WDrvDenyUnspecDeviceInstWarning=OS は、グループ ポリシーの規則に基づいてデバイスのインストールをブロックするように構成されています。この問題により、ドライバのインストールに失敗する可能性があります。%n%nこの問題を解決するには、グループ ポリシー エディタでデバイスのインストール制限を無効にし、コンピュータを再起動してから、セットアップを再度実行してください。
+japanese.WDrvChkCode12NextNotice=通常の状況では、このエラーは発生しません。チェックが完了したら、「次へ」をクリックして続行してください。%nその後、セットアップから現在の状況について尋ねられます。
+japanese.WDrvFMConfErrIGFXNotWorking=この問題により、ディスプレイ出力をサポートしていない統合グラフィックスおよび GPU デバイス (NVIDIA P106-100 や CMP 40HX など) が正しく動作しなくなります。
 
 // 20240528_RainCandyTech_AppSolution_Strings
 japanese.RCTASEditNotAvailable=編集機能は利用できません

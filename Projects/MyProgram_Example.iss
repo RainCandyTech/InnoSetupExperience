@@ -47,7 +47,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.1_240829"
+#define RCInnoExpVer "v6.3.3.2_240911"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
@@ -125,27 +125,27 @@ Name: "english"; MessagesFile: "compiler:Default.isl";
 //Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
-// 20240830_RainCandyTech_11th_ISEBeveledLabel
-BeveledLabel=To feel something.
-chinesesimp.BeveledLabel=感触万物
-//chinesetrad.BeveledLabel=感觸萬物
-//japanese.BeveledLabel=あなたの夢が実現するのを見たいから
+// 20240913_RainCandyTech_ISEBeveledLabel
+BeveledLabel=for the youth that blooms
+chinesesimp.BeveledLabel=大鸣大放 年轻绚烂
+//chinesetrad.BeveledLabel=大鳴大放 年輕絢爛
+//japanese.BeveledLabel=若さを開花させる
 
-// 20240703_RainCandyTech_SloganAtISEBegin
-ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
+// 20240913_RainCandyTech_SloganAtISEBegin
+ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
 chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
 chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
-//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
-//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%nFor a unrestrained and gorgeous youth%n%n{#MyAppExtraInfo}
+//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
+//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%nfor the youth that blooms%n%n{#MyAppExtraInfo}
 
 // 20240206_RainCandyTech_Finish
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
@@ -209,6 +209,7 @@ chinesetrad.FinishedRestartLabel=要完成 [name] 的安裝，安裝程式必須
 var // 全局变量
   languageName: string;
   Version: TWindowsVersion;
+  NijikaProcessName: string;
 
 function InitializeSetup: Boolean;
 var  // 安装程序加载
@@ -231,7 +232,8 @@ begin
   RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', RCTech_WinInstType);
   RCTech_DebugVersion := {#MyAppIsDebugVersion}
   RCTech_NeedStoreApp := {#MyAppIsNeedStoreApp}
-
+  NijikaProcessName  :=  ExtractFileName(ParamStr(0));
+  
   Log('[RainCandy Technology Inno Setup Experience] Info: Pre-install check passed...'); 
 
   if (RCTIsSilent = true) or (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then

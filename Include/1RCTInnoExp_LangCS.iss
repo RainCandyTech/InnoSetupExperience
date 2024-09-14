@@ -89,12 +89,13 @@ chinesesimp.RCTMsgWebGetUpdateNotice=您可以在雨糖科技网站（http://raincandy.tech
 chinesesimp.RCTMsgNewInstDelConfNotice=是否进行全新安装？这将删除现有的用户配置。
 chinesesimp.RCTMsgDelUserConfFailed=删除用户配置失败。
 
-// 20240629_RainCandyTech_WinDrv_Strings
+// 20240911_RainCandyTech_WinDrv_Strings
 chinesesimp.WinDrvSignModeSelect=签名模式选择
 chinesesimp.WinDrvSignModeOption=签名模式 %1
 chinesesimp.WDrvDeviceManager=设备管理器
 chinesesimp.WDrvDevMgrOpen=打开“设备管理器”
 chinesesimp.WinDrvHDAudio=HD 音频驱动
+chinesesimp.WinDrvUSBC=USB-C 驱动
 chinesesimp.WDrvPreInstChk=安装前设备问题检查
 chinesesimp.WDrvPostInstChk=安装后设备问题检查
 chinesesimp.WDrvInstChkDesc=请根据以下步骤，检查您计算机上的设备。
@@ -117,6 +118,8 @@ chinesesimp.WDrvFMBootModeUEFI=您正在使用 UEFI 启动模式。
 chinesesimp.WDrvFMBootModeUnknown=我们无法确定您正在使用的启动模式。
 chinesesimp.RCTDisplayDrvUninstInstruction=如果您遇到了问题，请先尝试卸载这些现有的设备驱动，然后再次运行安装程序。您可能需要一些工具，例如“Display Driver Uninstaller” (DDU)。
 chinesesimp.WDrvDenyUnspecDeviceInstWarning=操作系统设置了组策略规则，禁止特定情况下的设备安装。此问题可能会导致驱动程序安装失败。%n%n如要解决此问题，请在组策略编辑器中禁用设备的安装限制，重新启动计算机，然后重新运行安装程序。
+chinesesimp.WDrvChkCode12NextNotice=在正常情况下，此报错问题不应该出现。%n检查完毕后，请点击“下一步”继续。安装程序随后会就您当前的情况进行询问。
+chinesesimp.WDrvFMConfErrIGFXNotWorking=此问题将会导致集成显卡（核芯显卡）以及不支持显示输出的 GPU 设备（如英伟达 P106-100 和 CMP 40HX）无法正常工作。
 
 // 20240526_RainCandyTech_AppSolution_Strings
 chinesesimp.RCTASEditNotAvailable=编辑功能不可用

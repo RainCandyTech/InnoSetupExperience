@@ -78,7 +78,7 @@ chinesetrad.RCTMsgWebGetUpdateNotice=您可以在雨糖科技網站（http://raincandy.tech
 chinesetrad.RCTMsgNewInstDelConfNotice=是否進行全新安裝？這將刪除現有的使用者配置。
 chinesetrad.RCTMsgDelUserConfFailed=刪除使用者配置失敗。
 
-// 20240629_RainCandyTech_WinDrv_Strings
+// 20240911_RainCandyTech_WinDrv_Strings
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇
 chinesetrad.WinDrvSignModeOption=簽章模式 %1
 chinesetrad.WDrvDeviceManager=裝置管理員
@@ -106,6 +106,8 @@ chinesetrad.WDrvFMBootModeUEFI=您正在使用 UEFI 啟動模式。
 chinesetrad.WDrvFMBootModeUnknown=我們無法確定您正在使用的啟動模式。
 chinesetrad.RCTDisplayDrvUninstInstruction=如果您遇到了問題，請先嘗試卸載這些現有的設備驅動，然後再次運行安裝程式。您可能需要一些工具，例如「Display Driver Uninstaller」(DDU)。
 chinesetrad.WDrvDenyUnspecDeviceInstWarning=作業系統設置了群組原則，禁止特定情況下的設備安裝。此問題可能會導致驅動程式安裝失敗。%n%n如要解決此問題，請在群組原則編輯器中禁用設備的安裝限制，重新啟動計算機，然後重新運行安裝程式。
+chinesetrad.WDrvChkCode12NextNotice=在正常情況下，此報錯問題不應該出現。%n檢查完畢後，請點按「下一步」繼續。安裝程式隨後會就您當前的情況進行詢問。
+chinesetrad.WDrvFMConfErrIGFXNotWorking=此問題將會導致整合式顯示卡以及不支持顯示輸出的 GPU 設備（如 NVIDIA P106-100 和 CMP 40HX）無法正常工作。
 
 // 20240526_RainCandyTech_AppSolution_Strings
 chinesetrad.RCTASEditNotAvailable=編輯功能不可用

@@ -75,25 +75,26 @@ RCTMsgWebGetUpdateNotice=You can get the latest version or its future updates of
 RCTMsgNewInstDelConfNotice=Do you want to perform a clean installation? This will delete the existing user configurations.
 RCTMsgDelUserConfFailed=Failed to delete user configurations.
 
-// 20240629_RainCandyTech_WinDrv_Strings
-WinDrvSignModeSelect=Signature Mode Select
-WinDrvSignModeOption=Signature Mode %1
+// 20240911_RainCandyTech_WinDrv_Strings
+WinDrvSignModeSelect=Signature mode select
+WinDrvSignModeOption=Signature mode %1
 WDrvDeviceManager=Device Manager
 WDrvDevMgrOpen=Open Device Manager
 WinDrvHDAudio=HD Audio Driver
-WDrvPreInstChk=Pre-installation Device Issue Check
-WDrvPostInstChk=Post-installation Device Issue Check
-WDrvInstChkDesc=Follow the steps below to check the devices on your computer.
+WinDrvUSBC=USB-C Driver
+WDrvPreInstChk=Pre-installation device issue check
+WDrvPostInstChk=Post-installation device issue check
+WDrvInstChkDesc=Follow these steps below to check the devices on your computer.
 WDrvPreInstChkAskUser=Did you find any of the errors described above in the Device Manager?
 WDrvPreInstChkSameErrFound=I'm seeing the same error issue.
 WDrvInstChkCodeFoundDesc=Find out what to do next.%nYou should only click this button if you find a specific error for "Code %1".
 WDrvPreInstChkSameErrNotFound=I didn't find any issue, or the issue was not the same as the one mentioned earlier in the setup.
 WDrvPreInstChkSameErrNotFoundDesc=Setup will continue.%nIf you have other error issues, click this button as well. Once the driver installation is complete, these issues may be resolved.
-WDrvPreInstChkNowNotice=Now, you need to open the Device Manager and see if there are any devices with exclamation mark icon in%nthe "Display Adapters" category. If so, double-click the icon to check if it has a "Code %1" error.
+WDrvPreInstChkNowNotice=Now, you need to open the Device Manager and see if there are any devices with exclamation mark icon in%nthe "Display adapters" category. If so, double-click the icon to check if it has a "Code %1" error.
 WDrvPostInstChkNowNotice=Now, you need to launch GPU-Z to confirm your graphics card is working properly.%nPlease select your NVIDIA graphics card in GPU-Z and check whether the clock and memory info could be%nread by the application.%n%nIf the application couldn't get the proper information, there might be some issues with your graphics card,%nlike an unplugged power cable or a damaged graphics card.
 WDrvFMConfHasError=It seems that there is a problem with your computer's current firmware / UEFI BIOS configuration.
 WDrvFMBootModeIs=The current operating system boot mode is: 
-WDrvFMBootModeHowTo=Please convert the partition table of the hard drive containing the operating system to GPT/GUID format. You can use tools such as Windows recovery environment / installation media, MBR2GPT utility and so on. Then, make sure to perform a system boot repair to complete the conversion to UEFI boot mode.
+WDrvFMBootModeHowTo=Please convert the partition table of the disk containing the operating system to GPT/GUID format. You can use tools such as Windows recovery environment / installation media, MBR2GPT utility and so on. Then, make sure to perform a system boot repair to complete the conversion to UEFI boot mode.
 //WDrvFMBootModeUEFIIgnore=(Skip this step if you are already using UEFI boot mode.)
 WDrvFMBootModeDisableCSM=Enter the UEFI BIOS settings, then find and disable the "Compatibility Support Module" (CSM) option.
 WDrvFMBootModeLegacyDisableWarning=Important: The operating system WILL NOT BOOT if you disabled this option without performing the first step.
@@ -103,6 +104,8 @@ WDrvFMBootModeUEFI=You are now using UEFI boot mode.
 WDrvFMBootModeUnknown=We can't determine which boot mode you're using.
 RCTDisplayDrvUninstInstruction=In case of you are having trouble, try to uninstalling these existing drivers, then run the setup again. You may need some tools like "Display Driver Uninstaller" (DDU).
 WDrvDenyUnspecDeviceInstWarning=The operating system has been configured to block device installation under the rules of group policy. This problem may cause failure of the driver installation.%n%nTo solve this problem, please disable device install limitations in group policy editor, reboot the computer, and then try to run setup again.
+WDrvChkCode12NextNotice=Under normal circumstances, this error should not occur.%nOnce the check is complete, click "Next" to continue. Then, setup will ask you about your current situation.
+WDrvFMConfErrIGFXNotWorking=This issue will cause integrated graphics and GPU devices that do not support display output (like NVIDIA P106-100 and CMP 40HX) to not work properly.
 
 // 20240526_RainCandyTech_AppSolution_Strings
 RCTASEditNotAvailable=Edit Function not available
@@ -123,16 +126,25 @@ begin  // 在用户等待安装程序执行操作的时候，可以通过这个滚动进度条让用户感知到安
   end;
 end;
 
+function RCTIsWinClient(): Boolean;
+var 
+  RCTech_WinInstType: String;
+begin  // 检查系统是否为 Windows 客户端版本
+  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', RCTech_WinInstType);
+  if not (RCTech_WinInstType = 'Server') then
+  begin
+    result := true;
+  end;
+end;
+
 function RCTIsWin8Client(): Boolean;
 var 
   Version: TWindowsVersion;
-  RCTech_WinInstType: String;
 begin  // 检查是否 Windows 8 Client 版本（主要针对 WPS Office 的系统检测）
   GetWindowsVersionEx(Version);
-  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', RCTech_WinInstType);
-  if (Version.NTPlatform) and (Version.Major = 6) and (Version.Minor > 1) and not (RCTech_WinInstType = 'Server') then
+  if (Version.NTPlatform) and (Version.Major = 6) and (Version.Minor > 1) and (RCTIsWinClient = true) then
   begin
-    Log('[RainCandy Technology Inno Setup Experience] Info: Windows 8.x Client is detected.');
+    //Log('[RainCandy Technology Inno Setup Experience] Info: Windows 8.x Client is detected.');
     result := true;
   end;
 end;
@@ -162,7 +174,7 @@ begin  // 检查安装体验报告的系统架构是否为 ARM64
 end;
 
 function RCTIsSilent(): Boolean;
-var
+var  // 检查安装程序是否以静默方式运行
   j: Integer;
 begin
   Result := False;
