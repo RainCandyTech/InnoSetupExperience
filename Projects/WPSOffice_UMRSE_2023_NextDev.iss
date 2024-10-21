@@ -2,6 +2,8 @@
 ; Made with love by RainCandy Technology
 ; 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
+; 请注意，不再更新安装体验 Repo 中 WPS Office 的安装脚本。
+
 //#define MyAppName "WPS Office RainCandy Technology Special"
 #define MyAppName "WPS Office 雨糖科技特别版"
 #define MyAppNameCS " WPS Office 雨糖科技特别版"

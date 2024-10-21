@@ -49,13 +49,13 @@ chinesetrad.RCTISEDisableFeature=禁用此功能
 chinesetrad.RCTISEOSArchARM64=ARM64 架構的作業系統
 chinesetrad.RCTISEAssocFileExtension=建立 %1 格式檔案關聯
 
-// 20240817_RainCandyTech_InnoSetupExp_Messages
+// 20241021_RainCandyTech_InnoSetupExp_Messages
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。
 chinesetrad.RCTMsgSetupExit=安裝程式現在將退出。
 chinesetrad.RCTMsgAskContinue=您想繼續嗎？
 chinesetrad.RCTMsgDebugNotice=此版本的程式僅供雨糖科技和朋友們測試使用。 請就測試過程中發現的任何問題向雨糖科技提供迴響。謝謝！
 chinesetrad.RCTMsgRebootRequired=必須重新啟動計算機才能開始安裝過程。請儲存所有工作，重新啟動計算機，然後再次執行安裝程式。
-chinesetrad.RCTMsgAppAlreadyInst=看起來您的計算機可能已經安裝了%1。
+chinesetrad.RCTMsgAppAlreadyInst=看起來您的計算機可能已經安裝了%1應用程式。
 chinesetrad.RCTMsgAskUserPlayBGM=是否要播放安裝程式自帶的背景音樂？%n%n如果點按“是”，安裝程式將會在安裝過程中播放其背景音樂；%n如果點按“否”則不會播放。
 chinesetrad.RCTMsgWarnUserBGMWillPlay=請特別注意，本安裝程式自帶背景音樂，它將在安裝精靈正式開始時播放。%n%n為了避免造成對周圍環境的打擾，您現在應立即調整系統音量或揚聲器音量，或開啟靜音模式，或將揚聲器關閉。
 chinesetrad.RCTMsgRestartInstAfterAction=完成操作後，請再次運行安裝程式。
@@ -77,6 +77,8 @@ chinesetrad.RCTMsgFreeProvideNotice=重要提示：本應用程式「按原樣」免費提供。%n如
 chinesetrad.RCTMsgWebGetUpdateNotice=您可以在雨糖科技網站（http://raincandy.tech/）獲取本應用程式的最新版本或後續更新。
 chinesetrad.RCTMsgNewInstDelConfNotice=是否進行全新安裝？這將刪除現有的使用者配置。
 chinesetrad.RCTMsgDelUserConfFailed=刪除使用者配置失敗。
+chinesetrad.RCTMsgAppStillRunning=安裝程式檢測到%1仍在運行。
+chinesetrad.RCTMsgAppNoticeUserExit=請先退出應用程式，然後再重新運行安裝程式。
 
 // 20240911_RainCandyTech_WinDrv_Strings
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇

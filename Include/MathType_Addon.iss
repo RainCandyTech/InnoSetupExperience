@@ -23,13 +23,7 @@ begin  // 当安装程序检测到已安装 WPS Office 时，提醒用户安装 
   if (MathType{#MyAppMajorVersion}Main = true) and ((WPSIA32Main = true) or (WPSAMD64Main = true) or (WPSHKCUMain = true)) then
   begin
     Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is detected on this computer.');
-      if (WPSAMD64Main = true) then
-      begin
-        Log('[RainCandy Technology Inno Setup Experience] Warning: Installed WPS Office Version is 64-bit architecture. Now notice user about its incompatibility...');
-        SuppressibleMsgBox(CustomMessage('MathTypeUMRSEWarnWPSx64') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
-      end else begin
-        Log('[RainCandy Technology Inno Setup Experience] Info: Installed WPS Office Version is not 64-bit architecture. Now notice user to install VBA component...');
-        SuppressibleMsgBox(CustomMessage('MathTypeUMRSENoticeWPS') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
-      end;
+    Log('[RainCandy Technology Inno Setup Experience] Info: Now notice user to install VBA component...');
+    SuppressibleMsgBox(CustomMessage('MathTypeUMRSENoticeWPS') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
   end;
 end;

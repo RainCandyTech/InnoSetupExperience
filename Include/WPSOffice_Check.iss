@@ -35,9 +35,17 @@ begin  // 检查是否安装 WPS Office 主程序（单用户安装）
 end;
 
 function KPDFIA32Main(): Boolean;
-begin  // 检查是否安装金山 PDF 32 位主程序       
+begin  // 检查是否安装金山 PDF 独立版 32 位主程序
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\6.0\Common,InstallRoot}\office6\wpspdf.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\wpspdf.exe'))) then begin
+    result:= true;
+  end;
+end;
+
+function KPDFHKCUMain(): Boolean;
+begin  // 检查是否安装金山 PDF 独立版 32 位主程序（单用户安装）
+  result:= false;
+  if (FileExists(ExpandConstant('{reg:HKCU\Software\Kingsoft\PDF\Common,InstallRoot}\office6\wpspdf.exe'))) then begin
     result:= true;
   end;
 end;
@@ -47,9 +55,10 @@ var  // 检查 WPS Office 是否为经典模式
   RCTech_KSOAppMode: string;
 begin
   result:= false;
+  RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   if (RCTech_KSOAppMode = 'classical') then begin
-    Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in classic mode.');
+    //Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in classic mode.');
     result:= true;
   end;
 end;
@@ -59,10 +68,23 @@ var  // 检查 WPS Office 是否为整合模式
   RCTech_KSOAppMode: string;
 begin
   result:= false;
+  RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   if (RCTech_KSOAppMode = 'prome_fushion') then begin
-    Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in prometheus mode.');
+    //Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in prometheus mode.');
     result:= true;
   end;
 end;
 
+function KSOMultiComMode(): Boolean;
+var  // 检查 WPS Office 是否为多组件模式
+  RCTech_KSOAppMode: string;
+begin
+  result:= false;
+  RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
+  RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
+  if (RCTech_KSOAppMode = 'prome_independ') then begin
+    //Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in multi-component mode.');
+    result:= true;
+  end;
+end;

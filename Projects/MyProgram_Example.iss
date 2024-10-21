@@ -13,7 +13,7 @@
 #define MyAppMajorVersion "1"
 #define MyAppMarketVersion "1"
 #define MyAppPublisher "RainCandy Technology"
-#define MyAppURL "http://raincandy.tech/"
+#define MyAppURL "http://raincandy.1337.moe/"
 #define MyAppExtraInfo ""
 //#define MyAppExtraInfo "Artwork: pixiv @Kyokaz"   ;c0
 //#define MyAppExtraInfo "Artwork: しろううらやま (@urayamashiro)"   ;c3
@@ -47,7 +47,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.3_240915"
+#define RCInnoExpVer "v6.3.3.6_241021"
 #define RCAppConfType ""
 #define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
@@ -60,6 +60,7 @@
 #include "..\Include\ufMOD.iss"
 //#include "..\Include\Splash.iss"
 //#include "..\Include\ISSkin.iss"
+//#include "..\Include\ISTask.iss"
 //#include "..\Include\MicrosoftStore_SvcChk.iss"
 
 [Setup]
@@ -181,29 +182,9 @@ chinesetrad.FinishedRestartLabel=要完成 [name] 的安裝，安裝程式必須
 //spanish.FinishedRestartLabel=Para completar la instalación de [name], su sistema debe reiniciarse. ¿Desea reiniciarlo ahora?%n%n{#MyAppExtraInfo}
 //ukrainian.FinishedRestartLabel=Для завершення встановлення [name] необхідно перезавантажити ваш комп’ютер. Перезавантажити комп’ютер зараз?%n%n{#MyAppExtraInfo}
 
-// 20240803_RainCandyTech_BTR-IjichiNijika_ISESelectTasksDesc
-//SelectTasksDesc=My dream might come true soon...
-//chinesesimp.SelectTasksDesc=我的梦想，搞不好能实现......
-//chinesetrad.SelectTasksDesc=我的夢想，搞不好能實現......
-//japanese.SelectTasksDesc=私の夢、叶っちゃうかもな......
-
-// 20240803_RainCandyTech_BTR-YamadaRyo_ISEBeveledLabel
-//BeveledLabel=Once you give up your individuality, it's the same as death
-//chinesesimp.BeveledLabel=一旦舍弃了个性，就跟死了没区别
-//chinesetrad.BeveledLabel=一旦捨棄了個性，就跟死了沒區別
-//japanese.BeveledLabel=個性捨てたら死んでるのと一緒だよ
-
-// 20240803_RainCandyTech_BTR-KitaIkuyo_ISEBeveledLabel
-//BeveledLabel=I mean, don't you feel like a band is a second family?
-//chinesesimp.BeveledLabel=你想啊，乐队就像是第二个家庭吧？
-//chinesetrad.BeveledLabel=你想啊，樂隊就像是第二個家庭吧？
-//japanese.BeveledLabel=だってバンドって、第２の家族って感じしない？
-
-// 20240810_RainCandyTech_BTR-GotohHitori_ISEBeveledLabel
-//BeveledLabel=It's the kind of miracle most people never experience!
-//chinesesimp.BeveledLabel=这样的奇迹，恐怕这辈子再也不会发生了
-//chinesetrad.BeveledLabel=這樣的奇蹟，恐怕這輩子再也不會發生了
-//japanese.BeveledLabel=こんな奇跡、多分一生起こらない
+[CustomMessages]
+CurrentProcessName=The process name of Setup is:
+chinesesimp.CurrentProcessName=安装程序的进程名称是：
 
 [Code]
 var // 全局变量
@@ -235,6 +216,8 @@ begin
   NijikaProcessName  :=  ExtractFileName(ParamStr(0));
   
   Log('[RainCandy Technology Inno Setup Experience] Info: Pre-install check passed...'); 
+
+  SuppressibleMsgBox(CustomMessage('CurrentProcessName') + #13 + NijikaProcessName + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
 
   if (RCTIsSilent = true) or (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then
   begin  // 如果静默安装或找到禁止播放 BGM 占位符，则禁止 BGM 播放
@@ -329,7 +312,7 @@ begin  // 跳过不必要页面
   //if (PageID = wpInfoBefore) then result := true;
   //if (PageID = wpInfoAfter) then result := true;
   //if (PageID = wpFinished) then result := true;
-  //if (PageID = wpReady) or (PageID = wpInfoAfter) then result := true;
+  //if (PageID = wpSelectDir) then result := true;
   //if (PageID = wpLicense) or (PageID = wpReady) then result := true;
   //if (PageID = wpLicense) or (PageID = wpReady) or (PageID = wpFinished) then result := true;
 end;

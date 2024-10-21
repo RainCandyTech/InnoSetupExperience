@@ -4,6 +4,8 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
+#define PluginDir "..\Plugins"
+
 [Messages]
 // 20240610_RainCandyTech_ISEMain
 AboutSetupNote=Built with RainCandy Technology Setup%nExperience Version {#RCInnoExpVer}.
@@ -46,13 +48,13 @@ RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
 RCTISEAssocFileExtension=Associate %1 file extension
 
-// 20240915_RainCandyTech_InnoSetupExp_Messages
+// 20241021_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
 RCTMsgDebugNotice=This version of the application should only be used by RainCandy Technology and our friends for testing purposes. Please send your feedback to RainCandy Technology for any problems found during the test process. Thank you!
 RCTMsgRebootRequired=You must restart your computer before the installation. Please save all your work, restart your computer, and then run the setup again.
-RCTMsgAppAlreadyInst=It seems that you have already installed %1 on your computer.
+RCTMsgAppAlreadyInst=It seems that you have already installed %1 application on your computer.
 RCTMsgAskUserPlayBGM=Do you want to play the background music of the setup?%n%nClick Yes, setup will play its background music during the installation. %nClick No, the music will not be played.
 RCTMsgWarnUserBGMWillPlay=Please notice that this installer have its own background music, and it will start playing when the setup wizard is loaded.%n%nTo avoid disturbing your surroundings, you should now immediately adjust the system volume or speaker volume, or mute / turn off the speakers.
 RCTMsgRestartInstAfterAction=After completing the operation, please run the setup again.
@@ -74,6 +76,8 @@ RCTMsgFreeProvideNotice=Important: This application is provided "as is" FOR FREE
 RCTMsgWebGetUpdateNotice=You can get the latest version or its future updates of the application at RainCandy Technology Website (http://raincandy.tech/).
 RCTMsgNewInstDelConfNotice=Do you want to perform a clean installation? This will delete the existing user configurations.
 RCTMsgDelUserConfFailed=Failed to delete user configurations.
+RCTMsgAppStillRunning=Setup has detected that %1 is still running.
+RCTMsgAppNoticeUserExit=Please quit the application, then run the setup again.
 
 // 20240911_RainCandyTech_WinDrv_Strings
 WinDrvSignModeSelect=Signature mode select

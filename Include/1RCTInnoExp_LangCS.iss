@@ -60,13 +60,13 @@ chinesesimp.RCTISEDisableFeature=禁用此功能
 chinesesimp.RCTISEOSArchARM64=ARM64 架构的操作系统
 chinesesimp.RCTISEAssocFileExtension=建立 %1 格式文件关联
 
-// 20240829_RainCandyTech_InnoSetupExp_Messages
+// 20241021_RainCandyTech_InnoSetupExp_Messages
 chinesesimp.RCTMsgSetupContinue=安装程序现在将继续。
 chinesesimp.RCTMsgSetupExit=安装程序现在将退出。
 chinesesimp.RCTMsgAskContinue=您想继续吗？
 chinesesimp.RCTMsgDebugNotice=本版本程序仅供雨糖科技和朋友们测试使用。请将测试过程中发现的问题反馈回雨糖科技。谢谢！
 chinesesimp.RCTMsgRebootRequired=必须重新启动计算机才能开始安装过程。请保存所有工作，重新启动计算机，然后再次运行安装程序。
-chinesesimp.RCTMsgAppAlreadyInst=看起来您的计算机可能已经安装了%1。
+chinesesimp.RCTMsgAppAlreadyInst=看起来您的计算机可能已经安装了%1应用程序。
 chinesesimp.RCTMsgAskUserPlayBGM=是否要播放安装程序的自带背景音乐？%n%n如果点击“是”，安装程序将会在安装过程中播放其背景音乐；%n如果点击“否”则不会播放。
 chinesesimp.RCTMsgWarnUserBGMWillPlay=请特别注意，本安装程序自带背景音乐，它将在安装向导正式开始时播放。%n%n为了避免造成对周围环境的打扰，您现在应立即调整系统音量或扬声器音量，或开启静音模式，或将扬声器关闭。
 chinesesimp.RCTMsgRestartInstAfterAction=完成操作后，请再次运行安装程序。
@@ -88,6 +88,8 @@ chinesesimp.RCTMsgFreeProvideNotice=重要提示：本应用程序「按原样」免费提供。%n如
 chinesesimp.RCTMsgWebGetUpdateNotice=您可以在雨糖科技网站（http://raincandy.tech/）获取本应用程序的最新版本或后续更新。
 chinesesimp.RCTMsgNewInstDelConfNotice=是否进行全新安装？这将删除现有的用户配置。
 chinesesimp.RCTMsgDelUserConfFailed=删除用户配置失败。
+chinesesimp.RCTMsgAppStillRunning=安装程序检测到%1仍在运行。
+chinesesimp.RCTMsgAppNoticeUserExit=请先退出应用程序，然后再重新运行安装程序。
 
 // 20240911_RainCandyTech_WinDrv_Strings
 chinesesimp.WinDrvSignModeSelect=签名模式选择
