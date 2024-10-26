@@ -4,8 +4,6 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define PluginDir "..\Plugins"
-
 [Messages]
 // 20240610_RainCandyTech_ISEMain
 AboutSetupNote=Built with RainCandy Technology Setup%nExperience Version {#RCInnoExpVer}.
@@ -48,7 +46,7 @@ RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
 RCTISEAssocFileExtension=Associate %1 file extension
 
-// 20241021_RainCandyTech_InnoSetupExp_Messages
+// 20241025_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
@@ -78,6 +76,8 @@ RCTMsgNewInstDelConfNotice=Do you want to perform a clean installation? This wil
 RCTMsgDelUserConfFailed=Failed to delete user configurations.
 RCTMsgAppStillRunning=Setup has detected that %1 is still running.
 RCTMsgAppNoticeUserExit=Please quit the application, then run the setup again.
+RCTMsgPatchAppVerNotSupport=The version of the %1 main application installed on your computer does not meet the requirements.
+RCTMsgPatchAppCurrentVer=The version of application that you currently have installed is:
 
 // 20240911_RainCandyTech_WinDrv_Strings
 WinDrvSignModeSelect=Signature mode select

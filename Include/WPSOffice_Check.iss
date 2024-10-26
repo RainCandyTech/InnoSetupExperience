@@ -8,7 +8,7 @@
 function WPSIA32Main(): Boolean;
 begin  // 检查是否安装 WPS Office 32 位主程序       
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpsoffice.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;
@@ -20,7 +20,7 @@ begin
   result:= false;
   if (IsWin64) then begin
     RegQueryStringValue(HKLM64, 'SOFTWARE\Kingsoft\Office\6.0\Common', 'Architecture', WPSInstArch)
-    if (WPSInstArch = 'x64') and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\wpsoffice.exe'))) then begin
+    if (WPSInstArch = 'x64') and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
       result:= true;
     end;
   end;
@@ -29,7 +29,7 @@ end;
 function WPSHKCUMain(): Boolean;
 begin  // 检查是否安装 WPS Office 主程序（单用户安装）      
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKCU\Software\kingsoft\Office\6.0\Common,InstallRoot}\office6\wpsoffice.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKCU\Software\kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;
@@ -37,7 +37,7 @@ end;
 function KPDFIA32Main(): Boolean;
 begin  // 检查是否安装金山 PDF 独立版 32 位主程序
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\wpspdf.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;
@@ -45,7 +45,7 @@ end;
 function KPDFHKCUMain(): Boolean;
 begin  // 检查是否安装金山 PDF 独立版 32 位主程序（单用户安装）
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKCU\Software\Kingsoft\PDF\Common,InstallRoot}\office6\wpspdf.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKCU\Software\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;

@@ -47,9 +47,9 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.6_241021"
+#define RCInnoExpVer "v6.3.3.7_241025"
 #define RCAppConfType ""
-#define RCInnoExpPluginSignMark "_signed"
+//#define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
 
 #include "..\Include\1RainCandyTech_InnoExp.iss"
