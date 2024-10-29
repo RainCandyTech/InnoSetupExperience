@@ -19,11 +19,29 @@ begin  // 检查是否已经存在 NVIDIA 重启占位符注册表
   end;
 end;
 
+procedure NijikaExitCleanTempNV();
+begin
+  DelTree(ExpandConstant('{tmp}\Display.Driver'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\Display.Nview'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\Display.Optimus'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\FrameViewSDK'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\GFExperience'), True, True, True);
+  //DelTree(ExpandConstant('{tmp}\MSVCRT'), True, True, True);
+  //DelTree(ExpandConstant('{tmp}\NvCamera'), True, True, True);
+  //DelTree(ExpandConstant('{tmp}\NvContainer'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\NVI2'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\NVPCF'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\PhysX'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\PPC'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\RootCATrust'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\ShadowPlay'), True, True, True);
+end;
+
 procedure NijikaExitIfNVNeedReboot();
 begin  // 如果发现安装程序要求重启计算机才能继续安装，则直接退出安装程序，以避免英伟达安装程序直接重启系统，而安装体验还在后台阻止重启的情况发生
   if (NVIDIADrv_RequireReboot = true) then begin
     Log('[RainCandy Technology Inno Setup Experience] Info: NVIDIA Installer requires system reboot. Now exiting setup.');
-    DeinitializeSetup();
+    NijikaExitCleanTempNV();
     ExitProcess(0);
   end;
 end;
