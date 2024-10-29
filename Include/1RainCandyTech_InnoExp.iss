@@ -9,7 +9,7 @@
 AboutSetupNote=Built with RainCandy Technology Setup%nExperience Version {#RCInnoExpVer}.
 
 [CustomMessages]
-// 20240829_RainCandyTech_InnoSetupExp_Strings
+// 20241029_RainCandyTech_InnoSetupExp_Strings
 // 对于中文，组件名称以英文打头的话，应在前面加空格
 RCTISEMainApp=Main application
 RCTISEInstNormal=Normal installation
@@ -45,6 +45,8 @@ RCTISEInstAsPremium=Install with premium features
 RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
 RCTISEAssocFileExtension=Associate %1 file extension
+RCTISEHotfix=Hotfixes (Consideration is needed)
+RCTISERunInstHotfix=Installing Hotfixes. Please wait...
 
 // 20241025_RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
@@ -76,7 +78,7 @@ RCTMsgNewInstDelConfNotice=Do you want to perform a clean installation? This wil
 RCTMsgDelUserConfFailed=Failed to delete user configurations.
 RCTMsgAppStillRunning=Setup has detected that %1 is still running.
 RCTMsgAppNoticeUserExit=Please quit the application, then run the setup again.
-RCTMsgPatchAppVerNotSupport=The version of the %1 main application installed on your computer does not meet the requirements.
+RCTMsgPatchAppVerNotSupport=The version of %1 application installed on your computer does not meet the requirements.
 RCTMsgPatchAppCurrentVer=The version of application that you currently have installed is:
 
 // 20240911_RainCandyTech_WinDrv_Strings
@@ -189,3 +191,7 @@ begin
       Break;
     end;
 end;
+
+// 调用系统函数实现进程结束功能，因为在别的地方直接 Exit; 压根不好使
+procedure ExitProcess(exitCode:integer);
+external 'ExitProcess@kernel32.dll stdcall';

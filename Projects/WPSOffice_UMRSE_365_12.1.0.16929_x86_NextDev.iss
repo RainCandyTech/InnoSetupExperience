@@ -55,7 +55,7 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.7_241025"
+#define RCInnoExpVer "v6.3.3.8_241029"
 #define RCAppConfType "_Personal"
 //#define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "E:\Development\WPS Office"
