@@ -21,7 +21,7 @@
 //#define MyAppExtraInfo "Source of artwork: にゃるら (@nyalra)"   ;c5
 //#define MyAppExtraInfo "Artwork: pixiv @MIWV"   ;c6
 //#define MyAppExtraInfo "Artwork: @shiro96haru"   ;c7
-//#define MyAppExtraInfo "Artwork: らぐほのえりか (@ragho_net)"   ;c8
+//#define MyAppExtraInfo "Artwork: pixiv @Cynical"   ;c8
 //#define MyAppExtraInfo "Artwork: 上倉エク (@ekureea)"   ;c9
 //#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
 //#define MyAppExtraInfo "Artwork: ちょうはつ (@L_hair_)"   ;b2
