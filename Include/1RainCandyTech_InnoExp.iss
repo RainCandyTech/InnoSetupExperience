@@ -1,12 +1,14 @@
-// 雨糖科技安装体验脚本 - 主要函数
+// 雨糖科技 Windose Installer 安装体验脚本 - 主要函数
 // Made with love by RainCandy Technology
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
+#define RCInnoExpVer "20251123"
+
 [Messages]
-// 20240610_RainCandyTech_ISEMain
-AboutSetupNote=Built with RainCandy Technology Setup%nExperience Version {#RCInnoExpVer}.
+// 20251114_RainCandyTech_ISEMain
+AboutSetupNote=Built with Windose Installer Version {#RCInnoExpVer}.
 
 [CustomMessages]
 // 20241029_RainCandyTech_InnoSetupExp_Strings
@@ -120,6 +122,12 @@ RCTASPrintNotAvailable=Print Function not available
 [Run]
 
 [Code]
+var // 全局变量
+  languageName: string;
+  Version: TWindowsVersion;
+  NijikaProcessName: string;
+  RCTech_WinInstType: String;
+
 procedure SetMarqueeProgress(Marquee: Boolean);
 begin  // 在用户等待安装程序执行操作的时候，可以通过这个滚动进度条让用户感知到安装程序没有卡死
   if Marquee then
@@ -150,7 +158,7 @@ begin  // 检查是否 Windows 8 Client 版本（主要针对 WPS Office 的系统检测）
   GetWindowsVersionEx(Version);
   if (Version.NTPlatform) and (Version.Major = 6) and (Version.Minor > 1) and (RCTIsWinClient = true) then
   begin
-    //Log('[RainCandy Technology Inno Setup Experience] Info: Windows 8.x Client is detected.');
+    //Log('[Windose Installer] Info: Windows 8.x Client is detected.');
     result := true;
   end;
 end;

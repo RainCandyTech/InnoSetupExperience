@@ -19,7 +19,7 @@ begin
   RegQueryDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Services\AppXSvc', 'Start', ServiceState)
   if (ServiceState = 4) then
   begin
-    Log('[RainCandy Technology Inno Setup Experience] Warning: Windows service (AppXSvc) is disabled...');
+    Log('[Windose Installer] Warning: Windows service (AppXSvc) is disabled...');
     result := true;
   end;
 end;
@@ -32,7 +32,7 @@ begin
   RegQueryDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Services\ClipSVC', 'Start', ServiceState)
   if (ServiceState = 4) then
   begin
-    Log('[RainCandy Technology Inno Setup Experience] Warning: Windows service (ClipSVC) is disabled...');
+    Log('[Windose Installer] Warning: Windows service (ClipSVC) is disabled...');
     result := true;
   end;
 end;
@@ -45,7 +45,7 @@ begin
   RegQueryDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Services\LicenseManager', 'Start', ServiceState)
   if (ServiceState = 4) then
   begin
-    Log('[RainCandy Technology Inno Setup Experience] Warning: Windows service (LicenseManager) is disabled...');
+    Log('[Windose Installer] Warning: Windows service (LicenseManager) is disabled...');
     result := true;
   end;
 end;
@@ -58,7 +58,7 @@ begin
   RegQueryDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Services\InstallService', 'Start', ServiceState)
   if (ServiceState = 4) then
   begin
-    Log('[RainCandy Technology Inno Setup Experience] Warning: Windows service (LicenseManager) is disabled...');
+    Log('[Windose Installer] Warning: Windows service (LicenseManager) is disabled...');
     result := true;
   end;
 end;
@@ -71,7 +71,7 @@ begin
   RegQueryDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Services\mpssvc', 'Start', ServiceState)
   if (ServiceState = 4) then
   begin
-    Log('[RainCandy Technology Inno Setup Experience] Warning: Windows service (mpssvc) is disabled...');
+    Log('[Windose Installer] Warning: Windows service (mpssvc) is disabled...');
     result := true;
   end;
 end;

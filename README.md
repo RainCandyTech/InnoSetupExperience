@@ -1,4 +1,5 @@
-# RainCandy Technology Setup Experience
-A set of Inno Setup Script for RainCandy Technology Internal Use
+# Windose Installer
 
-用于雨糖科技内部使用的一系列 Inno Setup 脚本
+Windose Installer is a set of Inno Setup scripts & plugins for building user experience for our installer.
+
+Windose Installer 包含一系列的 Inno Setup 脚本和插件，用于为我们的安装包构建用户体验。

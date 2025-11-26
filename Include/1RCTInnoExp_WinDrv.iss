@@ -30,7 +30,7 @@ begin
   RegQueryDWordValue(HKLM, 'SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions', 'DenyUnspecified', DeviceUnspecDenyState)
   if (DeviceUnspecDenyState = 1) then
   begin
-    Log('[RainCandy Technology Inno Setup Experience] Warning: The OS has been configured to block installation for all device that is not specified in group policy!');
+    Log('[Windose Installer] Warning: The OS has been configured to block installation for all device that is not specified in group policy!');
     result := true;
   end;
 end;

@@ -58,7 +58,7 @@ begin
   RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   if (RCTech_KSOAppMode = 'classical') then begin
-    //Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in classic mode.');
+    //Log('[Windose Installer] Info: WPS Office is in classic mode.');
     result:= true;
   end;
 end;
@@ -71,7 +71,7 @@ begin
   RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   if (RCTech_KSOAppMode = 'prome_fushion') then begin
-    //Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in prometheus mode.');
+    //Log('[Windose Installer] Info: WPS Office is in prometheus mode.');
     result:= true;
   end;
 end;
@@ -84,7 +84,7 @@ begin
   RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
   if (RCTech_KSOAppMode = 'prome_independ') then begin
-    //Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office is in multi-component mode.');
+    //Log('[Windose Installer] Info: WPS Office is in multi-component mode.');
     result:= true;
   end;
 end;

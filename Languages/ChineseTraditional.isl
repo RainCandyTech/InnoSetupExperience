@@ -84,7 +84,7 @@ AboutSetupMenuItem=關於安裝程式 (&A)...
 AboutSetupTitle=關於安裝程式
 AboutSetupMessage=%1 版本 %2%n%3%n%n%1 網址:%n%4
 AboutSetupNote=
-TranslatorNote=為適應雨糖科技安裝體驗，對語言支援進行了修改。
+TranslatorNote=為適應 Windose Installer，對語言支援進行了修改。
 
 ; *** Buttons
 ButtonBack=< 上一步(&B)
@@ -212,6 +212,7 @@ ReadyMemoTasks=附加工作:
 
 ; *** TDownloadWizardPage wizard page and DownloadTemporaryFile
 DownloadingLabel=正在下載額外檔案...
+DownloadingLabel2=正在下載檔案...
 ButtonStopDownload=停止下載 (&S)
 StopDownload=您確定要停止下載嗎？
 ErrorDownloadAborted=已停止下載
@@ -221,6 +222,18 @@ ErrorFileHash1=檔案雜湊失敗: %1
 ErrorFileHash2=檔案雜湊無效: 必須為 %1，收到 %2
 ErrorProgress=進度無效: %1 之 %2
 ErrorFileSize=檔案大小無效: 必須為 %1，收到 %2
+
+; *** TExtractionWizardPage wizard page and ExtractArchive
+ExtractingLabel=正在提取檔案...
+ButtonStopExtraction=停止提取(&S)
+StopExtraction=您確定要停止提取嗎？
+ErrorExtractionAborted=提取已中止
+ErrorExtractionFailed=提取失敗：%1
+
+; *** Archive extraction failure details
+ArchiveIncorrectPassword=密碼不正確
+ArchiveIsCorrupted=壓縮包已損壞
+ArchiveUnsupportedFormat=不支持的壓縮包格式
 
 ; *** "Preparing to Install" wizard page
 WizardPreparing=準備安裝程式
@@ -239,7 +252,7 @@ WizardInstalling=正在安裝
 InstallingLabel=請稍候，安裝程式正在將 [name] 安裝到您的電腦上
 
 ; *** "Setup Completed" wizard page
-FinishedHeadingLabel=完成 [name] 安裝
+FinishedHeadingLabel=已完成 [name] 安裝
 FinishedLabelNoIcons=安裝程式已經將 [name] 安裝在您的電腦上。
 FinishedLabel=安裝程式已經將 [name] 安裝在您的電腦中，您可以選擇程式的圖示來執行該應用程式。
 ClickFinish=按 「完成」 以結束安裝程式。
@@ -266,11 +279,15 @@ AbortRetryIgnoreSelectAction=選取動作
 AbortRetryIgnoreRetry=請再試一次 (&T)
 AbortRetryIgnoreIgnore=略過錯誤並繼續 (&I)
 AbortRetryIgnoreCancel=取消安裝
+RetryCancelSelectAction=選擇操作
+RetryCancelRetry=再試一次(&T)
+RetryCancelCancel=取消
 
 ; *** Installation status messages
 StatusClosingApplications=正在關閉應用程式...
 StatusCreateDirs=正在建立資料夾...
 StatusExtractFiles=正在解壓縮檔案...
+StatusDownloadFiles=正在下載檔案...
 StatusCreateIcons=正在建立程式集圖示...
 StatusCreateIniEntries=寫入 INI 檔案的項目...
 StatusCreateRegistryEntries=正在更新系統登錄...
@@ -298,8 +315,16 @@ ErrorIniEntry=在檔案“%1”建立 INI 項目錯誤。
 ; *** File copying errors
 FileAbortRetryIgnoreSkipNotRecommended=略過這個檔案 (不建議) (&S)
 FileAbortRetryIgnoreIgnoreNotRecommended=略過錯誤並繼續 (不建議) (&I)
-SourceDoesntExist=來源檔案“%1”不存在。
 SourceIsCorrupted=來源檔案已經損毀。
+SourceDoesntExist=來源檔案“%1”不存在。
+SourceVerificationFailed=來源檔案驗證失敗：%1
+VerificationSignatureDoesntExist=簽名檔案「%1」不存在
+VerificationSignatureInvalid=簽名檔案「%1」無效
+VerificationKeyNotFound=簽名檔案「%1」使用了未知的密鑰
+VerificationFileNameIncorrect=檔案名不正確
+VerificationFileTagIncorrect=檔案標籤不正確
+VerificationFileSizeIncorrect=檔案大小不正確
+VerificationFileHashIncorrect=檔案校驗和不匹配
 ExistingFileReadOnly2=無法取代現有檔案，因為檔案已標示為唯讀。
 ExistingFileReadOnlyRetry=移除唯讀屬性並重試 (&R)
 ExistingFileReadOnlyKeepExisting=保留現有檔案 (&K)
@@ -318,6 +343,8 @@ ErrorChangingAttr=在變更檔案屬性時發生錯誤:
 ErrorCreatingTemp=在目的資料夾中建立檔案時發生錯誤:
 ErrorReadingSource=讀取原始檔案時發生錯誤:
 ErrorCopying=複製檔案時發生錯誤:
+ErrorDownloading=嘗試下載檔案時發生錯誤：
+ErrorExtracting=嘗試提取壓縮包時發生錯誤：
 ErrorReplacingExistingFile=取代檔案時發生錯誤:
 ErrorRestartReplace=重新啟動電腦後取代檔案失敗:
 ErrorRenamingTemp=在目的資料夾變更檔案名稱時發生錯誤:

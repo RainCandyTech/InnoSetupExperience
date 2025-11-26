@@ -5,8 +5,8 @@
 // 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
 
 [Messages]
-// 20240610_RainCandyTech_ISEMain
-chinesetrad.AboutSetupNote=使用雨糖科技安裝體驗 {#RCInnoExpVer} 版本進行%n構建。
+// 20251114_RainCandyTech_ISEMain
+chinesetrad.AboutSetupNote=使用 Windose Installer {#RCInnoExpVer} 版本進行構建。
 
 // 20231114_RainCandyTech_ChineseSetupName
 //chinesetrad.FinishedHeadingLabel=完成 [name] 安裝

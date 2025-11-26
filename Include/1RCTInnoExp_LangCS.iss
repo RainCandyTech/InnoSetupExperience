@@ -1,14 +1,14 @@
-// 雨糖科技安装体验脚本 - 额外字符串参数（简体中文）
+// 雨糖科技 Windose Installer 安装体验脚本 - 额外字符串参数（简体中文）
 // Made with love by RainCandy Technology
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
 
 [Messages]
-// 20240610_RainCandyTech_ISEMain
-chinesesimp.AboutSetupNote=使用雨糖科技安装体验 {#RCInnoExpVer} 版本进行%n构建。
+// 20251114_RainCandyTech_ISEMain
+chinesesimp.AboutSetupNote=使用 Windose Installer {#RCInnoExpVer} 版本进行构建。
 
-// 20240709_RainCandyTech_ChineseSetupName
+// 20251114_RainCandyTech_ChineseSetupName
 chinesesimp.WelcomeLabel1=欢迎使用{#MyAppNameCS}安装向导
 chinesesimp.FinishedHeadingLabel=已完成{#MyAppNameCS}安装
 chinesesimp.FinishedLabelNoIcons=安装程序已在您的电脑中安装了{#MyAppNameCS}。
@@ -21,6 +21,7 @@ chinesesimp.SelectTasksLabel2=选择您想要安装程序在安装{#MyAppNameCS}时执行的附加
 //chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。要立即重启吗？
 chinesesimp.FinishedRestartMessage=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。%n%n要立即重启吗？
 chinesesimp.PreparingDesc=安装程序正在准备安装{#MyAppNameCS}到您的电脑。
+chinesesimp.SetupWindowTitle={#MyAppNameCS} - 安装程序
 
 [CustomMessages]
 // 20241029_RainCandyTech_InnoSetupExp_Strings

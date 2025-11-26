@@ -42,29 +42,29 @@ begin
   languageName := ActiveLanguage();
   if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then
   begin  // 中文版去掉了安装询问，直接打开就行
-    Log('[RainCandy Technology Inno Setup Experience] Info: Installer is running in Chinese, start Chinese version of GPU-Z.');
+    Log('[Windose Installer] Info: Installer is running in Chinese, start Chinese version of GPU-Z.');
     ShellExec('', ExpandConstant('{tmp}\gpuz.exe'), '', '', SW_SHOW, ewNoWait, ResultCode);
   end else
   begin  // 不是中文版，来看看电脑有没有安装好的程序
-    Log('[RainCandy Technology Inno Setup Experience] Info: Installer is not running in Chinese.');
+    Log('[Windose Installer] Info: Installer is not running in Chinese.');
     if (GPUZInstalled = true) then
     begin  // 如果检查到电脑有安装模式的 GPU-Z，就直接启动安装好的版本
-      Log('[RainCandy Technology Inno Setup Experience] Info: An existing installation of GPU-Z has detected. Launching...');
+      Log('[Windose Installer] Info: An existing installation of GPU-Z has detected. Launching...');
       ShellExec('', ExpandConstant('{reg:HKCU\Software\techPowerUp\GPU-Z,Install_Dir}\GPU-Z.exe'), '', '', SW_SHOW, ewNoWait, ResultCode);
     end else
     begin  // 如果没检测到安装好的 GPU-Z，就写入一个注册表键值，运行程序，然后再删掉
-      Log('[RainCandy Technology Inno Setup Experience] Info: No existing installation of GPU-Z has detected. ');
+      Log('[Windose Installer] Info: No existing installation of GPU-Z has detected. ');
       if not(RegValueExists(HKCU, 'Software\techPowerUp\GPU-Z', 'Install_Dir')) then
       begin
-      Log('[RainCandy Technology Inno Setup Experience] Info: Writing registry to avoid GPU-Z installation dialog, then launching...');
+      Log('[Windose Installer] Info: Writing registry to avoid GPU-Z installation dialog, then launching...');
         RegWriteStringValue(HKCU, 'Software\techPowerUp\GPU-Z', 'Install_Dir', 'no');
         ShellExec('', ExpandConstant('{tmp}\gpuz.exe'), '', '', SW_SHOW, ewNoWait, ResultCode);
         Sleep(5000);
-        Log('[RainCandy Technology Inno Setup Experience] Info: Wake up, start cleaning registry...');
+        Log('[Windose Installer] Info: Wake up, start cleaning registry...');
         RegDeleteValue(HKCU, 'Software\techPowerUp\GPU-Z', 'Install_Dir');
       end else
       begin
-        Log('[RainCandy Technology Inno Setup Experience] Info: Registry does not provide void installation directory...');
+        Log('[Windose Installer] Info: Registry does not provide void installation directory...');
         ShellExec('', ExpandConstant('{tmp}\gpuz.exe'), '', '', SW_SHOW, ewNoWait, ResultCode);
       end;  
     end;
