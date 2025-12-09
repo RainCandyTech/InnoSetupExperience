@@ -1,18 +1,19 @@
 // 雨糖科技 Windose Installer 安装体验脚本 - 主要函数
-// Made with love by RainCandy Technology
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20251123"
+#define RCInnoExpVer "20251208"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
 AboutSetupNote=Built with Windose Installer Version {#RCInnoExpVer}.
 
 [CustomMessages]
-// 20241029_RainCandyTech_InnoSetupExp_Strings
+// 20241206_RainCandyTech_InnoSetupExp_Strings
 // 对于中文，组件名称以英文打头的话，应在前面加空格
+RCTISEMyAppName={#MyAppName}
 RCTISEMainApp=Main application
 RCTISEInstNormal=Normal installation
 RCTISEInstWithoutNet=Disable network features
@@ -123,11 +124,31 @@ RCTASPrintNotAvailable=Print Function not available
 
 [Code]
 var // 全局变量
-  languageName: string;
+  languageName: String;
   Version: TWindowsVersion;
-  NijikaProcessName: string;
+  NijikaProcessName: String;
   RCTech_WinInstType: String;
+  RCTech_DebugVersion: Boolean;
+  RCTech_NeedStoreApp: Boolean;
+  RCTech_DoNotPlayBGM: Boolean;
+  IsSetupIncludingBGM: Boolean;
+  IsSetupBGMAllowNotPlay: Boolean;
+  IsShowFreeProvideMsg: Boolean;
 
+// 安装程序加载时，对变量进行初始化
+procedure AiMofVarInit;
+begin
+  RCTech_DebugVersion := {#MyAppIsDebugVersion};
+  RCTech_NeedStoreApp := {#MyAppIsNeedStoreApp};
+  languageName := ActiveLanguage();
+  NijikaProcessName  :=  ExtractFileName(ParamStr(0));
+  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', RCTech_WinInstType);
+  IsSetupIncludingBGM := {#MyAppSetupBGM};
+  IsSetupBGMAllowNotPlay := {#RCBGMAllowNotPlay}
+  IsShowFreeProvideMsg := {#MyAppShowFreePrevideMsg};
+  Log('[Windose Installer] Info: Variables initialization complete.');
+end;
+  
 procedure SetMarqueeProgress(Marquee: Boolean);
 begin  // 在用户等待安装程序执行操作的时候，可以通过这个滚动进度条让用户感知到安装程序没有卡死
   if Marquee then
@@ -203,3 +224,60 @@ end;
 // 调用系统函数实现进程结束功能，因为在别的地方直接 Exit; 压根不好使
 procedure ExitProcess(exitCode:integer);
 external 'ExitProcess@kernel32.dll stdcall';
+
+// 安装程序加载期间 BGM 相关检测与询问
+procedure BGMPlayDetection;
+begin
+  if (IsSetupIncludingBGM = true) then begin
+    // 如果静默安装或找到禁止播放 BGM 占位符，则禁止 BGM 播放
+    if (RCTIsSilent = true) or (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then begin
+      Log('[Windose Installer] Info: Config "NoBGM_RCTechSetup" detected, disable music playing!');
+      RCTech_DoNotPlayBGM := True;
+    end else begin
+      if (IsSetupBGMAllowNotPlay = true) then begin
+        // 如果允许不播放 BGM，则弹窗询问用户是否播放
+        if (SuppressibleMsgBox(CustomMessage('RCTMsgAskUserPlayBGM'), mbInformation, MB_YESNO, MB_YESNO) = IDNO) then begin
+          Log('[Windose Installer] Info: User choosed not to play music.');
+          RCTech_DoNotPlayBGM := True;
+        end;
+      end else begin
+        // 如果不允许不播放 BGM，则弹窗提示进行提醒
+          SuppressibleMsgBox(CustomMessage('RCTMsgWarnUserBGMWillPlay') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
+      end;
+    end;
+  end;
+end;
+
+// 测试版弹窗
+procedure DebugVersionNotice;
+begin
+  if (RCTech_DebugVersion = true) then begin
+    Log('[Windose Installer] Info: This application is a debug version.');
+    SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
+  end;
+end;
+
+// 按原样免费提供的相关提示
+procedure ShowFreeProvideMsg;
+begin
+  if (IsShowFreeProvideMsg = true) then begin
+    SuppressibleMsgBox(CustomMessage('RCTMsgFreeProvideNotice')+ #13#13 + CustomMessage('RCTMsgWebGetUpdateNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
+  end;
+end;
+
+// 安装体验初始化
+procedure AiMofSetupInit;
+begin
+  Log('[Windose Installer] Info: Initializing Setup Experience...');
+  AiMofVarInit;
+  GetWindowsVersionEx(Version);
+  Log('[Windose Installer] Info: The process name of setup is: ' + NijikaProcessName);
+end;
+
+// 程序检查完成后，继续安装体验初始化
+procedure AiMofPostChkInIt;
+begin
+  ShowFreeProvideMsg;
+  BGMPlayDetection;
+  DebugVersionNotice;
+end;

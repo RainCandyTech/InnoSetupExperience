@@ -1,5 +1,5 @@
 // 雨糖科技 Windose Installer 安装体验脚本 - 额外字符串参数（简体中文）
-// Made with love by RainCandy Technology
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
@@ -24,8 +24,11 @@ chinesesimp.PreparingDesc=安装程序正在准备安装{#MyAppNameCS}到您的电脑。
 chinesesimp.SetupWindowTitle={#MyAppNameCS} - 安装程序
 
 [CustomMessages]
-// 20241029_RainCandyTech_InnoSetupExp_Strings
+// 20251206_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
+//chinesesimp.UninstallProgram=卸载%1
+chinesesimp.LaunchProgram=运行%1
+chinesesimp.RCTISEMyAppName={#MyAppNameCS}
 chinesesimp.RCTISEMainApp=主程序
 chinesesimp.RCTISEInstNormal=一般安装
 chinesesimp.RCTISEInstWithoutNet=禁用联网功能

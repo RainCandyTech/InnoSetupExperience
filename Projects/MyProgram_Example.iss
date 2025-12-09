@@ -1,5 +1,5 @@
 ﻿; MyProgram_Example.iss
-; Made with love by RainCandy Technology
+; Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 ; 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 ; 本脚本以《Heaven For Death》为例，展示雨糖科技安装体验的功能。
@@ -26,6 +26,7 @@
 //#define MyAppExtraInfo "Artwork: ぜつよちまよ (@zetsuyochimayo)"   ;b0, b3, b8
 //#define MyAppExtraInfo "Artwork: ちょうはつ (@L_hair_)"   ;b2
 //#define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
+//#define MyAppExtraInfo "Artwork: ちか (@06chimika13)"   ;b5, b6, b8
 //#define MyAppExtraInfo "Artwork: いくしー (@Ixy)"   ;b7
 //#define MyAppExtraInfo "Artwork: pixiv @messyCode&"   ;b240401
 //#define MyAppExtraInfo "Artwork: KRSK (@SK_tsu96)"   ;b240515
@@ -35,6 +36,8 @@
 //#define MyAppTypeVersion ""
 #define MyAppRevisionVer "rNext"
 #define MyAppRevisionDate "180529"
+#define MyAppSetupBGM "true"
+#define RCBGMAllowNotPlay "true"
 #define MyAppSetupBGMType "xm"
 //#define MyAppSetupStyle "Office2007.cjstyles"
 #define MyAppArchitecture "x86"
@@ -42,12 +45,13 @@
 #define MyAppArchRCShort "32"
 #define MyAppIsDebugVersion "true"
 //#define MyAppPublishType ""
+#define MyAppShowFreePrevideMsg "false"
 #define MyAppIsNeedStoreApp "false"
 #define RCExtraStoreApp ""
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpVer "v6.3.3.8_241029"
+//#define RCInnoExpVer "v6.3.3.8_241029"
 #define RCAppConfType ""
 //#define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
@@ -99,7 +103,7 @@ WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //SetupLogging=yes
 //MinVersion=6.1
 //WizardStyle=modern
-WindowVisible=yes
+//WindowVisible=yes
 VersionInfoDescription={#MyAppName}
 //VersionInfoOriginalFileName={#MyAppOutputName}.exe
 RestartIfNeededByRun=no
@@ -126,27 +130,27 @@ Name: "english"; MessagesFile: "compiler:Default.isl";
 //Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
-// 20240913_RainCandyTech_ISEBeveledLabel
-BeveledLabel=For the youth that blooms
-chinesesimp.BeveledLabel=大鸣大放 年轻绚烂
-//chinesetrad.BeveledLabel=大鳴大放 年輕絢爛
-//japanese.BeveledLabel=若さを開花させる
+// 20251116_RainCandyTech_ISEBeveledLabel
+BeveledLabel=Made with love by RainCandy Technology
+chinesesimp.BeveledLabel=雨糖科技 以爱敬献
+chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
+//japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20240915_RainCandyTech_SloganAtISEBegin
-ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
-//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%n若さを開花させる%n%n{#MyAppExtraInfo}
-//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
-//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%nFor the youth that blooms%n%n{#MyAppExtraInfo}
+// 20251130_RainCandyTech_SloganAtISEBegin
+ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 梦想成真 生生不息%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 夢想成真 生生不息%n%n{#MyAppExtraInfo}
+//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました | 夢を現実に、生命を永遠に%n%n{#MyAppExtraInfo}
+//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
 
 // 20240206_RainCandyTech_Finish
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
@@ -187,58 +191,25 @@ CurrentProcessName=The process name of Setup is:
 chinesesimp.CurrentProcessName=安装程序的进程名称是：
 
 [Code]
-var // 全局变量
-  languageName: string;
-  Version: TWindowsVersion;
-  NijikaProcessName: string;
-
 function InitializeSetup: Boolean;
 var  // 安装程序加载
   BGMusicFile: string;
   BGMusicType: string;
   //val: Integer;
-  RCTech_WinInstType: String;
-  RCTech_DebugVersion: boolean;
-  RCTech_NeedStoreApp: boolean;
-  RCTech_DoNotPlayBGM: boolean;
 begin
-  Log('[RainCandy Technology Inno Setup Experience] Info: Initializing Setup...');
-  //Log('[RainCandy Technology Inno Setup Experience] Info: Placeholder Message');
-  ExtractTemporaryFile('Background.bmp');
+  AiMofSetupInit;
+  //Log('[Windose Installer] Info: Placeholder Message');
+  //ExtractTemporaryFile('Background.bmp');
   //ExtractTemporaryFile('AdvSplash.dll');
   //ExtractTemporaryFile('{#MyAppSetupStyle}');
   Result := True;
-  languageName := ActiveLanguage();
-  GetWindowsVersionEx(Version);
-  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', RCTech_WinInstType);
-  RCTech_DebugVersion := {#MyAppIsDebugVersion}
-  RCTech_NeedStoreApp := {#MyAppIsNeedStoreApp}
-  NijikaProcessName  :=  ExtractFileName(ParamStr(0));
-  
-  Log('[RainCandy Technology Inno Setup Experience] Info: Pre-install check passed...'); 
 
+  // 检查当前进程名，并弹窗提示
   SuppressibleMsgBox(CustomMessage('CurrentProcessName') + #13 + NijikaProcessName + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
 
-  if (RCTIsSilent = true) or (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then
-  begin  // 如果静默安装或找到禁止播放 BGM 占位符，则禁止 BGM 播放
-    Log('[RainCandy Technology Inno Setup Experience] Info: Config "NoBGM_RCTechSetup" detected, disable music playing!');
-    RCTech_DoNotPlayBGM := True;
-  end else begin
-    if (SuppressibleMsgBox(CustomMessage('RCTMsgAskUserPlayBGM'), mbInformation, MB_YESNO, MB_YESNO) = IDNO) then
-    begin  // 弹窗询问是否播放 BGM
-      Log('[RainCandy Technology Inno Setup Experience] Info: User choosed not to play music.');
-      RCTech_DoNotPlayBGM := True;
-    end;
-    // 对于不允许选择是否播放 BGM 的安装包，弹窗提示进行提醒
-    //SuppressibleMsgBox(CustomMessage('RCTMsgWarnUserBGMWillPlay') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);  
-  end;
-
-  // 测试版弹窗
-  if (RCTech_DebugVersion = true) then begin
-    Log('[RainCandy Technology Inno Setup Experience] Info: This application is a debug version.');
-    SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
-  end;
-
+  Log('[Windose Installer] Info: Pre-install check passed...'); 
+  AiMofPostChkInIt;
+  
   // 根据安装程序语言对 Splash 重命名
   //if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
     //if (languageName = 'chinesesimp') then begin
@@ -266,13 +237,13 @@ begin
     //BASSMOD_MusicFree;
   //end;
   //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true) then begin
-    //Log('[RainCandy Technology Inno Setup Experience] Info: Plugin BASSMOD prepare complete, start music playing...');
+    //Log('[Windose Installer] Info: Plugin BASSMOD prepare complete, start music playing...');
     //BASSMOD_MusicPlay;
   //end;
 
   // BGM 准备（ufMOD）
   if not (RCTech_DoNotPlayBGM = true) then begin
-    Log('[RainCandy Technology Inno Setup Experience] Info: Plugin ufMOD prepare complete, start music playing...');
+    Log('[Windose Installer] Info: Plugin ufMOD prepare complete, start music playing...');
     PlaySongFile(ExpandConstant('{tmp}\music.xm'));
   end;
 
@@ -282,26 +253,27 @@ begin
     //val:=callplug(0,ExpandConstant('{tmp}\AdvSplash.dll'),'show','2400','1400','400','-1',ExpandConstant('{tmp}\Splash'),'','','','','');
   //end;
 
-  Log('[RainCandy Technology Inno Setup Experience] Info: Prepare Complete...');
+  Log('[Windose Installer] Info: Prepare Complete...');
 end;
 
 procedure InitializeWizard();
-var
-  BackgroundImage: TBitmapImage;
+//var
+  //BackgroundImage: TBitmapImage;
 begin  // 安装向导加载
-  Log('[RainCandy Technology Inno Setup Experience] Info: Initializing Wizard...');
-  BackgroundImage := TBitmapImage.Create(MainForm);
-  BackgroundImage.Parent := MainForm;
-  BackgroundImage.SetBounds(0, 0, MainForm.ClientWidth, MainForm.ClientHeight);
-  BackgroundImage.Stretch := True;
-  BackgroundImage.Bitmap.LoadFromFile(ExpandConstant('{tmp}\Background.bmp'));
-  Log('[RainCandy Technology Inno Setup Experience] Background Load Complete...');
+  Log('[Windose Installer] Info: Initializing Wizard...');
+  //WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
+  //BackgroundImage := TBitmapImage.Create(MainForm);
+  //BackgroundImage.Parent := MainForm;
+  //BackgroundImage.SetBounds(0, 0, MainForm.ClientWidth, MainForm.ClientHeight);
+  //BackgroundImage.Stretch := True;
+  //BackgroundImage.Bitmap.LoadFromFile(ExpandConstant('{tmp}\Background.bmp'));
+  //Log('[Windose Installer] Background Load Complete...');
 end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
-  Log('[RainCandy Technology Inno Setup Experience] Info: Deinitializing Setup...');
-  //Log('[RainCandy Technology Inno Setup Experience] Info: Start to cleaning temp files...');
+  Log('[Windose Installer] Info: Deinitializing Setup...');
+  //Log('[Windose Installer] Info: Start to cleaning temp files...');
 end;
 
 function ShouldSkipPage(PageID: Integer): Boolean;
@@ -313,7 +285,7 @@ begin  // 跳过不必要页面
   //if (PageID = wpInfoAfter) then result := true;
   //if (PageID = wpFinished) then result := true;
   //if (PageID = wpSelectDir) then result := true;
-  //if (PageID = wpLicense) or (PageID = wpReady) then result := true;
+  //if (PageID = wpSelectComponents) then result := true;
   //if (PageID = wpLicense) or (PageID = wpReady) or (PageID = wpFinished) then result := true;
 end;
 
@@ -321,7 +293,7 @@ end;
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
 ; 全屏安装背景图 20230923 Updated （一般不启用）
 //Source: "..\Plugins\Background_Win.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
-Source: "..\Plugins\Background_NGO.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
+//Source: "..\Plugins\Background_NGO.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
 
 ; 视觉效果文件
 //Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;
