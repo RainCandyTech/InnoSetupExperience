@@ -13,4 +13,4 @@ chinesesimp.FileAbortRetryIgnore=单击“重试”进行重试，单击“忽略”跳过这个文件 
 chinesesimp.FileAbortRetryIgnore2=单击“重试”进行重试，单击“忽略”继续处理 (不推荐)，或单击“中断”取消安装。
 chinesesimp.FileExists=文件已经存在。%n%n您想要安装程序覆盖它吗？
 chinesesimp.MissingWOW64APIs=当前运行的 Windows 版本没有包含执行 64 位安装程序所需要的功能。要纠正此问题，请安装 Service Pack %1。
-chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-Chinese-Simplified-Translation
+chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-Chinese-%nSimplified-Translation

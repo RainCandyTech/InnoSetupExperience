@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20251208"
+#define RCInnoExpVer "20251214"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain

@@ -189,6 +189,8 @@ chinesetrad.FinishedRestartLabel=要完成 [name] 的安裝，安裝程式必須
 [CustomMessages]
 CurrentProcessName=The process name of Setup is:
 chinesesimp.CurrentProcessName=安装程序的进程名称是：
+ParamDetected=Specific parameter is detected!
+chinesesimp.ParamDetected=已检测到特定参数！
 
 [Code]
 function InitializeSetup: Boolean;
@@ -196,6 +198,7 @@ var  // 安装程序加载
   BGMusicFile: string;
   BGMusicType: string;
   //val: Integer;
+  j: Integer;
 begin
   AiMofSetupInit;
   //Log('[Windose Installer] Info: Placeholder Message');
@@ -206,6 +209,15 @@ begin
 
   // 检查当前进程名，并弹窗提示
   SuppressibleMsgBox(CustomMessage('CurrentProcessName') + #13 + NijikaProcessName + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
+
+  // 检测到指定参数（/KLuoNuoYa）时，退出安装程序
+  for j := 1 to ParamCount do
+    if (CompareText(ParamStr(j), '/KLuoNuoYa') = 0) then
+    begin
+      SuppressibleMsgBox(CustomMessage('ParamDetected') + #13 + CustomMessage('RCTMsgSetupExit'), mbError, MB_OK, MB_OK);
+      Result := False;
+      Exit;
+    end;
 
   Log('[Windose Installer] Info: Pre-install check passed...'); 
   AiMofPostChkInIt;

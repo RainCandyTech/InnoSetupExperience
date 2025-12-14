@@ -1,8 +1,10 @@
-﻿; WPS Office 雨糖科技特别版 - 雨糖科技安装体验 Inno Setup 脚本
-; Made with love by RainCandy Technology
+﻿; WPS Office 雨糖科技特别版 - 适用于 Windose Installer 的 Inno Setup 脚本
+; Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 ; 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
-//#define MyAppName "WPS Office RainCandy Technology Special"
+; 请注意，不再更新安装体验 Repo 中 WPS Office 的安装脚本。
+
+//#define MyAppName "WPS Office RainCandy Technology Special Edition"
 #define MyAppName "WPS Office 雨糖科技特别版"
 #define MyAppNameCS " WPS Office 雨糖科技特别版"
 #define MyAppMainName "WPS Office"
@@ -15,7 +17,7 @@
 #define MyAppPublisher "Zhuhai Kingsoft Office Software Co.,Ltd"
 //#define MyAppURL "http://raincandy.1337.moe/"
 #define MyAppURL "https://www.wps.cn/"   ;卡饭论坛不允许作品出现推广链接，故替换为官网链接
-#define MyAppExtraInfo ""
+//#define MyAppExtraInfo ""
 //#define MyAppExtraInfo "Artwork: pixiv @Kyokaz"   ;c0
 //#define MyAppExtraInfo "Artwork: しろううらやま (@urayamashiro)"   ;c3
 //#define MyAppExtraInfo "Artwork: モズ (@sushiuma_m_)"   ;c4
@@ -28,12 +30,12 @@
 //#define MyAppExtraInfo "Artwork: ちょうはつ (@L_hair_)"   ;b2
 //#define MyAppExtraInfo "Artwork: まよ (@oekaki_bibbi)"   ;b4
 //#define MyAppExtraInfo "Artwork: ちか (@06chimika13)"   ;b5, b6, b8
-//#define MyAppExtraInfo "Artwork: いくしー (@Ixy)"   ;b7
+#define MyAppExtraInfo "Artwork: いくしー (@Ixy)"   ;b7
 //#define MyAppExtraInfo "Artwork: pixiv @messyCode&"   ;b240401
 //#define MyAppExtraInfo "Artwork: KRSK (@SK_tsu96)"   ;b240515
 //#define MyAppExtraInfo "Artwork: pixiv @画师JW"   ;c240216
 #define MyAppExeName "WPSOffice.exe"
-#define MyAppOutputName "WPSOffice_RainCandySE"
+#define MyAppOutputName "WPSOffice_RCTSE"
 #define MyAppTypeVersion "Home"
 #define MyAppRevisionVer "rNext"
 #define MyAppRevisionDate "180529"
@@ -98,7 +100,7 @@ InfoAfterFile="..\Documents\credits_wps_umrse_bgm.rtf"
 OutputDir="..\Output"
 //OutputBaseFilename={#MyAppOutputName}_{#MyAppMarketVersion}_{#MyAppVersion}_{#MyAppRevisionVer}_{#MyAppRevisionDate}
 OutputBaseFilename={#MyAppOutputName}_{#MyAppMarketVersion}_{#MyAppVersion}_{#MyAppArchitecture}_{#MyAppRevisionVer}_{#MyAppRevisionDate}
-//OutputBaseFilename=WPSOffice{#MyAppMarketVersion}_{#MyAppVersion}_雨糖科技特别版_{#MyAppRevisionVer}
+//OutputBaseFilename=WPSOffice{#MyAppMarketVersion}_{#MyAppVersion}_雨糖科技特别版_{#MyAppArchitecture}_{#MyAppRevisionDate}{#MyAppRevisionVer}
 //OutputBaseFilename=wpssetup
 Compression=lzma2/ultra64
 SolidCompression=yes
@@ -112,7 +114,7 @@ SetupIconFile="..\Icons\WPSOffice_Home.ico"
 //SetupIconFile="..\Icons\WPSOffice_2016.ico"
 //SetupIconFile="..\Icons\WPSPDF.ico"
 DisableWelcomePage=false
-WizardImageFile="..\Artworks\WizModernImage-c2.bmp"
+WizardImageFile="..\Artworks\WizModernImage-b7.bmp"
 //WizardImageFile="..\Artworks\wpsoffice.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
@@ -150,27 +152,27 @@ Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; License
 //Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
-// 20240913_RainCandyTech_ISEBeveledLabel
-//BeveledLabel=For the youth that blooms
-//chinesesimp.BeveledLabel=大鸣大放 年轻绚烂
-//chinesetrad.BeveledLabel=大鳴大放 年輕絢爛
-//japanese.BeveledLabel=若さを開花させる
+// 20251116_RainCandyTech_ISEBeveledLabel
+//BeveledLabel=Made with love by RainCandy Technology
+//chinesesimp.BeveledLabel=雨糖科技 以爱敬献
+//chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
+//japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20240913_RainCandyTech_SloganAtISEBegin_ModernWizard
-ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
-//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
-//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました | 若さを開花させる%n%n{#MyAppExtraInfo}
-//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
-//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology | For the youth that blooms%n%n{#MyAppExtraInfo}
+// 20251130_RainCandyTech_SloganAtISEBegin
+ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 梦想成真 生生不息%n%n{#MyAppExtraInfo}
+//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 夢想成真 生生不息%n%n{#MyAppExtraInfo}
+//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました | 夢を現実に、生命を永遠に%n%n{#MyAppExtraInfo}
+//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
 
 // 20240206_RainCandyTech_Finish
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
@@ -217,7 +219,6 @@ var  // 安装程序加载
   BGMusicFile: string;
   BGMusicType: string;
   val: Integer;
-  RCTech_WinInstType: String;
   RCTech_DebugVersion: boolean;
   RCTech_NeedStoreApp: boolean;
   RCTech_DoNotPlayBGM: boolean;
@@ -237,13 +238,13 @@ begin
 
   if (RCTIsWin8Client = true) then
   begin   // 检查是否 Win 8 Client 版本，是则弹窗提示
-    Log('[RainCandy Technology Inno Setup Experience] Info: OS is not officially supported... (WPSOffice_New, Windows 8.x Client)');
+    Log('[Windose Installer] Info: OS is not officially supported... (WPSOffice_New, Windows 8.x Client)');
     SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgOSNotMeetRequirement'), ['Windows 8.x']) + FmtMessage(CustomMessage('RCTMsgOSMinRequirement'), ['Windows 7, Windows 10']) + #13#13 + CustomMessage('RCTMsgAppTryContinueInst') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
   end;
 
   if (RCTIsSilent = true) and (RunTask('wpsoffice.exe', false) or RunTask('wps.exe', false) or RunTask('et.exe', false) or RunTask('wpspdf.exe', false) or RunTask('wpsofd.exe', false)) then
   begin   // 静默安装时检查系统是否还有 WPS Office 的进程，如存在则报错提醒用户先行退出 WPS Office，然后安装程序退出
-    Log('[RainCandy Technology Inno Setup Experience] Error: Setup is in silent mode, and {#MyAppMainName} is still running!');
+    Log('[Windose Installer] Error: Setup is in silent mode, and {#MyAppMainName} is still running!');
     if (languageName = 'chinesesimp') then begin
       MsgBox(FmtMessage(CustomMessage('RCTMsgAppStillRunning'), ['{#MyAppMainNameCS}']) + #13 + CustomMessage('RCTMsgAppNoticeUserExit') + #13#13 + CustomMessage('RCTMsgSetupExit'), mbError, MB_OK);
     end;
@@ -261,12 +262,12 @@ begin
 
   if (RCTIsSilent = true) or (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then
   begin  // 如果静默安装或找到禁止播放 BGM 占位符，则禁止 BGM 播放
-    Log('[RainCandy Technology Inno Setup Experience] Info: Config "NoBGM_RCTechSetup" detected, disable music playing!');
+    Log('[Windose Installer] Info: Config "NoBGM_RCTechSetup" detected, disable music playing!');
     RCTech_DoNotPlayBGM := True;
   end else begin
     if (SuppressibleMsgBox(CustomMessage('RCTMsgAskUserPlayBGM'), mbInformation, MB_YESNO, MB_YESNO) = IDNO) then
     begin  // 弹窗询问是否播放 BGM
-      Log('[RainCandy Technology Inno Setup Experience] Info: User choosed not to play music.');
+      Log('[Windose Installer] Info: User choosed not to play music.');
       RCTech_DoNotPlayBGM := True;
     end;
     // 对于不允许选择是否播放 BGM 的安装包，弹窗提示进行提醒
@@ -275,7 +276,7 @@ begin
 
   // 测试版弹窗
   if (RCTech_DebugVersion = true) then begin
-    Log('[RainCandy Technology Inno Setup Experience] Info: This application is a debug version.');
+    Log('[Windose Installer] Info: This application is a debug version.');
     SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
   end;
 
@@ -312,7 +313,7 @@ begin
 
   // BGM 准备（ufMOD）
   if not (RCTech_DoNotPlayBGM = true) then begin
-    Log('[RainCandy Technology Inno Setup Experience] Info: Plugin ufMOD prepare complete, start music playing...');
+    Log('[Windose Installer] Info: Plugin ufMOD prepare complete, start music playing...');
     PlaySongFile(ExpandConstant('{tmp}\music.xm'));
   end;
 
@@ -345,7 +346,7 @@ begin   // 安装程序退出
   //BASSMOD_Free;
   if (WPSIA32Main = false) and (WPSAMD64Main = false) and (WPSHKCUMain = false) and (RCTIsWin8Client = true) then
   begin   // 检查是否未安装 WPS Office 且为 Win 8 系统，是则清理注册表
-    Log('[RainCandy Technology Inno Setup Experience] Info: WPS Office not installed & not officially supported OS! Now cleaning registry...');
+    Log('[Windose Installer] Info: WPS Office not installed & not officially supported OS! Now cleaning registry...');
     RegDeleteKeyIncludingSubkeys(HKLM{MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe')
   end;
   Log('[RainCandy Technology Inno Setup Experience] Info: Start to cleaning temp files...');
@@ -506,19 +507,19 @@ Source: "{#RCInnoExpProjectDir}\VBA_Installer\VBA_71_{#MyAppArchRC}\VBA7.1_for_W
 //Source: "{#RCInnoExpProjectDir}\VBA_Installer\VBA_71_{#MyAppArchRC}\Vba71_3802.msi"; DestDir: {tmp}\VBA\; Flags: ignoreversion overwritereadonly; Components: extra\ksovba;
 
 ; 微软 Access 数据库引擎安装包
-//Source: "{#RCInnoExpProjectDir}\yComponents\AceRedist_{#MyAppArchRC}\AceRedist_2016_en-US.msi"; DestName: "AceRedist.msi"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\aceredist; 
-//Source: "{#RCInnoExpProjectDir}\yComponents\AceRedist_{#MyAppArchRC}\AceRedist_2010_zh-CN.msi"; DestName: "AceRedist.msi"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\aceredist; Languages: chinesesimp; 
+//Source: "{#RCInnoExpProjectDir}\yComponents\AceRedist\AceRedist_2016_{#MyAppArchRC}_en-US.msi"; DestName: "AceRedist.msi"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\aceredist; 
+//Source: "{#RCInnoExpProjectDir}\yComponents\AceRedist\AceRedist_2010_{#MyAppArchRC}_zh-CN.msi"; DestName: "AceRedist.msi"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\aceredist; Languages: chinesesimp; 
 
 ; 程序配置文件
 ; Net：联网版   NoNet：离线版   Setup: 安装程序参数
 Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_net.ini"; DestName: "oem.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnet;
-//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_net_revive.ini"; DestName: "oem.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnet;
+//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_net{#RCAppConfType}.ini"; DestName: "oem.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnet;
 Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_nonet.ini"; DestName: "oem.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnonet;
-//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_nonet_revive.ini"; DestName: "oem.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnonet;
+//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_nonet{#RCAppConfType}.ini"; DestName: "oem.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnonet;
 //Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup.ini"; DestName: "oem_setup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
-//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup_revive.ini"; DestName: "oem_setup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
+//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup{#RCAppConfType}.ini"; DestName: "oem_setup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
 Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup_{#MyAppArchRC}.ini"; DestName: "oem_setup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
-//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup_{#MyAppArchRC}_revive.ini"; DestName: "oem_setup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
+//Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup_{#MyAppArchRC}{#RCAppConfType}.ini"; DestName: "oem_setup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
 
 ; 程序闪屏时的 Company Logo
 ; 从 240118 开始，特别版程序不再主动安装 Logo
@@ -572,7 +573,7 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\disablehomesearch.ini {tmp}\oem.ini"; Flags: runhidden; Components: extra\disablehomesearch;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\pdfadvanced.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\pdfadvanced;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\pdfenhanceversion.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\pdfadvanced;
-//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\pdfdisable.ini {tmp}\oem.ini"; Flags: runhidden; Components: wpspdf\disable;
+//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\pdfnotreadonly.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\pdfadvanced;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\ofd_support.ini {tmp}\oem.ini"; Flags: runhidden; Components: extra\ksorcofd;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\ofd_nonfinanceicon.ini {tmp}\oem.ini"; Flags: runhidden; Components: extra\ksorcofd;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\uof_noofficial.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\officialdocs;
@@ -656,7 +657,7 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters:
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\SysWOW64\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;
 
 ; 完成安装时启动程序
-//Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksolaunch.exe"; Description: "{cm:LaunchProgram,{#MyAppMainName}}"; Flags: postinstall nowait skipifsilent; Check: WPS{#MyAppArchRC}Main and KSOPrometheusMode;
+//Filename: "{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksolaunch.exe"; Description: "{cm:LaunchProgram,{cm:RCTISEMyAppName}}"; Flags: postinstall nowait skipifsilent; Check: WPS{#MyAppArchRC}Main and KSOPrometheusMode;
 //Filename: "{reg:HKCU\Software\kingsoft\Office\6.0\Common,InstallRoot}\office6\ksolaunch.exe"; Description: "{cm:LaunchProgram,{#MyAppMainName}}"; Flags: postinstall nowait skipifsilent; Check: WPSHKCUMain and KSOPrometheusMode;
 //Filename: "{reg:HKLM\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\wpspdf.exe"; Description: "{cm:LaunchProgram,{#MyAppMainName}}"; Flags: postinstall nowait skipifsilent; Check: KPDF{#MyAppArchRC}Main;
 
