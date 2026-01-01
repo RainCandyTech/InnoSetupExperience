@@ -15,7 +15,7 @@
 #define MyAppPublisher "Zhuhai Kingsoft Office Software Co.,Ltd"
 //#define MyAppURL "http://raincandy.1337.moe/"
 #define MyAppURL "https://www.wps.cn/"   ;卡饭论坛不允许作品出现推广链接，故替换为官网链接
-#define WizardImage "WizModernImage-c251225"
+#define WizardImage "WizModernImage-251225"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor

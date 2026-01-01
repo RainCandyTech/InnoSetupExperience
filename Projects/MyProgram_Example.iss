@@ -14,7 +14,7 @@
 #define MyAppMarketVersion "1"
 #define MyAppPublisher "RainCandy Technology"
 #define MyAppURL "http://raincandy.1337.moe/"
-#define WizardImage "WizModernImage-c251225"
+#define WizardImage "WizModernImage-c9"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor
