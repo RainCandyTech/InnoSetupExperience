@@ -81,12 +81,13 @@ japanese.RCTMsgAppNoticeUserExit=е╗е├е╚еве├е╫дЄ╘┘Мg╨╨д╣ды╟░д╦бвеве╫еъе▒й`е╖ечеєд
 japanese.RCTMsgPatchAppVerNotSupport=дк╩╣ддд╬е│еєе╘ехй`е┐д╦едеєе╣е╚й`еыд╡дьд╞ддды %1 еве╫еъд╬е╨й`е╕ечеєд╧╥к╝■дЄЬ║д┐д╖д╞ддд▐д╗дєбг
 japanese.RCTMsgPatchAppCurrentVer=мF╘┌едеєе╣е╚й`еыд╡дьд╞дддыеве╫еъд╬е╨й`е╕ечеєд╧┤╬д╬д╚дкдъд╟д╣г║
 
-// 20251231_RainCandyTech_WinDrv_Strings
+// 20260106_RainCandyTech_WinDrv_Strings
 japanese.WinDrvSignModeSelect=╩Ё├√етй`е╔▀xТk
 japanese.WinDrvSignModeOption=╩Ё├√етй`е╔ %1
 japanese.WDrvDeviceManager=е╟е╨еде╣ е▐е═й`е╕еуй`
 japanese.WDrvDevMgrOpen=е╟е╨еде╣ е▐е═й`е╕еуй`дЄ╞ЁД╙д╖д▐д╣
 japanese.WinDrvHDAudio=HD екй`е╟егеке╔ещеде╨й`
+japanese.WinDrvUSBC=USB-C е╔ещеде╨й`
 japanese.WDrvPreInstChk=едеєе╣е╚й`еы╟░д╬е╟е╨еде╣ЖЦю}е┴езе├еп
 japanese.WDrvPostInstChk=едеєе╣е╚й`еыссд╬е╟е╨еде╣ЖЦю}е┴езе├еп
 japanese.WDrvInstChkDesc=╥╘╧┬д╬╩╓эШд╦П╛д├д╞бве│еєе╘ехй`е┐╔╧д╬е╟е╨еде╣дЄ┤_╒Jд╖д╞дпд└д╡ддбг
