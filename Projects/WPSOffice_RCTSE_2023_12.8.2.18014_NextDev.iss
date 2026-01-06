@@ -275,7 +275,7 @@ begin
     PlaySongFile(ExpandConstant('{tmp}\music.xm'));
   end;
 
-  AiMofSplashInit;
+  //AiMofSplashInit;
 
   Log('[Windose Installer] Info: Prepare Complete...');
 end;
