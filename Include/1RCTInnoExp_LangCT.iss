@@ -84,12 +84,13 @@ chinesetrad.RCTMsgAppNoticeUserExit=請先退出應用程式，然後再重新運行安裝程式。
 chinesetrad.RCTMsgPatchAppVerNotSupport=計算機上安裝的%1程式版本不符合要求。
 chinesetrad.RCTMsgPatchAppCurrentVer=目前已安裝程式的版本為：
 
-// 20251231_RainCandyTech_WinDrv_Strings
+// 20260106_RainCandyTech_WinDrv_Strings
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇
 chinesetrad.WinDrvSignModeOption=簽章模式 %1
 chinesetrad.WDrvDeviceManager=裝置管理員
 chinesetrad.WDrvDevMgrOpen=啟動「裝置管理員」
 chinesetrad.WinDrvHDAudio=HD 音訊驅動
+chinesesimp.WinDrvUSBC=USB-C 驅動
 chinesetrad.WDrvPreInstChk=安裝前設備問題檢查
 chinesetrad.WDrvPostInstChk=安裝後設備問題檢查
 chinesetrad.WDrvInstChkDesc=請根據以下步驟，檢查您計算機上的設備。

@@ -34,7 +34,11 @@ procedure CreateModPage;
 begin // 自定义页面
   //######################释放所需文件##########################
   if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
-    Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk_Chinese.bmp');
+    if (languageName = 'chinesesimp') then begin
+      Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk_ChineseSimp.bmp');
+    end else begin
+      Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk_ChineseTrad.bmp');
+    end;
     Bitmap2FileName := ExpandConstant('{tmp}\GPUZChk_Chinese.bmp');
   end else
   begin
@@ -119,6 +123,36 @@ begin // 自定义页面
   //BitmapImage2.OnClick := @BitmapImageOnClick;
   BitmapImage2.Parent := postChkPage1.Surface;
     
+end;
+
+function PrepareToInstall(var NeedsRestart: Boolean): String;
+var // 在自定义页面中点击下一步后，“准备安装”应询问用户是否遇到了相关问题，如果遇到了则告知用户处理办法，同时终止安装过程
+  FirmwareType: Integer;
+begin
+  { TaskDialogMsgBox isn't a class but showing it anyway since it fits with the theme }
+
+  Log('[Windose Installer] Info: Gathering boot mode information...');
+  GetFirmwareType(FirmwareType); // 这里调用安装体验总 iss 中的过程，获取当前系统启动环境
+  Log('[Windose Installer] Info: Gathered boot mode code is: ' + IntToStr(FirmwareType) + '.');
+
+  if (TaskDialogMsgBox(CustomMessage('WDrvPreInstChk'),      // 询问弹窗
+                      CustomMessage('WDrvPreInstChkAskUser'),   
+                      mbInformation,
+                      MB_YESNOCANCEL, [CustomMessage('WDrvPreInstChkSameErrFound') + #10 + FmtMessage(CustomMessage('WDrvInstChkCodeFoundDesc'), ['12']), CustomMessage('WDrvPreInstChkSameErrNotFound') + #10 + CustomMessage('WDrvPreInstChkSameErrNotFoundDesc')],
+                      IDYES) = IDYES) then
+  begin
+    if (FirmwareType = 1) then begin
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking') + #13 + CustomMessage('WDrvFMBootModeLegacy') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+    end;
+    if (FirmwareType = 2) then begin
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUEFI') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeDisableCSM') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+    end;
+    if not (FirmwareType = 1) and not (FirmwareType = 2) then begin
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUnknown') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 +CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+    end;
+  end else begin
+    Result := '';
+  end;
 end;
 
 function NVIDIADrv_RequireReboot(): Boolean;
