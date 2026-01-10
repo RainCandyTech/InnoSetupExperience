@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260106"
+#define RCInnoExpVer "20260110"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -127,9 +127,9 @@ RCTASPrintNotAvailable=Print Function not available
 var // 全局变量
   languageName: String;
   Version: TWindowsVersion;
-  NijikaProcessName: String;
-  RCTech_WinInstType: String;
-  RCTech_DebugVersion: Boolean;
+  ProcessName: String;
+  WinInstType: String;
+  DebugVersion: Boolean;
   RCTech_NeedStoreApp: Boolean;
   RCTech_DoNotPlayBGM: Boolean;
   IsSetupIncludingBGM: Boolean;
@@ -139,11 +139,11 @@ var // 全局变量
 // 安装程序加载时，对变量进行初始化
 procedure AiMofVarInit;
 begin
-  RCTech_DebugVersion := {#MyAppIsDebugVersion};
+  DebugVersion := {#MyAppIsDebugVersion};
   RCTech_NeedStoreApp := {#MyAppIsNeedStoreApp};
   languageName := ActiveLanguage();
-  NijikaProcessName  :=  ExtractFileName(ParamStr(0));
-  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', RCTech_WinInstType);
+  ProcessName  :=  ExtractFileName(ParamStr(0));
+  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
   IsSetupIncludingBGM := {#MyAppSetupBGM};
   IsSetupBGMAllowNotPlay := {#RCBGMAllowNotPlay}
   IsShowFreeProvideMsg := {#MyAppShowFreePrevideMsg};
@@ -164,10 +164,10 @@ end;
 
 function RCTIsWinClient(): Boolean;
 var 
-  RCTech_WinInstType: String;
+  WinInstType: String;
 begin  // 检查系统是否为 Windows 客户端版本
-  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', RCTech_WinInstType);
-  if not (RCTech_WinInstType = 'Server') then
+  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
+  if not (WinInstType = 'Server') then
   begin
     result := true;
   end;
@@ -252,7 +252,7 @@ end;
 // 测试版弹窗
 procedure DebugVersionNotice;
 begin
-  if (RCTech_DebugVersion = true) then begin
+  if (DebugVersion = true) then begin
     Log('[Windose Installer] Info: This application is a debug version.');
     SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
   end;
@@ -272,7 +272,7 @@ begin
   Log('[Windose Installer] Info: Initializing Setup Experience...');
   AiMofVarInit;
   GetWindowsVersionEx(Version);
-  Log('[Windose Installer] Info: The process name of setup is: ' + NijikaProcessName);
+  Log('[Windose Installer] Info: The process name of setup is: ' + ProcessName);
 end;
 
 // 程序检查完成后，继续安装体验初始化

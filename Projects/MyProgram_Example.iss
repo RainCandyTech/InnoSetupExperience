@@ -195,7 +195,7 @@ begin
   Result := True;
 
   // 检查当前进程名，并弹窗提示
-  SuppressibleMsgBox(CustomMessage('CurrentProcessName') + #13 + NijikaProcessName + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
+  SuppressibleMsgBox(CustomMessage('CurrentProcessName') + #13 + ProcessName + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
 
   // 检测到指定参数（/KLuoNuoYa）时，退出安装程序
   for j := 1 to ParamCount do
