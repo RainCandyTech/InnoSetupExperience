@@ -8,10 +8,13 @@ RainCandy Technology Setup Experience - 雨糖科技安装体验
  感谢 [YukiIsait](https://github.com/YukiIsait) 编写的操作系统启动模式检测代码与 Dll 插件。代码 12 检测机制因此现可提供针对性的问题检测提示。
  
  * Thanks Sink's several advices for NVIDIA Graphics Driver installler for P10x & CMP series GPUs, which make the installation process more easier than before.<br>
-感谢独师孤行对 P10x 和 CMP 系列 GPU 的 NVIDIA 图形驱动程序安装程序的几项建议，使其安装过程对新手小白更加友好。
+感谢川海叶原对 P10x 和 CMP 系列 GPU 的 NVIDIA 图形驱动程序安装程序的几项建议，使其安装过程对新手小白更加友好。
 
 * Thanks HouYu for the fantastic new logo artwork of RainCandy Technology.<br>
 感谢侯鱼创作的全新雨糖科技 Logo 徽标。
+
+* Thanks [Kira](https://github.com/kira-96/Inno-Setup-Chinese-Simplified-Translation) for the Chinese Simplified translation of Inno Setup.
+感谢 [Kira](https://github.com/kira-96/Inno-Setup-Chinese-Simplified-Translation) 制作的 Inno Setup 安装程序简体中文翻译。
 
 * And all users of RainCandy Technology Setup Experience like you. Thank you...<br>
 以及与您一样的雨糖科技安装体验的全体用户。谢谢你们......
