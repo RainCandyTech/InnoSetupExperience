@@ -48,11 +48,11 @@ japanese.RCTISEAssocFileExtension=%1 ファイル拡張子を関連付ける
 japanese.RCTISEHotfix=修正プログラム（ご検討の上、お選びください）
 japanese.RCTISERunInstHotfix=修正プログラムをインストールしています。しばらくお待ちください...
 
-// 20241029_RainCandyTech_InnoSetupExp_Messages
+// RainCandyTech_InnoSetupExp_Messages
 japanese.RCTMsgSetupContinue=セットアップは続行されます。
 japanese.RCTMsgSetupExit=セットアップが終了します。
 japanese.RCTMsgAskContinue=続けますか？
-japanese.RCTMsgDebugNotice=このバージョンのプログラムは RainCandy Technology とその友人によるテスト専用ですので、テスト中に問題が見つかった場合は RainCandy Technology に報告してください。 ありがとうございます！
+japanese.RCTMsgDebugNotice=このバージョンのアプリケーションはテスト専用です。テスト中に発見された問題は、RainCandy Technology までフィードバックをお願いします。よろしくお願いいたします。
 japanese.RCTMsgRebootRequired=インストールプロセスを開始するには、コンピューターを再起動する必要があります。すべての作業を保存し、コンピューターを再起動してから、再度インストールプログラムを実行してください。
 japanese.RCTMsgAppAlreadyInst=コンピューターには既に %1 アプリがインストールされているようです。
 japanese.RCTMsgAskUserPlayBGM=セットアップに付属の BGM を再生しますか？%n%n「はい」をクリックすると、インストール中に BGM が再生されます。%n「いいえ」をクリックすると再生されません。
@@ -116,4 +116,4 @@ japanese.WDrvPublisherType=%1 ドライバーをインストールする
 
 // 20240528_RainCandyTech_AppSolution_Strings
 japanese.RCTASEditNotAvailable=編集機能は利用できません
-japanese.RCTASPrintNotAvailable=印刷機能は利用できません
+//japanese.RCTASPrintNotAvailable=印刷機能は利用できません

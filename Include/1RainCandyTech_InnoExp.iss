@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260110"
+#define RCInnoExpVer "20260122"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -51,11 +51,11 @@ RCTISEAssocFileExtension=Associate %1 file extension
 RCTISEHotfix=Hotfixes (Consideration is needed)
 RCTISERunInstHotfix=Installing Hotfixes. Please wait...
 
-// 20241025_RainCandyTech_InnoSetupExp_Messages
+// RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
-RCTMsgDebugNotice=This version of the application should only be used by RainCandy Technology and our friends for testing purposes. Please send your feedback to RainCandy Technology for any problems found during the test process. Thank you!
+RCTMsgDebugNotice=This version of the application is for testing purposes only. Please send your feedback to RainCandy Technology for any problems found during the test process. Thank you!
 RCTMsgRebootRequired=You must restart your computer before the installation. Please save all your work, restart your computer, and then run the setup again.
 RCTMsgAppAlreadyInst=It seems that you have already installed %1 application on your computer.
 RCTMsgAskUserPlayBGM=Do you want to play the background music of the setup?%n%nClick Yes, setup will play its background music during the installation. %nClick No, the music will not be played.
@@ -119,7 +119,7 @@ WDrvPublisherType=Install %1 driver
 
 // 20240526_RainCandyTech_AppSolution_Strings
 RCTASEditNotAvailable=Edit Function not available
-RCTASPrintNotAvailable=Print Function not available
+//RCTASPrintNotAvailable=Print Function not available
 
 [Run]
 

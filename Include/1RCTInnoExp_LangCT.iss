@@ -51,11 +51,11 @@ chinesetrad.RCTISEAssocFileExtension=建立 %1 格式檔案關聯
 chinesetrad.RCTISEHotfix=修補程式（請權衡後使用）
 chinesetrad.RCTISERunInstHotfix=正在安裝修補程式，請稍候...
 
-// 20241025_RainCandyTech_InnoSetupExp_Messages
+// RainCandyTech_InnoSetupExp_Messages
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。
 chinesetrad.RCTMsgSetupExit=安裝程式現在將退出。
 chinesetrad.RCTMsgAskContinue=您想繼續嗎？
-chinesetrad.RCTMsgDebugNotice=此版本的程式僅供雨糖科技和朋友們測試使用。 請就測試過程中發現的任何問題向雨糖科技提供迴響。謝謝！
+chinesetrad.RCTMsgDebugNotice=此版本的程式僅供測試使用。請就測試過程中發現的任何問題向雨糖科技提供迴響。謝謝！
 chinesetrad.RCTMsgRebootRequired=必須重新啟動計算機才能開始安裝過程。請儲存所有工作，重新啟動計算機，然後再次執行安裝程式。
 chinesetrad.RCTMsgAppAlreadyInst=看起來您的計算機可能已經安裝了%1應用程式。
 chinesetrad.RCTMsgAskUserPlayBGM=是否要播放安裝程式自帶的背景音樂？%n%n如果點按“是”，安裝程式將會在安裝過程中播放其背景音樂；%n如果點按“否”則不會播放。
@@ -119,4 +119,4 @@ chinesetrad.WDrvPublisherType=安裝 %1 驅動程式
 
 // 20240526_RainCandyTech_AppSolution_Strings
 chinesetrad.RCTASEditNotAvailable=編輯功能不可用
-chinesetrad.RCTASPrintNotAvailable=列印功能不可用
+//chinesetrad.RCTASPrintNotAvailable=列印功能不可用

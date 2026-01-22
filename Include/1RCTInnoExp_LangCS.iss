@@ -67,11 +67,11 @@ chinesesimp.RCTISEAssocFileExtension=建立 %1 格式文件关联
 chinesesimp.RCTISEHotfix=补丁（请权衡后安装）
 chinesesimp.RCTISERunInstHotfix=正在安装补丁，请稍候...
 
-// 20241025_RainCandyTech_InnoSetupExp_Messages
+// RainCandyTech_InnoSetupExp_Messages
 chinesesimp.RCTMsgSetupContinue=安装程序现在将继续。
 chinesesimp.RCTMsgSetupExit=安装程序现在将退出。
 chinesesimp.RCTMsgAskContinue=您想继续吗？
-chinesesimp.RCTMsgDebugNotice=本版本程序仅供雨糖科技和朋友们测试使用。请将测试过程中发现的问题反馈回雨糖科技。谢谢！
+chinesesimp.RCTMsgDebugNotice=本版本程序仅供测试使用。请将测试过程中发现的问题反馈回雨糖科技。谢谢！
 chinesesimp.RCTMsgRebootRequired=必须重新启动计算机才能开始安装过程。请保存所有工作，重新启动计算机，然后再次运行安装程序。
 chinesesimp.RCTMsgAppAlreadyInst=看起来您的计算机可能已经安装了%1应用程序。
 chinesesimp.RCTMsgAskUserPlayBGM=是否要播放安装程序的自带背景音乐？%n%n如果点击“是”，安装程序将会在安装过程中播放其背景音乐；%n如果点击“否”则不会播放。
@@ -135,4 +135,4 @@ chinesesimp.WDrvPublisherType=安装 %1 驱动程序
 
 // 20240526_RainCandyTech_AppSolution_Strings
 chinesesimp.RCTASEditNotAvailable=编辑功能不可用
-chinesesimp.RCTASPrintNotAvailable=打印功能不可用
+//chinesesimp.RCTASPrintNotAvailable=打印功能不可用
