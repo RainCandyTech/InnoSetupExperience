@@ -140,7 +140,7 @@ var // 全局变量
 procedure AiMofVarInit;
 begin
   DebugVersion := {#MyAppIsDebugVersion};
-  RCTech_NeedStoreApp := {#MyAppIsNeedStoreApp};
+  NeedStoreApp := {#MyAppIsNeedStoreApp};
   languageName := ActiveLanguage();
   ProcessName  :=  ExtractFileName(ParamStr(0));
   RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
