@@ -35,6 +35,7 @@ begin
     result := true;
   end;
   RegQueryDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Services\DeviceInstall\Parameters', 'DeviceInstallDisabled', DeviceInstDisableState)
+  if (DeviceInstDisableState = 1) then
   begin
     Log('[Windose Installer] Error: "DeviceInstall" service has been configured to disable device installation!');
     result := true;
