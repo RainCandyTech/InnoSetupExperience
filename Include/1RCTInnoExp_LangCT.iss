@@ -84,7 +84,7 @@ chinesetrad.RCTMsgAppNoticeUserExit=請先退出應用程式，然後再重新運行安裝程式。
 chinesetrad.RCTMsgPatchAppVerNotSupport=計算機上安裝的%1程式版本不符合要求。
 chinesetrad.RCTMsgPatchAppCurrentVer=目前已安裝程式的版本為：
 
-// 20260106_RainCandyTech_WinDrv_Strings
+// RainCandyTech_WinDrv_Strings
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇
 chinesetrad.WinDrvSignModeOption=簽章模式 %1
 chinesetrad.WDrvDeviceManager=裝置管理員
@@ -112,7 +112,7 @@ chinesetrad.WDrvFMBootModeLegacy=您正在使用傳統 BIOS 啟動模式。
 chinesetrad.WDrvFMBootModeUEFI=您正在使用 UEFI 啟動模式。
 chinesetrad.WDrvFMBootModeUnknown=我們無法確定您正在使用的啟動模式。
 chinesetrad.RCTDisplayDrvUninstInstruction=如果您遇到了問題，請先嘗試卸載這些現有的裝置驅動，然後再次運行安裝程式。您可能需要一些工具，例如「Display Driver Uninstaller」(DDU)。
-chinesetrad.WDrvDenyUnspecDeviceInstWarning=作業系統設置了群組原則，禁止特定情況下的裝置安裝。此問題可能會導致驅動程式安裝失敗。%n%n如要解決此問題，請在群組原則編輯器中禁用裝置的安裝限制，重新啟動計算機，然後重新運行安裝程式。
+chinesetrad.WDrvDenyUnspecDeviceInstWarning=作業系統的裝置安裝服務已經被停用，或者已經設定了群組原則規則，禁止特定情況下的裝置安裝。此問題可能會導致驅動程式安裝失敗。%n%n如要解決此問題，請啟用相關服務，並在群組原則編輯器中取消裝置安裝限制，然後重新啟動計算機。
 chinesetrad.WDrvChkCode12NextNotice=在正常情況下，此報錯問題不應該出現。%n檢查完畢後，請點按「下一步」繼續。安裝程式隨後會就您當前的情況進行詢問。
 chinesetrad.WDrvFMConfErrIGFXNotWorking=此問題將會導致整合式顯示卡以及不支持顯示輸出的 GPU 裝置（如 NVIDIA P106-100 和 CMP 40HX）無法正常工作。
 chinesetrad.WDrvPublisherType=安裝 %1 驅動程式

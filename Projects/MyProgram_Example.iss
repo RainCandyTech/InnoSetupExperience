@@ -30,7 +30,7 @@
 #define MyAppArchitecture "x86"
 #define MyAppArchRC "IA32"
 #define MyAppArchRCShort "32"
-#define MyAppIsDebugVersion "true"
+#define MyAppIsDebugVersion "true"   ;正式外发版本一定要关闭！！！
 //#define MyAppPublishType ""
 #define MyAppShowFreePrevideMsg "false"
 #define MyAppIsNeedStoreApp "false"

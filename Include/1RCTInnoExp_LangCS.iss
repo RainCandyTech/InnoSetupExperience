@@ -100,7 +100,7 @@ chinesesimp.RCTMsgAppNoticeUserExit=请先退出应用程序，然后再重新运行安装程序。
 chinesesimp.RCTMsgPatchAppVerNotSupport=计算机中安装的%1程序版本不符合要求。
 chinesesimp.RCTMsgPatchAppCurrentVer=目前已安装程序的版本为：
 
-// 20251231_RainCandyTech_WinDrv_Strings
+// RainCandyTech_WinDrv_Strings
 chinesesimp.WinDrvSignModeSelect=签名模式选择
 chinesesimp.WinDrvSignModeOption=签名模式 %1
 chinesesimp.WDrvDeviceManager=设备管理器
@@ -128,7 +128,7 @@ chinesesimp.WDrvFMBootModeLegacy=您正在使用传统 BIOS 启动模式。
 chinesesimp.WDrvFMBootModeUEFI=您正在使用 UEFI 启动模式。
 chinesesimp.WDrvFMBootModeUnknown=我们无法确定您正在使用的启动模式。
 chinesesimp.RCTDisplayDrvUninstInstruction=如果您遇到了问题，请先尝试卸载这些现有的设备驱动，然后再次运行安装程序。您可能需要一些工具，例如“Display Driver Uninstaller” (DDU)。
-chinesesimp.WDrvDenyUnspecDeviceInstWarning=操作系统设置了组策略规则，禁止特定情况下的设备安装。此问题可能会导致驱动程序安装失败。%n%n如要解决此问题，请在组策略编辑器中禁用设备的安装限制，重新启动计算机，然后重新运行安装程序。
+chinesesimp.WDrvDenyUnspecDeviceInstWarning=操作系统的设备安装服务已经被禁用，或者已经设置了组策略规则，禁止特定情况下的设备安装。此问题可能会导致驱动程序安装失败。%n%n如要解决此问题，请启用相关服务，并在组策略编辑器中取消设备安装限制，然后重新启动计算机。
 chinesesimp.WDrvChkCode12NextNotice=在正常情况下，此报错问题不应该出现。%n检查完毕后，请点击“下一步”继续。安装程序随后会就您当前的情况进行询问。
 chinesesimp.WDrvFMConfErrIGFXNotWorking=此问题将会导致集成显卡（核芯显卡）以及不支持显示输出的 GPU 设备（如英伟达 P106-100 和 CMP 40HX）无法正常工作。
 chinesesimp.WDrvPublisherType=安装 %1 驱动程序

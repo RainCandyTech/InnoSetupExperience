@@ -25,12 +25,18 @@ external 'GetFirmwareType@kernel32.dll stdcall';
 function IsDenyUnspecDevice(): Boolean;
 var  // 检查注册表是否存在设备安装限制相关键值
   DeviceUnspecDenyState: Cardinal;
+  DeviceInstDisableState: Cardinal;
 begin
   result:= false;
   RegQueryDWordValue(HKLM, 'SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions', 'DenyUnspecified', DeviceUnspecDenyState)
   if (DeviceUnspecDenyState = 1) then
   begin
-    Log('[Windose Installer] Warning: The OS has been configured to block installation for all device that is not specified in group policy!');
+    Log('[Windose Installer] Error: The OS has been configured to block installation for all device that is not specified in group policy!');
+    result := true;
+  end;
+  RegQueryDWordValue(HKLM, 'SYSTEM\CurrentControlSet\Services\DeviceInstall\Parameters', 'DeviceInstallDisabled', DeviceInstDisableState)
+  begin
+    Log('[Windose Installer] Error: "DeviceInstall" service has been configured to disable device installation!');
     result := true;
   end;
 end;

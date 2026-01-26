@@ -5,6 +5,9 @@
 // 本脚本的代码主要用于检测计算机中 Corel 会声会影的已安装版本。
 
 [Code]
+var // 全局变量
+  VideoStudioVersion: String;
+
 function DS01IA32CVS(): Boolean;
 begin  // 检查是否安装会声会影 @ 影音宝典 2010 32 位主程序
   result:= false;

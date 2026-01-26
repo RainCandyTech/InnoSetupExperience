@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260122"
+#define RCInnoExpVer "20260126"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -84,7 +84,7 @@ RCTMsgAppNoticeUserExit=Please quit the application, then run the setup again.
 RCTMsgPatchAppVerNotSupport=The version of %1 application installed on your computer does not meet the requirements.
 RCTMsgPatchAppCurrentVer=The version of application that you currently have installed is:
 
-// 20251231_RainCandyTech_WinDrv_Strings
+// RainCandyTech_WinDrv_Strings
 WinDrvSignModeSelect=Signature mode select
 WinDrvSignModeOption=Signature mode %1
 WDrvDeviceManager=Device Manager
@@ -112,7 +112,7 @@ WDrvFMBootModeLegacy=You are now using legacy BIOS boot mode.
 WDrvFMBootModeUEFI=You are now using UEFI boot mode.
 WDrvFMBootModeUnknown=We can't determine which boot mode you're using.
 RCTDisplayDrvUninstInstruction=In case of you are having trouble, try to uninstalling these existing drivers, then run the setup again. You may need some tools like "Display Driver Uninstaller" (DDU).
-WDrvDenyUnspecDeviceInstWarning=The operating system has been configured to block device installation under the rules of group policy. This problem may cause failure of the driver installation.%n%nTo solve this problem, please disable device install limitations in group policy editor, reboot the computer, and then try to run setup again.
+WDrvDenyUnspecDeviceInstWarning=The device installation service of the operating system has been disabled, or a Group Policy rule has been set to prohibit device installation under specific circumstances. This issue may cause driver installation to fail.%n%nTo resolve this issue, please enable the relevant service and remove the device installation restrictions in the Group Policy Editor, then restart your computer.
 WDrvChkCode12NextNotice=Under normal circumstances, this error should not occur.%nOnce the check is complete, click "Next" to continue. Then, setup will ask you about your current situation.
 WDrvFMConfErrIGFXNotWorking=This issue will cause integrated graphics and GPU devices that do not support display output (like NVIDIA P106-100 and CMP 40HX) to not work properly.
 WDrvPublisherType=Install %1 driver
@@ -130,7 +130,7 @@ var // 全局变量
   ProcessName: String;
   WinInstType: String;
   DebugVersion: Boolean;
-  RCTech_NeedStoreApp: Boolean;
+  NeedStoreApp: Boolean;
   RCTech_DoNotPlayBGM: Boolean;
   IsSetupIncludingBGM: Boolean;
   IsSetupBGMAllowNotPlay: Boolean;

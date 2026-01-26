@@ -31,7 +31,7 @@
 #define MyAppArchitecture "x86"
 #define MyAppArchRC "IA32"
 #define MyAppArchRCShort "32"
-#define MyAppIsDebugVersion "true"
+#define MyAppIsDebugVersion "true"   ;正式外发版本一定要关闭！！！
 //#define MyAppPublishType "Internal_10"
 //#define MyAppPublishType "Internal_11"
 //#define MyAppPublishType "Internal_12"
@@ -103,8 +103,8 @@ DefaultDirName={pf}\Kingsoft\WPS Office
 //ArchitecturesInstallIn64BitMode=x64
 Uninstallable=no
 //SetupIconFile="..\Icons\WPSOffice.ico"
-SetupIconFile="..\Icons\WPSOffice_Business.ico"
-//SetupIconFile="..\Icons\WPSOffice_WPS365.ico"
+//SetupIconFile="..\Icons\WPSOffice_Business.ico"
+SetupIconFile="..\Icons\WPSOffice_WPS365.ico"
 //SetupIconFile="..\Icons\WPSOffice_2016.ico"
 //SetupIconFile="..\Icons\WPSPDF.ico"
 DisableWelcomePage=false
@@ -115,8 +115,8 @@ WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 MinVersion=5.1
 //WizardStyle=modern
 //VersionInfoDescription={#MyAppName}
-VersionInfoDescription=WPS Install Application
-//VersionInfoDescription=WPS 365 Install Application
+//VersionInfoDescription=WPS Install Application
+VersionInfoDescription=WPS 365 Install Application
 //VersionInfoOriginalFileName={#MyAppOutputName}.exe
 //VersionInfoOriginalFileName=Windose.exe
 //AlwaysRestart=yes
@@ -476,7 +476,7 @@ Source: "{src}\NijikaWPSExtraConf.ini"; DestName: "ExtraConf.ini"; DestDir: {tmp
 
 ; 微软 Access 数据库引擎安装包
 //Source: "{#RCInnoExpProjectDir}\yComponents\AceRedist\AceRedist_2016_{#MyAppArchRC}_en-US.msi"; DestName: "AceRedist.msi"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\aceredist; 
-//Source: "{#RCInnoExpProjectDir}\yComponents\AceRedist\AceRedist_2010_{#MyAppArchRC}_zh-CN.msi"; DestName: "AceRedist.msi"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\aceredist;
+Source: "{#RCInnoExpProjectDir}\yComponents\AceRedist\AceRedist_2010_{#MyAppArchRC}_zh-CN.msi"; DestName: "AceRedist.msi"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\aceredist;
 
 ; 程序配置文件
 ; Net：联网版   NoNet：离线版   Setup: 安装程序参数
@@ -492,8 +492,6 @@ Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup.ini"; DestNam
 //Source: "{#RCInnoExpProjectDir}\Conf_{#MyAppPublishType}\oem_setup_{#MyAppArchRC}_{#RCWPSConfFormat}.ini"; DestName: "oem_setup.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
 
 ; 产品配置文件
-; Net：联网版   NoNet：离线版
-; 现在新版程序中部分参数只能在 product.dat 中被接受，所以新版程序要有专门的定制产品配置文件
 //Source: "{#RCInnoExpProjectDir}\Conf_1Product-dat\{#MyAppVersion}\product_net.dat"; DestName: "product.dat"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnet;
 //Source: "{#RCInnoExpProjectDir}\Conf_1Product-dat\{#MyAppVersion}\product_net.dat"; DestName: "product.dat"; DestDir: {tmp}\OemFile\cfgs; Flags: ignoreversion overwritereadonly; Components: main\ksorcnet;
 //Source: "{#RCInnoExpProjectDir}\Conf_1Product-dat\{#MyAppVersion}\product_nonet.dat"; DestName: "product.dat"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main\ksorcnonet;
