@@ -42,6 +42,14 @@ begin  // 检查是否安装金山 PDF 独立版 32 位主程序
   end;
 end;
 
+function KPDFAMD64Main(): Boolean;
+begin  // 检查是否安装金山 PDF 独立版 64 位主程序
+  result:= false;
+  if (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+    result:= true;
+  end;
+end;
+
 function KPDFHKCUMain(): Boolean;
 begin  // 检查是否安装金山 PDF 独立版 32 位主程序（单用户安装）
   result:= false;
@@ -86,5 +94,26 @@ begin
   if (RCTech_KSOAppMode = 'prome_independ') then begin
     //Log('[Windose Installer] Info: WPS Office is in multi-component mode.');
     result:= true;
+  end;
+end;
+
+procedure SetUninstNameWPS();
+begin  // 设置系统程序卸载列表中的应用程序名字（WPS 主程序）
+  RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\Common','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版');
+  if (WPS{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
+    RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
+  end;
+  if (WPSHKCUMain = true) and (RegValueExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
+    RegWriteStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
+  end;
+end;
+
+procedure SetUninstNameWPSPDF();
+begin  // 设置系统程序卸载列表中的应用程序名字（WPS PDF 独立版）
+  if (KPDF{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
+    RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
+  end;
+  if (KPDFHKCUMain = true) and (RegValueExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
+    RegWriteStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;
 end;

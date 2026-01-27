@@ -28,7 +28,7 @@ begin  // 当安装程序检测到已安装 WPS Office 时，提醒用户安装 
   end;
 end;
 
-procedure NijikaUninstAppName();
+procedure SetUninstNameMT();
 begin  // 对于简体中文，为系统卸载管理处写入中文信息
   if (MathType{#MyAppMajorVersion}Main = true) and (languageName = 'chinesesimp') and (RegValueExists(HKLM32, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DSMT{#MyAppMajorVersion}', 'DisplayName')) then begin
     RegWriteStringValue(HKLM32, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DSMT{#MyAppMajorVersion}','DisplayName', 'MathType 雨糖科技特别版');
@@ -37,6 +37,6 @@ end;
 
 procedure MT7AfterInst();
 begin  // 对于 MathType 7 版本的安装后处理
-  NijikaUninstAppName;
+  SetUninstNameMT;
   RCTMTNoticeWPS;
 end;
