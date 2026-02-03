@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260127"
+#define RCInnoExpVer "20260203"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -263,6 +263,19 @@ procedure ShowFreeProvideMsg;
 begin
   if (IsShowFreeProvideMsg = true) then begin
     SuppressibleMsgBox(CustomMessage('RCTMsgFreeProvideNotice')+ #13#13 + CustomMessage('RCTMsgWebGetUpdateNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
+  end;
+end;
+
+// 检查操作系统版本是否支持 .NET Framework 4.8
+function SupportDotNet48(): Boolean;
+begin
+  result:= false;
+  if Version.NTPlatform and (
+    ((Version.Major = 6) and (Version.Build = 7601) or (Version.Build = 9200) or (Version.Build = 9600)) or
+    ((Version.Major >= 10) and (Version.Build >= 14393))
+  ) then
+  begin
+    Result := True;
   end;
 end;
 

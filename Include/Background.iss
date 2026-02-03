@@ -10,7 +10,6 @@ WindowVisible=yes
 
 [Code]
 var // 全局变量
-  val: Integer;
   BackgroundImage: TBitmapImage;
 
 // 初始化背景图像
