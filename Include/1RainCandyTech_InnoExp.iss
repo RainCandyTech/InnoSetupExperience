@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260203"
+#define RCInnoExpVer "20260219"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -50,6 +50,8 @@ RCTISEOSArchARM64=ARM64 architecture OS
 RCTISEAssocFileExtension=Associate %1 file extension
 RCTISEHotfix=Hotfixes (Consideration is needed)
 RCTISERunInstHotfix=Installing Hotfixes. Please wait...
+RCTASEditNotAvailable=Edit Function not available
+RCTISEFeatureExpWarn=May be unstable, use with caution
 
 // RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
@@ -71,7 +73,7 @@ RCTMsgMustUninstExistVer=Please uninstall the existing version of the applicatio
 RCTMsgPatchAppNotExistNotice=We cannot find %1 application on your computer.
 RCTMsgPatchAppNotExistChk=Make sure you have installed the application properly, and then try again.
 RCTMsgWinStoreSvcChkFailed=One or more of the necessary services used to deploy Microsoft Store apps have been disabled and may affect the installation of %1. We strongly recommend you to enable these following services before proceeding with the installation.
-RCTMsgChkFinishNextNotice=Once the check is complete, click "Next" to continue.
+RCTMsgChkFinishNextNotice=Once the check is complete, click Next to continue.
 RCTMsgFollowSteps= Please follow these steps:
 RCTMsgStepNumber=Step %1:
 RCTMsgRequireAMD64=This application requires an x86_64 / AMD64 architecture operating system.
@@ -99,27 +101,23 @@ WDrvPreInstChkSameErrFound=I'm seeing the same error issue.
 WDrvInstChkCodeFoundDesc=Find out what to do next.%nYou should only click this button if you find a specific error for "Code %1".
 WDrvPreInstChkSameErrNotFound=I didn't find any issue, or the issue was not the same as the one mentioned earlier in the setup.
 WDrvPreInstChkSameErrNotFoundDesc=Setup will continue.%nIf you have other error issues, click this button as well. Once the driver installation is complete, these issues may be resolved.
-WDrvPreInstChkNowNotice=Now, you need to open the Device Manager and see if there are any devices with exclamation mark icon in%nthe "Display adapters" category. If so, double-click the icon to check if it has a "Code %1" error.
-WDrvPostInstChkNowNotice=Now, you need to launch GPU-Z to confirm your graphics card is working properly.%nPlease select your NVIDIA graphics card in GPU-Z and check whether the clock and memory info could be%nread by the application.%n%nIf the application couldn't get the proper information, there might be some issues with your graphics card,%nlike an unplugged power cable or a damaged graphics card.
-WDrvFMConfHasError=It seems that there is a problem with your computer's current firmware / UEFI BIOS configuration.
+WDrvPreInstChkNowNotice=Now you need to open the Device Manager and check if there are any devices with exclamation%nmark icon in the "Display adapters" category. If there are, double-click the icon and see if there is%nan error message containing "Code %1". This issue should not occur under normal circumstances.
+WDrvPostInstChkNowNotice=Now you need to launch GPU-Z to confirm your graphics card is working properly.%nPlease select your NVIDIA graphics card in GPU-Z and check whether the clock and memory info%ncould be read by the application.%nIf you couldn't get the proper information, that means there're some issues with your graphics%ncard, such as the power cable is not properly connected, or the graphics card is damaged.
+WDrvFMConfHasError=There's a problem with your computer's current firmware / UEFI BIOS configuration.
 //WDrvFMBootModeIs=The current operating system boot mode is: 
-WDrvFMBootModeHowTo=Please convert the partition table of the disk containing the operating system to GPT/GUID format. You can use tools such as Windows recovery environment / installation media, MBR2GPT utility and so on. Then, make sure to perform a system boot repair to complete the conversion to UEFI boot mode.
+WDrvFMBootModeHowTo=Convert the partition table of the disk containing the OS to GPT/GUID format. You can use tools such as Windows RE / installation media, MBR2GPT utility and so on. Then, make sure to perform OS boot repair to complete the conversion to UEFI boot mode.
 //WDrvFMBootModeUEFIIgnore=(Skip this step if you are already using UEFI boot mode.)
-WDrvFMBootModeDisableCSM=Enter the UEFI BIOS settings, then find and disable the "Compatibility Support Module" (CSM) option.
-WDrvFMBootModeLegacyDisableWarning=Important: The operating system WILL NOT BOOT if you disabled this option without performing the first step.
+WDrvFMBootModeDisableCSM=Enter the UEFI BIOS settings, find and disable "Compatibility Support Module" (CSM) option.
+WDrvFMBootModeLegacyDisableWarning=Important: The OS WILL NOT BOOT if you disabled this option without the first step.
 WDrvFMBootModeHowToASUSExtra=For some particular motherboard model, like some H81 or B85 motherboard by ASUS, it is also necessary to edit some settings in the UEFI BIOS Utility, such as "Primary Display" & "iGPU Multi-Monitor".
 WDrvFMBootModeLegacy=You are now using legacy BIOS boot mode. 
 WDrvFMBootModeUEFI=You are now using UEFI boot mode.
 WDrvFMBootModeUnknown=We can't determine which boot mode you're using.
 RCTDisplayDrvUninstInstruction=In case of you are having trouble, try to uninstalling these existing drivers, then run the setup again. You may need some tools like "Display Driver Uninstaller" (DDU).
 WDrvDenyUnspecDeviceInstWarning=The device installation service of the operating system has been disabled, or a Group Policy rule has been set to prohibit device installation under specific circumstances. This issue may cause driver installation to fail.%n%nTo resolve this issue, please enable the relevant service and remove the device installation restrictions in the Group Policy Editor, then restart your computer.
-WDrvChkCode12NextNotice=Under normal circumstances, this error should not occur.%nOnce the check is complete, click "Next" to continue. Then, setup will ask you about your current situation.
-WDrvFMConfErrIGFXNotWorking=This issue will cause integrated graphics and GPU devices that do not support display output (like NVIDIA P106-100 and CMP 40HX) to not work properly.
+WDrvChkCode12NextNotice=Once the check is complete, click Next to continue. Then, setup will ask you about your current situation.
+WDrvFMConfErrIGFXNotWorking=This issue will cause integrated graphics and GPU devices without display output support (like NVIDIA P106-100 and CMP 40HX) not working properly.
 WDrvPublisherType=Install %1 driver
-
-// 20240526_RainCandyTech_AppSolution_Strings
-RCTASEditNotAvailable=Edit Function not available
-//RCTASPrintNotAvailable=Print Function not available
 
 [Run]
 

@@ -39,7 +39,6 @@
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
 //#define RCInnoExpVer "v6.3.3.8_241029"
-#define RCAppConfType ""
 //#define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
 

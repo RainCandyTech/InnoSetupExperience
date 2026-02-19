@@ -63,7 +63,8 @@ begin // 自定义页面
   //###################################################################
 
   //######################创建安装前设备检查页面##########################
-  preChkPage := CreateCustomPage(wpReady, CustomMessage('WDrvPreInstChk'), CustomMessage('WDrvInstChkDesc'));
+  preChkPage := CreateCustomPage(wpReady, CustomMessage('WDrvPreInstChk'), CustomMessage('WDrvChkCode12NextNotice'));
+  //preChkPage := CreateCustomPage(wpReady, CustomMessage('WDrvPreInstChk'), CustomMessage('WDrvInstChkDesc'));
   preChkPageID:= preChkPage.ID;
 
   Lbl1 := TNewStaticText.Create(preChkPage);
@@ -71,14 +72,15 @@ begin // 自定义页面
   Lbl1.Top := ScaleY(0);
   Lbl1.Width := ScaleX(250);
   Lbl1.Height := ScaleY(50);
-  Lbl1.Caption := FmtMessage(CustomMessage('WDrvPreInstChkNowNotice'), ['12']) + #13#13 + CustomMessage('WDrvChkCode12NextNotice');
+  Lbl1.Caption := FmtMessage(CustomMessage('WDrvPreInstChkNowNotice'), ['12']);
+//Lbl1.Caption := FmtMessage(CustomMessage('WDrvPreInstChkNowNotice'), ['12']) + #13#13 + CustomMessage('WDrvChkCode12NextNotice');
   Lbl1.Parent := preChkPage.Surface;
 
   Button1 := TNewButton.Create(preChkPage);
   Button1.Caption := CustomMessage('WDrvDevMgrOpen');
   Button1.Top := Lbl1.Top + ScaleY(245);
   //Button1.Width := WizardForm.CalculateButtonWidth([Button.Caption]);
-  Button1.Width := ScaleX(200);
+  Button1.Width := ScaleX(225);
   Button1.Height := ScaleY(25);
   Button1.OnClick := @ButtonOnClickDevMgmt;
   Button1.Parent := preChkPage.Surface;
@@ -142,13 +144,16 @@ begin
                       IDYES) = IDYES) then
   begin
     if (FirmwareType = 1) then begin
-      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking') + #13 + CustomMessage('WDrvFMBootModeLegacy') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking') + #13 + CustomMessage('WDrvFMBootModeLegacy') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra');
+      //Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking') + #13 + CustomMessage('WDrvFMBootModeLegacy') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
     end;
     if (FirmwareType = 2) then begin
-      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUEFI') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeDisableCSM') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUEFI') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeDisableCSM') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra');
+      //Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUEFI') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeDisableCSM') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
     end;
     if not (FirmwareType = 1) and not (FirmwareType = 2) then begin
-      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUnknown') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 +CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUnknown') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 +CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra');
+      //Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUnknown') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 +CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
     end;
   end else begin
     Result := '';

@@ -1,5 +1,5 @@
 // 雨糖科技安装体验脚本 - 额外字符串参数（日语）
-// Made with love by RainCandy Technology
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
@@ -9,7 +9,7 @@
 japanese.AboutSetupNote=RainCandy Technology Setup Experience%nVersion {#RCInnoExpVer} で構築されています。
 
 [CustomMessages]
-// 20241029_RainCandyTech_InnoSetupExp_Strings
+// 20260219_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 japanese.RCTISEMainApp=メインアプリケーション
 japanese.RCTISEInstNormal=一般インストール
@@ -34,7 +34,7 @@ japanese.RCTISEDisableOnlineSvc=ネットワークサービスを無効にする
 japanese.RCTISERunInstPrepare=インストールの準備中。しばらくお待ちください...
 japanese.RCTISERunMainAppPrepare=メインアプリケーションの準備中。しばらくお待ちください...
 japanese.RCTISERunAppSetupForUser=ポップアップウィンドウでインストールの次の手順に進んでください...
-japanese.RCTISERunFinishingInst=インストールを完了しています。 しばらくお待ちください...
+japanese.RCTISERunFinishingInst=インストールを完了しています。しばらくお待ちください...
 japanese.RCTISERunExtraSetupPrepare=%1 を準備中です。しばらくお待ちください...
 japanese.RCTISERunIconSetup=アイコンを設定しています。しばらくお待ちください...
 japanese.RCTISERunInstCert=証明書をインストールしています。しばらくお待ちください...
@@ -47,6 +47,8 @@ japanese.RCTISEOSArchARM64=ARM64 アーキテクチャ OS
 japanese.RCTISEAssocFileExtension=%1 ファイル拡張子を関連付ける
 japanese.RCTISEHotfix=修正プログラム（ご検討の上、お選びください）
 japanese.RCTISERunInstHotfix=修正プログラムをインストールしています。しばらくお待ちください...
+japanese.RCTASEditNotAvailable=編集機能は利用できません
+japanese.RCTISEFeatureExpWarn=不安定な可能性あり、ご注意ください
 
 // RainCandyTech_InnoSetupExp_Messages
 japanese.RCTMsgSetupContinue=セットアップは続行されます。
@@ -96,24 +98,20 @@ japanese.WDrvPreInstChkSameErrFound=同じエラー問題を見つけました。
 japanese.WDrvInstChkCodeFoundDesc=次に取るべき手順を確認します。%nこのボタンは、「コード %1」の特定のエラーが見つかった場合にのみクリックしてください。
 japanese.WDrvPreInstChkSameErrNotFound=問題は見つかりませんでした、または見つかった問題は前述のものとは異なります。
 japanese.WDrvPreInstChkSameErrNotFoundDesc=セットアップは続行されます。%n他のエラーの問題が発生した場合は、このボタンもクリックしてください、ドライバーがインストールされると解決する可能性があります。
-japanese.WDrvPreInstChkNowNotice=今、デバイスマネージャーを開いて、「ディスプレイアダプター」のカテゴリーに感嘆符アイコ%nンが表示されているデバイスがあるかどうかを確認してください。もしあれば、アイコンをダブ%nルクリックして、「コード12」のエラーメッセージが表示されているかを確認してください。
-japanese.WDrvPostInstChkNowNotice=Now, you need to launch GPU-Z to confirm your graphics card is working properly.%nPlease select your NVIDIA graphics card in GPU-Z and check whether the clock and memory info could be%nread by the application.%n%nアプリが正しい情報を取得できない場合は、電源コードが接続されていない、グラフィックカー%nド自体が損傷しているなど、グラフィックカードに問題がある可能性があります。
-japanese.WDrvFMConfHasError=お使いのコンピュータの現在のファームウェア / UEFI BIOS 設定に問題があるようです。
+japanese.WDrvPreInstChkNowNotice=では、デバイスマネージャーを開き、「ディスプレイアダプター」のカテゴリーに感嘆%n符アイコンが表示されているデバイスがあるかどうか確認してください。%nある場合は、アイコンをダブルクリックし、その中に「コード %1」というエラーメッセ%nージが表示されていないか確認してください。通常、このエラーは発生するべきではあ%nりません。
+japanese.WDrvPostInstChkNowNotice=では、GPU-Z を起動して、グラフィックスカードが正常に動作するか確認してください。%nGPU-Z で NVIDIA GPUを選択し、周波数やメモリなどの情報が正常に読み取れるか確認し%nてください。%n正しい情報が取得できない場合、グラフィックスカードに問題があります。例えば、電%n源ケーブルが正しく接続されていないか、グラフィックスカード自体が故障している可%n能性があります。
+//japanese.WDrvFMConfHasError=お使いのコンピュータの現在のファームウェア / UEFI BIOS 設定に問題があるようです。
 //japanese.WDrvFMBootModeIs=操作システムが現在使用しているブートモードは：
-japanese.WDrvFMBootModeHowTo=Windows RE、システムインストールメディア、MBR2GPT などのツールを使用して、システムが存在するハードドライブのパーティションテーブルをGPT/GUID形式に変換してください。その後、システムブート修復を実行して、UEFIブートモードへの変換を完了してください。
+//japanese.WDrvFMBootModeHowTo=Windows RE、システムインストールメディア、MBR2GPT などのツールを使用して、システムが存在するハードドライブのパーティションテーブルをGPT/GUID形式に変換してください。その後、システムブート修復を実行して、UEFIブートモードへの変換を完了してください。
 //japanese.WDrvFMBootModeUEFIIgnore=(Skip this step if you are already using UEFI boot mode.)
-japanese.WDrvFMBootModeDisableCSM=UEFI BIOS 設定に入り、「互換性サポートモジュール」（CSM）オプションを見つけて無効にしてください。
-japanese.WDrvFMBootModeLegacyDisableWarning=※ 重要：最初の手順を実行せずにこのオプションを無効にした場合、オペレーティングシステムはブートしません。
-japanese.WDrvFMBootModeHowToASUSExtra=特定のマザーボードモデル（ASUS の一部の H81 や B85 など）では、UEFI BIOS ユーティリティ内の設定を編集する必要があります。これには、「Primary Display」や「iGPU Multi-Monitor」などが含まれます。
+//japanese.WDrvFMBootModeDisableCSM=UEFI BIOS 設定に入り、「互換性サポートモジュール」（CSM）オプションを見つけて無効にしてください。
+//japanese.WDrvFMBootModeLegacyDisableWarning=※ 重要：最初の手順を実行せずにこのオプションを無効にした場合、オペレーティングシステムはブートしません。
+//japanese.WDrvFMBootModeHowToASUSExtra=特定のマザーボードモデル（ASUS の一部の H81 や B85 など）では、UEFI BIOS ユーティリティ内の設定を編集する必要があります。これには、「Primary Display」や「iGPU Multi-Monitor」などが含まれます。
 japanese.WDrvFMBootModeLegacy=Legacy BIOS 起動モードを使用しています。
 japanese.WDrvFMBootModeUEFI=UEFI 起動モードを使用しています。
 japanese.WDrvFMBootModeUnknown=使用中の起動モードを特定できませんでした。
 japanese.RCTDisplayDrvUninstInstruction=問題が発生した場合は、まず既存のデバイスドライバーをアンインストールしてから、再度インストールプログラムを実行してみてください。「Display Driver Uninstaller」(DDU) のようなツールが必要になるかもしれません。
 japanese.WDrvDenyUnspecDeviceInstWarning=オペレーティングシステムのデバイスインストールサービスが無効になっているか、または特定の状況でのデバイスインストールを禁止するグループポリシールールが設定されています。この問題により、ドライバーのインストールが失敗する可能性があります。%n%nこの問題を解決するには、関連するサービスを有効にし、グループポリシーエディターでデバイスインストールの制限を解除してから、コンピューターを再起動してください。
-japanese.WDrvChkCode12NextNotice=通常の状況では、このエラーは発生しません。チェックが完了したら、「次へ」をクリックして続行してください。%nその後、セットアップから現在の状況について尋ねられます。
-japanese.WDrvFMConfErrIGFXNotWorking=この問題により、ディスプレイ出力をサポートしていない統合グラフィックスおよび GPU デバイス (NVIDIA P106-100 や CMP 40HX など) が正しく動作しなくなります。
+japanese.WDrvChkCode12NextNotice=チェックが完了したら、「次へ」をクリックして続行してください。その後、セットアップから現在の状況について尋ねられます。
+//japanese.WDrvFMConfErrIGFXNotWorking=この問題により、ディスプレイ出力をサポートしていない統合グラフィックスおよび GPU デバイス (NVIDIA P106-100 や CMP 40HX など) が正しく動作しなくなります。
 japanese.WDrvPublisherType=%1 ドライバーをインストールする
-
-// 20240528_RainCandyTech_AppSolution_Strings
-japanese.RCTASEditNotAvailable=編集機能は利用できません
-//japanese.RCTASPrintNotAvailable=印刷機能は利用できません

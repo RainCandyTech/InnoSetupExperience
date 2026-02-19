@@ -25,7 +25,7 @@ chinesesimp.SetupWindowTitle={#MyAppNameCS} - 安装程序
 chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-Chinese-%nSimplified-Translation
 
 [CustomMessages]
-// 20251206_RainCandyTech_InnoSetupExp_Strings
+// 20260219_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 //chinesesimp.UninstallProgram=卸载%1
 chinesesimp.LaunchProgram=运行%1
@@ -66,6 +66,8 @@ chinesesimp.RCTISEOSArchARM64=ARM64 架构的操作系统
 chinesesimp.RCTISEAssocFileExtension=建立 %1 格式文件关联
 chinesesimp.RCTISEHotfix=补丁（请权衡后安装）
 chinesesimp.RCTISERunInstHotfix=正在安装补丁，请稍候...
+chinesesimp.RCTASEditNotAvailable=编辑功能不可用
+chinesesimp.RCTISEFeatureExpWarn=可能不稳定，请谨慎选择
 
 // RainCandyTech_InnoSetupExp_Messages
 chinesesimp.RCTMsgSetupContinue=安装程序现在将继续。
@@ -74,7 +76,7 @@ chinesesimp.RCTMsgAskContinue=您想继续吗？
 chinesesimp.RCTMsgDebugNotice=本版本程序仅供测试使用。请将测试过程中发现的问题反馈回雨糖科技。谢谢！
 chinesesimp.RCTMsgRebootRequired=必须重新启动计算机才能开始安装过程。请保存所有工作，重新启动计算机，然后再次运行安装程序。
 chinesesimp.RCTMsgAppAlreadyInst=看起来您的计算机可能已经安装了%1应用程序。
-chinesesimp.RCTMsgAskUserPlayBGM=是否要播放安装程序的自带背景音乐？%n%n如果点击“是”，安装程序将会在安装过程中播放其背景音乐；%n如果点击“否”则不会播放。
+chinesesimp.RCTMsgAskUserPlayBGM=是否要播放安装程序的自带背景音乐？%n%n如果点击“是”，安装程序将会在安装过程中播放其背景音乐；%n如果点击“否”，则不会播放。
 chinesesimp.RCTMsgWarnUserBGMWillPlay=请特别注意，本安装程序自带背景音乐，它将在安装向导正式开始时播放。%n%n为了避免造成对周围环境的打扰，您现在应立即调整系统音量或扬声器音量，或开启静音模式，或将扬声器关闭。
 chinesesimp.RCTMsgRestartInstAfterAction=完成操作后，请再次运行安装程序。
 chinesesimp.RCTMsgOSNotMeetRequirement=您的计算机正在运行的操作系统不符合要求（%1）。
@@ -115,9 +117,9 @@ chinesesimp.WDrvPreInstChkSameErrFound=我发现了相同的报错问题。
 chinesesimp.WDrvInstChkCodeFoundDesc=了解接下来您需要采取的步骤。%n只有您发现了“代码 %1”的特定报错时才应点击此按钮。
 chinesesimp.WDrvPreInstChkSameErrNotFound=我没有发现问题，或者报错问题与前面提到的不一样。
 chinesesimp.WDrvPreInstChkSameErrNotFoundDesc=安装程序将继续。%n如果您遇到了其他的报错问题也请点击此按钮，它们在驱动安装完毕后也许就解决了。
-chinesesimp.WDrvPreInstChkNowNotice=现在，您需要打开“设备管理器”，检查“显示适配器”分类中是否存在出现感叹号图标的设备。%n如有，请双击图标，查看其中是否存在“代码 %1”的报错信息。
-chinesesimp.WDrvPostInstChkNowNotice=现在，您需要启动 GPU-Z 以确认显卡能够正常工作。%n请在 GPU-Z 中选择您的 NVIDIA 显卡，并检查显卡的频率与显存信息是否可被正常读取。%n%n如果程序无法获得正确的信息，则您的显卡可能存在问题，例如电源线未插或显卡本身已损坏。
-chinesesimp.WDrvFMConfHasError=看起来您的计算机当前的固件配置（UEFI BIOS 设置）可能存在问题。
+chinesesimp.WDrvPreInstChkNowNotice=现在，您需要打开设备管理器，检查“显示适配器”分类中是否存在出现感叹号图标的设备。%n如有，请双击图标，查看其中是否存在“代码 %1”的报错信息。在正常情况下，此报错问题%n不应该出现。
+chinesesimp.WDrvPostInstChkNowNotice=现在，您需要启动 GPU-Z 以确认显卡能够正常工作。%n请在 GPU-Z 中选择您的 NVIDIA 显卡，并检查显卡频率、显存大小等信息能否被正常读取。%n如果无法获得正确的信息，则您的显卡存在问题，例如电源线没有插好，或者显卡本身已%n经损坏。
+chinesesimp.WDrvFMConfHasError=您的计算机当前的固件配置（UEFI BIOS 设置）可能存在问题。
 //chinesesimp.WDrvFMBootModeIs=操作系统当前正在使用的引导模式是：
 chinesesimp.WDrvFMBootModeHowTo=请通过 Windows PE 维护盘 / 系统盘、MBR2GPT 实用程序等工具将操作系统所在硬盘的分区表转换为 GPT / GUID 格式。然后请务必进行系统引导修复，以完成向 UEFI 引导模式的转换。
 //chinesesimp.WDrvFMBootModeUEFIIgnore=如果您现在已经在使用 UEFI 引导模式，则忽略本步骤。
@@ -129,10 +131,6 @@ chinesesimp.WDrvFMBootModeUEFI=您正在使用 UEFI 启动模式。
 chinesesimp.WDrvFMBootModeUnknown=我们无法确定您正在使用的启动模式。
 chinesesimp.RCTDisplayDrvUninstInstruction=如果您遇到了问题，请先尝试卸载这些现有的设备驱动，然后再次运行安装程序。您可能需要一些工具，例如“Display Driver Uninstaller” (DDU)。
 chinesesimp.WDrvDenyUnspecDeviceInstWarning=操作系统的设备安装服务已经被禁用，或者已经设置了组策略规则，禁止特定情况下的设备安装。此问题可能会导致驱动程序安装失败。%n%n如要解决此问题，请启用相关服务，并在组策略编辑器中取消设备安装限制，然后重新启动计算机。
-chinesesimp.WDrvChkCode12NextNotice=在正常情况下，此报错问题不应该出现。%n检查完毕后，请点击“下一步”继续。安装程序随后会就您当前的情况进行询问。
+chinesesimp.WDrvChkCode12NextNotice=检查完毕后，请点击“下一步”继续。安装程序随后会就您当前的情况进行询问。
 chinesesimp.WDrvFMConfErrIGFXNotWorking=此问题将会导致集成显卡（核芯显卡）以及不支持显示输出的 GPU 设备（如英伟达 P106-100 和 CMP 40HX）无法正常工作。
 chinesesimp.WDrvPublisherType=安装 %1 驱动程序
-
-// 20240526_RainCandyTech_AppSolution_Strings
-chinesesimp.RCTASEditNotAvailable=编辑功能不可用
-//chinesesimp.RCTASPrintNotAvailable=打印功能不可用

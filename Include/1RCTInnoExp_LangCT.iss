@@ -1,5 +1,5 @@
 // 雨糖科技安装体验脚本 - 额外字符串参数（繁体中文）
-// Made with love by RainCandy Technology
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
@@ -8,11 +8,12 @@
 // 20251114_RainCandyTech_ISEMain
 chinesetrad.AboutSetupNote=使用 Windose Installer {#RCInnoExpVer} 版本進行構建。
 
-// 20231114_RainCandyTech_ChineseSetupName
-//chinesetrad.FinishedHeadingLabel=完成 [name] 安裝
+// 20260219_RainCandyTech_ChineseSetupName
+//chinesetrad.FinishedHeadingLabel=已完成{#MyAppNameCT}安裝
+//chinesetrad.InstallingLabel=請稍候，安裝程式正在將{#MyAppNameCS}安裝到您的電腦上。
 
 [CustomMessages]
-// 20241029_RainCandyTech_InnoSetupExp_Strings
+// 20260219_RainCandyTech_InnoSetupExp_Strings
 // 对于中文而言，组件名称以英文打头的话，应在前面加空格
 chinesetrad.RCTISEMainApp=主程式
 chinesetrad.RCTISEInstNormal=一般安裝
@@ -50,6 +51,8 @@ chinesetrad.RCTISEOSArchARM64=ARM64 架構的作業系統
 chinesetrad.RCTISEAssocFileExtension=建立 %1 格式檔案關聯
 chinesetrad.RCTISEHotfix=修補程式（請權衡後使用）
 chinesetrad.RCTISERunInstHotfix=正在安裝修補程式，請稍候...
+chinesetrad.RCTASEditNotAvailable=編輯功能不可用
+chinesetrad.RCTISEFeatureExpWarn=可能不穩定，請謹慎選擇
 
 // RainCandyTech_InnoSetupExp_Messages
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。
@@ -57,8 +60,8 @@ chinesetrad.RCTMsgSetupExit=安裝程式現在將退出。
 chinesetrad.RCTMsgAskContinue=您想繼續嗎？
 chinesetrad.RCTMsgDebugNotice=此版本的程式僅供測試使用。請就測試過程中發現的任何問題向雨糖科技提供迴響。謝謝！
 chinesetrad.RCTMsgRebootRequired=必須重新啟動計算機才能開始安裝過程。請儲存所有工作，重新啟動計算機，然後再次執行安裝程式。
-chinesetrad.RCTMsgAppAlreadyInst=看起來您的計算機可能已經安裝了%1應用程式。
-chinesetrad.RCTMsgAskUserPlayBGM=是否要播放安裝程式自帶的背景音樂？%n%n如果點按“是”，安裝程式將會在安裝過程中播放其背景音樂；%n如果點按“否”則不會播放。
+chinesetrad.RCTMsgAppAlreadyInst=您的計算機可能已經安裝了%1應用程式。
+chinesetrad.RCTMsgAskUserPlayBGM=是否要播放安裝程式自帶的背景音樂？%n%n如果點按「是」，安裝程式將會在安裝過程中播放其背景音樂；%n如果點按「否」，則不會播放。
 chinesetrad.RCTMsgWarnUserBGMWillPlay=請特別注意，本安裝程式自帶背景音樂，它將在安裝精靈正式開始時播放。%n%n為了避免造成對周圍環境的打擾，您現在應立即調整系統音量或揚聲器音量，或開啟靜音模式，或將揚聲器關閉。
 chinesetrad.RCTMsgRestartInstAfterAction=完成操作後，請再次運行安裝程式。
 chinesetrad.RCTMsgOSNotMeetRequirement=您的計算機運行的作業系統不符合要求（%1）。
@@ -99,8 +102,8 @@ chinesetrad.WDrvPreInstChkSameErrFound=我發現了相同的報錯問題。
 chinesetrad.WDrvInstChkCodeFoundDesc=了解接下來您需要採取的步驟。%n只有您發現了「代碼 %1」的特定報錯時才應點按此按鈕。
 chinesetrad.WDrvPreInstChkSameErrNotFound=我沒有發現問題，或者報錯問題與前面提到的不一樣。
 chinesetrad.WDrvPreInstChkSameErrNotFoundDesc=安裝程式將繼續。%n如果您遇到了其他的報錯問題也請點按此按鈕，它們在驅動安裝完畢後也許就解決了。
-chinesetrad.WDrvPreInstChkNowNotice=現在，您需要打開「裝置管理員」，檢查「顯示卡」分類中是否存在出現感嘆號圖示的裝%n置。如有，請按兩下圖示，查看其中是否存在「代碼 %1」的報錯信息。
-chinesetrad.WDrvPostInstChkNowNotice=現在，您需要啟動 GPU-Z 以確認顯示卡能夠正常工作。%n請在 GPU-Z 中選擇您的 NVIDIA 顯示卡，並檢查顯示卡的頻率與顯存信息是否可被正常讀取。%n%n如果應用程式無法獲得正確的信息，則您的顯示卡可能存在問題，例如電源線未插或顯示卡本身已%n損壞。
+chinesetrad.WDrvPreInstChkNowNotice=現在，您需要打開裝置管理員，檢查「顯示卡」分類中是否存在出現感嘆號圖示的裝置。%n如有，請按兩下圖示，查看其中是否存在「代碼 %1」的報錯信息。在正常情況下，此報錯%n問題不應該出現。
+chinesetrad.WDrvPostInstChkNowNotice=現在，您需要啟動 GPU-Z 以確認顯示卡能夠正常工作。%n請在 GPU-Z 中選擇您的 NVIDIA 顯示卡，並檢查顯示卡的頻率與顯存信息能否被正常讀取。%n如果無法獲得正確的信息，則您的顯示卡存在問題，例如電源線沒有插好，或顯示卡本身%n已經損壞。
 chinesetrad.WDrvFMConfHasError=看起來您的計算機當前的固件配置（UEFI BIOS 設置）可能存在問題。
 //chinesetrad.WDrvFMBootModeIs=作業系統當前正在使用的引導模式是：
 chinesetrad.WDrvFMBootModeHowTo=請通過 Windows 恢復環境 / 安裝媒體、MBR2GPT 公用程式等工具將作業系統所在硬碟的分區錶轉換為 GPT / GUID 格式。然後請務必進行系統引導修復，以完成向 UEFI 引導模式的轉換。
@@ -113,10 +116,6 @@ chinesetrad.WDrvFMBootModeUEFI=您正在使用 UEFI 啟動模式。
 chinesetrad.WDrvFMBootModeUnknown=我們無法確定您正在使用的啟動模式。
 chinesetrad.RCTDisplayDrvUninstInstruction=如果您遇到了問題，請先嘗試卸載這些現有的裝置驅動，然後再次運行安裝程式。您可能需要一些工具，例如「Display Driver Uninstaller」(DDU)。
 chinesetrad.WDrvDenyUnspecDeviceInstWarning=作業系統的裝置安裝服務已經被停用，或者已經設定了群組原則規則，禁止特定情況下的裝置安裝。此問題可能會導致驅動程式安裝失敗。%n%n如要解決此問題，請啟用相關服務，並在群組原則編輯器中取消裝置安裝限制，然後重新啟動計算機。
-chinesetrad.WDrvChkCode12NextNotice=在正常情況下，此報錯問題不應該出現。%n檢查完畢後，請點按「下一步」繼續。安裝程式隨後會就您當前的情況進行詢問。
+chinesetrad.WDrvChkCode12NextNotice=檢查完畢後，請點按「下一步」繼續。安裝程式隨後會就您當前的情況進行詢問。
 chinesetrad.WDrvFMConfErrIGFXNotWorking=此問題將會導致整合式顯示卡以及不支持顯示輸出的 GPU 裝置（如 NVIDIA P106-100 和 CMP 40HX）無法正常工作。
 chinesetrad.WDrvPublisherType=安裝 %1 驅動程式
-
-// 20240526_RainCandyTech_AppSolution_Strings
-chinesetrad.RCTASEditNotAvailable=編輯功能不可用
-//chinesetrad.RCTASPrintNotAvailable=列印功能不可用
