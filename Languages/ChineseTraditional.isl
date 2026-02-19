@@ -249,7 +249,7 @@ PrepareToInstallNeedsRestart=¦w¸Ëµ{¦¡¥²¶·­«·s±Ò°Ê±zªº¹q¸£¡C­«·s±Ò°Ê«á¡A½Ð¦A¦¸°õ¦
 
 ; *** "Installing" wizard page
 WizardInstalling=¥¿¦b¦w¸Ë
-InstallingLabel=½Ðµy­Ô¡A¦w¸Ëµ{¦¡¥¿¦b±N [name] ¦w¸Ë¨ì±zªº¹q¸£¤W
+InstallingLabel=½Ðµy­Ô¡A¦w¸Ëµ{¦¡¥¿¦b±N [name] ¦w¸Ë¨ì±zªº¹q¸£¤W¡C
 
 ; *** "Setup Completed" wizard page
 FinishedHeadingLabel=¤w§¹¦¨ [name] ¦w¸Ë

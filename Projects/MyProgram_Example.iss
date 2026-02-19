@@ -13,7 +13,7 @@
 #define MyAppMajorVersion "1"
 #define MyAppMarketVersion "1"
 #define MyAppPublisher "RainCandy Technology"
-#define MyAppURL "http://raincandy.1337.moe/"
+#define MyAppURL "http://raincandy.tech/"
 #define WizardImage "WizModernImage-240829"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
@@ -46,6 +46,8 @@
 #include "..\Include\1RCTInnoExp_LangCS.iss"
 #include "..\Include\1RCTInnoExp_LangCT.iss"
 //#include "..\Include\1RCTInnoExp_LangJP.iss"
+//#include "..\Include\1RCTInnoExp_LangRU.iss"
+//#include "..\Include\1RCTInnoExp_LangCS_IS5.iss"
 //#include "..\Include\BASSMOD.iss"
 #include "..\Include\ufMOD.iss"
 //#include "..\Include\Splash.iss"

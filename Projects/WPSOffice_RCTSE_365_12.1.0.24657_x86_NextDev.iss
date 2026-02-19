@@ -54,6 +54,7 @@
 #include "..\Include\1RCTInnoExp_LangCS.iss"
 //#include "..\Include\1RCTInnoExp_LangCT.iss"
 //#include "..\Include\1RCTInnoExp_LangJP.iss"
+//#include "..\Include\1RCTInnoExp_LangRU.iss"
 //#include "..\Include\1RCTInnoExp_LangCS_IS5.iss"
 //#include "..\Include\BASSMOD.iss"
 #include "..\Include\ufMOD.iss"
