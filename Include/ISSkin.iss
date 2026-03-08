@@ -1,11 +1,12 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - 视觉效果插件函数
-// Made with love by RainCandy Technology
+// 雨糖科技 Windose Installer 安装体验脚本 - 视觉效果插件函数
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码用于 ISSkin 插件的相关函数。
 
 [Files]
-Source: "..\ISSkin\ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\ISSkin\ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\ISSkinExU{#RCInnoExpPluginSignMark}.dll"; DestName: "ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 // Load Skin Api

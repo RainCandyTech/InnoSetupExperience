@@ -1,13 +1,13 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - 视觉效果插件函数
-// Made with love by RainCandy Technology
+// 雨糖科技 Windose Installer 安装体验脚本 - 视觉效果插件函数
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码用于 IsTask 插件的相关函数。
 // 安装前判断是否有进程正在运行，istask.dll 文件与打包的 exe 文件一起
 
 [Files]
-Source: "..\Plugins\ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-//Source: "..\Plugins\ISTask{#RCInnoExpPluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\ISTask{#RCInnoExpPluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 function RunTask(FileName: AnsiString; bFullpath: Boolean): Boolean;

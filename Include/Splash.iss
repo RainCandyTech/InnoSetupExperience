@@ -5,10 +5,10 @@
 // 本脚本代码包含用于 Splash 开屏图片插件的相关函数。
 
 [Files]
-Source: "..\Plugins\callnsis.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-//Source: "..\Plugins\callnsis{#RCInnoExpPluginSignMark}.dll"; DestName: "callnsis.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\AdvSplash.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-//Source: "..\Plugins\AdvSplash{#RCInnoExpPluginSignMark}.dll"; DestName: "AdvSplash.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\callnsis.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\callnsis{#RCInnoExpPluginSignMark}.dll"; DestName: "callnsis.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\AdvSplash.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\AdvSplash{#RCInnoExpPluginSignMark}.dll"; DestName: "AdvSplash.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 var // 全局变量

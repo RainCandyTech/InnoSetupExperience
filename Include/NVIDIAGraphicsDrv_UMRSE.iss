@@ -48,15 +48,6 @@ begin // 自定义页面
   ExtractTemporaryFile(ExtractFileName(Bitmap1FileName));
   ExtractTemporaryFile(ExtractFileName(Bitmap2FileName));
 
-  if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
-    ExtractTemporaryFile('gpuz_chinese.exe');
-    RenameFile(ExpandConstant('{tmp}\gpuz_chinese.exe'), ExpandConstant('{tmp}\gpuz.exe'));
-  end else begin
-    if (GPUZInstalled = false) then begin
-      ExtractTemporaryFile('gpuz.exe');
-    end;
-  end;
-
   //Bitmap2FileName := ExpandConstant('{tmp}\20240518183147.bmp');
   //ExtractTemporaryFile(ExtractFileName(Bitmap2FileName));
 
