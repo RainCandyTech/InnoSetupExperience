@@ -56,9 +56,7 @@ begin
 end;
 
 procedure ButtonOnClickGPUZ(Sender: TObject);
-var  // 在安装界面的按钮点击后，触发启动 GPU-Z 的操作
-  ResultCode: integer;
-begin
+begin  // 在安装界面的按钮点击后，触发启动 GPU-Z 的操作
   if (GPUZNeedInst = false) then
   begin  // 如果检查到电脑有安装模式的 GPU-Z，就直接启动安装好的版本
     Log('[Windose Installer] Info: GPU-Z will not ask for installation in current environment.');
