@@ -8,7 +8,7 @@
 #define MyAppMainName "WPS Office"
 #define MyAppMainNameCS " WPS Office "
 #define MyAppMainNameCT " WPS Office "
-#define MyAppVersion "11.8.2.12330"
+#define MyAppVersion "11.8.2.12344"
 #define MyAppMajorVersion "11"
 #define MyAppMarketVersion "2019"
 //#define MyAppPublisher "RainCandy Technology"

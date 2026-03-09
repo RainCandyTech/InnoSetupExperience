@@ -123,11 +123,16 @@ var // ÔÚ×Ô¶¨ÒåÒ³ÃæÖÐµã»÷ÏÂÒ»²½ºó£¬¡°×¼±¸°²×°¡±Ó¦Ñ¯ÎÊÓÃ»§ÊÇ·ñÓöµ½ÁËÏà¹ØÎÊÌâ£¬Èç¹
   FirmwareType: Integer;
 begin
   { TaskDialogMsgBox isn't a class but showing it anyway since it fits with the theme }
-
-  Log('[Windose Installer] Info: Gathering boot mode information...');
-  GetFirmwareType(FirmwareType); // ÕâÀïµ÷ÓÃ°²×°ÌåÑé×Ü iss ÖÐµÄ¹ý³Ì£¬»ñÈ¡µ±Ç°ÏµÍ³Æô¶¯»·¾³
-  Log('[Windose Installer] Info: Gathered boot mode code is: ' + IntToStr(FirmwareType) + '.');
-
+  if (Version.NTPlatform) and (Version.Build >= 7814) then
+  begin // Èç¹ûÏµÍ³°æ±¾Îª Windows 8 Build 7814 ¼°ÒÔÉÏ°æ±¾£¨ÎÒÕæµÄÒ»¸ö¸ö°æ±¾²âÊÔ¹ý£©£¬Ôò½øÐÐÏµÍ³Æô¶¯»·¾³¼ì²â
+    Log('[Windose Installer] Info: Gathering boot mode information...');
+    GetFirmwareType(FirmwareType); // ÕâÀïµ÷ÓÃ°²×°ÌåÑé×Ü iss ÖÐµÄ¹ý³Ì£¬»ñÈ¡µ±Ç°ÏµÍ³Æô¶¯»·¾³
+    Log('[Windose Installer] Info: Gathered boot mode code is: ' + IntToStr(FirmwareType) + '.');
+  end else
+  begin // ·ñÔò£¬·ÅÆúÏµÍ³Æô¶¯»·¾³¼ì²â
+    Log('[Windose Installer] Info: Cannot gather boot mode information on current operating system...');
+    FirmwareType := 0;
+  end;
   if (TaskDialogMsgBox(CustomMessage('WDrvPreInstChk'),      // Ñ¯ÎÊµ¯´°
                       CustomMessage('WDrvPreInstChkAskUser'),   
                       mbInformation,
@@ -136,22 +141,22 @@ begin
   begin
     if (FirmwareType = 1) then begin
       Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking') + #13 + CustomMessage('WDrvFMBootModeLegacy') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra');
-      //Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking') + #13 + CustomMessage('WDrvFMBootModeLegacy') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking') + #13 + CustomMessage('WDrvFMBootModeLegacy') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
     end;
     if (FirmwareType = 2) then begin
       Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUEFI') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeDisableCSM') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra');
-      //Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUEFI') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeDisableCSM') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUEFI') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 + CustomMessage('WDrvFMBootModeDisableCSM') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
     end;
     if not (FirmwareType = 1) and not (FirmwareType = 2) then begin
       Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUnknown') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 +CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra');
-      //Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUnknown') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 +CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
+      Result := CustomMessage('WDrvFMConfHasError') + #13 + CustomMessage('WDrvFMConfErrIGFXNotWorking')+ #13 + CustomMessage('WDrvFMBootModeUnknown') + CustomMessage('RCTMsgFollowSteps') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['1']) + #13 +CustomMessage('WDrvFMBootModeHowTo') + #13#13 + FmtMessage(CustomMessage('RCTMsgStepNumber'), ['2']) + #13 +CustomMessage('WDrvFMBootModeDisableCSM') + #13 + CustomMessage('WDrvFMBootModeLegacyDisableWarning') + #13#13 + CustomMessage('WDrvFMBootModeHowToASUSExtra') + #13#13 + CustomMessage('RCTMsgRestartInstAfterAction');
     end;
   end else begin
     Result := '';
   end;
 end;
 
-function NVIDIADrv_RequireReboot(): Boolean;
+function NVRequireReboot(): Boolean;
 begin  // ¼ì²éÊÇ·ñÒÑ¾­´æÔÚ NVIDIA ÖØÆôÕ¼Î»·û×¢²á±í     
   result:= false;
   if (RegKeyExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\NVIDIA_RebootNeeded_{CE1CA72E-7C77-4b69-A5D3-2C4CFCD625FD}')) then begin
@@ -159,16 +164,17 @@ begin  // ¼ì²éÊÇ·ñÒÑ¾­´æÔÚ NVIDIA ÖØÆôÕ¼Î»·û×¢²á±í
   end;
 end;
 
-procedure NijikaExitCleanTempNV();
+procedure ExitCleanTempNV();
 begin
   DelTree(ExpandConstant('{tmp}\Display.Driver'), True, True, True);
   DelTree(ExpandConstant('{tmp}\Display.Nview'), True, True, True);
   DelTree(ExpandConstant('{tmp}\Display.Optimus'), True, True, True);
   DelTree(ExpandConstant('{tmp}\FrameViewSDK'), True, True, True);
   DelTree(ExpandConstant('{tmp}\GFExperience'), True, True, True);
-  //DelTree(ExpandConstant('{tmp}\MSVCRT'), True, True, True);
-  //DelTree(ExpandConstant('{tmp}\NvCamera'), True, True, True);
-  //DelTree(ExpandConstant('{tmp}\NvContainer'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\GFExperience.NvStreamSrv'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\NvApp.MessageBus'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\NvCamera'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\NvContainer'), True, True, True);
   DelTree(ExpandConstant('{tmp}\NVI2'), True, True, True);
   DelTree(ExpandConstant('{tmp}\NVPCF'), True, True, True);
   DelTree(ExpandConstant('{tmp}\PhysX'), True, True, True);
@@ -177,11 +183,11 @@ begin
   DelTree(ExpandConstant('{tmp}\ShadowPlay'), True, True, True);
 end;
 
-procedure NijikaExitIfNVNeedReboot();
+procedure ExitIfNVNeedReboot();
 begin  // Èç¹û·¢ÏÖ°²×°³ÌÐòÒªÇóÖØÆô¼ÆËã»ú²ÅÄÜ¼ÌÐø°²×°£¬ÔòÖ±½ÓÍË³ö°²×°³ÌÐò£¬ÒÔ±ÜÃâÓ¢Î°´ï°²×°³ÌÐòÖ±½ÓÖØÆôÏµÍ³£¬¶ø°²×°ÌåÑé»¹ÔÚºóÌ¨×èÖ¹ÖØÆôµÄÇé¿ö·¢Éú
-  if (NVIDIADrv_RequireReboot = true) then begin
+  if (NVRequireReboot = true) then begin
     Log('[Windose Installer] Info: NVIDIA Installer requires system reboot. Now exiting setup.');
-    NijikaExitCleanTempNV();
+    ExitCleanTempNV();
     ExitProcess(0);
   end;
 end;
