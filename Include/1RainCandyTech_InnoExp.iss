@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260309"
+#define RCInnoExpVer "20260315"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -167,18 +167,6 @@ begin  // 检查系统是否为 Windows 客户端版本
   RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
   if not (WinInstType = 'Server') then
   begin
-    result := true;
-  end;
-end;
-
-function RCTIsWin8Client(): Boolean;
-var 
-  Version: TWindowsVersion;
-begin  // 检查是否 Windows 8 Client 版本（主要针对 WPS Office 的系统检测）
-  GetWindowsVersionEx(Version);
-  if (Version.NTPlatform) and (Version.Major = 6) and (Version.Minor > 1) and (RCTIsWinClient = true) then
-  begin
-    //Log('[Windose Installer] Info: Windows 8.x Client is detected.');
     result := true;
   end;
 end;

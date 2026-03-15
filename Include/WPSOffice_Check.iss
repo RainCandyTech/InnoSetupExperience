@@ -117,3 +117,17 @@ begin  // 设置系统程序卸载列表中的应用程序名字（WPS PDF 独立版）
     RegWriteStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;
 end;
+
+procedure CleanTempWPS();
+begin
+  DelTree(ExpandConstant('{tmp}\OemFile'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\oeminfo'), True, True, True);
+end;
+
+function RCTIsWin8Client(): Boolean;
+begin  // 针对 WPS Office 安装程序的系统检测，检查是否 Windows 8 Client 版本
+  if (Version.NTPlatform) and (Version.Major = 6) and (Version.Minor > 1) and (RCTIsWinClient = true) then
+  begin
+    result := true;
+  end;
+end;
