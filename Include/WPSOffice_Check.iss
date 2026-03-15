@@ -1,5 +1,5 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - WPS Office 程序安装检查
-// Made with love by RainCandy Technology
+// 雨糖科技 Windose Installer 安装体验脚本 - WPS Office 程序安装检查
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本的代码主要用于检测计算机中 WPS Office 已安装版本的信息。
