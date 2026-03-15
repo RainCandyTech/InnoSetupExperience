@@ -15,7 +15,7 @@
 #define MyAppPublisher "RainCandy Technology"
 //#define MyAppPublisher "Corel Corporation"
 #define MyAppURL "http://raincandy.tech/"
-//#define MyAppURL "https://www.videostudiopro.com/"
+//#define MyAppURL "https://www.corel.com/"   ;卡饭论坛不允许作品出现推广链接，故替换为官网链接
 #define WizardImage "WizModernImage-240216"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
@@ -144,22 +144,22 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260314_SloganAtBegin
-ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 因为想看到你梦想成真%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 因為想看到你夢想成真%n%n{#MyAppExtraInfo}
-dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました | 夢叶う姿を見たい%n%n{#MyAppExtraInfo}
-//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-//turkish.ClickNext=İlerlemek için Sonraki, çıkmak için İptal üzerine tıklayın.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
-//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology | Make it happen.%n%n{#MyAppExtraInfo}
+// 20260315_SloganAtBegin
+ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 我们不会再回到那个黑暗的时代！%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 我們不會再回到那個黑暗的時代！%n%n{#MyAppExtraInfo}
+dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%n%n{#MyAppExtraInfo}
+//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+//turkish.ClickNext=İlerlemek için Sonraki, çıkmak için İptal üzerine tıklayın.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 
 // 20260314_FinishExtraInfo
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用

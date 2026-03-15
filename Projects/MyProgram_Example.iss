@@ -34,12 +34,11 @@
 //#define MyAppPublishType ""
 #define MyAppShowFreePrevideMsg "false"
 #define MyAppIsNeedStoreApp "false"
-#define RCExtraStoreApp ""
-#define RCExtraStoreAppCS ""
+//#define RCExtraStoreApp ""
+//#define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-//#define RCInnoExpVer "v6.3.3.8_241029"
-//#define RCInnoExpPluginSignMark "_signed"
+#define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
 
 #include "..\Include\1RainCandyTech_InnoExp.iss"
@@ -72,7 +71,7 @@ VersionInfoTextVersion={#MyAppVersion}
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoVersion={#MyAppVersion}
 //CreateAppDir=no
-LicenseFile="..\Documents\license_other.rtf"
+//LicenseFile="..\Documents\license_other.rtf"
 //InfoBeforeFile=
 //InfoAfterFile="..\Documents\credits_other.rtf"
 OutputDir=userdocs:Inno Setup Examples Output
@@ -89,6 +88,8 @@ WizardImageFile="..\Artworks\{#WizardImage}.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //SetupLogging=yes
+//DiskSpanning=true
+//DiskSliceSize=2100000000
 //MinVersion=6.1
 //WizardStyle=modern
 //WindowVisible=yes
@@ -101,20 +102,21 @@ UninstallDisplayIcon={app}\Game.exe
 //signtool=CSignTool
 
 [Languages]
-Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; LicenseFile: "..\Documents\license_other_cn.rtf";
+Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl";
 Name: "chinesetrad"; MessagesFile: "..\Languages\ChineseTraditional.isl";
-//Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl";
+Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl";
 Name: "english"; MessagesFile: "compiler:Default.isl";
-//Name: "french"; MessagesFile: "compiler:Languages\French.isl";
-//Name: "german"; MessagesFile: "compiler:Languages\German.isl";
-//Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl";
-//Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
+Name: "french"; MessagesFile: "compiler:Languages\French.isl";
+Name: "german"; MessagesFile: "compiler:Languages\German.isl";
+Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl";
+Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
 //Name: "korean"; MessagesFile: "..\Languages\Korean.isl";  ;这份语言文件用于 Inno Setup 5 版本安装包
-//Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
-//Name: "polish"; MessagesFile: "compiler:Languages\Polish.isl";
-//Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl";
-//Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
-//Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl";
+Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
+Name: "polish"; MessagesFile: "compiler:Languages\Polish.isl";
+Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl";
+Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
+Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl";
+Name: "turkish"; MessagesFile: "compiler:Languages\Turkish.isl";
 //Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
@@ -122,57 +124,60 @@ Name: "english"; MessagesFile: "compiler:Default.isl";
 BeveledLabel=Made with love by RainCandy Technology
 chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
-//japanese.BeveledLabel=Made with love by RainCandy Technology
+japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20251130_RainCandyTech_SloganAtISEBegin
-ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 梦想成真 生生不息%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 夢想成真 生生不息%n%n{#MyAppExtraInfo}
-//dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました | 夢を現実に、生命を永遠に%n%n{#MyAppExtraInfo}
-//korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
-//ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology | Dream it through%n%n{#MyAppExtraInfo}
+// 20260315_SloganAtBegin
+ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 我们不会再回到那个黑暗的时代！%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 我們不會再回到那個黑暗的時代！%n%n{#MyAppExtraInfo}
+dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+italian.ClickNext=Seleziona "Avanti" per continuare, o "Annulla" per uscire.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+japanese.ClickNext=続行するには「次へ」、セットアップを終了するには「キャンセル」をクリックしてください。%n%nRainCandy Technology が愛を込めて作りました%n%n{#MyAppExtraInfo}
+korean.ClickNext=다음을 클릭하여 계속하거나 취소를 클릭하여 설치를 종료합니다.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+polish.ClickNext=Kliknij przycisk Dalej, aby kontynuować, lub Anuluj, aby zakończyć instalację.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+portuguese.ClickNext=Clique em Seguinte para continuar ou em Cancelar para cancelar a instalação.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+russian.ClickNext=Нажмите «Далее», чтобы продолжить, или «Отмена», чтобы выйти из программы установки.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+spanish.ClickNext=Haga clic en Siguiente para continuar o en Cancelar para salir de la instalación.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+turkish.ClickNext=İlerlemek için Sonraki, çıkmak için İptal üzerine tıklayın.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
+ukrainian.ClickNext=Натисніть «Далі», щоб продовжити, або «Скасувати» для виходу з програми встановлення.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 
-// 20240206_RainCandyTech_Finish
+// 20260314_FinishExtraInfo
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
 ClickFinish=Click Finish to exit Setup.%n%n{#MyAppExtraInfo}
 chinesesimp.ClickFinish=点击“完成”退出安装程序。%n%n{#MyAppExtraInfo}
 chinesetrad.ClickFinish=按 「完成」 以結束安裝程式。%n%n{#MyAppExtraInfo}
-//dutch.ClickFinish=Klik op Voltooien om Setup te beëindigen.%n%n{#MyAppExtraInfo}
-//french.ClickFinish=Veuillez cliquer sur Terminer pour quitter l'assistant d'installation.%n%n{#MyAppExtraInfo}
-//german.ClickFinish=Klicken Sie auf "Fertigstellen", um das Setup zu beenden.%n%n{#MyAppExtraInfo}
-//italian.ClickFinish=Seleziona "Fine" per uscire dall'installazione.%n%n{#MyAppExtraInfo}
-//japanese.ClickFinish=セットアップを終了するには「完了」をクリックしてください。%n%n{#MyAppExtraInfo}
-//korean.ClickFinish=설치를 종료하려면 마침을 클릭하십시오.%n%n{#MyAppExtraInfo}
-//polish.ClickFinish=Kliknij przycisk Zakończ, aby zakończyć instalację.%n%n{#MyAppExtraInfo}
-//portuguese.ClickFinish=Clique em Concluir para finalizar o Assistente de Instalação.%n%n{#MyAppExtraInfo}
-//russian.ClickFinish=Нажмите «Завершить», чтобы выйти из программы установки.%n%n{#MyAppExtraInfo}
-//spanish.ClickFinish=Haga clic en Finalizar para salir del programa de instalación.%n%n{#MyAppExtraInfo}
-//ukrainian.ClickFinish=Натисніть «Готово» для виходу з програми встановлення.%n%n{#MyAppExtraInfo}
+dutch.ClickFinish=Klik op Voltooien om Setup te beëindigen.%n%n{#MyAppExtraInfo}
+french.ClickFinish=Veuillez cliquer sur Terminer pour quitter l'assistant d'installation.%n%n{#MyAppExtraInfo}
+german.ClickFinish=Klicken Sie auf "Fertigstellen", um das Setup zu beenden.%n%n{#MyAppExtraInfo}
+italian.ClickFinish=Seleziona "Fine" per uscire dall'installazione.%n%n{#MyAppExtraInfo}
+japanese.ClickFinish=セットアップを終了するには「完了」をクリックしてください。%n%n{#MyAppExtraInfo}
+korean.ClickFinish=설치를 종료하려면 마침을 클릭하십시오.%n%n{#MyAppExtraInfo}
+polish.ClickFinish=Kliknij przycisk Zakończ, aby zakończyć instalację.%n%n{#MyAppExtraInfo}
+portuguese.ClickFinish=Clique em Concluir para finalizar o Assistente de Instalação.%n%n{#MyAppExtraInfo}
+russian.ClickFinish=Нажмите «Завершить», чтобы выйти из программы установки.%n%n{#MyAppExtraInfo}
+spanish.ClickFinish=Haga clic en Finalizar para salir del programa de instalación.%n%n{#MyAppExtraInfo}
+turkish.ClickFinish=Kurulum yardımcısından çıkmak için Bitti üzerine tıklayın.%n%n{#MyAppExtraInfo}
+ukrainian.ClickFinish=Натисніть «Готово» для виходу з програми встановлення.%n%n{#MyAppExtraInfo}
 
-// 20240712_RainCandyTech_FinishReboot
+// 20260314_FinishRebootExtraInfo
 // 仅在 MyAppExtraInfo 无信息或表明 Splash 作者时使用
 FinishedRestartLabel=To complete the installation of [name], Setup must restart your computer. Would you like to restart now?%n%n{#MyAppExtraInfo}
 chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。要立即重启吗？%n%n{#MyAppExtraInfo}
 chinesetrad.FinishedRestartLabel=要完成 [name] 的安裝，安裝程式必須重新啟動您的電腦。您想要現在重新啟動電腦嗎？%n%n{#MyAppExtraInfo}
-//dutch.FinishedRestartLabel=Setup moet de computer opnieuw opstarten om de installatie van [name] te voltooien. Wilt u nu opnieuw opstarten?%n%n{#MyAppExtraInfo}
-//french.FinishedRestartLabel=L'assistant doit redémarrer votre ordinateur pour terminer l'installation de [name].%n%nVoulez-vous redémarrer maintenant ?%n%n{#MyAppExtraInfo}
-//german.FinishedRestartLabel=Um die Installation von [name] abzuschließen, muss das Setup Ihren Computer neu starten. Möchten Sie jetzt neu starten?%n%n{#MyAppExtraInfo}
-//italian.FinishedRestartLabel=Per completare l'installazione di [name], è necessario riavviare il sistema.%n%nVuoi riavviare adesso?%n%n{#MyAppExtraInfo}
-//japanese.FinishedRestartLabel=[name] のインストールを完了するためには、コンピューターを再起動する必要があります。すぐに再起動しますか？%n%n{#MyAppExtraInfo}
-//korean.FinishedRestartLabel=[name] 설치를 완료하려면 컴퓨터를 다시 시작해야 합니다. 지금 다시 시작하시겠습니까?%n%n{#MyAppExtraInfo}
-//polish.FinishedRestartLabel=Aby zakończyć instalację aplikacji [name], instalator musi ponownie uruchomić komputer. Czy chcesz teraz uruchomić komputer ponownie?%n%n{#MyAppExtraInfo}
-//portuguese.FinishedRestartLabel=Para completar a instalação do [name], o Assistente de Instalação deverá reiniciar o seu computador. Deseja reiniciar agora?%n%n{#MyAppExtraInfo}
-//russian.FinishedRestartLabel=Для завершения установки [name] требуется перезагрузить компьютер. Произвести перезагрузку сейчас?%n%n{#MyAppExtraInfo}
-//spanish.FinishedRestartLabel=Para completar la instalación de [name], su sistema debe reiniciarse. ¿Desea reiniciarlo ahora?%n%n{#MyAppExtraInfo}
-//ukrainian.FinishedRestartLabel=Для завершення встановлення [name] необхідно перезавантажити ваш комп’ютер. Перезавантажити комп’ютер зараз?%n%n{#MyAppExtraInfo}
+dutch.FinishedRestartLabel=Setup moet de computer opnieuw opstarten om de installatie van [name] te voltooien. Wilt u nu opnieuw opstarten?%n%n{#MyAppExtraInfo}
+french.FinishedRestartLabel=L'assistant doit redémarrer votre ordinateur pour terminer l'installation de [name].%n%nVoulez-vous redémarrer maintenant ?%n%n{#MyAppExtraInfo}
+german.FinishedRestartLabel=Um die Installation von [name] abzuschließen, muss das Setup Ihren Computer neu starten. Möchten Sie jetzt neu starten?%n%n{#MyAppExtraInfo}
+italian.FinishedRestartLabel=Per completare l'installazione di [name], è necessario riavviare il sistema.%n%nVuoi riavviare adesso?%n%n{#MyAppExtraInfo}
+japanese.FinishedRestartLabel=[name] のインストールを完了するためには、コンピューターを再起動する必要があります。すぐに再起動しますか？%n%n{#MyAppExtraInfo}
+korean.FinishedRestartLabel=[name] 설치를 완료하려면 컴퓨터를 다시 시작해야 합니다. 지금 다시 시작하시겠습니까?%n%n{#MyAppExtraInfo}
+polish.FinishedRestartLabel=Aby zakończyć instalację aplikacji [name], instalator musi ponownie uruchomić komputer. Czy chcesz teraz uruchomić komputer ponownie?%n%n{#MyAppExtraInfo}
+portuguese.FinishedRestartLabel=Para completar a instalação do [name], o Assistente de Instalação deverá reiniciar o seu computador. Deseja reiniciar agora?%n%n{#MyAppExtraInfo}
+russian.FinishedRestartLabel=Для завершения установки [name] требуется перезагрузить компьютер. Произвести перезагрузку сейчас?%n%n{#MyAppExtraInfo}
+spanish.FinishedRestartLabel=Para completar la instalación de [name], su sistema debe reiniciarse. ¿Desea reiniciarlo ahora?%n%n{#MyAppExtraInfo}
+turkish.FinishedRestartLabel=[name] kurulumunun tamamlanması için, bilgisayarınız yeniden başlatılmalı. Şimdi yeniden başlatmak ister misiniz?%n%n{#MyAppExtraInfo}
+ukrainian.FinishedRestartLabel=Для завершення встановлення [name] необхідно перезавантажити ваш комп’ютер. Перезавантажити комп’ютер зараз?%n%n{#MyAppExtraInfo}
 
 [CustomMessages]
 CurrentProcessName=The process name of Setup is:
@@ -209,21 +214,6 @@ begin
 
   Log('[Windose Installer] Info: Pre-install check passed...'); 
   AiMofPostChkInIt;
-  
-  // 根据安装程序语言对 Splash 重命名
-  //if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
-    //if (languageName = 'chinesesimp') then begin
-      //ExtractTemporaryFile('Splash_CS.bmp');
-      //RenameFile(GetFileName('Splash_CS.bmp'), GetFileName('Splash.bmp'));
-    //end else begin
-      //ExtractTemporaryFile('Splash_CT.bmp');
-      //RenameFile(GetFileName('Splash_CT.bmp'), GetFileName('Splash.bmp'));
-    //end;
-  //end else begin
-    //ExtractTemporaryFile('Splash.bmp');
-  //end;
-
-  //LoadSkin(ExpandConstant('{tmp}\{#MyAppSetupStyle}'), 'NormalBlack.ini');
 
   // 解压 BGM 文件
   BGMusicType := ExpandConstant('{#MyAppSetupBGMType}');
@@ -247,32 +237,23 @@ begin
     PlaySongFile(ExpandConstant('{tmp}\music.xm'));
   end;
 
-  // Splash 开屏图片展示
-  //if (RCTIsSilent = false) then
-  //begin
-    //val:=callplug(0,ExpandConstant('{tmp}\AdvSplash.dll'),'show','2400','1400','400','-1',ExpandConstant('{tmp}\Splash'),'','','','','');
-  //end;
+  //AiMofSplashInit;
 
   Log('[Windose Installer] Info: Prepare Complete...');
 end;
 
 procedure InitializeWizard();
-//var
-  //BackgroundImage: TBitmapImage;
 begin  // 安装向导加载
   Log('[Windose Installer] Info: Initializing Wizard...');
+  //AiMofBGPicInit;
   //WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
-  //BackgroundImage := TBitmapImage.Create(MainForm);
-  //BackgroundImage.Parent := MainForm;
-  //BackgroundImage.SetBounds(0, 0, MainForm.ClientWidth, MainForm.ClientHeight);
-  //BackgroundImage.Stretch := True;
-  //BackgroundImage.Bitmap.LoadFromFile(ExpandConstant('{tmp}\Background.bmp'));
-  //Log('[Windose Installer] Background Load Complete...');
 end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
   Log('[Windose Installer] Info: Deinitializing Setup...');
+  //ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);
+  //UnloadSkin();
   //Log('[Windose Installer] Info: Start to cleaning temp files...');
 end;
 
@@ -291,13 +272,6 @@ end;
 
 [Files]
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
-; 全屏安装背景图 20230923 Updated （一般不启用）
-//Source: "..\Plugins\Background_Win.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
-//Source: "..\Plugins\Background_NGO.bmp"; DestDir: {tmp}; DestName: Background.bmp; Flags: dontcopy nocompression;    
-
-; 视觉效果文件
-//Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;
-
 ; BGM 文件
 //Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 Source: "..\Plugins\1BGM\music_mysetup_example.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
@@ -306,6 +280,12 @@ Source: "..\Plugins\1BGM\music_mysetup_example.xm"; DestName: "music.xm"; DestDi
 //Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 Source: "{#RCInnoExpProjectDir}\请在得到密码并通关后解压.zip"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Flags: isreadme ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+
+[Registry]
+; 本段处理程序在注册表中的键值
+
+[Run]
+; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
 
 [Types]
 // 安装类型
