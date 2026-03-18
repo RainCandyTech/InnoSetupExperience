@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260315"
+#define RCInnoExpVer "20260318"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -21,7 +21,7 @@ RCTISEInstOnlineVer=Install online version
 RCTISEInstOfflineVer=Install offline version
 RCTISEDefaultInstType=Default installation
 //RCTISEFullInstType=Full installation
-RCTISECustomInstType=Custom installation
+//RCTISECustomInstType=Custom installation
 RCTISEExtraComponents=Extra components
 RCTISEExtraFeature=Extra features
 RCTISEExpFeature=Experimental features
@@ -52,6 +52,7 @@ RCTISEHotfix=Hotfixes (Consideration is needed)
 RCTISERunInstHotfix=Installing Hotfixes. Please wait...
 RCTASEditNotAvailable=Edit Function not available
 RCTISEFeatureExpWarn=May be unstable, use with caution
+RCTISEInstVerChoose=Install version %1
 
 // RainCandyTech_InnoSetupExp_Messages
 RCTMsgSetupContinue=Setup will now contiune.
@@ -76,7 +77,7 @@ RCTMsgWinStoreSvcChkFailed=One or more of the necessary services used to deploy 
 RCTMsgChkFinishNextNotice=Once the check is complete, click Next to continue.
 RCTMsgFollowSteps= Please follow these steps:
 RCTMsgStepNumber=Step %1:
-RCTMsgRequireAMD64=This application requires an x86_64 / AMD64 architecture operating system.
+//RCTMsgRequireAMD64=This application requires an x86_64 / AMD64 architecture operating system.
 RCTMsgFreeProvideNotice=Important: This application is provided "as is" FOR FREE.%nIf you paid for this application and need assistance, please contact the seller directly. 
 RCTMsgWebGetUpdateNotice=You can get the latest version or its future updates of the application at RainCandy Technology Website (http://raincandy.tech/).
 RCTMsgNewInstDelConfNotice=Do you want to perform a clean installation? This will delete the existing user configurations.
@@ -85,6 +86,7 @@ RCTMsgAppStillRunning=Setup has detected that %1 is still running.
 RCTMsgAppNoticeUserExit=Please quit the application, then run the setup again.
 RCTMsgPatchAppVerNotSupport=The version of %1 application installed on your computer does not meet the requirements.
 RCTMsgPatchAppCurrentVer=The version of application that you currently have installed is:
+RCTMsgAppOtherArchIsInst=It appears that you already have another architecture version of the %1 application installed on your computer.
 
 // RainCandyTech_WinDrv_Strings
 WinDrvSignModeSelect=Signature mode select
@@ -127,29 +129,39 @@ var // 全局变量
   Version: TWindowsVersion;
   ProcessName: String;
   WinInstType: String;
+  WinProductType: String;
   DebugVersion: Boolean;
   NeedStoreApp: Boolean;
   RCTech_DoNotPlayBGM: Boolean;
   IsSetupIncludingBGM: Boolean;
   IsSetupBGMAllowNotPlay: Boolean;
   IsShowFreeProvideMsg: Boolean;
+  AppTargetArch: String;
 
-// 安装程序加载时，对变量进行初始化
-procedure AiMofVarInit;
+// 安装程序加载，并对变量进行初始化
+procedure AiMofSetupInit;
 begin
+  Log('[Windose Installer] Info: Initializing Windose Installer Setup Experience...');
   DebugVersion := {#MyAppIsDebugVersion};
   NeedStoreApp := {#MyAppIsNeedStoreApp};
   languageName := ActiveLanguage();
   ProcessName  :=  ExtractFileName(ParamStr(0));
-  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
+  Log('[Windose Installer] Info: The process name of setup is: "' + ProcessName + '".');
   IsSetupIncludingBGM := {#MyAppSetupBGM};
   IsSetupBGMAllowNotPlay := {#RCBGMAllowNotPlay}
   IsShowFreeProvideMsg := {#MyAppShowFreePrevideMsg};
+  AppTargetArch := '{#MyAppArchRC}';
+  GetWindowsVersionEx(Version);
+  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
+  Log('[Windose Installer] Info: The installation type of current operating system is "' + WinInstType + '".');
+  RegQueryStringValue(HKLM, 'SYSTEM\CurrentControlSet\Control\ProductOptions', 'ProductType', WinProductType);
+  Log('[Windose Installer] Info: The product type of current operating system is "' + WinProductType + '".');
   Log('[Windose Installer] Info: Variables initialization complete.');
 end;
-  
+
+// 在用户等待安装程序执行操作的时候，可以通过这个滚动进度条让用户感知到安装程序没有卡死
 procedure SetMarqueeProgress(Marquee: Boolean);
-begin  // 在用户等待安装程序执行操作的时候，可以通过这个滚动进度条让用户感知到安装程序没有卡死
+begin
   if Marquee then
   begin
     WizardForm.ProgressGauge.Style := npbstMarquee;
@@ -160,43 +172,45 @@ begin  // 在用户等待安装程序执行操作的时候，可以通过这个滚动进度条让用户感知到安
   end;
 end;
 
+// 检查系统是否为 Windows 客户端版本
 function RCTIsWinClient(): Boolean;
-var 
-  WinInstType: String;
-begin  // 检查系统是否为 Windows 客户端版本
-  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
-  if not (WinInstType = 'Server') then
-  begin
+begin
+  result := true;
+  if (WinInstType = 'Server') or (WinProductType = 'ServerNT') then begin
+    result := false;
+  end;
+end;
+
+// 检查 Inno Setup 报告的系统架构是否为 32 位操作系统
+//function RCTIs32BitOS(): Boolean;
+//begin  
+  //result := false;
+  //if not IsWin64 then begin
+    //result := true;
+  //end;
+//end;
+
+// 检查 Inno Setup 报告的系统架构是否为 64 位操作系统
+//function RCTIs64BitOS(): Boolean;
+//begin
+  //result := false;
+  //if IsWin64 then begin
+    //result := true;
+  //end;
+//end;
+
+// 检查 Inno Setup 报告的系统架构是否为 ARM64 架构
+function RCTIsArchARM64(): Boolean;
+begin
+  result := false;
+  if IsArm64 then begin
     result := true;
   end;
 end;
 
-function RCTIs32BitOS(): Boolean;
-begin  // 检查安装体验报告的系统架构是否为 32 位
-  result:= false;
-  if not IsWin64 then begin
-    result:= true;
-  end;
-end;
-
-function RCTIs64BitOS(): Boolean;
-begin  // 检查安装体验报告的系统架构是否为 64 位
-  result:= false;
-  if IsWin64 then begin
-    result:= true;
-  end;
-end;
-
-function RCTIsArchARM64(): Boolean;
-begin  // 检查安装体验报告的系统架构是否为 ARM64
-  result:= false;
-  if IsArm64 then begin
-    result:= true;
-  end;
-end;
-
+// 检查安装程序是否以静默方式运行
 function RCTIsSilent(): Boolean;
-var  // 检查安装程序是否以静默方式运行
+var
   j: Integer;
 begin
   Result := False;
@@ -229,26 +243,9 @@ begin
         end;
       end else begin
         // 如果不允许不播放 BGM，则弹窗提示进行提醒
-          SuppressibleMsgBox(CustomMessage('RCTMsgWarnUserBGMWillPlay') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
+        SuppressibleMsgBox(CustomMessage('RCTMsgWarnUserBGMWillPlay') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
       end;
     end;
-  end;
-end;
-
-// 测试版弹窗
-procedure DebugVersionNotice;
-begin
-  if (DebugVersion = true) then begin
-    Log('[Windose Installer] Info: This application is a debug version.');
-    SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
-  end;
-end;
-
-// 按原样免费提供的相关提示
-procedure ShowFreeProvideMsg;
-begin
-  if (IsShowFreeProvideMsg = true) then begin
-    SuppressibleMsgBox(CustomMessage('RCTMsgFreeProvideNotice')+ #13#13 + CustomMessage('RCTMsgWebGetUpdateNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
   end;
 end;
 
@@ -265,19 +262,17 @@ begin
   end;
 end;
 
-// 安装体验初始化
-procedure AiMofSetupInit;
-begin
-  Log('[Windose Installer] Info: Initializing Setup Experience...');
-  AiMofVarInit;
-  GetWindowsVersionEx(Version);
-  Log('[Windose Installer] Info: The process name of setup is: ' + ProcessName);
-end;
-
 // 程序检查完成后，继续安装体验初始化
 procedure AiMofPostChkInIt;
 begin
-  ShowFreeProvideMsg;
+  // 按原样免费提供的相关提示
+  if (IsShowFreeProvideMsg = true) then begin
+    SuppressibleMsgBox(CustomMessage('RCTMsgFreeProvideNotice')+ #13#13 + CustomMessage('RCTMsgWebGetUpdateNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
+  end;
+  // 测试版弹窗
+  if (DebugVersion = true) then begin
+    Log('[Windose Installer] Info: This application is a debug version.');
+    SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
+  end;
   BGMPlayDetection;
-  DebugVersionNotice;
 end;

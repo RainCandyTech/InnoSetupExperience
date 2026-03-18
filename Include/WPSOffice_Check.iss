@@ -131,3 +131,13 @@ begin  // 针对 WPS Office 安装程序的系统检测，检查是否 Windows 8 Client 版本
     result := true;
   end;
 end;
+
+// 检测是否在已安装 WPS Office 的 64 位版本时再尝试覆盖安装 32 位版本
+function ChkWPSx64InstErr(): Boolean;
+begin
+  Result := false;
+  if (IsWin64) and (AppTargetArch = 'IA32') and (WPSAMD64Main = true) then 
+  begin  
+    Result := True;
+  end;
+end;

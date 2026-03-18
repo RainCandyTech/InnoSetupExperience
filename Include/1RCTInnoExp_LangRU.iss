@@ -19,7 +19,7 @@ russian.RCTISEInstOnlineVer=Установить онлайн-версию
 russian.RCTISEInstOfflineVer=Установить офлайн-версию
 russian.RCTISEDefaultInstType=Установка по умолчанию
 //russian.RCTISEFullInstType=Полная установка
-russian.RCTISECustomInstType=Выборочная установка
+//russian.RCTISECustomInstType=Выборочная установка
 russian.RCTISEExtraComponents=Дополнительные компоненты
 russian.RCTISEExtraFeature=Дополнительные функции
 russian.RCTISEExpFeature=Экспериментальные функции
@@ -50,6 +50,7 @@ russian.RCTISEHotfix=Патч (использовать взвешенно)
 russian.RCTISERunInstHotfix=Установка патча, пожалуйста, подождите...
 russian.RCTASEditNotAvailable=Функция редактирования недоступна
 russian.RCTISEFeatureExpWarn=Осторожно: возможна нестабильность.
+russian.RCTISEInstVerChoose=Установить версию %1
 
 // RainCandyTech_InnoSetupExp_Messages
 russian.RCTMsgSetupContinue=Программа установки продолжит работу.
@@ -74,7 +75,7 @@ russian.RCTMsgWinStoreSvcChkFailed=Одна или несколько необх
 russian.RCTMsgChkFinishNextNotice=После проверки нажмите «Далее», чтобы продолжить.
 russian.RCTMsgFollowSteps= Выполните следующие действия:
 russian.RCTMsgStepNumber=Шаг %1:
-russian.RCTMsgRequireAMD64=Эта программа требует операционную систему архитектуры x86_64 / AMD64.
+//russian.RCTMsgRequireAMD64=Эта программа требует операционную систему архитектуры x86_64 / AMD64.
 russian.RCTMsgFreeProvideNotice=Важное примечание: Данное приложение предоставляется бесплатно «как есть».%nЕсли вы заплатили за это приложение и вам нужна помощь, свяжитесь напрямую с продавцом.
 russian.RCTMsgWebGetUpdateNotice=Вы можете получить последнюю версию или последующие обновления этого приложения на сайте RainCandy Technology (http://raincandy.tech/).
 russian.RCTMsgNewInstDelConfNotice=Выполнить чистую установку? Это приведет к удалению существующих пользовательских настроек.
@@ -83,6 +84,7 @@ russian.RCTMsgAppStillRunning=Программа установки обнару
 russian.RCTMsgAppNoticeUserExit=Пожалуйста, сначала закройте приложение, а затем снова запустите программу установки.
 russian.RCTMsgPatchAppVerNotSupport=Версия программы %1, установленная на вашем компьютере, не соответствует требованиям.
 russian.RCTMsgPatchAppCurrentVer=Текущая версия установленной программы:
+russian.RCTMsgAppOtherArchIsInst=Похоже, на вашем компьютере уже установлена версия приложения %1 для другой архитектуры.
 
 // RainCandyTech_WinDrv_Strings
 russian.WinDrvSignModeSelect=Выбор режима подписи

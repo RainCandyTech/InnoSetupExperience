@@ -18,7 +18,7 @@ japanese.RCTISEInstOnlineVer=オンライン版をインストール
 japanese.RCTISEInstOfflineVer=オフライン版をインストール
 japanese.RCTISEDefaultInstType=デフォルトのインストール
 //japanese.RCTISEFullInstType=フルインストール
-japanese.RCTISECustomInstType=カスタムインストール
+//japanese.RCTISECustomInstType=カスタムインストール
 japanese.RCTISEExtraComponents=追加コンポーネント
 japanese.RCTISEExtraFeature=追加機能
 japanese.RCTISEExpFeature=実験機能
@@ -49,6 +49,7 @@ japanese.RCTISEHotfix=修正プログラム（ご検討の上、お選びください）
 japanese.RCTISERunInstHotfix=修正プログラムをインストールしています。しばらくお待ちください...
 japanese.RCTASEditNotAvailable=編集機能は利用できません
 japanese.RCTISEFeatureExpWarn=不安定な可能性あり、ご注意ください
+japanese.RCTISEInstVerChoose=%1 バージョンをインストール
 
 // RainCandyTech_InnoSetupExp_Messages
 japanese.RCTMsgSetupContinue=セットアップは続行されます。
@@ -56,7 +57,7 @@ japanese.RCTMsgSetupExit=セットアップが終了します。
 japanese.RCTMsgAskContinue=続けますか？
 japanese.RCTMsgDebugNotice=このバージョンのアプリケーションはテスト専用です。テスト中に発見された問題は、RainCandy Technology までフィードバックをお願いします。よろしくお願いいたします。
 japanese.RCTMsgRebootRequired=インストールプロセスを開始するには、コンピューターを再起動する必要があります。すべての作業を保存し、コンピューターを再起動してから、再度インストールプログラムを実行してください。
-japanese.RCTMsgAppAlreadyInst=コンピューターには既に %1 アプリがインストールされているようです。
+japanese.RCTMsgAppAlreadyInst=コンピューターには既に「%1」アプリがインストールされているようです。
 japanese.RCTMsgAskUserPlayBGM=セットアップに付属の BGM を再生しますか？%n%n「はい」をクリックすると、インストール中に BGM が再生されます。%n「いいえ」をクリックすると再生されません。
 japanese.RCTMsgWarnUserBGMWillPlay=このインストーラーにはバックグラウンドミュージックが付属しており、インストールウィザードが正式に起動すると再生されることに注意してください。%n%n周囲の邪魔にならないように、すぐにシステムの音量またはスピーカーの音量を調整するか、マナーモードをオンにするか、スピーカーの電源を切る必要があります。
 japanese.RCTMsgRestartInstAfterAction=操作が完了したら、セットアップを再度実行してください。
@@ -73,7 +74,7 @@ japanese.RCTMsgWinStoreSvcChkFailed=Microsoft Store アプリの展開に使用される必要
 japanese.RCTMsgChkFinishNextNotice=チェックが完了したら、「次へ」をクリックして続行してください。
 japanese.RCTMsgFollowSteps=以下の手順に従ってください：
 japanese.RCTMsgStepNumber=ステップ %1：
-japanese.RCTMsgRequireAMD64=このプログラムには、x86_64 / AMD64 アーキテクチャの OS が必要です。
+//japanese.RCTMsgRequireAMD64=このプログラムには、x86_64 / AMD64 アーキテクチャの OS が必要です。
 japanese.RCTMsgFreeProvideNotice=重要：このアプリは「現状有姿」で無料で提供されます。%nアプリの料金を支払っていてサポートが必要な場合は、販売者に直接お問い合わせください。
 japanese.RCTMsgWebGetUpdateNotice=アプリケーションの最新バージョンまたは将来のアップデートは、RainCandy Technology 公式サイト (http://raincandy.tech/) で入手できます。
 japanese.RCTMsgNewInstDelConfNotice=クリーンインストールを実行しますか?これにより、既存のユーザー設定が削除されます。
@@ -82,6 +83,7 @@ japanese.RCTMsgAppStillRunning=セットアップは、%1 がまだ実行中であることを検出し
 japanese.RCTMsgAppNoticeUserExit=セットアップを再実行する前に、アプリケーションを終了してください。
 japanese.RCTMsgPatchAppVerNotSupport=お使いのコンピュータにインストールされている %1 アプリのバージョンは要件を満たしていません。
 japanese.RCTMsgPatchAppCurrentVer=現在インストールされているアプリのバージョンは次のとおりです：
+japanese.RCTMsgAppOtherArchIsInst=お使いのコンピュータには、「%1」アプリケーションの別アーキテクチャバージョンが既にインストールされているようです。
 
 // RainCandyTech_WinDrv_Strings
 japanese.WinDrvSignModeSelect=署名モード選択

@@ -22,7 +22,7 @@ chinesetrad.RCTISEInstOnlineVer=安裝聯網版本
 chinesetrad.RCTISEInstOfflineVer=安裝離線版本
 chinesetrad.RCTISEDefaultInstType=預設安裝
 //chinesetrad.RCTISEFullInstType=完全安裝
-chinesetrad.RCTISECustomInstType=自訂安裝
+//chinesetrad.RCTISECustomInstType=自訂安裝
 chinesetrad.RCTISEExtraComponents=額外元件
 chinesetrad.RCTISEExtraFeature=額外功能
 chinesetrad.RCTISEExpFeature=實驗功能
@@ -53,6 +53,7 @@ chinesetrad.RCTISEHotfix=修補程式（請權衡後使用）
 chinesetrad.RCTISERunInstHotfix=正在安裝修補程式，請稍候...
 chinesetrad.RCTASEditNotAvailable=編輯功能不可用
 chinesetrad.RCTISEFeatureExpWarn=可能不穩定，請謹慎選擇
+chinesetrad.RCTISEInstVerChoose=安裝 %1 版本
 
 // RainCandyTech_InnoSetupExp_Messages
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。
@@ -60,7 +61,7 @@ chinesetrad.RCTMsgSetupExit=安裝程式現在將退出。
 chinesetrad.RCTMsgAskContinue=您想繼續嗎？
 chinesetrad.RCTMsgDebugNotice=此版本的程式僅供測試使用。請就測試過程中發現的任何問題向雨糖科技提供迴響。謝謝！
 chinesetrad.RCTMsgRebootRequired=必須重新啟動計算機才能開始安裝過程。請儲存所有工作，重新啟動計算機，然後再次執行安裝程式。
-chinesetrad.RCTMsgAppAlreadyInst=您的計算機可能已經安裝了%1應用程式。
+chinesetrad.RCTMsgAppAlreadyInst=您的計算機似乎已經安裝了「%1」應用程式。
 chinesetrad.RCTMsgAskUserPlayBGM=是否要播放安裝程式自帶的背景音樂？%n%n如果點按「是」，安裝程式將會在安裝過程中播放其背景音樂；%n如果點按「否」，則不會播放。
 chinesetrad.RCTMsgWarnUserBGMWillPlay=請特別注意，本安裝程式自帶背景音樂，它將在安裝精靈正式開始時播放。%n%n為了避免造成對周圍環境的打擾，您現在應立即調整系統音量或揚聲器音量，或開啟靜音模式，或將揚聲器關閉。
 chinesetrad.RCTMsgRestartInstAfterAction=完成操作後，請再次運行安裝程式。
@@ -77,7 +78,7 @@ chinesetrad.RCTMsgWinStoreSvcChkFailed=用於部署 Microsoft Store 應用的一個或多個
 chinesetrad.RCTMsgChkFinishNextNotice=檢查完畢後，請點按「下一步」繼續。
 chinesetrad.RCTMsgFollowSteps=請執行以下操作：
 chinesetrad.RCTMsgStepNumber=第 %1 步：
-chinesetrad.RCTMsgRequireAMD64=此程式要求 x86_64 / AMD64 架構的作業系統。
+//chinesetrad.RCTMsgRequireAMD64=此程式要求 x86_64 / AMD64 架構的作業系統。
 chinesetrad.RCTMsgFreeProvideNotice=重要提示：本應用程式「按原樣」免費提供。%n如果您付費獲得了本應用程式，且需要任何協助的話，請直接與賣家進行聯繫。
 chinesetrad.RCTMsgWebGetUpdateNotice=您可以在雨糖科技網站（http://raincandy.tech/）獲取本應用程式的最新版本或後續更新。
 chinesetrad.RCTMsgNewInstDelConfNotice=是否進行全新安裝？這將刪除現有的使用者配置。
@@ -86,6 +87,7 @@ chinesetrad.RCTMsgAppStillRunning=安裝程式檢測到%1仍在運行。
 chinesetrad.RCTMsgAppNoticeUserExit=請先退出應用程式，然後再重新運行安裝程式。
 chinesetrad.RCTMsgPatchAppVerNotSupport=計算機上安裝的%1程式版本不符合要求。
 chinesetrad.RCTMsgPatchAppCurrentVer=目前已安裝程式的版本為：
+chinesesimp.RCTMsgAppOtherArchIsInst=您的計算機似乎已經安裝了「%1」應用程式的其他架構版本。
 
 // RainCandyTech_WinDrv_Strings
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇
