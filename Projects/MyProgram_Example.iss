@@ -6,23 +6,23 @@
 
 #define MyAppName "My Program"
 #define MyAppNameCS "我的程序"
-#define MyAppMainName "My Program"
-#define MyAppMainNameCS "我的程序"
-#define MyAppMainNameCT "我的程式"
+#define MyAppMainName "Heaven For Death"
+#define MyAppMainNameCS " Heaven For Death "
+#define MyAppMainNameCT " Heaven For Death "
 #define MyAppVersion "1.0.0.0"
 #define MyAppMajorVersion "1"
 #define MyAppMarketVersion "1"
 #define MyAppPublisher "RainCandy Technology"
 #define MyAppURL "http://raincandy.tech/"
-#define WizardImage "WizModernImage-240829"
-#define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
-#define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
-#define MyAppExtraInfo WizardImageAuthor
+//#define WizardImage "WizModernImage-b4"
+//#define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
+//#define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
+//#define MyAppExtraInfo WizardImageAuthor
+#define MyAppExtraInfo ""
 #define MyAppExeName "Game.exe"
 #define MyAppOutputName "MyProgram_Example"
-//#define MyAppTypeVersion ""
-#define MyAppRevisionVer "rNext"
-#define MyAppRevisionDate "180529"
+#define MyAppRevisionVer ""
+#define MyAppRevisionDate "20180529"
 #define MyAppSetupBGM "true"
 #define RCBGMAllowNotPlay "true"
 #define MyAppSetupBGMType "xm"
@@ -59,7 +59,7 @@
 ; 不要为其他安装程序使用相同的AppId值。
 ; (生成新的GUID，点击 工具|在IDE中生成GUID。)
 //AppId=
-AppVersion=v{#MyAppVersion}_{#MyAppArchitecture}_{#MyAppRevisionVer}_{#MyAppRevisionDate}
+AppVersion=v{#MyAppVersion}_{#MyAppArchitecture}_{#MyAppRevisionDate}{#MyAppRevisionVer}
 AppName={#MyAppName}
 //AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
@@ -80,11 +80,11 @@ Compression=lzma2
 SolidCompression=yes
 DefaultDirName={pf}\My Program
 //ArchitecturesAllowed=win64
-//ArchitecturesInstallIn64BitMode=x64
+//ArchitecturesInstallIn64BitMode=win64
 //Uninstallable=no
 //SetupIconFile="..\Icons\ahoge_nijika.ico"
 DisableWelcomePage=false
-WizardImageFile="..\Artworks\{#WizardImage}.bmp"
+//WizardImageFile="..\Artworks\{#WizardImage}.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //SetupLogging=yes
@@ -92,7 +92,6 @@ WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //DiskSliceSize=2100000000
 //MinVersion=6.1
 //WizardStyle=modern
-//WindowVisible=yes
 VersionInfoDescription={#MyAppName}
 //VersionInfoOriginalFileName={#MyAppOutputName}.exe
 RestartIfNeededByRun=no
@@ -117,7 +116,7 @@ Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl";
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl";
 Name: "turkish"; MessagesFile: "compiler:Languages\Turkish.isl";
-//Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
+Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 
 [Messages]
 // 20251116_RainCandyTech_ISEBeveledLabel
@@ -126,10 +125,10 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260315_SloganAtBegin
+// 20260321_Slogan-At-Begin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 我们不会再回到那个黑暗的时代！%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 我們不會再回到那個黑暗的時代！%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 我们绝不会再回到那黑暗的时代！%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 我們絕不會再回到那黑暗的時代！%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -277,7 +276,7 @@ end;
 Source: "..\Plugins\1BGM\music_mysetup_example.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
 
 ; 主程序文件
-//Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 Source: "{#RCInnoExpProjectDir}\请在得到密码并通关后解压.zip"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Flags: isreadme ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 
