@@ -14,3 +14,9 @@ external 'PlaySongFile@files:ufMOD.dll stdcall setuponly';
 
 procedure StopSong;
 external 'StopSong@files:ufMOD.dll stdcall setuponly';
+
+// 取消加载插件，避免安装程序退出时插件抽风
+procedure AiMofBGMUnload_ufMOD;
+begin
+  StopSong;
+end;

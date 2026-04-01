@@ -1,6 +1,6 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - BASSMOD 插件函数
-// Made with love by RainCandy Technology
-// 特别感谢：织金旋律
+// 雨糖科技 Windose Installer 安装体验脚本 - BASSMOD 插件函数
+// Made with love by RainCandy Technology - 雨糖科技 以爱敬献
+// 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码用于 BASSMOD 插件的相关函数。
 
@@ -25,3 +25,9 @@ external 'BASSMOD_MusicPause@files:BASSMOD.dll stdcall delayload';
 
 procedure BASSMOD_Free();
 external 'BASSMOD_Free@files:BASSMOD.dll stdcall delayload';
+
+// 取消加载插件，避免安装程序退出时插件抽风
+procedure AiMofBGMUnload_BASSMOD;
+begin
+  BASSMOD_Free;
+end;
