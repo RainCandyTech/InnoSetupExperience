@@ -38,7 +38,7 @@
 //#define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpBGMPlugin "ufMOD"
+#define RCInnoExpBGMPlugin "BASSMOD"
 #define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
 
@@ -232,6 +232,7 @@ end;
 procedure DeinitializeSetup();
 begin   // 安装程序退出
   Log('[Windose Installer] Info: Deinitializing Setup...');
+  AiMofBGMUnload_{#RCInnoExpBGMPlugin};
   //ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);
   //UnloadSkin();
   //Log('[Windose Installer] Info: Start to cleaning temp files...');
