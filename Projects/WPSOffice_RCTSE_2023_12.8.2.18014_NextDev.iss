@@ -204,10 +204,7 @@ chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序
 
 [Code]
 function InitializeSetup: Boolean;
-var  // 安装程序加载
-  BGMusicFile: string;
-  BGMusicType: string;
-begin
+begin  // 安装程序加载
   AiMofSetupInit;
   //Log('[Windose Installer] Info: Placeholder Message');
   //AiMofSkinLoad;
@@ -246,27 +243,11 @@ begin
   Log('[Windose Installer] Info: Pre-install check passed...'); 
   AiMofPostChkInIt;
 
-  // 解压 BGM 文件
+  // 解压、加载 BGM
   BGMusicType := ExpandConstant('{#MyAppSetupBGMType}');
   BGMusicFile := ExpandConstant('{tmp}\music.' + BGMusicType);
   ExtractTemporaryFile('music.' + BGMusicType);
-
-  // BGM 准备（BASSMOD）
-  //ExtractTemporaryFile('BASSMOD.dll');
-  //if not BASSMOD_Init(-1,44100,0) then begin
-    AiMofBGMUnload_{#RCInnoExpBGMPlugin};
-    //BASSMOD_MusicFree;
-  //end;
-  //if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true) then begin
-    //Log('[Windose Installer] Info: Plugin BASSMOD prepare complete, start music playing...');
-    //BASSMOD_MusicPlay;
-  //end;
-
-  // BGM 准备（ufMOD）
-  if not (RCTech_DoNotPlayBGM = true) then begin
-    Log('[Windose Installer] Info: Plugin ufMOD prepare complete, start music playing...');
-    PlaySongFile(ExpandConstant('{tmp}\music.xm'));
-  end;
+  AiMofBGMLoad_{#RCInnoExpBGMPlugin};
 
   //AiMofSplashInit;
 

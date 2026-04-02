@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260401"
+#define RCInnoExpVer "20260402"
 
 [Messages]
 // 20251114_RainCandyTech_ISEMain
@@ -132,6 +132,8 @@ var // 全局变量
   WinProductType: String;
   DebugVersion: Boolean;
   NeedStoreApp: Boolean;
+  BGMusicFile: string;
+  BGMusicType: string;
   RCTech_DoNotPlayBGM: Boolean;
   IsSetupIncludingBGM: Boolean;
   IsSetupBGMAllowNotPlay: Boolean;

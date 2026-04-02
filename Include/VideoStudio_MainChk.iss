@@ -184,10 +184,10 @@ begin  // 检查是否安装会声会影 2023 64 位主程序
   end;
 end;
 
-function VS27AMD64Main(): Boolean;
-begin  // 检查是否安装会声会影 Next 64 位主程序
-  result:= false;
-  if (IsWin64) and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Ulead Systems\Corel VideoStudio Pro\27.0\Installer,Path}\vstudio.exe'))) then begin
-    result := true;
-  end;
-end;
+//function VS27AMD64Main(): Boolean;
+//begin  // 检查是否安装会声会影 Next 64 位主程序
+  //result:= false;
+  //if (IsWin64) and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Ulead Systems\Corel VideoStudio Pro\27.0\Installer,Path}\vstudio.exe'))) then begin
+    //result := true;
+  //end;
+//end;

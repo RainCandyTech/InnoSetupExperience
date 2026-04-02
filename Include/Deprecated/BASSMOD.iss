@@ -26,6 +26,20 @@ external 'BASSMOD_MusicPause@files:BASSMOD.dll stdcall delayload';
 procedure BASSMOD_Free();
 external 'BASSMOD_Free@files:BASSMOD.dll stdcall delayload';
 
+// 插件加载，开始播放
+procedure AiMofBGMLoad_BASSMOD;
+begin
+  ExtractTemporaryFile('BASSMOD.dll');
+  if not BASSMOD_Init(-1,44100,0) then begin
+    BASSMOD_Free;
+    BASSMOD_MusicFree;
+  end;
+  if BASSMOD_MusicLoad(false, PAnsiChar(BGMusicFile), 0, 0, 4) and (not RCTech_DoNotPlayBGM = true) then begin
+    Log('[Windose Installer] Info: Plugin BASSMOD prepare complete, start music playing...');
+    BASSMOD_MusicPlay;
+  end;
+end;
+
 // 取消加载插件，避免安装程序退出时插件抽风
 procedure AiMofBGMUnload_BASSMOD;
 begin

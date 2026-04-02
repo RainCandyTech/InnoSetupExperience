@@ -10,10 +10,20 @@ Source: "..\Plugins\ufMOD{#RCInnoExpPluginSignMark}.dll"; DestName: "ufMOD.dll";
 
 [Code]
 procedure PlaySongFile(FileName: AnsiString);
-external 'PlaySongFile@files:ufMOD.dll stdcall setuponly';
+external 'PlaySongFile@files:ufMOD.dll stdcall setuponly delayload';
 
 procedure StopSong;
-external 'StopSong@files:ufMOD.dll stdcall setuponly';
+external 'StopSong@files:ufMOD.dll stdcall setuponly delayload';
+
+// 插件加载，开始播放
+procedure AiMofBGMLoad_ufMOD;
+begin
+  if not (RCTech_DoNotPlayBGM = true) then begin
+    ExtractTemporaryFile('ufMOD.dll');
+    Log('[Windose Installer] Info: Plugin ufMOD prepare complete, start music playing...');
+    PlaySongFile(ExpandConstant('{tmp}\music.' + BGMusicType));
+  end;
+end;
 
 // 取消加载插件，避免安装程序退出时插件抽风
 procedure AiMofBGMUnload_ufMOD;
