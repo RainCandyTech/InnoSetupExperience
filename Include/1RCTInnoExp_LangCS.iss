@@ -22,7 +22,7 @@ chinesesimp.SelectTasksLabel2=选择您想要安装程序在安装{#MyAppNameCS}时执行的附加
 chinesesimp.FinishedRestartMessage=为完成{#MyAppNameCS}的安装，安装程序必须重新启动您的电脑。%n%n要立即重启吗？
 chinesesimp.PreparingDesc=安装程序正在准备安装{#MyAppNameCS}到您的电脑。
 chinesesimp.SetupWindowTitle={#MyAppNameCS} - 安装程序
-chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-Chinese-%nSimplified-Translation
+chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护，%n为适配 Windose Installer 有所修改。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-Chinese-%nSimplified-Translation
 
 [CustomMessages]
 // 20260219_RainCandyTech_InnoSetupExp_Strings

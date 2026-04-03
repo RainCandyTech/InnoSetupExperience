@@ -22,7 +22,7 @@
 #define MyAppOutputName "NVIDIADriver_RCTSE"
 #define MyAppTypeVersion "0"
 #define MyAppRevisionVer "2"
-#define MyAppRevisionDate "260401"
+#define MyAppRevisionDate "260403"
 #define MyAppSetupBGM "true"
 #define RCBGMAllowNotPlay "true"
 #define MyAppSetupBGMType "xm"
@@ -64,7 +64,6 @@
 #include "..\Include\1RCTInnoExp_LangCT.iss"
 #include "..\Include\1RCTInnoExp_LangJP.iss"
 #include "..\Include\1RCTInnoExp_LangRU.iss"
-//#include "..\Include\1RCTInnoExp_LangCS_IS5.iss"
 #include "..\Include\" + RCInnoExpBGMPlugin + ".iss"
 //#include "..\Include\Splash.iss"
 //#include "..\Include\ISSkin.iss"
@@ -110,8 +109,9 @@ Uninstallable=no
 SetupIconFile="..\Icons\NVIDIA_Installer.ico"
 DisableWelcomePage=false
 WizardImageFile="..\Artworks\{#WizardImage}.bmp"
-//WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
-WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
+WizardImageFileDynamicDark="..\Artworks\{#WizardImage}.bmp"
+//WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
+WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //SetupLogging=yes
 //DiskSpanning=true
 //DiskSliceSize=2100000000

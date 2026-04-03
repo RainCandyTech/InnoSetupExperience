@@ -38,7 +38,7 @@
 //#define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-#define RCInnoExpBGMPlugin "BASSMOD"
+#define RCInnoExpBGMPlugin "ufMOD"
 #define RCInnoExpPluginSignMark "_signed"
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
 
@@ -47,7 +47,7 @@
 #include "..\Include\1RCTInnoExp_LangCT.iss"
 //#include "..\Include\1RCTInnoExp_LangJP.iss"
 //#include "..\Include\1RCTInnoExp_LangRU.iss"
-//#include "..\Include\1RCTInnoExp_LangCS_IS5.iss"
+//#include "..\Include\1RCTInnoExp_LangCS_Legacy.iss"
 #include "..\Include\" + RCInnoExpBGMPlugin + ".iss"
 //#include "..\Include\Splash.iss"
 //#include "..\Include\ISSkin.iss"
@@ -81,17 +81,22 @@ SolidCompression=yes
 DefaultDirName={pf}\My Program
 //ArchitecturesAllowed=win64
 //ArchitecturesInstallIn64BitMode=win64
+//SetupArchitecture=x64
 //Uninstallable=no
 //SetupIconFile="..\Icons\ahoge_nijika.ico"
 DisableWelcomePage=false
 //WizardImageFile="..\Artworks\{#WizardImage}.bmp"
+//WizardImageFileDynamicDark="..\Artworks\{#WizardImage}.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
-WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
+//WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
+WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
+//WizardSmallImageFileDynamicDark="..\Artworks\rclogo_inno_modern.png"
 //SetupLogging=yes
 //DiskSpanning=true
 //DiskSliceSize=2100000000
 //MinVersion=6.1
 //WizardStyle=modern
+//WizardStyle=modern dynamic Windows11
 VersionInfoDescription={#MyAppName}
 //VersionInfoOriginalFileName={#MyAppOutputName}.exe
 RestartIfNeededByRun=no
