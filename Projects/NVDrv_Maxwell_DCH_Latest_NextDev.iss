@@ -139,7 +139,6 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl";
 Name: "german"; MessagesFile: "compiler:Languages\German.isl";
 Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl";
 Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
-//Name: "korean"; MessagesFile: "..\Languages\Korean.isl";  ;这份语言文件用于 Inno Setup 5 版本安装包
 Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
 Name: "polish"; MessagesFile: "compiler:Languages\Polish.isl";
 Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl";

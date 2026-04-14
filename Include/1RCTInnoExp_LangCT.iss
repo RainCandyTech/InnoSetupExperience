@@ -1,14 +1,14 @@
-// 雨糖科技安装体验脚本 - 额外字符串参数（繁体中文）
+// 雨糖科技 Windose Installer 安装体验脚本 - 额外字符串参数（繁体中文）
 // Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
 
 [Messages]
-// 20251114_RainCandyTech_ISEMain
-chinesetrad.AboutSetupNote=使用 Windose Installer {#RCInnoExpVer} 版本進行構建。
+// Setup Note in "About" dialog
+chinesetrad.AboutSetupNote=使用 Windose Installer {#RCInnoExpVer} 版本進行構建。%nhttps://github.com/RainCandyTech/InnoSetupExperience
 
-// 20260219_RainCandyTech_ChineseSetupName
+// Extra localization for Windose Installer
 //chinesetrad.FinishedHeadingLabel=已完成{#MyAppNameCT}安裝
 //chinesetrad.InstallingLabel=請稍候，安裝程式正在將{#MyAppNameCS}安裝到您的電腦上。
 

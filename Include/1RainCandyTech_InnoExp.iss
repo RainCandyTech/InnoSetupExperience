@@ -4,11 +4,11 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260403"
+#define RCInnoExpVer "20260405"
 
 [Messages]
-// 20251114_RainCandyTech_ISEMain
-AboutSetupNote=Built with Windose Installer Version {#RCInnoExpVer}.
+// Setup Note in "About" dialog
+AboutSetupNote=Built with Windose Installer version {#RCInnoExpVer}.%nhttps://github.com/RainCandyTech/InnoSetupExperience
 
 [CustomMessages]
 // 20241206_RainCandyTech_InnoSetupExp_Strings

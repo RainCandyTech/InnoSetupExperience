@@ -1,4 +1,4 @@
-// 雨糖科技安装体验脚本 - 额外字符串参数（俄罗斯语）
+﻿// 雨糖科技 Windose Installer 安装体验脚本 - 额外字符串参数（俄罗斯语）
 // Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
@@ -6,8 +6,11 @@
 // 俄罗斯语本地化使用了 DeepSeek 进行翻译。
 
 [Messages]
-// 20260219_RainCandyTech_ISEMain
-russian.AboutSetupNote=Сборка выполнена с использованием Windose Installer версии {#RCInnoExpVer}.
+// Setup Note in "About" dialog
+russian.AboutSetupNote=Сборка выполнена с использованием Windose Installer версии {#RCInnoExpVer}.%nhttps://github.com/RainCandyTech/InnoSetupExperience
+
+// Extra localization for Windose Installer
+//russian.TranslatorNote=Russian translation by Dmitry Kann,%nhttp://www.dk-soft.org/
 
 [CustomMessages]
 // 20260219_RainCandyTech_InnoSetupExp_Strings

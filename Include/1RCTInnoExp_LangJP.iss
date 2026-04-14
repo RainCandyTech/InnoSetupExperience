@@ -1,12 +1,14 @@
-// 雨糖科技安装体验脚本 - 额外字符串参数（日语）
+// 雨糖科技 Windose Installer 安装体验脚本 - 额外字符串参数（日语）
 // Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
 // 本脚本代码为雨糖科技安装体验的额外字符串提供本地化支持。
 
 [Messages]
-// 20240610_RainCandyTech_ISEMain
-japanese.AboutSetupNote=RainCandy Technology Setup Experience%nVersion {#RCInnoExpVer} で構築されています。
+// Setup Note in "About" dialog
+japanese.AboutSetupNote=Windose Installer version {#RCInnoExpVer} で構築されています。%nhttps://github.com/RainCandyTech/InnoSetupExperience
+
+// Extra localization for Windose Installer
 
 [CustomMessages]
 // 20260219_RainCandyTech_InnoSetupExp_Strings
