@@ -26,8 +26,8 @@ chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护。%nhttps:
 //chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护，%n为适配 Windose Installer 有所修改。%n%n项目地址：%nhttps://github.com/kira-96/Inno-Setup-Chinese-%nSimplified-Translation
 
 [CustomMessages]
-// 20260219_RainCandyTech_InnoSetupExp_Strings
-// 对于中文而言，组件名称以英文打头的话，应在前面加空格
+// General strings for Windose Installer
+// 对于中文而言，组件名称以英文打头的话，应视情况在前后加减空格或用引号框住
 //chinesesimp.UninstallProgram=卸载%1
 chinesesimp.LaunchProgram=运行%1
 chinesesimp.RCTISEMyAppName={#MyAppNameCS}
@@ -71,7 +71,7 @@ chinesesimp.RCTASEditNotAvailable=编辑功能不可用
 chinesesimp.RCTISEFeatureExpWarn=可能不稳定，请谨慎选择
 chinesesimp.RCTISEInstVerChoose=安装 %1 版本
 
-// RainCandyTech_InnoSetupExp_Messages
+// Messages for Windose Installer
 chinesesimp.RCTMsgSetupContinue=安装程序现在将继续。
 chinesesimp.RCTMsgSetupExit=安装程序现在将退出。
 chinesesimp.RCTMsgAskContinue=您想继续吗？
@@ -105,7 +105,7 @@ chinesesimp.RCTMsgPatchAppVerNotSupport=计算机中安装的%1程序版本不符合要求。
 chinesesimp.RCTMsgPatchAppCurrentVer=目前已安装程序的版本为：
 chinesesimp.RCTMsgAppOtherArchIsInst=看起来您的计算机似乎已经安装了「%1」应用程序的其他架构版本。
 
-// RainCandyTech_WinDrv_Strings
+// Strings for drivers for Windows platform
 chinesesimp.WinDrvSignModeSelect=签名模式选择
 chinesesimp.WinDrvSignModeOption=签名模式 %1
 chinesesimp.WDrvDeviceManager=设备管理器
@@ -137,3 +137,4 @@ chinesesimp.WDrvDenyUnspecDeviceInstWarning=操作系统的设备安装服务已经被禁用，或
 chinesesimp.WDrvChkCode12NextNotice=检查完毕后，请点击“下一步”继续。安装程序随后会就您当前的情况进行询问。
 chinesesimp.WDrvFMConfErrIGFXNotWorking=此问题将会导致集成显卡（核芯显卡）以及不支持显示输出的 GPU 设备（如英伟达 P106-100 和 CMP 40HX）无法正常工作。
 chinesesimp.WDrvPublisherType=安装 %1 驱动程序
+chinesesimp.WDrvPolicyDenyXSignNotice=Windows 驱动程序策略处于强制执行模式，因此安装程序无法继续。请从操作系统中删除 Windows 驱动程序策略。%n%n您可以在本项目的发布说明中找到更多信息。

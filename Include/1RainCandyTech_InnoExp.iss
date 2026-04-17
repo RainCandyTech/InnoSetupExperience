@@ -4,15 +4,14 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260405"
+#define RCInnoExpVer "20260415"
 
 [Messages]
 // Setup Note in "About" dialog
 AboutSetupNote=Built with Windose Installer version {#RCInnoExpVer}.%nhttps://github.com/RainCandyTech/InnoSetupExperience
 
 [CustomMessages]
-// 20241206_RainCandyTech_InnoSetupExp_Strings
-// 对于中文，组件名称以英文打头的话，应在前面加空格
+// General strings for Windose Installer
 RCTISEMyAppName={#MyAppName}
 RCTISEMainApp=Main application
 RCTISEInstNormal=Normal installation
@@ -54,7 +53,7 @@ RCTASEditNotAvailable=Edit Function not available
 RCTISEFeatureExpWarn=May be unstable, use with caution
 RCTISEInstVerChoose=Install version %1
 
-// RainCandyTech_InnoSetupExp_Messages
+// Messages for Windose Installer
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
@@ -88,7 +87,7 @@ RCTMsgPatchAppVerNotSupport=The version of %1 application installed on your comp
 RCTMsgPatchAppCurrentVer=The version of application that you currently have installed is:
 RCTMsgAppOtherArchIsInst=It appears that you already have another architecture version of the %1 application installed on your computer.
 
-// RainCandyTech_WinDrv_Strings
+// Strings for drivers for Windows platform
 WinDrvSignModeSelect=Signature mode select
 WinDrvSignModeOption=Signature mode %1
 WDrvDeviceManager=Device Manager
@@ -120,6 +119,7 @@ WDrvDenyUnspecDeviceInstWarning=The device installation service of the operating
 WDrvChkCode12NextNotice=Once the check is complete, click Next to continue. Then, setup will ask you about your current situation.
 WDrvFMConfErrIGFXNotWorking=This issue will cause integrated graphics and GPU devices without display output support (like NVIDIA P106-100 and CMP 40HX) not working properly.
 WDrvPublisherType=Install %1 driver
+WDrvPolicyDenyXSignNotice=Windows Driver policy is active in enforcement mode, so setup cannot continue. Please delete Windows Driver policy from your operating system.%n%nYou can find more information in the release notes of this project.
 
 [Run]
 

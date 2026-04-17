@@ -13,8 +13,8 @@ chinesetrad.AboutSetupNote=使用 Windose Installer {#RCInnoExpVer} 版本進行構建。
 //chinesetrad.InstallingLabel=請稍候，安裝程式正在將{#MyAppNameCS}安裝到您的電腦上。
 
 [CustomMessages]
-// 20260219_RainCandyTech_InnoSetupExp_Strings
-// 对于中文而言，组件名称以英文打头的话，应在前面加空格
+// General strings for Windose Installer
+// 对于中文而言，组件名称以英文打头的话，应视情况在前后加减空格或用引号框住
 chinesetrad.RCTISEMainApp=主程式
 chinesetrad.RCTISEInstNormal=一般安裝
 chinesetrad.RCTISEInstWithoutNet=禁用聯網功能
@@ -55,7 +55,7 @@ chinesetrad.RCTASEditNotAvailable=編輯功能不可用
 chinesetrad.RCTISEFeatureExpWarn=可能不穩定，請謹慎選擇
 chinesetrad.RCTISEInstVerChoose=安裝 %1 版本
 
-// RainCandyTech_InnoSetupExp_Messages
+// Messages for Windose Installer
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。
 chinesetrad.RCTMsgSetupExit=安裝程式現在將退出。
 chinesetrad.RCTMsgAskContinue=您想繼續嗎？
@@ -89,7 +89,7 @@ chinesetrad.RCTMsgPatchAppVerNotSupport=計算機上安裝的%1程式版本不符合要求。
 chinesetrad.RCTMsgPatchAppCurrentVer=目前已安裝程式的版本為：
 chinesesimp.RCTMsgAppOtherArchIsInst=您的計算機似乎已經安裝了「%1」應用程式的其他架構版本。
 
-// RainCandyTech_WinDrv_Strings
+// Strings for drivers for Windows platform
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇
 chinesetrad.WinDrvSignModeOption=簽章模式 %1
 chinesetrad.WDrvDeviceManager=裝置管理員
@@ -121,3 +121,4 @@ chinesetrad.WDrvDenyUnspecDeviceInstWarning=作業系統的裝置安裝服務已經被停用，或
 chinesetrad.WDrvChkCode12NextNotice=檢查完畢後，請點按「下一步」繼續。安裝程式隨後會就您當前的情況進行詢問。
 chinesetrad.WDrvFMConfErrIGFXNotWorking=此問題將會導致整合式顯示卡以及不支持顯示輸出的 GPU 裝置（如 NVIDIA P106-100 和 CMP 40HX）無法正常工作。
 chinesetrad.WDrvPublisherType=安裝 %1 驅動程式
+chinesetrad.WDrvPolicyDenyXSignNotice=Windows 驅動程式政策目前處於強制執行模式，因此無法繼續安裝。請從您的作業系統中刪除 Windows 驅動程式政策。%n%n您可以在本專案的發行說明中找到更多資訊。

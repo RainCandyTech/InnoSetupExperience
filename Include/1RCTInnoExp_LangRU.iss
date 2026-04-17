@@ -13,8 +13,7 @@ russian.AboutSetupNote=Сборка выполнена с использован
 //russian.TranslatorNote=Russian translation by Dmitry Kann,%nhttp://www.dk-soft.org/
 
 [CustomMessages]
-// 20260219_RainCandyTech_InnoSetupExp_Strings
-// 对于中文而言，组件名称以英文打头的话，应在前面加空格
+// General strings for Windose Installer
 russian.RCTISEMainApp=Основная программа
 russian.RCTISEInstNormal=Обычная установка
 russian.RCTISEInstWithoutNet=Отключить сетевые функции
@@ -55,7 +54,7 @@ russian.RCTASEditNotAvailable=Функция редактирования нед
 russian.RCTISEFeatureExpWarn=Осторожно: возможна нестабильность.
 russian.RCTISEInstVerChoose=Установить версию %1
 
-// RainCandyTech_InnoSetupExp_Messages
+// Messages for Windose Installer
 russian.RCTMsgSetupContinue=Программа установки продолжит работу.
 russian.RCTMsgSetupExit=Программа установки завершит работу.
 russian.RCTMsgAskContinue=Желаете продолжить?
@@ -89,7 +88,7 @@ russian.RCTMsgPatchAppVerNotSupport=Версия программы %1, уста
 russian.RCTMsgPatchAppCurrentVer=Текущая версия установленной программы:
 russian.RCTMsgAppOtherArchIsInst=Похоже, на вашем компьютере уже установлена версия приложения %1 для другой архитектуры.
 
-// RainCandyTech_WinDrv_Strings
+// Strings for drivers for Windows platform
 russian.WinDrvSignModeSelect=Выбор режима подписи
 russian.WinDrvSignModeOption=Режим подписи %1
 russian.WDrvDeviceManager=Диспетчер устройств
@@ -121,3 +120,5 @@ russian.WDrvDenyUnspecDeviceInstWarning=Служба установки устр
 russian.WDrvChkCode12NextNotice=После проверки нажмите «Далее», чтобы продолжить. Программа установки затем задаст вопрос о вашей текущей ситуации.
 //russian.WDrvFMConfErrIGFXNotWorking=Эта проблема приведет к тому, что встроенная видеокарта и устройства GPU, не поддерживающие вывод изображения (например, NVIDIA P106-100 и CMP 40HX), не смогут работать нормально.
 russian.WDrvPublisherType=Установка драйвера %1
+russian.WDrvPolicyDenyXSignNotice=В Windows действует политика драйверов в режиме принудительного выполнения, поэтому установка не может продолжаться. Пожалуйста, удалите политику драйверов Windows из вашей операционной системы.%n%nБолее подробную информацию вы можете найти в примечаниях к выпуску этого проекта.
+

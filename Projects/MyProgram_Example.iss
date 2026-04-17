@@ -45,8 +45,8 @@
 #include "..\Include\1RainCandyTech_InnoExp.iss"
 #include "..\Include\1RCTInnoExp_LangCS.iss"
 #include "..\Include\1RCTInnoExp_LangCT.iss"
-//#include "..\Include\1RCTInnoExp_LangJP.iss"
-//#include "..\Include\1RCTInnoExp_LangRU.iss"
+#include "..\Include\1RCTInnoExp_LangJP.iss"
+#include "..\Include\1RCTInnoExp_LangRU.iss"
 //#include "..\Include\1RCTInnoExp_LangCS_Legacy.iss"
 #include "..\Include\" + RCInnoExpBGMPlugin + ".iss"
 //#include "..\Include\Splash.iss"
@@ -89,7 +89,7 @@ DisableWelcomePage=false
 //WizardImageFileDynamicDark="..\Artworks\{#WizardImage}.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 //WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
-WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
+//WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //WizardSmallImageFileDynamicDark="..\Artworks\rclogo_inno_modern.png"
 //SetupLogging=yes
 //DiskSpanning=true
@@ -114,8 +114,8 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl";
 Name: "german"; MessagesFile: "compiler:Languages\German.isl";
 Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl";
 Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
-//Name: "korean"; MessagesFile: "..\Languages\Korean.isl";  ;这份语言文件用于 Inno Setup 5 版本安装包
-Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
+Name: "korean"; MessagesFile: "..\Languages\Korean.isl";
+//Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
 Name: "polish"; MessagesFile: "compiler:Languages\Polish.isl";
 Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl";
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
@@ -263,7 +263,7 @@ end;
 Source: "..\Plugins\1BGM\music_mysetup_example.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
 
 ; 主程序文件
-Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 Source: "{#RCInnoExpProjectDir}\请在得到密码并通关后解压.zip"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Flags: isreadme ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 
@@ -272,6 +272,8 @@ Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Fl
 
 [Run]
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
+; 完成安装时启动程序
+//Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{cm:RCTISEMyAppName}}"; Flags: postinstall nowait skipifsilent;
 
 [Types]
 // 安装类型
@@ -282,7 +284,11 @@ Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Fl
 
 [Tasks]
 // 安装程序可选任务
+Name: dtshortcut; Description: "{cm:CreateDesktopIcon}";
 
 [Icons]
 // 快捷方式创建相关
-Name: "{group}\My Program"; Filename: "{app}\Game.exe";
+Name: "{group}\My Program"; Filename: "{app}\Game.exe"; WorkingDir: "{app}";
+
+; 创建桌面快捷方式，名称为 "自定义快捷方式名"，指向安装目录中的 YourApp.exe
+Name: "{userdesktop}\{cm:RCTISEMyAppName}"; Filename: "{app}\Game.exe"; WorkingDir: "{app}"; Tasks: dtshortcut;

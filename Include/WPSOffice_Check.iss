@@ -5,16 +5,18 @@
 // 本脚本的代码主要用于检测计算机中 WPS Office 已安装版本的信息。
 
 [Code]
+// 检查是否安装 WPS Office 32 位主程序
 function WPSIA32Main(): Boolean;
-begin  // 检查是否安装 WPS Office 32 位主程序       
+begin
   result:= false;
   if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;
 
+// 检查是否安装 WPS Office 64 位主程序
 function WPSAMD64Main(): Boolean;
-var  // 检查是否安装 WPS Office 64 位主程序       
+var
   WPSInstArch: string;
 begin
   result:= false;
@@ -26,32 +28,36 @@ begin
   end;
 end;
 
+// 检查是否安装 WPS Office 主程序（单用户安装）
 function WPSHKCUMain(): Boolean;
-begin  // 检查是否安装 WPS Office 主程序（单用户安装）      
+begin
   result:= false;
   if (FileExists(ExpandConstant('{reg:HKCU\Software\kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;
 
+// 检查是否安装 WPS PDF 独立版 32 位主程序
 function KPDFIA32Main(): Boolean;
-begin  // 检查是否安装金山 PDF 独立版 32 位主程序
+begin
   result:= false;
   if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;
 
+// 检查是否安装 WPS PDF 独立版 64 位主程序
 function KPDFAMD64Main(): Boolean;
-begin  // 检查是否安装金山 PDF 独立版 64 位主程序
+begin
   result:= false;
   if (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
   end;
 end;
 
+// 检查是否安装 WPS PDF 独立版主程序（单用户安装）
 function KPDFHKCUMain(): Boolean;
-begin  // 检查是否安装金山 PDF 独立版 32 位主程序（单用户安装）
+begin
   result:= false;
   if (FileExists(ExpandConstant('{reg:HKCU\Software\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
     result:= true;
@@ -97,9 +103,10 @@ begin
   end;
 end;
 
+// 设置系统程序卸载列表中的应用程序名字（WPS 主程序）
 procedure SetUninstNameWPS();
-begin  // 设置系统程序卸载列表中的应用程序名字（WPS 主程序）
-  RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\Common','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版');
+begin
+  //RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\Common','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版');
   if (WPS{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
     RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;
@@ -108,8 +115,9 @@ begin  // 设置系统程序卸载列表中的应用程序名字（WPS 主程序）
   end;
 end;
 
+// 设置系统程序卸载列表中的应用程序名字（WPS PDF 独立版）
 procedure SetUninstNameWPSPDF();
-begin  // 设置系统程序卸载列表中的应用程序名字（WPS PDF 独立版）
+begin
   if (KPDF{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
     RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;
@@ -118,14 +126,17 @@ begin  // 设置系统程序卸载列表中的应用程序名字（WPS PDF 独立版）
   end;
 end;
 
+// 安装程序结束后，清理临时文件
 procedure CleanTempWPS();
 begin
   DelTree(ExpandConstant('{tmp}\OemFile'), True, True, True);
   DelTree(ExpandConstant('{tmp}\oeminfo'), True, True, True);
+  DelTree(ExpandConstant('{tmp}\VBA'), True, True, True);
 end;
 
+// 针对 WPS Office 安装程序的系统检测，检查是否 Windows 8 Client 版本
 function RCTIsWin8Client(): Boolean;
-begin  // 针对 WPS Office 安装程序的系统检测，检查是否 Windows 8 Client 版本
+begin
   if (Version.NTPlatform) and (Version.Major = 6) and (Version.Minor > 1) and (RCTIsWinClient = true) then
   begin
     result := true;
