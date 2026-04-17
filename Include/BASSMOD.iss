@@ -5,7 +5,7 @@
 // 本脚本代码用于 BASSMOD 插件的相关函数。
 
 [Files]
-Source: "E:\Development\Inno Setup\Plugins\BASSMOD.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\BASSMOD.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 function BASSMOD_Init(device: Integer; freq, flags: DWORD): Boolean;

@@ -156,14 +156,16 @@ begin
   end;
 end;
 
+// 检查是否已经存在 NVIDIA 重启占位符注册表
 function NVRequireReboot(): Boolean;
-begin  // 检查是否已经存在 NVIDIA 重启占位符注册表     
+begin
   result:= false;
   if (RegKeyExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\NVIDIA_RebootNeeded_{CE1CA72E-7C77-4b69-A5D3-2C4CFCD625FD}')) then begin
     result:= true;
   end;
 end;
 
+// 安装程序结束后，清理临时文件
 procedure CleanTempNV();
 begin
   DelTree(ExpandConstant('{tmp}\Display.Driver'), True, True, True);
@@ -183,8 +185,9 @@ begin
   DelTree(ExpandConstant('{tmp}\ShadowPlay'), True, True, True);
 end;
 
+// 如果发现安装程序要求重启计算机才能继续安装，则直接退出安装程序，以避免英伟达安装程序直接重启系统，而安装体验还在后台阻止重启的情况发生
 procedure ExitIfNVNeedReboot();
-begin  // 如果发现安装程序要求重启计算机才能继续安装，则直接退出安装程序，以避免英伟达安装程序直接重启系统，而安装体验还在后台阻止重启的情况发生
+begin
   if (NVRequireReboot = true) then begin
     Log('[Windose Installer] Info: NVIDIA Installer requires system reboot. Now exiting setup.');
     CleanTempNV();

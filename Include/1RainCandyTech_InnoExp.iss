@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260415"
+#define RCInnoExpVer "20260417"
 
 [Messages]
 // Setup Note in "About" dialog
