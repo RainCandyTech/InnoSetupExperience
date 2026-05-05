@@ -25,7 +25,7 @@ begin
 end;
 
 // 释放文件，并根据安装程序语言重命名 Splash 开屏图片
-procedure AiMofSplashExtract;
+procedure NijikaSplashExtract;
 begin
   ExtractTemporaryFile('AdvSplash.dll');
   if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
@@ -42,19 +42,19 @@ begin
 end;
 
 // 开始展示 Splash
-procedure AiMofSplashShow;
+procedure NijikaSplashShow;
 begin
   val:=callplug(0,ExpandConstant('{tmp}\AdvSplash.dll'),'show','2400','1400','400','-1',ExpandConstant('{tmp}\Splash'),'','','','','');
 end;
 
 // Splash 开屏图片初始化流程
-procedure AiMofSplashInit;
+procedure NijikaSplashInit;
 begin
   if (RCTIsSilent = false) then
   begin
     Log('[Windose Installer] Info: Initiating splash screen...');
-    AiMofSplashExtract;
-    AiMofSplashShow;
+    NijikaSplashExtract;
+    NijikaSplashShow;
     Log('[Windose Installer] Info: Splash screen load complete.');
   end else begin
     Log('[Windose Installer] Info: Not showing splash screen because setup is running in slient mode.');

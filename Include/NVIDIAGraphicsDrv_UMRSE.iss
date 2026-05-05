@@ -12,45 +12,66 @@ Source: "..\Plugins\DeviceChkPic\*.bmp"; Flags: dontcopy nocompression;
 
 [Code]
 var // 全局变量
-//#########################安装模式窗口属性###########################
+//######################### 安装模式 1 窗口属性 #########################
   preChkPage:TwizardPage;  //模式选择窗口
   preChkPageID:Integer;  //模式选择窗口 ID
   Button1: TNewButton;  //单选按钮
   Lbl1: TNewStaticText;  //文本标签
   BitmapImage1: TBitmapImage;  //位图图片
   Bitmap1FileName: String;  //位图图片路径
-//####################################################################
 
-//#########################安装模式窗口属性###########################
+//######################### 安装模式 2 窗口属性 #########################
   postChkPage1:TwizardPage;  //模式选择窗口
   postChkPage1ID:Integer;  //模式选择窗口 ID
   Button2: TNewButton;  //单选按钮
   Lbl2: TNewStaticText;  //文本标签
   BitmapImage2: TBitmapImage;  //位图图片
   Bitmap2FileName: String;  //位图图片路径
-//####################################################################
+  
+//######################### 系统 DPI 检测的变量 #########################
+  CurrentDPI, StandardDPI, MediumDPI, LargeDPI: Integer;
 
+//#######################################################################
 procedure CreateModPage;
 begin // 自定义页面
+  { Get the current DPI }
+  CurrentDPI  := WizardForm.Font.PixelsPerInch;
+
+  { Store defaults determined from Windows DPI settings }
+  StandardDPI := 96;  { 100% }
+  MediumDPI   := 120; { 125% }
+  LargeDPI    := 144; { 150% }
+  
   //######################释放所需文件##########################
-  if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
-    if (languageName = 'chinesesimp') then begin
-      Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk_ChineseSimp.bmp');
-    end else begin
-      Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk_ChineseTrad.bmp');
+  if (CurrentDPI < MediumDPI) then begin
+    if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
+      if (languageName = 'chinesesimp') then begin
+        Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk_ChineseSimp.bmp');
+      end else begin
+        Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk_ChineseTrad.bmp');
+      end;
+      Bitmap2FileName := ExpandConstant('{tmp}\GPUZChk_Chinese.bmp');
+    end else
+    begin
+      Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk.bmp');
+      Bitmap2FileName := ExpandConstant('{tmp}\GPUZChk.bmp');
     end;
-    Bitmap2FileName := ExpandConstant('{tmp}\GPUZChk_Chinese.bmp');
-  end else
-  begin
-    Bitmap1FileName := ExpandConstant('{tmp}\DeviceChk.bmp');
-    Bitmap2FileName := ExpandConstant('{tmp}\GPUZChk.bmp');
+  end else begin;
+    if (languageName = 'chinesesimp') or (languageName = 'chinesetrad') then begin
+      if (languageName = 'chinesesimp') then begin
+        Bitmap1FileName := ExpandConstant('{tmp}\DeviceChkDPI_ChineseSimp.bmp');
+      end else begin
+        Bitmap1FileName := ExpandConstant('{tmp}\DeviceChkDPI_ChineseTrad.bmp');
+      end;
+      Bitmap2FileName := ExpandConstant('{tmp}\GPUZChkDPI_Chinese.bmp');
+    end else
+    begin
+      Bitmap1FileName := ExpandConstant('{tmp}\DeviceChkDPI.bmp');
+      Bitmap2FileName := ExpandConstant('{tmp}\GPUZChkDPI.bmp');
+    end;
   end;
   ExtractTemporaryFile(ExtractFileName(Bitmap1FileName));
   ExtractTemporaryFile(ExtractFileName(Bitmap2FileName));
-
-  //Bitmap2FileName := ExpandConstant('{tmp}\20240518183147.bmp');
-  //ExtractTemporaryFile(ExtractFileName(Bitmap2FileName));
-
   //###################################################################
 
   //######################创建安装前设备检查页面##########################

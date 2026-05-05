@@ -64,44 +64,61 @@ begin
   end;
 end;
 
+// 检查 WPS Office 当前的窗口管理模式
+function WPSCurrentAppMode(): Integer;
+var
+  WPSAppMode: string;
+begin
+  Result := 0;  // 未知
+  // 按优先级读取注册表
+  if RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', WPSAppMode) or
+     RegQueryStringValue(HKLM, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', WPSAppMode) or
+     RegQueryStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', WPSAppMode) then
+  begin
+    if (WPSAppMode = 'prome_fushion') then begin
+      Result := 1;  // 整合模式
+    end;
+    if (WPSAppMode = 'prome_independ') then begin
+      Result := 2;  // 多组件模式
+    end;
+    if (WPSAppMode = 'classical') then begin
+      Result := 3;  // 经典模式
+    end;
+  end;
+end;
+
+// 检查 WPS Office 是否为经典模式
 function KSOClassicMode(): Boolean;
-var  // 检查 WPS Office 是否为经典模式
-  RCTech_KSOAppMode: string;
 begin
   result:= false;
-  RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  RegQueryStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  if (RCTech_KSOAppMode = 'classical') then begin
+  if (WPSCurrentAppMode = 3) then begin
     //Log('[Windose Installer] Info: WPS Office is in classic mode.');
     result:= true;
   end;
 end;
 
+// 检查 WPS Office 是否为整合模式
 function KSOPrometheusMode(): Boolean;
-var  // 检查 WPS Office 是否为整合模式
-  RCTech_KSOAppMode: string;
 begin
   result:= false;
-  RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  RegQueryStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  if (RCTech_KSOAppMode = 'prome_fushion') then begin
+  if (WPSCurrentAppMode = 1) then begin
     //Log('[Windose Installer] Info: WPS Office is in prometheus mode.');
     result:= true;
   end;
 end;
 
-function KSOMultiComMode(): Boolean;
-var  // 检查 WPS Office 是否为多组件模式
-  RCTech_KSOAppMode: string;
-begin
-  result:= false;
-  RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  RegQueryStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  if (RCTech_KSOAppMode = 'prome_independ') then begin
+//function KSOMultiComMode(): Boolean;
+//var  // 检查 WPS Office 是否为多组件模式
+  //RCTech_KSOAppMode: string;
+//begin
+  //result:= false;
+  //RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
+  //RegQueryStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
+  //if (RCTech_KSOAppMode = 'prome_independ') then begin
     //Log('[Windose Installer] Info: WPS Office is in multi-component mode.');
-    result:= true;
-  end;
-end;
+    //result:= true;
+  //end;
+//end;
 
 // 设置系统程序卸载列表中的应用程序名字（WPS 主程序）
 procedure SetUninstNameWPS();

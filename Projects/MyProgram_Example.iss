@@ -114,8 +114,8 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl";
 Name: "german"; MessagesFile: "compiler:Languages\German.isl";
 Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl";
 Name: "japanese"; MessagesFile: "compiler:Languages\Japanese.isl";
-Name: "korean"; MessagesFile: "..\Languages\Korean.isl";
-//Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
+//Name: "korean"; MessagesFile: "..\Languages\Korean.isl";
+Name: "korean"; MessagesFile: "compiler:Languages\Korean.isl";
 Name: "polish"; MessagesFile: "compiler:Languages\Polish.isl";
 Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl";
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
@@ -194,7 +194,7 @@ function InitializeSetup: Boolean;
 var  // 安装程序加载
   j: Integer;
 begin
-  AiMofSetupInit;
+  NijikaSetupInit;
   //Log('[Windose Installer] Info: Placeholder Message');
   //ExtractTemporaryFile('Background.bmp');
   //ExtractTemporaryFile('AdvSplash.dll');
@@ -214,15 +214,18 @@ begin
     end;
 
   Log('[Windose Installer] Info: Pre-install check passed...'); 
-  AiMofPostChkInIt;
+  NijikaPostChkInIt;
 
   // 解压、加载 BGM
   BGMusicType := ExpandConstant('{#MyAppSetupBGMType}');
   BGMusicFile := ExpandConstant('{tmp}\music.' + BGMusicType);
   ExtractTemporaryFile('music.' + BGMusicType);
-  AiMofBGMLoad_{#RCInnoExpBGMPlugin};
+  //if GMEInnoOpenFileTrackW(BGMusicFile, 44100, 5) = 0 then begin
+    //MsgBox('Open failed: ' + ReadGmeError, mbError, MB_OK)
+  //end;
+  BGMLoad_{#RCInnoExpBGMPlugin};
 
-  //AiMofSplashInit;
+  //NijikaSplashInit;
 
   Log('[Windose Installer] Info: Prepare Complete...');
 end;
@@ -230,14 +233,14 @@ end;
 procedure InitializeWizard();
 begin  // 安装向导加载
   Log('[Windose Installer] Info: Initializing Wizard...');
-  //AiMofBGPicInit;
+  //BackgroundPicInit;
   //WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
 end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
   Log('[Windose Installer] Info: Deinitializing Setup...');
-  AiMofBGMUnload_{#RCInnoExpBGMPlugin};
+  BGMUnload_{#RCInnoExpBGMPlugin};
   //ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);
   //UnloadSkin();
   //Log('[Windose Installer] Info: Start to cleaning temp files...');
@@ -259,8 +262,8 @@ end;
 [Files]
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
 ; BGM 文件
-//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\1BGM\music_mysetup_example.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression; 
+//Source: "..\Plugins\1BGM\music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\1BGM\music_mysetup_example.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression; 
 
 ; 主程序文件
 //Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;

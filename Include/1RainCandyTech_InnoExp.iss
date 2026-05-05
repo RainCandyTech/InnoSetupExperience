@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260417"
+#define RCInnoExpVer "20260505"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -104,13 +104,13 @@ WDrvPreInstChkSameErrNotFound=I didn't find any issue, or the issue was not the 
 WDrvPreInstChkSameErrNotFoundDesc=Setup will continue.%nIf you have other error issues, click this button as well. Once the driver installation is complete, these issues may be resolved.
 WDrvPreInstChkNowNotice=Now you need to open the Device Manager and check if there are any devices with exclamation%nmark icon in the "Display adapters" category. If there are, double-click the icon and see if there is%nan error message containing "Code %1". This issue should not occur under normal circumstances.
 WDrvPostInstChkNowNotice=Now you need to launch GPU-Z to confirm your graphics card is working properly.%nPlease select your NVIDIA graphics card in GPU-Z and check whether the clock and memory info%ncould be read by the application.%nIf you couldn't get the proper information, that means there're some issues with your graphics%ncard, such as the power cable is not properly connected, or the graphics card is damaged.
-WDrvFMConfHasError=There's a problem with your computer's current firmware / UEFI BIOS configuration.
+WDrvFMConfHasError=There's a problem with your computer's current UEFI BIOS configuration.
 //WDrvFMBootModeIs=The current operating system boot mode is: 
 WDrvFMBootModeHowTo=Convert the partition table of the disk containing the OS to GPT/GUID format. You can use tools such as Windows RE / installation media, MBR2GPT utility and so on. Then, make sure to perform OS boot repair to complete the conversion to UEFI boot mode.
 //WDrvFMBootModeUEFIIgnore=(Skip this step if you are already using UEFI boot mode.)
-WDrvFMBootModeDisableCSM=Enter the UEFI BIOS settings, find and disable "Compatibility Support Module" (CSM) option.
+WDrvFMBootModeDisableCSM=Enter the UEFI BIOS Utility, find and disable "Compatibility Support Module" (CSM) option.
 WDrvFMBootModeLegacyDisableWarning=Important: The OS WILL NOT BOOT if you disabled this option without the first step.
-WDrvFMBootModeHowToASUSExtra=For some particular motherboard model, like some H81 or B85 motherboard by ASUS, it is also necessary to edit some settings in the UEFI BIOS Utility, such as "Primary Display" & "iGPU Multi-Monitor".
+WDrvFMBootModeHowToASUSExtra=For certain specific ASUS motherboard models (H81, B85, etc.), it's also necessary to edit settings like "Primary Display" & "iGPU Multi-Monitor" in the UEFI BIOS Utility.
 WDrvFMBootModeLegacy=You are now using legacy BIOS boot mode. 
 WDrvFMBootModeUEFI=You are now using UEFI boot mode.
 WDrvFMBootModeUnknown=We can't determine which boot mode you're using.
@@ -134,14 +134,14 @@ var // 全局变量
   NeedStoreApp: Boolean;
   BGMusicFile: string;
   BGMusicType: string;
-  RCTech_DoNotPlayBGM: Boolean;
+  DoNotPlayBGM: Boolean;
   IsSetupIncludingBGM: Boolean;
   IsSetupBGMAllowNotPlay: Boolean;
   IsShowFreeProvideMsg: Boolean;
   AppTargetArch: String;
 
 // 安装程序加载，并对变量进行初始化
-procedure AiMofSetupInit;
+procedure NijikaSetupInit;
 begin
   Log('[Windose Installer] Info: Initializing Windose Installer Setup Experience...');
   DebugVersion := {#MyAppIsDebugVersion};
@@ -224,9 +224,15 @@ begin
     end;
 end;
 
-// 调用系统函数实现进程结束功能，因为在别的地方直接 Exit; 压根不好使
+// 调用系统函数实现进程结束功能，因为在别的地方直接 "Exit;" 压根不好使！
 procedure ExitProcess(exitCode:integer);
 external 'ExitProcess@kernel32.dll stdcall';
+
+// 通过调用 kernel32.dll，获取系统当前的启动环境
+// 由 NixaVulpi 雪狐 (https://github.com/NixaVulpi) 编写与启发，在此表示感谢。
+// 返回值：-1: Failed; 0: Unknown; 1: Legacy BIOS; 2: UEFI; 3: Not implemented
+function GetFirmwareType(var FirmwareType: Integer): Boolean;
+external 'GetFirmwareType@kernel32.dll stdcall delayload';
 
 // 安装程序加载期间 BGM 相关检测与询问
 procedure BGMPlayDetection;
@@ -235,13 +241,13 @@ begin
     // 如果静默安装或找到禁止播放 BGM 占位符，则禁止 BGM 播放
     if (RCTIsSilent = true) or (FileExists(ExpandConstant('{src}\NoBGM_RCTechSetup'))) then begin
       Log('[Windose Installer] Info: Config "NoBGM_RCTechSetup" detected, disable music playing!');
-      RCTech_DoNotPlayBGM := True;
+      DoNotPlayBGM := True;
     end else begin
       if (IsSetupBGMAllowNotPlay = true) then begin
         // 如果允许不播放 BGM，则弹窗询问用户是否播放
         if (SuppressibleMsgBox(CustomMessage('RCTMsgAskUserPlayBGM'), mbInformation, MB_YESNO, MB_YESNO) = IDNO) then begin
           Log('[Windose Installer] Info: User choosed not to play music.');
-          RCTech_DoNotPlayBGM := True;
+          DoNotPlayBGM := True;
         end;
       end else begin
         // 如果不允许不播放 BGM，则弹窗提示进行提醒
@@ -265,7 +271,7 @@ begin
 end;
 
 // 程序检查完成后，继续安装体验初始化
-procedure AiMofPostChkInIt;
+procedure NijikaPostChkInIt;
 begin
   // 按原样免费提供的相关提示
   if (IsShowFreeProvideMsg = true) then begin

@@ -213,7 +213,7 @@ chinesetrad.MOVCompatibility=MOV 格式相容性補丁
 [Code]
 function InitializeSetup: Boolean;
 begin  // 安装程序加载
-  AiMofSetupInit;
+  NijikaSetupInit;
   Log('[Windose Installer] Error: Of all my friends on this journey with me, how many of them are still waking up?');
   //AiMofSkinLoad;
   Result := True;
@@ -288,15 +288,15 @@ begin  // 安装程序加载
   //end;
 
   Log('[Windose Installer] Info: Pre-install check passed...'); 
-  AiMofPostChkInIt;
+  NijikaPostChkInIt;
 
   // 解压、加载 BGM
   BGMusicType := ExpandConstant('{#MyAppSetupBGMType}');
   BGMusicFile := ExpandConstant('{tmp}\music.' + BGMusicType);
   ExtractTemporaryFile('music.' + BGMusicType);
-  AiMofBGMLoad_{#RCInnoExpBGMPlugin};
+  BGMLoad_{#RCInnoExpBGMPlugin};
 
-  AiMofSplashInit;
+  NijikaSplashInit;
 
   Log('[Windose Installer] Info: Prepare Complete...');
 end;
@@ -304,14 +304,14 @@ end;
 procedure InitializeWizard();
 begin  // 安装向导加载
   Log('[Windose Installer] Info: Initializing Wizard...');
-  //AiMofBGPicInit;
+  //BackgroundPicInit;
   //WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
 end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
   Log('[Windose Installer] Info: Deinitializing Setup...');
-  AiMofBGMUnload_{#RCInnoExpBGMPlugin};
+  BGMUnload_{#RCInnoExpBGMPlugin};
   //ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);
   //UnloadSkin();
   //Log('[Windose Installer] Info: Start to cleaning temp files...');
@@ -338,10 +338,10 @@ end;
 Source: "{#RCInnoExpProjectDir}\CVSRainCandySE_{#MyAppMarketVersion}\Splash\*"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; BGM 文件
-//Source: "..\Plugins\1BGM\music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression 
-//Source: "..\Plugins\1BGM\music_videostudio.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\1BGM\music_videostudio_{#MyAppMajorVersion}.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
-//Source: "..\Plugins\1BGM\music_videostudio_17-22-27.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\1BGM\music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression 
+//Source: "..\Plugins\1BGM\music_videostudio.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\1BGM\music_videostudio_{#MyAppMajorVersion}.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\1BGM\music_videostudio_17-22-27.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Registry]
 ; 本段处理程序在注册表中的键值

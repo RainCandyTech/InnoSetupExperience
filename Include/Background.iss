@@ -13,7 +13,7 @@ var // 全局变量
   BackgroundImage: TBitmapImage;
 
 // 初始化背景图像
-procedure AiMofBGPicInit;
+procedure BackgroundPicInit;
 begin
   ExtractTemporaryFile('Background.bmp');
   BackgroundImage := TBitmapImage.Create(MainForm);
