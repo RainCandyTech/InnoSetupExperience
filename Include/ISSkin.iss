@@ -7,7 +7,7 @@
 [Files]
 ; 插件本体
 //Source: "..\ISSkin\ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\ISSkinExU{#RCInnoExpPluginSignMark}.dll"; DestName: "ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\ISSkinExU{#PluginSignMark}.dll"; DestName: "ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; 视觉效果文件
 Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;
@@ -26,7 +26,7 @@ function ShowWindow(hWnd: Integer; uType: Integer): Integer;
 external 'ShowWindow@user32.dll stdcall';
 
 // 自定义主题加载
-procedure AiMofSkinLoad;
+procedure SkinInitialize;
 begin
   Log('[Windose Installer] Info: Initiating custom skin...');
   ExtractTemporaryFile('{#MyAppSetupStyle}');

@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260505"
+#define RCInnoExpVer "20260512"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -86,6 +86,7 @@ RCTMsgAppNoticeUserExit=Please quit the application, then run the setup again.
 RCTMsgPatchAppVerNotSupport=The version of %1 application installed on your computer does not meet the requirements.
 RCTMsgPatchAppCurrentVer=The version of application that you currently have installed is:
 RCTMsgAppOtherArchIsInst=It appears that you already have another architecture version of the %1 application installed on your computer.
+RCTMsgNotSupportSilent=This application does not support silent installation. Please run setup directly.
 
 // Strings for drivers for Windows platform
 WinDrvSignModeSelect=Signature mode select
@@ -124,6 +125,7 @@ WDrvPolicyDenyXSignNotice=Windows Driver policy is active in enforcement mode, s
 [Run]
 
 [Code]
+
 var // 全局变量
   languageName: String;
   Version: TWindowsVersion;
@@ -139,11 +141,11 @@ var // 全局变量
   IsSetupBGMAllowNotPlay: Boolean;
   IsShowFreeProvideMsg: Boolean;
   AppTargetArch: String;
-
+  
 // 安装程序加载，并对变量进行初始化
 procedure NijikaSetupInit;
 begin
-  Log('[Windose Installer] Info: Initializing Windose Installer Setup Experience...');
+  Log('[Windose Installer] Info: Initializing Windose Installer.');
   DebugVersion := {#MyAppIsDebugVersion};
   NeedStoreApp := {#MyAppIsNeedStoreApp};
   languageName := ActiveLanguage();

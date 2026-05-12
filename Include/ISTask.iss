@@ -4,10 +4,12 @@
 
 // 本脚本代码用于 ISTask 插件的相关函数。
 // 安装前判断是否有进程正在运行，istask.dll 文件与打包的 exe 文件一起
+// 64 位 Reimagined 版本插件由 KLuoNoYa 使用 AI 重新编写。
 
 [Files]
 //Source: "..\Plugins\ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\ISTask{#RCInnoExpPluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\ISTask{#PluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\{#PluginArchMark}\ISTask{#PluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 function RunTask(FileName: AnsiString; bFullpath: Boolean): Boolean;
@@ -60,6 +62,3 @@ begin
     sl.Free;
   end;
 end;
-
-[/Code]
-

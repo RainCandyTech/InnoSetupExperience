@@ -6,7 +6,7 @@
 
 [Files]
 //Source: "..\Plugins\ufMOD.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\ufMOD{#RCInnoExpPluginSignMark}.dll"; DestName: "ufMOD.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\ufMOD{#PluginSignMark}.dll"; DestName: "ufMOD.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 procedure PlaySongFile(FileName: AnsiString);

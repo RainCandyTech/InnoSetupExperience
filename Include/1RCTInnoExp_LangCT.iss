@@ -87,7 +87,8 @@ chinesetrad.RCTMsgAppStillRunning=安裝程式檢測到%1仍在運行。
 chinesetrad.RCTMsgAppNoticeUserExit=請先退出應用程式，然後再重新運行安裝程式。
 chinesetrad.RCTMsgPatchAppVerNotSupport=計算機上安裝的%1程式版本不符合要求。
 chinesetrad.RCTMsgPatchAppCurrentVer=目前已安裝程式的版本為：
-chinesesimp.RCTMsgAppOtherArchIsInst=您的計算機似乎已經安裝了「%1」應用程式的其他架構版本。
+chinesetrad.RCTMsgAppOtherArchIsInst=您的計算機似乎已經安裝了「%1」應用程式的其他架構版本。
+chinesetrad.RCTMsgNotSupportSilent=本應用程式不支持以靜默方式安裝。請直接運行安裝程式。
 
 // Strings for drivers for Windows platform
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇

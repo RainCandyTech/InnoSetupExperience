@@ -7,7 +7,7 @@
 
 [Files]
 //Source: "..\Plugins\gme_inno_ia32.dll"; DestName: "gme_inno.dll"; DestDir: "{tmp}"; Flags: dontcopy nocompression noencryption;
-Source: "..\Plugins\gme_inno_ia32{#RCInnoExpPluginSignMark}.dll"; DestName: "gme_inno.dll"; DestDir: "{tmp}"; Flags: dontcopy nocompression noencryption;
+Source: "..\Plugins\gme_inno_ia32{#PluginSignMark}.dll"; DestName: "gme_inno.dll"; DestDir: "{tmp}"; Flags: dontcopy nocompression noencryption;
 
 [Code]
 // 加载曲目

@@ -6,9 +6,9 @@
 
 [Files]
 //Source: "..\Plugins\callnsis.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\callnsis{#RCInnoExpPluginSignMark}.dll"; DestName: "callnsis.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\callnsis{#PluginSignMark}.dll"; DestName: "callnsis.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 //Source: "..\Plugins\AdvSplash.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\AdvSplash{#RCInnoExpPluginSignMark}.dll"; DestName: "AdvSplash.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\AdvSplash{#PluginSignMark}.dll"; DestName: "AdvSplash.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 var // 全局变量

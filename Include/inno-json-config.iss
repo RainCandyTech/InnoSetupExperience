@@ -7,7 +7,7 @@
 
 [Files]
 //Source: "..\Plugins\JSONConfig.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\JSONConfig{#RCInnoExpPluginSignMark}.dll"; DestName: "JSONConfig.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\JSONConfig{#PluginSignMark}.dll"; DestName: "JSONConfig.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 function JSONQueryString(FileName, Section, Key, Default: WideString;

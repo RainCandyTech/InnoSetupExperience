@@ -44,14 +44,16 @@
 #define RCExtraStoreAppCS ""
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
-//#define RCInnoExpBGMPlugin "ufMOD"
-#define RCInnoExpPluginSignMark "_signed"
+#define RCInnoExpBGMPlugin "ufMOD"
+#define PluginSignMark "_signed"
 #define RCWPSConfFormat "Plain"
 //#define RCWPSConfFormat "Cipher"
 //#define RCWPSConfFormat "Sherii"
 #define WPSInstallerType "_VBA"
-#define RCInnoExpBGMPlugin "ufMOD"
-#define RCInnoExpPluginSignMark ""
+#define PluginArchMark "x86"
+#define SetupArchSettings ""
+//#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
+#define PluginSignMark ""
 #define RCInnoExpProjectDir "E:\Development\WPS Office"
 
 #include "..\Include\1RainCandyTech_InnoExp.iss"
@@ -99,7 +101,7 @@ SolidCompression=yes
 DefaultDirName={pf}\Kingsoft\WPS Office
 //ArchitecturesAllowed=win64
 //ArchitecturesInstallIn64BitMode=win64
-//SetupArchitecture=x64
+{#SetupArchSettings}
 Uninstallable=no
 //SetupIconFile="..\Icons\WPSOffice.ico"
 //SetupIconFile="..\Icons\WPSOffice_Business.ico"
@@ -153,10 +155,10 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 //chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 //japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260327_Slogan-At-Begin
+// 20260511_Slogan-At-Begin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 因为我想看到你梦想成真%n%n{#MyAppExtraInfo}
-//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 因為我想看到你夢想成真%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
+//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
 //dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 //french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 //german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -210,8 +212,8 @@ chinesesimp.FinishedRestartLabel=为完成{#MyAppNameCS}的安装，安装程序
 function InitializeSetup: Boolean;
 begin  // 安装程序加载
   NijikaSetupInit;
-  //Log('[Windose Installer] Info: Placeholder Message');
-  //AiMofSkinLoad;
+  //Log('[Windose Installer] Info: だってバンドって、第２の家族って感じしない？');
+  //SkinInitialize;
   Result := True;
 
   if (ChkWPSx64InstErr = true) then
@@ -267,7 +269,7 @@ end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
-  Log('[Windose Installer] Info: Deinitializing Setup...');
+  //Log('[Windose Installer] Info: Deinitializing Setup...');
   BGMUnload_{#RCInnoExpBGMPlugin};
   if (WPSIA32Main = false) and (WPSAMD64Main = false) and (WPSHKCUMain = false) and (RCTIsWin8Client = true) then
   begin   // 检查是否未安装 WPS Office 且为 Win 8 系统，是则清理注册表
@@ -375,13 +377,15 @@ Source: "{#RCInnoExpProjectDir}\yComponents\pdfwatermark_raincandy\*.*"; DestDir
 Source: "{#RCInnoExpProjectDir}\yComponents\kappessbuiltinjsapi_{#MyAppVersion}_{#MyAppArchRC}\*.*"; DestDir: "{tmp}\OemFile\addons_raincandy\kappessbuiltinjsapi"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\yComponents\kappessbuiltinjsapi_11.8.2.12094\*.*"; DestDir: "{tmp}\OemFile\addons_raincandy\kappessbuiltinjsapi"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 
-; 发票打印功能（随 PDF 高级功能支持一起安装）
-; 之前我们向程序补充的 PDF 组件中，只有发票打印功能是不需要增强版授权就能使用的，所以我们分离出来把它单独安装，以节约安装后程序目录的体积占用
+; 发票打印功能相关参数
+; 之前我们向程序补充的 PDF 组件中，只有从旧版的发票打印功能是不需要私有化授权就能使用的，所以我们分离出来把它单独安装，以节约安装后程序目录的体积占用
+; 如果我们没有适合的旧版发票打印插件，就要把该功能的入口禁用掉
 Source: "E:\Development\WPS Office\yComponents\ElectronicInvoicePrint_{#MyAppVersion}_{#MyAppArchRC}\*.*"; DestDir: "{tmp}\OemFile\addons_raincandy"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 //Source: "E:\Development\WPS Office\yComponents\ElectronicInvoicePrint_11.8.2.12094\*.*"; DestDir: "{tmp}\OemFile\addons_raincandy"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
-
-; 没有专业版发票打印插件时，禁用该功能
 //Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\noinvoiceforpro.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: experimental\pdfadvanced;
+
+; 禁用程序安全沙箱功能
+//Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\noksandbox.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: experimental\noksandbox;
 
 ; OFD 支持（实验功能）
 Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\ofd_support.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\ksorcofd;
@@ -575,6 +579,7 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\touchuimode.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\touchuimode;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\disableime.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\disableime;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\nosplashscreen.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\nosplash;
+//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\noksandbox.ini {tmp}\oem.ini"; Flags: runhidden; Components: experimental\noksandbox;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\crossarchnewdir.ini {tmp}\oem.ini"; Flags: runhidden 64bit; Components: main; Check: WPSIA32Main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\appcenter.ini {tmp}\oem.ini"; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b {tmp}\oem.ini+{tmp}\pluginplatform.ini {tmp}\oem.ini"; Flags: runhidden; Components: main\ksorcnet and experimental\exfeature;
@@ -787,7 +792,7 @@ Name: experimental\pdfadvanced; Description: "{cm:RCTISEToEnablePremium, WPS PDF
 Name: experimental\officialdocs; Description: "启用 WPS 文字的公文相关功能"; 
 //Name: experimental\officialdocs\nouof; Description: "不要将公文文档保存为标文通（UOF）格式";
 //Name: experimental\officialdocs\writernouof; Description: "禁用 WPS 文字的 UOF 格式支持以确保能够正常调用公文模板";
-//Name: experimental\nixavulpiauth; Description: "私有化版本功能解锁补丁 By NixaVulpi 雪狐（PDF 编辑和智能公文）";
+//Name: experimental\nixavulpiauth; Description: "NixaVulpi 私有化功能部署授权补丁（解锁 PDF 编辑和智能公文功能）";
 Name: experimental\touchuimode; Description: "启用触屏模式支持";
 Name: experimental\nosplash; Description: "移除程序启动时的闪屏图片";
 //Name: experimental\disableime; Description: "禁用预输入法（当遇到文档编辑时卡顿的时候可以尝试勾选）";
@@ -798,6 +803,7 @@ Name: experimental\nosplash; Description: "移除程序启动时的闪屏图片"
 //Name: experimental\appctrextra; Description: "对在线版本解锁 WPS 365 云办公套装版额外应用（将修改程序版本号为 11.8.6.11830）";
 //Name: experimental\themereplacewpssis; Description: "将「中灰」皮肤替换为「WPS 小表姐」联名皮肤";
 //Name: experimental\noappcenter; Description: "禁用程序主页的应用中心入口";
+//Name: experimental\noksandbox; Description: "禁用程序安全沙箱保护功能";
 
 [Tasks]
 // 安装程序可选任务

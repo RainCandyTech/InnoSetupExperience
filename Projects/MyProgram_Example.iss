@@ -39,7 +39,10 @@
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
 #define RCInnoExpBGMPlugin "ufMOD"
-#define RCInnoExpPluginSignMark "_signed"
+#define PluginSignMark "_signed"
+#define PluginArchMark "x86"
+//#define SetupArchSettings ""
+#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
 #define RCInnoExpProjectDir "F:\GameLibrary\Heaven For Death"
 
 #include "..\Include\1RainCandyTech_InnoExp.iss"
@@ -81,7 +84,7 @@ SolidCompression=yes
 DefaultDirName={pf}\My Program
 //ArchitecturesAllowed=win64
 //ArchitecturesInstallIn64BitMode=win64
-//SetupArchitecture=x64
+{#SetupArchSettings}
 //Uninstallable=no
 //SetupIconFile="..\Icons\ahoge_nijika.ico"
 DisableWelcomePage=false
@@ -130,10 +133,10 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260327_Slogan-At-Begin
+// 20260511_Slogan-At-Begin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 因为我想看到你梦想成真%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 因為我想看到你夢想成真%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -239,7 +242,7 @@ end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
-  Log('[Windose Installer] Info: Deinitializing Setup...');
+  //Log('[Windose Installer] Info: Deinitializing Setup...');
   BGMUnload_{#RCInnoExpBGMPlugin};
   //ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);
   //UnloadSkin();

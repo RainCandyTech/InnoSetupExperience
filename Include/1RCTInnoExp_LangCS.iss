@@ -105,6 +105,7 @@ chinesesimp.RCTMsgAppNoticeUserExit=请先退出应用程序，然后再重新运行安装程序。
 chinesesimp.RCTMsgPatchAppVerNotSupport=计算机中安装的%1程序版本不符合要求。
 chinesesimp.RCTMsgPatchAppCurrentVer=目前已安装程序的版本为：
 chinesesimp.RCTMsgAppOtherArchIsInst=看起来您的计算机似乎已经安装了「%1」应用程序的其他架构版本。
+chinesesimp.RCTMsgNotSupportSilent=本应用程序不支持以静默方式安装。请直接运行安装程序。
 
 // Strings for drivers for Windows platform
 chinesesimp.WinDrvSignModeSelect=签名模式选择

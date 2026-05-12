@@ -21,7 +21,7 @@
 #define MyAppExeName "{#MyAppExeName}"
 #define MyAppOutputName "NVIDIADriver_RCTSE"
 #define MyAppTypeVersion "0"
-#define MyAppRevisionVer "2"
+#define MyAppRevisionVer "3"
 #define MyAppRevisionDate "NextDev"
 #define MyAppSetupBGM "true"
 #define RCBGMAllowNotPlay "true"
@@ -56,7 +56,10 @@
 #define NVDrvPatchType "CMPUnlock"
 //#define NVDrvPatchType "CertResign"
 #define RCInnoExpBGMPlugin "ufMOD"
-#define RCInnoExpPluginSignMark "_signed"
+#define PluginArchMark "x86"
+//#define SetupArchSettings ""
+#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
+#define PluginSignMark "_signed"
 #define RCInnoExpProjectDir "E:\Development\NVIDIA"
 
 #include "..\Include\1RainCandyTech_InnoExp.iss"
@@ -101,8 +104,9 @@ OutputBaseFilename={#MyAppOutputName}_{#MyAppVersion}.{#MyAppTypeVersion}.{#MyAp
 Compression=lzma2
 SolidCompression=yes
 DefaultDirName={autopf}\NVIDIA Corporation
-ArchitecturesAllowed=x64
+ArchitecturesAllowed=x64os
 ArchitecturesInstallIn64BitMode=x64
+//{#SetupArchSettings}
 Uninstallable=no
 //SetupIconFile="..\Icons\ahoge_nijika.ico"
 //SetupIconFile="..\Icons\BAHalo_Azusa.ico"
@@ -154,10 +158,10 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 //chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 //japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260327_SloganAtBegin
+// 20260511_SloganAtBegin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 因为我想看到你梦想成真%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 因為我想看到你夢想成真%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -257,6 +261,13 @@ begin  // 安装程序加载
   //Log('[Windose Installer] Info: Placeholder Message');
   Result := True;
 
+  // 如果检测到静默安装，则弹窗退出
+  if (RCTIsSilent = true) then begin
+    MsgBox(CustomMessage('RCTMsgNotSupportSilent') + #13#13 + CustomMessage('RCTMsgSetupExit'), mbCriticalError, MB_OK);
+    result := false;
+    exit;
+  end;
+
   if (NVRequireReboot = true) then
   begin   // 查看是否已经存在 NVIDIA 重启占位符注册表，如存在则提示重启
     Log('[Windose Installer] Error: Reboot registry mark is detected for NVIDIA Driver installation...');
@@ -330,7 +341,7 @@ end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
-  Log('[Windose Installer] Info: Deinitializing Setup...');
+  //Log('[Windose Installer] Info: Deinitializing Setup...');
   BGMUnload_{#RCInnoExpBGMPlugin};
   Log('[Windose Installer] Info: Start to cleaning temp files...');
   CleanTempNV();

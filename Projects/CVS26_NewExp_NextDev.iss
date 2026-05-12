@@ -41,7 +41,10 @@
 #define RCStoreAppNeedNTMajorVer "10"
 #define RCStoreAppNeedNTMinorVer "0"
 #define RCInnoExpBGMPlugin "ufMOD"
-#define RCInnoExpPluginSignMark ""
+#define PluginSignMark ""
+#define PluginArchMark "x86"
+//#define SetupArchSettings ""
+#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
 #define RCInnoExpProjectDir "D:\CVSKurumiWorkDir"
 
 #include "..\Include\1RainCandyTech_InnoExp.iss"
@@ -86,7 +89,7 @@ CreateAppDir=no
 //LicenseFile="..\Documents\license_alludo.rtf"
 //LicenseFile="..\Documents\license_alludo_partner.rtf"
 //InfoBeforeFile=
-InfoAfterFile="..\Documents\credits_corelvideostudio_umrse_{#MyAppMajorVersion}.rtf"
+InfoAfterFile="..\Documents\credits_corelvideostudio_umrse.rtf"
 OutputDir="..\Output"
 OutputBaseFilename={#MyAppOutputName}
 //OutputBaseFilename=CVSRainCandySE_Setup
@@ -97,7 +100,7 @@ DefaultDirName={autopf}\Corel\Corel VideoStudio {#MyAppMarketVersion}
 //ArchitecturesAllowed=x64 arm64
 ArchitecturesAllowed=win64
 //ArchitecturesInstallIn64BitMode=x64
-//SetupArchitecture=x64
+{#SetupArchSettings}
 Uninstallable=no
 SetupIconFile="..\Icons\cvs{#MyAppMajorVersion}.ico"
 DisableWelcomePage=false
@@ -148,10 +151,10 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260327_Slogan-At-Begin
+// 20260511_Slogan-At-Begin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 因为我想看到你梦想成真%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 因為我想看到你夢想成真%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -215,9 +218,16 @@ function InitializeSetup: Boolean;
 begin  // 安装程序加载
   NijikaSetupInit;
   Log('[Windose Installer] Error: Of all my friends on this journey with me, how many of them are still waking up?');
-  //AiMofSkinLoad;
+  //SkinInitialize;
   Result := True;
 
+  // 如果检测到静默安装，则弹窗退出
+  if (RCTIsSilent = true) then begin
+    MsgBox(CustomMessage('RCTMsgNotSupportSilent') + #13#13 + CustomMessage('RCTMsgSetupExit'), mbCriticalError, MB_OK);
+    result := false;
+    exit;
+  end;
+  
   if (VS{#MyAppMajorVersion}{#MyAppArchRC}Main) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Ulead Systems\Corel VideoStudio Pro\{#MyAppMajorVersion}.0\Installer', 'Path')) then 
   //if ((VS{#MyAppMajorVersion}IA32Main) or (VS{#MyAppMajorVersion}AMD64Main)) and (RegValueExists(HKLM, 'SOFTWARE\Ulead Systems\Corel VideoStudio Pro\{#MyAppMajorVersion}.0\Installer', 'Path')) then 
   begin  // 检测准备安装的会声会影版本是否已经在电脑上提前安装，如检查到则弹窗退出
@@ -310,7 +320,7 @@ end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
-  Log('[Windose Installer] Info: Deinitializing Setup...');
+  //Log('[Windose Installer] Info: Deinitializing Setup...');
   BGMUnload_{#RCInnoExpBGMPlugin};
   //ShowWindow(StrToInt(ExpandConstant('{wizardhwnd}')), 0);
   //UnloadSkin();
