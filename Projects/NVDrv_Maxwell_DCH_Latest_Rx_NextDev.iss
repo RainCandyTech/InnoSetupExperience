@@ -69,6 +69,7 @@
 #include "..\Include\1RCTInnoExp_LangRU.iss"
 #include "..\Include\" + RCInnoExpBGMPlugin + ".iss"
 //#include "..\Include\Splash.iss"
+//#include "..\Include\Background.iss"
 //#include "..\Include\ISSkin.iss"
 //#include "..\Include\ISTask.iss"
 #include "..\Include\MicrosoftStore_SvcChk.iss"
@@ -99,7 +100,7 @@ CreateAppDir=no
 //LicenseFile="..\Documents\license_nvdrv.rtf"
 //InfoBeforeFile=
 InfoAfterFile="..\Documents\credits_nvcmp.rtf"
-OutputDir={#RCInnoExpProjectDir}\Output
+OutputDir="..\Output"
 OutputBaseFilename={#MyAppOutputName}_{#MyAppVersion}.{#MyAppTypeVersion}.{#MyAppRevisionVer}{#MyAppPublishType}_{#MyAppArchRCShort}bit{#RCWinDriverType}_{#MyAppRevisionDate}
 Compression=lzma2
 SolidCompression=yes
@@ -124,7 +125,7 @@ WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 MinVersion=10.0.17134
 WizardStyle=modern
 //VersionInfoDescription={#MyAppName}
-VersionInfoDescription={#MyAppName} RCTech Special Edition
+VersionInfoDescription={#MyAppName} RainCandy Technology Special Edition
 VersionInfoOriginalFileName={#MyAppOutputName}_Installer.exe
 //VersionInfoOriginalFileName=Windose.exe
 //AlwaysRestart=yes
@@ -150,6 +151,14 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl";
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl";
 Name: "turkish"; MessagesFile: "compiler:Languages\Turkish.isl";
 Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
+
+// Extra Language for NVIDIA Graphics Driver RCTSE
+Name: "czech"; MessagesFile: "compiler:Languages\Czech.isl";
+Name: "danish"; MessagesFile: "compiler:Languages\Danish.isl";
+Name: "finnish"; MessagesFile: "compiler:Languages\Finnish.isl";
+Name: "hungarian"; MessagesFile: "compiler:Languages\Hungarian.isl";
+Name: "slovak"; MessagesFile: "compiler:Languages\slovak.isl";
+Name: "slovenian"; MessagesFile: "compiler:Languages\Slovenian.isl";
 
 [Messages]
 // 20251116_RainCandyTech_ISEBeveledLabel
@@ -406,7 +415,7 @@ Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion
 
 ; HD 音频驱动
 Source: "{#RCInnoExpProjectDir}\HDAudio\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\HDAudio; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: hdaudio;
-//Source: "{#RCInnoExpProjectDir}\HDAudio\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\HDAudio; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\HDAudio\Latest_Maxwell+\*.*"; DestDir: {tmp}\HDAudio; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: hdaudio;
 //Source: "{#RCInnoExpProjectDir}\HDAudio\Latest_W7W8\*.*"; DestDir: {tmp}\HDAudio; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: hdaudio;
 //Source: "{#RCInnoExpProjectDir}\HDAudio\{#MyAppVersion}\*.*"; DestDir: {tmp}\HDAudio; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: hdaudio;
 //Source: "{#RCInnoExpProjectDir}\HDAudio\553.35\*.*"; DestDir: {tmp}\HDAudio; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: hdaudio;

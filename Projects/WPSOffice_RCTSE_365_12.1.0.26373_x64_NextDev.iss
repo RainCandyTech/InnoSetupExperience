@@ -557,10 +557,10 @@ Source: "E:\Software\WPS Office\1Extracted\setup_CN_2052_{#MyAppVersion}_{#WPSIn
 //Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings"; ValueType: string; ValueName: "AppComponentMode"; ValueData: "prome_fushion"; Components: main\prometheus;
 
 ; 非官方支持系统安装限制绕过补丁所需的注册表
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: string; ValueName: VerifierDlls; ValueData: "wpsw8patch.dll"; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierDebug; ValueData: 0; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierFlags; ValueData: 2147483648; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
-Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: GlobalFlag; ValueData: 256; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: string; ValueName: VerifierDlls; ValueData: "wpsw8patch.dll"; check: WPSIsOSUnsupport; OnlyBelowVersion: 10.0;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierDebug; ValueData: 0; check: WPSIsOSUnsupport; OnlyBelowVersion: 10.0;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierFlags; ValueData: 2147483648; check: WPSIsOSUnsupport; OnlyBelowVersion: 10.0;
+Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: GlobalFlag; ValueData: 256; check: WPSIsOSUnsupport; OnlyBelowVersion: 10.0;
 
 [Run]
 ; 处理 oem.ini 配置文件
