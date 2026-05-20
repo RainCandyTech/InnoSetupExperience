@@ -13,6 +13,9 @@ Windose Installer Experience 安装体验
 * Thanks to HouYu for the fantastic new logo artwork of RainCandy Technology.<br>
 感谢侯鱼创作的全新雨糖科技 Logo 徽标。
 
+* Thanks to [KLuoNoYa](https://github.com/KLuoNuoYa) for adapting the Tracker Playback and Game-Music-Emu plugins for Inno Setup, and for creating the 64-bit refactored version of IsTask.
+感谢 [K 螺诺亚](https://github.com/KLuoNuoYa)将 Tracker Playback 和 Game-Music-Emu 插件面向 Inno Setup 进行的适配工作，并制作了 IsTask 的 64 位重构版本。
+
 * Thanks to [Kira](https://github.com/kira-96/Inno-Setup-Chinese-Simplified-Translation) for the Chinese Simplified translation of Inno Setup.<br>
 感谢 [Kira](https://github.com/kira-96/Inno-Setup-Chinese-Simplified-Translation) 制作的 Inno Setup 安装程序简体中文翻译。
 
