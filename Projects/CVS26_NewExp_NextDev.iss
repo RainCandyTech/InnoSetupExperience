@@ -120,7 +120,6 @@ WizardStyle=modern dark
 VersionInfoDescription={#MyAppName}
 //VersionInfoDescription={#MyAppMainName}
 VersionInfoOriginalFileName={#MyAppOutputName}.exe
-//VersionInfoOriginalFileName=Setup.exe
 RestartIfNeededByRun=no
 DefaultGroupName={#MyAppName}
 PrivilegesRequired=admin
@@ -246,8 +245,8 @@ begin  // 安装程序加载
   end;
   
   if Version.NTPlatform and (Version.Major = 6) and ((Version.Build >= 7601) and not ((Version.Build = 9200) or (Version.Build = 9600))) then
-  begin  // 检查是否 Windows 7 SP1、Windows 8.x 预览版或 Windows 10 早期预览版系统，如是则弹窗询问                                                                                                                                                                                                                                         
-    Log('[Windose Installer] Error: The operating system is not supported... (Windows 7 SP1 / Windows 8.x Preview / Windows 10 Technical Preview)');
+  begin  // 检查是否 Windows 7 SP1、Windows 8.x 预览版或 Windows 10 早期预览版系统，如是则弹窗询问
+    Log('[Windose Installer] Warning: The operating system is not supported... (Windows 7 SP1 / Windows 8.x Preview / Windows 10 Technical Preview)');
     if (SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgOSNotMeetRequirement'), ['Windows 7 SP1 / Windows 8.x Preview / Windows 10 Technical Preview']) + #13 + FmtMessage(CustomMessage('RCTMsgOSMinRequirement'), ['Windows 8 RTM / Windows 8.1 RTM']) + #13#13 + CustomMessage('RCTMsgAppMayNotFuncOnThisOS') + #13 + CustomMessage('RCTMsgAskContinue'),mbError, MB_YESNO, MB_YESNO) = IDNO) then
     begin
       Result := False;

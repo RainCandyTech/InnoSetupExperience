@@ -59,7 +59,7 @@ chinesetrad.RCTISEInstVerChoose=安裝 %1 版本
 chinesetrad.RCTMsgSetupContinue=安裝程式現在將繼續。
 chinesetrad.RCTMsgSetupExit=安裝程式現在將退出。
 chinesetrad.RCTMsgAskContinue=您想繼續嗎？
-chinesetrad.RCTMsgDebugNotice=此版本的程式僅供測試使用。請就測試過程中發現的任何問題向雨糖科技提供迴響。謝謝！
+chinesetrad.RCTMsgDebugNotice=此版本的程式僅供測試使用。
 chinesetrad.RCTMsgRebootRequired=必須重新啟動計算機才能開始安裝過程。請儲存所有工作，重新啟動計算機，然後再次執行安裝程式。
 chinesetrad.RCTMsgAppAlreadyInst=您的計算機似乎已經安裝了%1應用程式。
 chinesetrad.RCTMsgAskUserPlayBGM=是否要播放安裝程式自帶的背景音樂？%n%n如果點按「是」，安裝程式將會在安裝過程中播放其背景音樂；%n如果點按「否」，則不會播放。
@@ -70,7 +70,7 @@ chinesetrad.RCTMsgOSRequirement=此程式需要 %1 系統版本。
 chinesetrad.RCTMsgOSMinRequirement=此程式需要 %1 及以上系統版本。
 chinesetrad.RCTMsgOSNotSupportNET48=計算機上運行的 Windows 版本不支援 .NET Framework 4.8。您可能會遇到問題，因為應用程式的某些元件需要它。若要解決此問題，請將作業系統升級到 Windows 10 版本 1607 或更高版本。
 chinesetrad.RCTMsgAppMayNotFuncOnThisOS=也許該程式可以在這個作業系統上運行，但我們不能保證您不會遇到任何意外問題。
-chinesetrad.RCTMsgAppTryContinueInst=安裝程式現在將嘗試繼續安裝，請就安裝過程中發現的任何問題向雨糖科技提供迴響。謝謝！
+chinesetrad.RCTMsgAppTryContinueInst=當前版本的作業系統沒有獲得官方支持，因此在當前作業系統的安裝支持屬於實驗功能。
 chinesetrad.RCTMsgMustUninstExistVer=請在安裝前卸載應用程式的現有版本。
 chinesetrad.RCTMsgPatchAppNotExistNotice=我們無法在您的計算機上檢測到%1應用程式。
 chinesetrad.RCTMsgPatchAppNotExistChk=請確保已正確安裝此應用程式，然後再重新運行安裝程式。
@@ -89,6 +89,7 @@ chinesetrad.RCTMsgPatchAppVerNotSupport=計算機上安裝的%1程式版本不符合要求。
 chinesetrad.RCTMsgPatchAppCurrentVer=目前已安裝程式的版本為：
 chinesetrad.RCTMsgAppOtherArchIsInst=您的計算機似乎已經安裝了「%1」應用程式的其他架構版本。
 chinesetrad.RCTMsgNotSupportSilent=本應用程式不支持以靜默方式安裝。請直接運行安裝程式。
+chinesetrad.RCTMsgPleaseContactUs=如有問題，敬請反饋。謝謝！
 
 // Strings for drivers for Windows platform
 chinesetrad.WinDrvSignModeSelect=簽章模式選擇

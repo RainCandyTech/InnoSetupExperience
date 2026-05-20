@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260512"
+#define RCInnoExpVer "20260520"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -57,7 +57,7 @@ RCTISEInstVerChoose=Install version %1
 RCTMsgSetupContinue=Setup will now contiune.
 RCTMsgSetupExit=Setup will now exit.
 RCTMsgAskContinue=Do you want to continue?
-RCTMsgDebugNotice=This version of the application is for testing purposes only. Please send your feedback to RainCandy Technology for any problems found during the test process. Thank you!
+RCTMsgDebugNotice=This version of the application is for testing purposes only.
 RCTMsgRebootRequired=You must restart your computer before the installation. Please save all your work, restart your computer, and then run the setup again.
 RCTMsgAppAlreadyInst=It seems that you have already installed %1 application on your computer.
 RCTMsgAskUserPlayBGM=Do you want to play the background music of the setup?%n%nClick Yes, setup will play its background music during the installation. %nClick No, the music will not be played.
@@ -68,7 +68,7 @@ RCTMsgOSRequirement=This application requires %1 operating system.
 RCTMsgOSMinRequirement=This application requires %1 or newer.
 RCTMsgOSNotSupportNET48=The current Windows version running on your computer does not support Microsoft .NET Framework 4.8. You may experience problems since it is needed for some components of the application. To solve the problem, upgrade the operating system to Windows 10 Version 1607 or newer.
 RCTMsgAppMayNotFuncOnThisOS=The application may works on this operating system, but we cannot guarantee that you will not experience any unexpected problems.
-RCTMsgAppTryContinueInst=Setup will now try to continue the installation, please contact us for any problems. Thank you!
+RCTMsgAppTryContinueInst=The current version of the operating system is not officially supported, so installation support on the current operating system is an experimental feature.
 RCTMsgMustUninstExistVer=Please uninstall the existing version of the application before installing.
 RCTMsgPatchAppNotExistNotice=We cannot find %1 application on your computer.
 RCTMsgPatchAppNotExistChk=Make sure you have installed the application properly, and then try again.
@@ -87,6 +87,7 @@ RCTMsgPatchAppVerNotSupport=The version of %1 application installed on your comp
 RCTMsgPatchAppCurrentVer=The version of application that you currently have installed is:
 RCTMsgAppOtherArchIsInst=It appears that you already have another architecture version of the %1 application installed on your computer.
 RCTMsgNotSupportSilent=This application does not support silent installation. Please run setup directly.
+RCTMsgPleaseContactUs=Please contact us for any problems. Thank you!
 
 // Strings for drivers for Windows platform
 WinDrvSignModeSelect=Signature mode select
@@ -282,7 +283,7 @@ begin
   // 测试版弹窗
   if (DebugVersion = true) then begin
     Log('[Windose Installer] Info: This application is a debug version.');
-    SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
+    SuppressibleMsgBox(CustomMessage('RCTMsgDebugNotice') + CustomMessage('RCTMsgPleaseContactUs') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
   end;
   BGMPlayDetection;
 end;

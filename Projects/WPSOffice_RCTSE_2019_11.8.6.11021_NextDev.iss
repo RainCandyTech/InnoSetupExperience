@@ -50,6 +50,7 @@
 //#define RCWPSConfFormat "Cipher"
 //#define RCWPSConfFormat "Sherii"
 #define WPSInstallerType "_VBA"
+#define IsSupportNT61Svr "true"
 #define PluginArchMark "x86"
 #define SetupArchSettings ""
 //#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
@@ -224,10 +225,10 @@ begin  // 安装程序加载
     Exit;
   end;
 
-  //if (RCTIsWin8Client = true) then
-  //begin   // 检查是否 Win 8 Client 版本，是则弹窗提示
-    //Log('[Windose Installer] Info: OS is not officially supported... (WPSOffice_New, Windows 8.x Client)');
-    //SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgOSNotMeetRequirement'), ['Windows 8.x']) + FmtMessage(CustomMessage('RCTMsgOSMinRequirement'), ['Windows 7, Windows 10']) + #13#13 + CustomMessage('RCTMsgAppTryContinueInst') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
+  //if (WPSIsOSUnsupport = true) then
+  //begin   // 检查当前系统是否不被 WPS Office 安装程序官方支持，是则弹窗提示
+    //Log('[Windose Installer] Info: Current Windows version is not officially supported by WPS Office installer.');
+    //SuppressibleMsgBox(CustomMessage('RCTMsgAppTryContinueInst') + CustomMessage('RCTMsgPleaseContactUs') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbInformation, MB_OK, MB_OK);
   //end;
 
   if (RCTIsSilent = true) and (RunTask('wpsoffice.exe', false) or RunTask('wps.exe', false) or RunTask('et.exe', false) or RunTask('wpspdf.exe', false) or RunTask('wpsofd.exe', false)) then
@@ -271,7 +272,7 @@ procedure DeinitializeSetup();
 begin   // 安装程序退出
   //Log('[Windose Installer] Info: Deinitializing Setup...');
   BGMUnload_{#RCInnoExpBGMPlugin};
-  if (WPSIA32Main = false) and (WPSAMD64Main = false) and (WPSHKCUMain = false) and (RCTIsWin8Client = true) then
+  if (WPSIA32Main = false) and (WPSAMD64Main = false) and (WPSHKCUMain = false) and (WPSIsOSUnsupport = true) then
   begin   // 检查是否未安装 WPS Office 且为 Win 8 系统，是则清理注册表
     Log('[Windose Installer] Info: WPS Office not installed & not officially supported OS! Now cleaning registry...');
     RegDeleteKeyIncludingSubkeys(HKLM{MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe')
@@ -290,7 +291,7 @@ begin  // 跳过不必要页面
   //if (PageID = wpFinished) then result := true;
   if (PageID = wpSelectDir) then result := true;
   //if (PageID = wpSelectComponents) then result := true;
-  //if (PageID = wpLicense) or (PageID = wpReady) or (PageID = wpFinished) then result := true;
+  //if (PageID = wpSelectDir) and (WPS{#MyAppArchRC}Main = true) then result := true;
 end;
 
 [Files]
@@ -422,9 +423,11 @@ Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\touchuimode.ini";
 //Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\ebooksupport.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: experimental\ebooksupport;
 //Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\ebookasso.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: experimental\ebooksupport;
 
-; PDF 增强版额外组件
-; 里面竟然包含了专业版专用的 SmartArt 相关文件，没有这些破玩意 SmartArt 图形库里就啥也没有（恼）
+; PDF 增强版额外组件（其中包含额外的 SmartArt 相关文件和模板文件）
 //Source: "{#RCInnoExpProjectDir}\yComponents\EnhanceExtra_12.1.0.2465x\*.*"; DestDir: "{tmp}\OemFile\office6"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
+
+; 12.1.0 分支专业版早期版本中缺失的 SmartArt 相关文件（没有这破玩意 SmartArt 图形库里就啥也没有，生草）
+//Source: "{#RCInnoExpProjectDir}\yComponents\MissingSmartArt_12.1.0\*.*"; DestDir: "{tmp}\OemFile\office6\wpsart"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 
 ; 更优雅的禁用闪屏图片方法
 //Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\nosplashscreen.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: experimental\nosplash;
@@ -518,9 +521,9 @@ Source: "{#RCInnoExpProjectDir}\yComponents\OfficialFont\*.*"; DestDir: {tmp}\Oe
 //Source: "{#RCInnoExpProjectDir}\yComponents\ProTemplates_12.1.0.23542\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\yComponents\{#MyAppArchRCShort}位组件补充_{#MyAppVersion}\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 
-; Windows 8 安装劫持补丁
-//Source: "{#RCInnoExpProjectDir}\W8ClientPatch\wpsw8patch_{#MyAppArchRC}.dll"; DestName: "wpsw8patch.dll"; DestDir: {sys}; Flags: ignoreversion overwritereadonly; Check: RCTIsWin8Client; Components: main; MinVersion: 6.2; OnlyBelowVersion: 10.0;
-//Source: "{#RCInnoExpProjectDir}\W8ClientPatch\wpsw8patch_x64.dll"; DestName: "wpsw8patch.dll"; DestDir: {sysnative}; Flags: ignoreversion overwritereadonly 64bit; Check: RCTIsWin8Client; Components: main; MinVersion: 6.2; OnlyBelowVersion: 10.0;
+; 适用于非官方支持系统的安装劫持补丁
+//Source: "{#RCInnoExpProjectDir}\W8ClientPatch\wpsw8patch_{#MyAppArchRC}.dll"; DestName: "wpsw8patch.dll"; DestDir: {sys}; Flags: ignoreversion overwritereadonly; Check: WPSIsOSUnsupport; Components: main; OnlyBelowVersion: 10.0;
+//Source: "{#RCInnoExpProjectDir}\W8ClientPatch\wpsw8patch_x64.dll"; DestName: "wpsw8patch.dll"; DestDir: {sysnative}; Flags: ignoreversion overwritereadonly 64bit; Check: WPSIsOSUnsupport; Components: main; OnlyBelowVersion: 10.0;
 
 ; 雪狐酱的产品配置劫持与校验绕过补丁
 //Source: "{#RCInnoExpProjectDir}\yYukiIsaitPatch\PatchedProductData\{#MyAppTypeVersion}_{#MyAppVersion}_{#MyAppArchRC}.dat"; DestName: "product.dat"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
@@ -547,11 +550,11 @@ Source: "E:\Software\WPS Office\1Extracted\WPS{#MyAppTypeVersion}_{#MyAppVersion
 ; 默认窗口管理模式设置
 //Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings"; ValueType: string; ValueName: "AppComponentMode"; ValueData: "prome_fushion"; Components: main\prometheus;
 
-; Windows 8 客户端安装限制绕过补丁所需的注册表
-//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: string; ValueName: VerifierDlls; ValueData: "wpsw8patch.dll"; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
-//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierDebug; ValueData: 0; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
-//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierFlags; ValueData: 2147483648; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
-//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: GlobalFlag; ValueData: 256; check: RCTIsWin8Client; MinVersion: 6.2; OnlyBelowVersion: 10.0;
+; 非官方支持系统安装限制绕过补丁所需的注册表
+//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: string; ValueName: VerifierDlls; ValueData: "wpsw8patch.dll"; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
+//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierDebug; ValueData: 0; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
+//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: VerifierFlags; ValueData: 2147483648; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
+//Root:HKLM{#MyAppArchRCShort}; Subkey:"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WPSOffice_Setup.exe"; ValueType: dword; ValueName: GlobalFlag; ValueData: 256; check: WPSIsOSUnsupport; MinVersion: 6.1; OnlyBelowVersion: 10.0;
 
 [Run]
 ; 处理 oem.ini 配置文件
@@ -609,12 +612,12 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters:
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del {commonappdata}\Kingsoft\office6\cfg_backup\{#MyAppVersion}\oem_backup.dat /Q /F"; Flags: runhidden;
 
 ; 运行 WPS Office 安装程序
-; 注意我们这里有两个运行命令，用于普通安装和静默安装
-; 这样做的目的是，让普通安装情况下，让安装程序读取已安装程序的路径（如有），而不是每次安装都需要手动指定安装路径
-//Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Flags: skipifsilent; Components: main;
-//Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Parameters: "-D=""{app}"""; Flags: skipifnotsilent; Components: main;
+; 注意我们这里有两个运行命令，其中第二个适用于由 Inno Setup 指定安装目录的情况
+; 这样做的目的是，让 WPS Office 安装程序在需要时读取已安装程序的路径（如有），而不是每次安装都需要额外指定安装路径
 Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Flags: skipifsilent; Components: main; AfterInstall: SetUninstNameWPS();
 Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Parameters: "-D=""{app}"""; Flags: skipifnotsilent; Components: main; AfterInstall: SetUninstNameWPS();
+//Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Flags: skipifsilent; Components: main; Check: WPS{#MyAppArchRC}Main; AfterInstall: SetUninstNameWPS();
+//Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Parameters: "-D=""{app}"""; Components: main; Check: (not WPS{#MyAppArchRC}Main) or (RCTIsSilent);AfterInstall: SetUninstNameWPS();
 
 ; 强制文件关联时切换产品配置
 //Filename: "{tmp}\oeminfo\oem.exe"; Parameters: "/regfile=raincandy_productdat-wpsplus.reg"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso;
@@ -738,17 +741,17 @@ Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Par
 ; 安装微软 Access 数据库引擎
 Filename: "{sys}\msiexec.exe"; StatusMsg: "{cm:RCTISERunExtraSetupPrepare,微软 Access 数据库引擎}"; Parameters: "/i ""{tmp}\AceRedist.msi"" /quiet /norestart"; check: WPS{#MyAppArchRC}Main; Components: extra\aceredist; BeforeInstall: SetMarqueeProgress(True);
 
-; 为 WPS 365 商业版复制 oem 配置备份
-; WPS 365 商业版使用 AES 模式进行配置校验，所以安装程序不愿意将我们的配置文件复制到备份目录
-; 所以这里我们要自己复制过去
-//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/c copy /b {tmp}\oem.ini {commonappdata}\Kingsoft\office6\cfg_backup\oem_origin.dat"; Flags: runhidden;
+; 在需要的的时候重新复制 oem.ini 配置备份
+; 因为 WPS 365 商业版的安装程序可能不愿意将我们的配置文件复制到备份目录
+; 以及在跨架构安装的过程中，备份目录中的配置可能还会被随之删除
+//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/c copy /y {tmp}\oem.ini {commonappdata}\Kingsoft\office6\cfg_backup\oem_origin.dat"; Flags: runhidden;
 
 ; 清理 OemFile 文件的备份，优化程序占用的磁盘空间
 Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='utility\backup\OemFile'"; check: WPS{#MyAppArchRC}Main; Components: main;
 
-; 删除 Windows 8.x 客户端安装补丁
-//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\System32\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;
-//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\SysWOW64\wpsw8patch.dll /Q /F"; Flags: runhidden; check: RCTIsWin8Client;
+; 删除非官方支持系统安装限制的绕过补丁
+//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\System32\wpsw8patch.dll /Q /F"; Flags: runhidden; check: WPSIsOSUnsupport;
+//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/C del %windir%\SysWOW64\wpsw8patch.dll /Q /F"; Flags: runhidden; check: WPSIsOSUnsupport;
 
 ; 完成安装时启动程序
 Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksolaunch.exe"; Description: "{cm:LaunchProgram,{cm:RCTISEMyAppName}}"; Flags: postinstall nowait skipifsilent; Check: WPS{#MyAppArchRC}Main and KSOPrometheusMode;

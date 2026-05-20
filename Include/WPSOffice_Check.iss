@@ -151,10 +151,15 @@ begin
   DelTree(ExpandConstant('{tmp}\VBA'), True, True, True);
 end;
 
-// 针对 WPS Office 安装程序的系统检测，检查是否 Windows 8 Client 版本
-function RCTIsWin8Client(): Boolean;
+// 检查当前系统是否是 WPS Office 安装程序不支持的版本
+// 影响系统：Windows Server 2008 R2、Windows 8、Windows 8.1
+function WPSIsOSUnsupport(): Boolean;
+var
+  SupportSvr2008R2: Boolean;
 begin
-  if (Version.NTPlatform) and (Version.Major = 6) and (Version.Minor > 1) and (RCTIsWinClient = true) then
+  SupportSvr2008R2 := {#IsSupportNT61Svr};
+  if ((Version.Major = 6) and (Version.Minor > 1) and (RCTIsWinClient = true)) or
+     ((Version.Major = 6) and (Version.Minor = 1) and (RCTIsWinClient = false) and (SupportSvr2008R2 = false)) then
   begin
     result := true;
   end;
