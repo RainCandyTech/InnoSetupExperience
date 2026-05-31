@@ -7,8 +7,8 @@ Windose Installer Experience 安装体验
 * Thanks to [NixaVulpi](https://github.com/NixaVulpi) for her code & dll about boot mode detection, which make code 12 detection more pertinence.<br>
  感谢[雪狐](https://github.com/NixaVulpi)编写的操作系统启动模式检测代码与 Dll 插件。代码 12 检测机制因此现可提供针对性的问题检测提示。
  
- * Thanks to Sink's idea and [df1050](https://github.com/orgs/RainCandyTech/people/gdr2333)'s Code 12 auto detection tool, which make the installation process of customized NVIDIA Graphics Driver more easier than before.<br>
-感谢川海叶缘的想法和 [df1050](https://github.com/orgs/RainCandyTech/people/gdr2333) 的代码 12 自动检测工具，将 NVIDIA 图形驱动程序魔改版本的安装过程大幅简化。
+ * Thanks to Sink's idea and [df1050](https://github.com/gdr2333)'s Code 12 auto detection tool, which make the installation process of customized NVIDIA Graphics Driver more easier than before.<br>
+感谢川海叶缘的想法和 [df1050](https://github.com/gdr2333) 的代码 12 自动检测工具，将 NVIDIA 图形驱动程序魔改版本的安装过程大幅简化。
 
 * Thanks to HouYu for the fantastic new logo artwork of RainCandy Technology.<br>
 感谢侯鱼创作的全新雨糖科技 Logo 徽标。
