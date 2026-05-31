@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260520"
+#define RCInnoExpVer "20260529"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -92,22 +92,22 @@ RCTMsgPleaseContactUs=Please contact us for any problems. Thank you!
 // Strings for drivers for Windows platform
 WinDrvSignModeSelect=Signature mode select
 WinDrvSignModeOption=Signature mode %1
-WDrvDeviceManager=Device Manager
-WDrvDevMgrOpen=Open Device Manager
+//WDrvDeviceManager=Device Manager
+//WDrvDevMgrOpen=Open Device Manager
 WinDrvHDAudio=HD Audio Driver
 WinDrvUSBC=USB-C Driver
-WDrvPreInstChk=Pre-installation device issue check
-WDrvPostInstChk=Post-installation device issue check
-WDrvInstChkDesc=Follow these steps below to check the devices on your computer.
-WDrvPreInstChkAskUser=Did you find any of the errors described above in the Device Manager?
-WDrvPreInstChkSameErrFound=I'm seeing the same error issue.
-WDrvInstChkCodeFoundDesc=Find out what to do next.%nYou should only click this button if you find a specific error for "Code %1".
-WDrvPreInstChkSameErrNotFound=I didn't find any issue, or the issue was not the same as the one mentioned earlier in the setup.
-WDrvPreInstChkSameErrNotFoundDesc=Setup will continue.%nIf you have other error issues, click this button as well. Once the driver installation is complete, these issues may be resolved.
-WDrvPreInstChkNowNotice=Now you need to open the Device Manager and check if there are any devices with exclamation%nmark icon in the "Display adapters" category. If there are, double-click the icon and see if there is%nan error message containing "Code %1". This issue should not occur under normal circumstances.
-WDrvPostInstChkNowNotice=Now you need to launch GPU-Z to confirm your graphics card is working properly.%nPlease select your NVIDIA graphics card in GPU-Z and check whether the clock and memory info%ncould be read by the application.%nIf you couldn't get the proper information, that means there're some issues with your graphics%ncard, such as the power cable is not properly connected, or the graphics card is damaged.
+//WDrvPreInstChk=Pre-installation device issue check
+//WDrvPostInstChk=Post-installation device issue check
+//WDrvInstChkDesc=Follow these steps below to check the devices on your computer.
+//WDrvPreInstChkAskUser=Did you find any of the errors described above in the Device Manager?
+//WDrvPreInstChkSameErrFound=I'm seeing the same error issue.
+//WDrvInstChkCodeFoundDesc=Find out what to do next.%nYou should only click this button if you find a specific error for "Code %1".
+//WDrvPreInstChkSameErrNotFound=I didn't find any issue, or the issue was not the same as the one mentioned earlier in the setup.
+//WDrvPreInstChkSameErrNotFoundDesc=Setup will continue.%nIf you have other error issues, click this button as well. Once the driver installation is complete, these issues may be resolved.
+//WDrvPreInstChkNowNotice=Now you need to open the Device Manager and check if there are any devices with exclamation%nmark icon in the "Display adapters" category. If there are, double-click the icon and see if there is%nan error message containing "Code %1". This issue should not occur under normal circumstances.
+WDrvErrorCannotContinue=Error: %nA critical problem affecting the normal operation of the device has been encountered. Please resolve it by following the guide, then run the setup again.
 WDrvFMConfHasError=There's a problem with your computer's current UEFI BIOS configuration.
-//WDrvFMBootModeIs=The current operating system boot mode is: 
+WDrvGPUStateError=The graphics driver is detected to be not functioning properly. Please check the GPU for issues.%n%nRefer to the release notes of this project, as they may provide troubleshooting guidance.
 WDrvFMBootModeHowTo=Convert the partition table of the disk containing the OS to GPT/GUID format. You can use tools such as Windows RE / installation media, MBR2GPT utility and so on. Then, make sure to perform OS boot repair to complete the conversion to UEFI boot mode.
 //WDrvFMBootModeUEFIIgnore=(Skip this step if you are already using UEFI boot mode.)
 WDrvFMBootModeDisableCSM=Enter the UEFI BIOS Utility, find and disable "Compatibility Support Module" (CSM) option.
@@ -118,7 +118,7 @@ WDrvFMBootModeUEFI=You are now using UEFI boot mode.
 WDrvFMBootModeUnknown=We can't determine which boot mode you're using.
 RCTDisplayDrvUninstInstruction=In case of you are having trouble, try to uninstalling these existing drivers, then run the setup again. You may need some tools like "Display Driver Uninstaller" (DDU).
 WDrvDenyUnspecDeviceInstWarning=The device installation service of the operating system has been disabled, or a Group Policy rule has been set to prohibit device installation under specific circumstances. This issue may cause driver installation to fail.%n%nTo resolve this issue, please enable the relevant service and remove the device installation restrictions in the Group Policy Editor, then restart your computer.
-WDrvChkCode12NextNotice=Once the check is complete, click Next to continue. Then, setup will ask you about your current situation.
+//WDrvChkCode12NextNotice=Once the check is complete, click Next to continue. Then, setup will ask you about your current situation.
 WDrvFMConfErrIGFXNotWorking=This issue will cause integrated graphics and GPU devices without display output support (like NVIDIA P106-100 and CMP 40HX) not working properly.
 WDrvPublisherType=Install %1 driver
 WDrvPolicyDenyXSignNotice=Windows Driver policy is active in enforcement mode, so setup cannot continue. Please delete Windows Driver policy from your operating system.%n%nYou can find more information in the release notes of this project.
@@ -126,7 +126,6 @@ WDrvPolicyDenyXSignNotice=Windows Driver policy is active in enforcement mode, s
 [Run]
 
 [Code]
-
 var // 全局变量
   languageName: String;
   Version: TWindowsVersion;
@@ -134,27 +133,24 @@ var // 全局变量
   WinInstType: String;
   WinProductType: String;
   DebugVersion: Boolean;
-  NeedStoreApp: Boolean;
   BGMusicFile: string;
   BGMusicType: string;
   DoNotPlayBGM: Boolean;
   IsSetupIncludingBGM: Boolean;
   IsSetupBGMAllowNotPlay: Boolean;
-  IsShowFreeProvideMsg: Boolean;
   AppTargetArch: String;
-  
+  CurrentDPI, StandardDPI, MediumDPI, LargeDPI: Integer;
+
 // 安装程序加载，并对变量进行初始化
 procedure NijikaSetupInit;
 begin
   Log('[Windose Installer] Info: Initializing Windose Installer.');
   DebugVersion := {#MyAppIsDebugVersion};
-  NeedStoreApp := {#MyAppIsNeedStoreApp};
   languageName := ActiveLanguage();
   ProcessName  :=  ExtractFileName(ParamStr(0));
   Log('[Windose Installer] Info: The process name of setup is: "' + ProcessName + '".');
   IsSetupIncludingBGM := {#MyAppSetupBGM};
   IsSetupBGMAllowNotPlay := {#RCBGMAllowNotPlay}
-  IsShowFreeProvideMsg := {#MyAppShowFreePrevideMsg};
   AppTargetArch := '{#MyAppArchRC}';
   GetWindowsVersionEx(Version);
   RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);
@@ -231,12 +227,6 @@ end;
 procedure ExitProcess(exitCode:integer);
 external 'ExitProcess@kernel32.dll stdcall';
 
-// 通过调用 kernel32.dll，获取系统当前的启动环境
-// 由 NixaVulpi 雪狐 (https://github.com/NixaVulpi) 编写与启发，在此表示感谢。
-// 返回值：-1: Failed; 0: Unknown; 1: Legacy BIOS; 2: UEFI; 3: Not implemented
-function GetFirmwareType(var FirmwareType: Integer): Boolean;
-external 'GetFirmwareType@kernel32.dll stdcall delayload';
-
 // 安装程序加载期间 BGM 相关检测与询问
 procedure BGMPlayDetection;
 begin
@@ -273,10 +263,25 @@ begin
   end;
 end;
 
+// 读取当前操作系统的 DPI，注意不能在 InitializeSetup 阶段使用
+procedure DPIDetection;
+begin
+  { Store defaults determined from Windows DPI settings }
+  StandardDPI := 96;  { 100% }
+  MediumDPI   := 120; { 125% }
+  LargeDPI    := 144; { 150% }
+  
+  { Get the current DPI }
+  CurrentDPI  := WizardForm.Font.PixelsPerInch;
+end;
+
 // 程序检查完成后，继续安装体验初始化
 procedure NijikaPostChkInIt;
+var
+  IsShowFreeProvideMsg: Boolean;
 begin
   // 按原样免费提供的相关提示
+  IsShowFreeProvideMsg := {#MyAppShowFreePrevideMsg};
   if (IsShowFreeProvideMsg = true) then begin
     SuppressibleMsgBox(CustomMessage('RCTMsgFreeProvideNotice')+ #13#13 + CustomMessage('RCTMsgWebGetUpdateNotice') + #13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
   end;

@@ -11,6 +11,30 @@ Source: "..\Plugins\windrvpolicycheck.ps1"; DestDir: {tmp}; Flags: dontcopy noco
 [CustomMessages]
 
 [Code]
+var // 全局变量
+  FirmwareType: Integer;
+
+// 通过调用 kernel32.dll，获取系统当前的启动环境
+// 由 NixaVulpi 雪狐 (https://github.com/NixaVulpi) 编写与启发，在此表示感谢。
+// 返回值：-1: Failed; 0: Unknown; 1: Legacy BIOS; 2: UEFI; 3: Not implemented
+function GetFirmwareType(var FirmwareType: Integer): Boolean;
+external 'GetFirmwareType@kernel32.dll stdcall delayload';
+
+// 基于上面的调用，对系统启动环境进行检测
+procedure FirmwareDetection();
+begin
+  if (Version.NTPlatform) and (Version.Build >= 7809) then
+  begin // 如果系统版本为 Windows 8 Build 7809 及以上版本（没错，一个个版本试出来的），则继续
+    Log('[Windose Installer] Info: Gathering boot mode information...');
+    GetFirmwareType(FirmwareType); // 这里调用上面来获取当前系统启动环境
+    Log('[Windose Installer] Info: Gathered boot mode code is: ' + IntToStr(FirmwareType) + '.');
+  end else
+  begin // 否则，放弃系统启动环境检测，不然会报错
+    Log('[Windose Installer] Info: Cannot gather boot mode information on current operating system...');
+    FirmwareType := 0;
+  end;
+end;
+
 procedure ButtonOnClickDevMgmt(Sender: TObject);
 var  // 在安装界面的按钮点击后，触发启动设备管理器的操作
   ResultCode: integer;

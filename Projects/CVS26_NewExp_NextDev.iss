@@ -150,10 +150,10 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260511_Slogan-At-Begin
+// 20260529_Slogan-At-Begin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -285,16 +285,7 @@ begin  // 安装程序加载
     end;
   end;
 
-  //if Version.NTPlatform and (Version.Major >= {#RCStoreAppNeedNTMajorVer}) and (Version.Minor >= {#RCStoreAppNeedNTMinorVer}) and (NeedStoreApp = true) and ((SvcDisableChk_AppxSvc) or (SvcDisableChk_ClipSVC) or (SvcDisableChk_LicenseManager) or (SvcDisableChk_InstallService) or (SvcDisableChk_mpssvc)) then
-  //begin  // 检测系统中 Microsoft Store 部署服务是否存在禁用现象，如存在则弹窗提示
-    //Log('[Windose Installer] Warning: One or more necessarily Windows services has been disabled...');
-    //if (languageName = 'chinesesimp') then begin
-      //SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgWinStoreSvcChkFailed'), ['{#RCExtraStoreAppCS}']) + #13#13{#RCStoreInstSvc}#13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
-    //end else
-    //begin
-      //SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgWinStoreSvcChkFailed'), ['{#RCExtraStoreApp}']) + #13#13{#RCStoreInstSvc}#13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
-    //end;
-  //end;
+  //MSStoreIssueDetect;
 
   Log('[Windose Installer] Info: Pre-install check passed...'); 
   NijikaPostChkInIt;
