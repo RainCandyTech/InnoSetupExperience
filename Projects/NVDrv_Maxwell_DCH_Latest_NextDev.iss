@@ -14,14 +14,14 @@
 //#define MyAppPublisher "NVIDIA Corporation"
 #define MyAppURL "http://raincandy.tech/"
 //#define MyAppURL "https://www.nvidia.com/"
-#define WizardImage "WizModernImage-b4"
+#define WizardImage "WizModernImage-260529"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor
 #define MyAppExeName "{#MyAppExeName}"
 #define MyAppOutputName "NVIDIADriver_RCTSE"
 #define MyAppTypeVersion "0"
-#define MyAppRevisionVer "3"
+#define MyAppRevisionVer "6"
 #define MyAppRevisionDate "NextDev"
 #define MyAppSetupBGM "true"
 #define RCBGMAllowNotPlay "true"
@@ -34,6 +34,7 @@
 #define MyAppPublishType ""
 //#define MyAppPublishType "_stage"
 //#define MyAppPublishType "_ReBuild"
+//#define MyAppPublishType "_Experimental"
 #define MyAppShowFreePrevideMsg "true"
 #define MyAppIsNeedStoreApp "true"
 #define RCExtraStoreApp "NVIDIA Control Panel"
@@ -74,7 +75,7 @@
 //#include "..\Include\ISTask.iss"
 #include "..\Include\MicrosoftStore_SvcChk.iss"
 #include "..\Include\1RCTInnoExp_WinDrv.iss"
-#include "..\Include\1RCTInnoExp_GPU-Z.iss"
+//#include "..\Include\1RCTInnoExp_GPU-Z.iss"
 #include "..\Include\NVIDIAGraphicsDrv_UMRSE.iss"
 
 [Setup]
@@ -82,8 +83,8 @@
 ; 不要为其他安装程序使用相同的AppId值。
 ; (生成新的GUID，点击 工具|在IDE中生成GUID。)
 AppId={{A036FBAD-B5DB-4F41-94CD-670D9737E072}
-AppVersion=v{#MyAppVersion}.{#MyAppTypeVersion}.{#MyAppRevisionVer}{#MyAppPublishType}{#RCWinDriverType}_{#MyAppRevisionDate}
-//AppVersion=v{#MyAppVersion}.{#MyAppTypeVersion}.{#MyAppRevisionVer}{#MyAppPublishType}{#RCWinDriverType}_{#NVDrvPatchType}_{#MyAppRevisionDate}
+//AppVersion=v{#MyAppVersion}.{#MyAppTypeVersion}.{#MyAppRevisionVer}{#MyAppPublishType}{#RCWinDriverType}_{#MyAppRevisionDate}
+AppVersion=v{#MyAppVersion}{#RCWinDriverType}_{#MyAppRevisionDate}{#MyAppPublishType}
 AppName={#MyAppName}
 //AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
@@ -97,11 +98,12 @@ VersionInfoCompany={#MyAppPublisher}
 //VersionInfoVersion={#MyAppVersion}.{#MyAppTypeVersion}.{#MyAppRevisionVer}
 VersionInfoVersion={#MyAppMajorVersion}.{#MyAppMarketVersion}
 CreateAppDir=no
-//LicenseFile="..\Documents\license_nvdrv.rtf"
+LicenseFile="..\Documents\license_nvdrv.rtf"
 //InfoBeforeFile=
 InfoAfterFile="..\Documents\credits_nvcmp.rtf"
 OutputDir="..\Output"
-OutputBaseFilename={#MyAppOutputName}_{#MyAppVersion}.{#MyAppTypeVersion}.{#MyAppRevisionVer}{#MyAppPublishType}_{#MyAppArchRCShort}bit{#RCWinDriverType}_{#MyAppRevisionDate}
+//OutputBaseFilename={#MyAppOutputName}_{#MyAppVersion}.{#MyAppTypeVersion}.{#MyAppRevisionVer}{#MyAppPublishType}_{#MyAppArchRCShort}bit{#RCWinDriverType}_{#MyAppRevisionDate}
+OutputBaseFilename={#MyAppOutputName}_{#MyAppVersion}_{#MyAppArchRCShort}bit{#RCWinDriverType}_{#MyAppRevisionDate}{#MyAppPublishType}
 Compression=lzma2
 SolidCompression=yes
 DefaultDirName={autopf}\NVIDIA Corporation
@@ -123,7 +125,8 @@ WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //MinVersion=6.1sp1
 //MinVersion=10.0.16299
 MinVersion=10.0.17134
-WizardStyle=modern
+//WizardStyle=modern
+WizardStyle=modern dark Windows11
 //VersionInfoDescription={#MyAppName}
 VersionInfoDescription={#MyAppName} RainCandy Technology Special Edition
 VersionInfoOriginalFileName={#MyAppOutputName}_Installer.exe
@@ -136,8 +139,8 @@ PrivilegesRequired=admin
 //signtool=CSignTool
 
 [Languages]
-Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl";
-Name: "chinesetrad"; MessagesFile: "..\Languages\ChineseTraditional.isl";
+Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; LicenseFile:"..\Documents\license_nvdrv_cn.rtf";
+Name: "chinesetrad"; MessagesFile: "..\Languages\ChineseTraditional.isl"; LicenseFile:"..\Documents\license_nvdrv_cn.rtf";
 Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl";
 Name: "english"; MessagesFile: "compiler:Default.isl";
 Name: "french"; MessagesFile: "compiler:Languages\French.isl";
@@ -167,10 +170,10 @@ Name: "slovenian"; MessagesFile: "compiler:Languages\Slovenian.isl";
 //chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 //japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260511_SloganAtBegin
+// 20260529_SloganAtBegin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -257,11 +260,6 @@ russian.FinishedHeadingLabel=Завершение Мастера установ�
 //NVENCUnlockComponent=NVENC & NvFBC unlock patches (For CMP 40HX & GeForce GPUs ONLY)
 //chinesesimp.NVENCUnlockComponent=NVENC 与 NvFBC 的解锁补丁（仅支持 CMP 40HX 和 GeForce 系列显卡）
 //chinesetrad.NVENCUnlockComponent=解锁 NVENC 與 NvFBC 的修補程式（僅支持 CMP 40HX 和 GeForce 系列顯示卡）
-EACCompatibleMode=Easy Anti-Cheat compatible mode (Secure Boot must be disabled in UEFI BIOS settings)
-chinesesimp.EACCompatibleMode=小蓝熊兼容模式 (必须在 UEFI BIOS 设置中禁用安全启动)
-chinesetrad.EACCompatibleMode=Easy Anti-Cheat 相容模式（必須在 UEFI BIOS 設定中停用 Secure Boot）
-japanese.EACCompatibleMode=Easy Anti-Cheat 互換モード（UEFI BIOS 設定で Secure Boot を無効にする必要があります）
-russian.EACCompatibleMode=Режим совместимости с Easy Anti-Cheat (Secure Boot должен быть отключён в настройках UEFI BIOS)
 
 [Code]
 function InitializeSetup: Boolean;
@@ -269,7 +267,7 @@ begin  // 安装程序加载
   NijikaSetupInit;
   //Log('[Windose Installer] Info: Placeholder Message');
   Result := True;
-
+  
   // 如果检测到静默安装，则弹窗退出
   if (RCTIsSilent = true) then begin
     MsgBox(CustomMessage('RCTMsgNotSupportSilent') + #13#13 + CustomMessage('RCTMsgSetupExit'), mbCriticalError, MB_OK);
@@ -302,16 +300,7 @@ begin  // 安装程序加载
     Exit;
   end;
   
-  if Version.NTPlatform and (Version.Major >= {#RCStoreAppNeedNTMajorVer}) and (Version.Minor >= {#RCStoreAppNeedNTMinorVer}) and (NeedStoreApp = true) and ((SvcDisableChk_AppxSvc) or (SvcDisableChk_ClipSVC) or (SvcDisableChk_LicenseManager) or (SvcDisableChk_InstallService) or (SvcDisableChk_mpssvc)) then
-  begin  // 检测系统中 Microsoft Store 部署服务是否存在禁用现象，如存在则弹窗提示
-    Log('[Windose Installer] Warning: One or more necessarily Windows services has been disabled...');
-    if (languageName = 'chinesesimp') then begin
-      SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgWinStoreSvcChkFailed'), ['{#RCExtraStoreAppCS}']) + #13#13{#RCStoreInstSvc}#13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
-    end else
-    begin
-      SuppressibleMsgBox(FmtMessage(CustomMessage('RCTMsgWinStoreSvcChkFailed'), ['{#RCExtraStoreApp}']) + #13#13{#RCStoreInstSvc}#13#13 + CustomMessage('RCTMsgSetupContinue'), mbError, MB_OK, MB_OK);
-    end;
-  end;
+  MSStoreIssueDetect;
 
   //if (RegKeyExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\NVIDIA Corporation\Installer2')) or RegKeyExists(HKLM64, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.Driver') then
   if RegKeyExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.Driver') then
@@ -344,8 +333,8 @@ procedure InitializeWizard();
 begin  // 安装向导加载
   Log('[Windose Installer] Info: Initializing Wizard...');
   //BackgroundPicInit;
-  //WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
-  CreateModPage;
+  WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
+  //CreateModPage;
 end;
 
 procedure DeinitializeSetup();
@@ -359,14 +348,14 @@ end;
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin  // 跳过不必要页面
   result := false;
-  if (PageID = wpLicense) then result := true;
+  //if (PageID = wpLicense) then result := true;
   if (PageID = wpReady) then result := true;
   //if (PageID = wpInfoBefore) then result := true;
   //if (PageID = wpInfoAfter) then result := true;
   //if (PageID = wpFinished) then result := true;
   //if (PageID = wpSelectDir) then result := true;
   //if (PageID = wpSelectComponents) then result := true;
-  //if (PageID = wpLicense) or (PageID = wpReady) or (PageID = wpFinished) then result := true;
+  if (NVRequireReboot = true) and ((PageID = wpInfoAfter) or (PageID = wpFinished)) then result := true;
 end;
 
 [Files]
@@ -378,15 +367,15 @@ Source: "..\Plugins\1BGM\music_nvdrv.xm"; DestName: "music.xm"; DestDir: {tmp}; 
 //Source: "D:\My Files\KeygenMusic\CORE - Power ISO 3.1kg.xm"; DestName: "music.xm"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; Splash 文件
-Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v1\splash.png"; DestDir: {tmp}\NVI2; Flags: ignoreversion overwritereadonly;
-Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v1\splash_cn.png"; DestName: "splash.png";DestDir: {tmp}\NVI2; Flags: ignoreversion overwritereadonly; Languages: chinesetrad chinesesimp;
-Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v1\splash_rtl.png"; DestDir: {tmp}\NVI2; Flags: ignoreversion overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v2\splash.png"; DestDir: {tmp}\NVI2; Flags: ignoreversion overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v2\splash_cn.png"; DestName: "splash.png";DestDir: {tmp}\NVI2; Flags: ignoreversion overwritereadonly; Languages: chinesetrad chinesesimp;
+Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v2\splash_rtl.png"; DestDir: {tmp}\NVI2; Flags: ignoreversion overwritereadonly;
 
 ; NVIDIA Driver EULA
-//Source: "{#RCInnoExpProjectDir}\EULA.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
-//Source: "{#RCInnoExpProjectDir}\EULA_beta.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
-Source: "{#RCInnoExpProjectDir}\EULA_RCT_en-US.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Languages: not (chinesesimp or chinesetrad);
-Source: "{#RCInnoExpProjectDir}\EULA_RCT_zh-CN.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Languages: chinesesimp or chinesetrad;
+Source: "{#RCInnoExpProjectDir}\zEULA\EULA.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\zEULA\EULA_beta.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\zEULA\EULA_RCT_en-US.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Languages: not (chinesesimp or chinesetrad);
+//Source: "{#RCInnoExpProjectDir}\zEULA\EULA_RCT_zh-CN.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Languages: chinesesimp or chinesetrad;
 
 ; 驱动证书
 Source: "E:\Development\Windows 桌面端\CertMgr_WinSDK\certmgr_{#MyAppArchRC}.exe"; DestName: "certmgr.exe"; DestDir: {tmp}\RootCATrust; Flags: ignoreversion overwritereadonly;
@@ -409,8 +398,8 @@ Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion
 Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nv_disp_2.cat"; DestName: "nv_disp.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign2;
 //Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nvgridsw_2.cat"; DestName: "nvgridsw.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign2;
 
-; 驱动签名 3
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverSign_3\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: drvsign3;
+; NvFBC 相关文件
+//Source: "{#RCInnoExpProjectDir}\NvFBC\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
 //Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nv_disp_3.cat"; DestName: "nv_disp.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign3;
 
 ; HD 音频驱动
@@ -427,8 +416,10 @@ Source: "{#RCInnoExpProjectDir}\yNvVAD\Latest_{#NVDrvLastSupportGPU}\*.*"; DestD
 //Source: "{#RCInnoExpProjectDir}\yNvVAD\516.59\*.*"; DestDir: {tmp}\NvVAD; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: hdaudio;
 
 ; USB-C 驱动
-Source: "{#RCInnoExpProjectDir}\yUSBC\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\PPC; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: usbc;
+//Source: "{#RCInnoExpProjectDir}\yUSBC\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\PPC; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: usbc;
+Source: "{#RCInnoExpProjectDir}\yUSBC\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\PPC; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\yUSBC\Latest_Maxwell+\*.*"; DestDir: {tmp}\PPC; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: usbc;
+//Source: "{#RCInnoExpProjectDir}\yUSBC\Latest_Maxwell+\*.*"; DestDir: {tmp}\PPC; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\yUSBC\{#MyAppVersion}\*.*"; DestDir: {tmp}\PPC; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: usbc;
 //Source: "{#RCInnoExpProjectDir}\yUSBC\516.61\*.*"; DestDir: {tmp}\PPC; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: usbc;
 
@@ -436,8 +427,10 @@ Source: "{#RCInnoExpProjectDir}\yUSBC\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDi
 Source: "{#RCInnoExpProjectDir}\PhysX\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\PhysX; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\PhysX\Latest_Maxwell+\*.*"; DestDir: {tmp}\PhysX; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 
-; ShadowPlay 组件
-Source: "{#RCInnoExpProjectDir}\yShadowPlay\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\ShadowPlay; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+; NVIDIA App 及其组件
+//Source: "{#RCInnoExpProjectDir}\NVIDIAApp\11.0.7.247\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\NVIDIAApp\CommonResources\*.*"; DestDir: {tmp}\NvApp\\; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\yShadowPlay\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\ShadowPlay; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\yShadowPlay\Latest_Maxwell+\*.*"; DestDir: {tmp}\ShadowPlay; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\yShadowPlay\{#MyAppVersion}\*.*"; DestDir: {tmp}\ShadowPlay; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 
@@ -455,8 +448,8 @@ Filename: "{tmp}\RootCATrust\certmgr.exe"; StatusMsg: "{cm:RCTISERunInstCert}"; 
 //Filename: "{tmp}\RootCATrust\certmgr.exe"; StatusMsg: "{cm:RCTISERunInstCert}"; Parameters: "/add /all ./KLuo_Root.cer /r localMachine /s root";
 
 // 运行英伟达驱动安装程序
-Filename: "{tmp}\setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Parameters: "/noreboot"; AfterInstall: ExitIfNVNeedReboot;
-//Filename: "{tmp}\setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Parameters: "/noreboot /noeula"; AfterInstall: ExitIfNVNeedReboot;
+//Filename: "{tmp}\setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Parameters: "/noreboot"; AfterInstall: NVSetupExitAction;
+Filename: "{tmp}\setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}"; Parameters: "/noreboot /noeula"; AfterInstall: NVSetupExitAction;
 
 [Types]
 // 安装类型
@@ -470,12 +463,11 @@ Name: "default"; Description: "{cm:RCTISEDefaultInstType}"; Flags: iscustom;
 [Tasks]
 // 安装程序可选任务
 Name: "drvsign1"; Description: "{cm:WinDrvSignModeOption,1}"; GroupDescription: "{cm:WinDrvSignModeSelect}"; Flags: exclusive; 
-//Name: "drvsign1\eac"; Description: "{cm:EACCompatibleMode}"; GroupDescription: "{cm:WinDrvSignModeSelect}"; Flags: unchecked; 
 Name: "drvsign2"; Description: "{cm:WinDrvSignModeOption,2}"; GroupDescription: "{cm:WinDrvSignModeSelect}"; Flags: exclusive unchecked; 
 //Name: "nvenc"; Description: "{cm:NVENCUnlockComponent}"; GroupDescription: "{cm:RCTISEExtraComponents}"; Flags: unchecked; 
 Name: "hdaudio"; Description: "{cm:WinDrvHDAudio}"; GroupDescription: "{cm:RCTISEExtraComponents}"; Flags: unchecked; 
 //Name: "hdaudio"; Description: "{cm:WinDrvHDAudio}"; GroupDescription: "{cm:RCTISEExtraComponents}";
-Name: "usbc"; Description: "{cm:WinDrvUSBC}"; GroupDescription: "{cm:RCTISEExtraComponents}"; Flags: unchecked; 
+//Name: "usbc"; Description: "{cm:WinDrvUSBC}"; GroupDescription: "{cm:RCTISEExtraComponents}"; Flags: unchecked; 
 
 [Icons]
 // 快捷方式创建相关

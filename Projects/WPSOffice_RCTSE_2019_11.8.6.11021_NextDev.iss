@@ -102,7 +102,7 @@ SolidCompression=yes
 DefaultDirName={pf}\Kingsoft\WPS Office
 //ArchitecturesAllowed=win64
 //ArchitecturesInstallIn64BitMode=win64
-{#SetupArchSettings}
+//{#SetupArchSettings}
 Uninstallable=no
 //SetupIconFile="..\Icons\WPSOffice.ico"
 //SetupIconFile="..\Icons\WPSOffice_Business.ico"

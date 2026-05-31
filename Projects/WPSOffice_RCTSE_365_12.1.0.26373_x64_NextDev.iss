@@ -53,7 +53,7 @@
 #define IsSupportNT61Svr "true"
 #define PluginArchMark "x86"
 //#define SetupArchSettings ""
-#define SetupArchSettings ";SetupArchitecture=" + PluginArchMark
+//#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
 #define PluginSignMark ""
 #define RCInnoExpProjectDir "E:\Development\WPS Office"
 
@@ -102,7 +102,7 @@ SolidCompression=yes
 DefaultDirName={autopf}\Kingsoft\WPS Office
 ArchitecturesAllowed=win64
 ArchitecturesInstallIn64BitMode=win64
-{#SetupArchSettings}
+//{#SetupArchSettings}
 Uninstallable=no
 //SetupIconFile="..\Icons\WPSOffice.ico"
 //SetupIconFile="..\Icons\WPSOffice_Business.ico"
@@ -113,7 +113,7 @@ SetupIconFile="..\Icons\WPSOffice_WPS365.ico"
 WizardImageFile="..\Artworks\{#WizardImage}.bmp"
 WizardImageFileDynamicDark="..\Artworks\{#WizardImage}.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
-////WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
+//WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //WizardSmallImageFileDynamicDark="..\Artworks\rclogo_inno_modern.png"
 //SetupLogging=yes
