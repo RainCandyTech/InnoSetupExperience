@@ -13,6 +13,7 @@ japanese.AboutSetupNote=Windose Installer version {#RCInnoExpVer} で構築されてい
 [CustomMessages]
 // General strings for Windose Installer
 japanese.RCTISEMainApp=メインアプリケーション
+//japanese.RCTISEMainFeatures=Main features
 japanese.RCTISEInstNormal=一般インストール
 japanese.RCTISEInstWithoutNet=ネットワーク機能を無効にしてインストール
 japanese.RCTISEInstOnlineVer=オンライン版をインストール
@@ -49,7 +50,7 @@ japanese.RCTISEAssocFileExtension=%1 ファイル拡張子を関連付ける
 japanese.RCTISEHotfix=修正プログラム（ご検討の上、お選びください）
 japanese.RCTISERunInstHotfix=修正プログラムをインストールしています。しばらくお待ちください...
 japanese.RCTASEditNotAvailable=編集機能は利用できません
-japanese.RCTISEFeatureExpWarn=不安定な可能性あり、ご注意ください
+japanese.RCTISEFeatureExpWarn=不安定な可能性あり、ご注意ください！
 japanese.RCTISEInstVerChoose=%1 バージョンをインストール
 
 // Messages for Windose Installer
@@ -94,7 +95,7 @@ japanese.WinDrvSignModeOption=署名モード %1
 //japanese.WDrvDeviceManager=デバイス マネージャー
 //japanese.WDrvDevMgrOpen=デバイス マネージャーを起動します
 japanese.WinDrvHDAudio=HD オーディオドライバー
-japanese.WinDrvUSBC=USB-C ドライバー
+//japanese.WinDrvUSBC=USB-C ドライバー
 //japanese.WDrvPreInstChk=インストール前のデバイス問題チェック
 //japanese.WDrvPostInstChk=インストール後のデバイス問題チェック
 //japanese.WDrvInstChkDesc=以下の手順に従って、コンピュータ上のデバイスを確認してください。

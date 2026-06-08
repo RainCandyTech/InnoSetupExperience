@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260529"
+#define RCInnoExpVer "20260606"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -14,6 +14,7 @@ AboutSetupNote=Built with Windose Installer version {#RCInnoExpVer}.%nhttps://gi
 // General strings for Windose Installer
 RCTISEMyAppName={#MyAppName}
 RCTISEMainApp=Main application
+RCTISEMainFeatures=Main features
 RCTISEInstNormal=Normal installation
 RCTISEInstWithoutNet=Disable network features
 RCTISEInstOnlineVer=Install online version
@@ -50,7 +51,7 @@ RCTISEAssocFileExtension=Associate %1 file extension
 RCTISEHotfix=Hotfixes (Consideration is needed)
 RCTISERunInstHotfix=Installing Hotfixes. Please wait...
 RCTASEditNotAvailable=Edit Function not available
-RCTISEFeatureExpWarn=May be unstable, use with caution
+RCTISEFeatureExpWarn=May be unstable, use with caution!
 RCTISEInstVerChoose=Install version %1
 
 // Messages for Windose Installer
@@ -95,7 +96,7 @@ WinDrvSignModeOption=Signature mode %1
 //WDrvDeviceManager=Device Manager
 //WDrvDevMgrOpen=Open Device Manager
 WinDrvHDAudio=HD Audio Driver
-WinDrvUSBC=USB-C Driver
+//WinDrvUSBC=USB-C Driver
 //WDrvPreInstChk=Pre-installation device issue check
 //WDrvPostInstChk=Post-installation device issue check
 //WDrvInstChkDesc=Follow these steps below to check the devices on your computer.

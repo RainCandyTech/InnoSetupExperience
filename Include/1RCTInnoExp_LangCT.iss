@@ -16,6 +16,7 @@ chinesetrad.AboutSetupNote=使用 Windose Installer {#RCInnoExpVer} 版本進行構建。
 // General strings for Windose Installer
 // 对于中文而言，组件名称以英文打头的话，应视情况在前后加减空格或用引号框住
 chinesetrad.RCTISEMainApp=主程式
+chinesetrad.RCTISEMainFeatures=主要功能
 chinesetrad.RCTISEInstNormal=一般安裝
 chinesetrad.RCTISEInstWithoutNet=禁用聯網功能
 chinesetrad.RCTISEInstOnlineVer=安裝聯網版本
@@ -52,7 +53,7 @@ chinesetrad.RCTISEAssocFileExtension=建立 %1 格式檔案關聯
 chinesetrad.RCTISEHotfix=修補程式（請權衡後使用）
 chinesetrad.RCTISERunInstHotfix=正在安裝修補程式，請稍候...
 chinesetrad.RCTASEditNotAvailable=編輯功能不可用
-chinesetrad.RCTISEFeatureExpWarn=可能不穩定，請謹慎選擇
+chinesetrad.RCTISEFeatureExpWarn=可能不穩定，請謹慎選擇！
 chinesetrad.RCTISEInstVerChoose=安裝 %1 版本
 
 // Messages for Windose Installer
@@ -97,7 +98,7 @@ chinesetrad.WinDrvSignModeOption=簽章模式 %1
 //chinesetrad.WDrvDeviceManager=裝置管理員
 //chinesetrad.WDrvDevMgrOpen=啟動「裝置管理員」
 chinesetrad.WinDrvHDAudio=HD 音訊驅動
-chinesetrad.WinDrvUSBC=USB-C 驅動
+//chinesetrad.WinDrvUSBC=USB-C 驅動
 //chinesetrad.WDrvPreInstChk=安裝前裝置問題檢查
 //chinesetrad.WDrvPostInstChk=安裝後裝置問題檢查
 //chinesetrad.WDrvInstChkDesc=請根據以下步驟，檢查您計算機上的裝置。

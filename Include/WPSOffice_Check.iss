@@ -107,23 +107,46 @@ begin
   end;
 end;
 
-//function KSOMultiComMode(): Boolean;
-//var  // 检查 WPS Office 是否为多组件模式
-  //RCTech_KSOAppMode: string;
-//begin
-  //result:= false;
-  //RegQueryStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  //RegQueryStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\wpsoffice\Application Settings', 'AppComponentMode', RCTech_KSOAppMode);
-  //if (RCTech_KSOAppMode = 'prome_independ') then begin
-    //Log('[Windose Installer] Info: WPS Office is in multi-component mode.');
-    //result:= true;
-  //end;
-//end;
-
-// 设置系统程序卸载列表中的应用程序名字（WPS 主程序）
-procedure SetUninstNameWPS();
+// 适用于 WPS Office 专业版无法创建新建菜单的修复
+procedure NewFileMenuFix();
 begin
-  //RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\Common','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版');
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.doc')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'NullFile')) then
+  begin
+    Log('[Windose Installer] Info: Now rewrite .DOC ShellNew Registry.');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'NullFile', '');
+  end;
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.docx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.docx\Word.Document.12\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.docx\Word.Document.12\ShellNew', 'NullFile')) then
+  begin
+    Log('[Windose Installer] Info: Now rewrite .DOCX ShellNew Registry.');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.docx\Word.Document.12\ShellNew', 'NullFile', '');
+  end;
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xls')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile')) then
+  begin
+    Log('[Windose Installer] Info: Now rewrite .XLS ShellNew Registry.');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile', '');
+  end;
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xlsx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile')) then
+  begin
+    Log('[Windose Installer] Info: Now rewrite .XLSX ShellNew Registry.');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile', '');
+  end;
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.ppt')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'NullFile')) then
+  begin
+    Log('[Windose Installer] Info: Now rewrite .PPT ShellNew Registry.');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'NullFile', '');
+  end;
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.pptx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'NullFile')) then
+  begin
+    Log('[Windose Installer] Info: Now rewrite .PPTX ShellNew Registry.');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'NullFile', '');
+  end;
+end;
+
+// 安装程序完成后执行操作（WPS 主程序）
+procedure AfterInstallWPS();
+begin
+  NewFileMenuFix;
+  // 设置系统程序卸载列表中的应用程序名字
   if (WPS{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
     RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;
@@ -132,9 +155,11 @@ begin
   end;
 end;
 
-// 设置系统程序卸载列表中的应用程序名字（WPS PDF 独立版）
-procedure SetUninstNameWPSPDF();
+// 安装程序完成后执行操作（WPS PDF 独立版）
+procedure AfterInstallWPSPDF();
 begin
+  NewFileMenuFix;
+  // 设置系统程序卸载列表中的应用程序名字
   if (KPDF{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
     RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;

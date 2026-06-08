@@ -14,6 +14,7 @@ russian.AboutSetupNote=Сборка выполнена с использован
 [CustomMessages]
 // General strings for Windose Installer
 russian.RCTISEMainApp=Основная программа
+russian.RCTISEMainFeatures=Основные характеристики
 russian.RCTISEInstNormal=Обычная установка
 russian.RCTISEInstWithoutNet=Отключить сетевые функции
 russian.RCTISEInstOnlineVer=Установить онлайн-версию
@@ -50,7 +51,7 @@ russian.RCTISEAssocFileExtension=Связать с файлами формата
 russian.RCTISEHotfix=Патч (использовать взвешенно)
 russian.RCTISERunInstHotfix=Установка патча, пожалуйста, подождите...
 russian.RCTASEditNotAvailable=Функция редактирования недоступна
-russian.RCTISEFeatureExpWarn=Осторожно: возможна нестабильность.
+russian.RCTISEFeatureExpWarn=Осторожно: возможна нестабильность!
 russian.RCTISEInstVerChoose=Установить версию %1
 
 // Messages for Windose Installer
@@ -95,7 +96,7 @@ russian.WinDrvSignModeOption=Режим подписи %1
 //russian.WDrvDeviceManager=Диспетчер устройств
 //russian.WDrvDevMgrOpen=Запустить «Диспетчер устройств»
 russian.WinDrvHDAudio=Драйвер HD Audio
-russian.WinDrvUSBC=Драйвер USB-C
+//russian.WinDrvUSBC=Драйвер USB-C
 //russian.WDrvPreInstChk=Проверка проблем устройств перед установкой
 //russian.WDrvPostInstChk=Проверка проблем устройств после установки
 //russian.WDrvInstChkDesc=Пожалуйста, проверьте устройства на вашем компьютере, следуя приведенным ниже инструкциям.

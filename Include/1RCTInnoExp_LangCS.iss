@@ -33,6 +33,7 @@ chinesesimp.TranslatorNote=简体中文翻译由 Kira（847320916@qq.com）维护。%nhttps:
 chinesesimp.LaunchProgram=运行%1
 chinesesimp.RCTISEMyAppName={#MyAppNameCS}
 chinesesimp.RCTISEMainApp=主程序
+chinesesimp.RCTISEMainFeatures=主要功能
 chinesesimp.RCTISEInstNormal=一般安装
 chinesesimp.RCTISEInstWithoutNet=禁用联网功能
 chinesesimp.RCTISEInstOnlineVer=安装联网版本
@@ -69,7 +70,7 @@ chinesesimp.RCTISEAssocFileExtension=建立 %1 格式文件关联
 chinesesimp.RCTISEHotfix=补丁（请权衡后安装）
 chinesesimp.RCTISERunInstHotfix=正在安装补丁，请稍候...
 chinesesimp.RCTASEditNotAvailable=编辑功能不可用
-chinesesimp.RCTISEFeatureExpWarn=可能不稳定，请谨慎选择
+chinesesimp.RCTISEFeatureExpWarn=可能不稳定，请谨慎选择！
 chinesesimp.RCTISEInstVerChoose=安装 %1 版本
 
 // Messages for Windose Installer
@@ -114,7 +115,7 @@ chinesesimp.WinDrvSignModeOption=签名模式 %1
 //chinesesimp.WDrvDeviceManager=设备管理器
 //chinesesimp.WDrvDevMgrOpen=打开“设备管理器”
 chinesesimp.WinDrvHDAudio=HD 音频驱动
-chinesesimp.WinDrvUSBC=USB-C 驱动
+//chinesesimp.WinDrvUSBC=USB-C 驱动
 //chinesesimp.WDrvPreInstChk=安装前设备问题检查
 //chinesesimp.WDrvPostInstChk=安装后设备问题检查
 //chinesesimp.WDrvInstChkDesc=请根据以下步骤，检查您计算机上的设备。
