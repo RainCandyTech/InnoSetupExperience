@@ -2,7 +2,7 @@
 ; Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 ; 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
-; 本脚本以《Heaven For Death》为例，展示雨糖科技安装体验的功能。
+; 本脚本以《Heaven For Death》为例，展示雨糖科技 Windose Installer 安装体验的功能。
 
 #define MyAppName "My Program"
 #define MyAppNameCS "我的程序"
@@ -75,7 +75,7 @@ VersionInfoCompany={#MyAppPublisher}
 VersionInfoVersion={#MyAppVersion}
 //CreateAppDir=no
 //LicenseFile="..\Documents\license_other.rtf"
-InfoBeforeFile="..\Documents\credits_nvcmp.rtf"
+//InfoBeforeFile=
 //InfoAfterFile="..\Documents\credits_other.rtf"
 OutputDir=userdocs:Inno Setup Examples Output
 OutputBaseFilename={#MyAppOutputName}
@@ -133,10 +133,10 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260529_Slogan-At-Begin
+// 20260511_Slogan-At-Begin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 荣誉制作 | 大鸣大放 年轻绚烂%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 榮譽製作 | 大鳴大放 年輕絢爛%n%n{#MyAppExtraInfo}
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -269,9 +269,9 @@ end;
 Source: "..\Plugins\1BGM\music_mysetup_example.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression; 
 
 ; 主程序文件
-//Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
-Source: "{#RCInnoExpProjectDir}\请在得到密码并通关后解压.zip"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
-Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Flags: isreadme ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\HFD本体\*.*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\请在得到密码并通关后解压.zip"; DestDir: "{app}"; Flags: ignoreversion overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\游玩前请先阅读.txt"; DestDir: "{app}"; Flags: isreadme ignoreversion overwritereadonly;
 
 [Registry]
 ; 本段处理程序在注册表中的键值
@@ -294,7 +294,7 @@ Name: dtshortcut; Description: "{cm:CreateDesktopIcon}";
 
 [Icons]
 // 快捷方式创建相关
-Name: "{group}\My Program"; Filename: "{app}\Game.exe"; WorkingDir: "{app}";
+Name: "{group}\{cm:RCTISEMyAppName}"; Filename: "{app}\Game.exe"; WorkingDir: "{app}";
 
 ; 创建桌面快捷方式，名称为 "自定义快捷方式名"，指向安装目录中的 YourApp.exe
 Name: "{userdesktop}\{cm:RCTISEMyAppName}"; Filename: "{app}\Game.exe"; WorkingDir: "{app}"; Tasks: dtshortcut;
