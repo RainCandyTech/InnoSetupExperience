@@ -108,6 +108,7 @@ chinesesimp.RCTMsgPatchAppCurrentVer=目前已安装程序的版本为：
 chinesesimp.RCTMsgAppOtherArchIsInst=看起来您的计算机似乎已经安装了「%1」应用程序的其他架构版本。
 chinesesimp.RCTMsgNotSupportSilent=本应用程序不支持以静默方式安装。请直接运行安装程序。
 chinesesimp.RCTMsgPleaseContactUs=如有问题，敬请反馈。谢谢！
+chinesesimp.RCTMsgInstNotSuccess=检测到程序安装未能成功完成，请检查安装程序是否被防病毒软件拦截。
 
 // Strings for drivers for Windows platform
 chinesesimp.WinDrvSignModeSelect=签名模式选择

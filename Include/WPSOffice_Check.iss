@@ -5,6 +5,11 @@
 // 本脚本的代码主要用于检测计算机中 WPS Office 已安装版本的信息。
 
 [Code]
+// 全局变量
+//var
+  //WPSOfficeVersion: String;
+  //WPSPDFStandaloneVersion: String;
+  
 // 检查是否安装 WPS Office 32 位主程序
 function WPSIA32Main(): Boolean;
 begin
@@ -87,7 +92,7 @@ begin
   end;
 end;
 
-// 检查 WPS Office 是否为经典模式
+// 是否为经典模式
 function KSOClassicMode(): Boolean;
 begin
   result:= false;
@@ -97,7 +102,7 @@ begin
   end;
 end;
 
-// 检查 WPS Office 是否为整合模式
+// 是否为整合模式
 function KSOPrometheusMode(): Boolean;
 begin
   result:= false;
@@ -107,13 +112,23 @@ begin
   end;
 end;
 
+// 是否没有对应信息
+//function IsWPSAppModeUnknown(): Boolean;
+//begin
+  //result:= false;
+  //if (WPSCurrentAppMode = 0) then begin
+    //result:= true;
+  //end;
+//end;
+
 // 适用于 WPS Office 专业版无法创建新建菜单的修复
 procedure NewFileMenuFix();
 begin
   if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.doc')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'NullFile')) then
   begin
     Log('[Windose Installer] Info: Now rewrite .DOC ShellNew Registry.');
-    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'NullFile', '');
+    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'NullFile', '');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.doc\Word.Document.8\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\default\templates\newfile.wps'));
   end;
   if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.docx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.docx\Word.Document.12\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.docx\Word.Document.12\ShellNew', 'NullFile')) then
   begin
@@ -123,30 +138,39 @@ begin
   if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xls')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile')) then
   begin
     Log('[Windose Installer] Info: Now rewrite .XLS ShellNew Registry.');
-    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile', '');
-  end;
+    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile', '');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\default\templates\newfile.et'));
+    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\zh_CN\templates\newfile.xls'));
+ end;
   if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xlsx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile')) then
   begin
     Log('[Windose Installer] Info: Now rewrite .XLSX ShellNew Registry.');
-    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile', '');
+    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile', '');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\default\templates\newfile.xlsx'));
   end;
   if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.ppt')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'NullFile')) then
   begin
     Log('[Windose Installer] Info: Now rewrite .PPT ShellNew Registry.');
-    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'NullFile', '');
+    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'NullFile', '');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\default\templates\newfile.dps'));
   end;
   if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.pptx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'NullFile')) then
   begin
     Log('[Windose Installer] Info: Now rewrite .PPTX ShellNew Registry.');
-    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'NullFile', '');
+    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'NullFile', '');
+    RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.pptx\PowerPoint.Show.12\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\default\templates\newfile.pptx'));
   end;
 end;
 
 // 安装程序完成后执行操作（WPS 主程序）
 procedure AfterInstallWPS();
 begin
+  // 检查安装程序完成后，当前电脑是否存在对应版本的程序
+  if not (WPS{#MyAppArchRC}Main = true) then begin
+    MsgBox(CustomMessage('RCTMsgInstNotSuccess'), mbError, MB_OK);
+  end;
+  // 必要时修复新建菜单项，然后设置系统程序卸载列表中的应用程序名
   NewFileMenuFix;
-  // 设置系统程序卸载列表中的应用程序名字
   if (WPS{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
     RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;
@@ -158,8 +182,12 @@ end;
 // 安装程序完成后执行操作（WPS PDF 独立版）
 procedure AfterInstallWPSPDF();
 begin
+  // 检查安装程序完成后，当前电脑是否存在对应版本的程序
+  //if not (KPDF{#MyAppArchRC}Main = true) then begin
+    //MsgBox(CustomMessage('RCTMsgInstNotSuccess'), mbError, MB_OK);
+  //end;
+  // 必要时修复新建菜单项，然后设置系统程序卸载列表中的应用程序名
   NewFileMenuFix;
-  // 设置系统程序卸载列表中的应用程序名字
   if (KPDF{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
     RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   end;
@@ -199,3 +227,12 @@ begin
     Result := True;
   end;
 end;
+
+// 检测当前电脑是否安装了火绒安全软件
+//function ChkHRSysDiagInst(): Boolean;
+//begin
+  //Result := false;
+  //if (FileExists(ExpandConstant('{reg:HKLM\SOFTWARE\Huorong\Sysdiag,InstallPath}\bin\HipsDaemon.exe'))) then begin
+    //Result:= true;
+  //end;
+//end;
