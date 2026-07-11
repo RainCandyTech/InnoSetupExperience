@@ -135,17 +135,17 @@ begin
     Log('[Windose Installer] Info: Now rewrite .DOCX ShellNew Registry.');
     RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.docx\Word.Document.12\ShellNew', 'NullFile', '');
   end;
-  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xls')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile')) then
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xls')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName')) then
   begin
     Log('[Windose Installer] Info: Now rewrite .XLS ShellNew Registry.');
-    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile', '');
+    RegDeleteValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'NullFile');
     RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\default\templates\newfile.et'));
     //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xls\Excel.Sheet.8\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\zh_CN\templates\newfile.xls'));
  end;
-  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xlsx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile')) then
+  if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.xlsx')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'FileName')) then
   begin
     Log('[Windose Installer] Info: Now rewrite .XLSX ShellNew Registry.');
-    //RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile', '');
+    RegDeleteValue(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'NullFile');
     RegWriteStringValue(HKLM, 'SOFTWARE\Classes\.xlsx\Excel.Sheet.12\ShellNew', 'FileName', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\mui\default\templates\newfile.xlsx'));
   end;
   if (RegKeyExists(HKLM, 'SOFTWARE\Classes\.ppt')) and not (RegValueExists(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'FileName') or RegValueExists(HKLM, 'SOFTWARE\Classes\.ppt\PowerPoint.Show.8\ShellNew', 'NullFile')) then
@@ -228,11 +228,18 @@ begin
   end;
 end;
 
-// 检测当前电脑是否安装了火绒安全软件
-//function ChkHRSysDiagInst(): Boolean;
+// 检测当前 WPS Office 是否正在运行（下面这段代码有 Bug 跑不起来）
+//function ChkIsWPSRunning(): Boolean;
 //begin
-  //Result := false;
-  //if (FileExists(ExpandConstant('{reg:HKLM\SOFTWARE\Huorong\Sysdiag,InstallPath}\bin\HipsDaemon.exe'))) then begin
-    //Result:= true;
+  //Result := False;
+  //if RunTask('wpsoffice.exe', false)
+  //or RunTask('wps.exe', false)
+  //or RunTask('et.exe', false)
+  //or RunTask('wpp.exe', false)
+  //or RunTask('wpspdf.exe', false)
+  //or RunTask('wpsofd.exe', false)
+  //or RunTask('wpsufd.exe', false)
+  //then begin
+    //Result := True;
   //end;
 //end;

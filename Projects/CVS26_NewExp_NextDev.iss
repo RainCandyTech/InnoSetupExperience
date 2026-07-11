@@ -44,7 +44,7 @@
 #define PluginSignMark ""
 #define PluginArchMark "x86"
 //#define SetupArchSettings ""
-#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
+//#define SetupArchSettings "SetupArchitecture=" + PluginArchMark
 #define RCInnoExpProjectDir "D:\CVSKurumiWorkDir"
 
 #include "..\Include\1RainCandyTech_InnoExp.iss"
@@ -97,15 +97,15 @@ OutputBaseFilename={#MyAppOutputName}
 Compression=lzma2
 SolidCompression=yes
 DefaultDirName={autopf}\Corel\Corel VideoStudio {#MyAppMarketVersion}
-//ArchitecturesAllowed=x64 arm64
-ArchitecturesAllowed=win64
+ArchitecturesAllowed=x64 arm64
+//ArchitecturesAllowed=win64
 //ArchitecturesInstallIn64BitMode=x64
-{#SetupArchSettings}
+//{#SetupArchSettings}
 Uninstallable=no
 SetupIconFile="..\Icons\cvs{#MyAppMajorVersion}.ico"
 DisableWelcomePage=false
 WizardImageFile="..\Artworks\{#WizardImage}.bmp"
-WizardImageFileDynamicDark="..\Artworks\{#WizardImage}.bmp"
+//WizardImageFileDynamicDark="..\Artworks\{#WizardImage}.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //WizardSmallImageFileDynamicDark="..\Artworks\rclogo_inno_modern.png"
@@ -115,7 +115,7 @@ WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 MinVersion=6.1sp1
 //WizardStyle=modern
 //WizardStyle=modern dynamic Windows11
-WizardStyle=modern dark
+//WizardStyle=modern dark
 //WindowVisible=yes
 VersionInfoDescription={#MyAppName}
 //VersionInfoDescription={#MyAppMainName}
@@ -301,6 +301,7 @@ begin  // 安装程序加载
   ExtractTemporaryFile('music.' + BGMusicType);
   BGMLoad_{#RCInnoExpBGMPlugin};
 
+  if (DoNotPlayBGM = false) then
   NijikaSplashInit;
 
   Log('[Windose Installer] Info: Prepare Complete...');

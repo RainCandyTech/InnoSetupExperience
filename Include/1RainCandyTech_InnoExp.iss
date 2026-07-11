@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260622"
+#define RCInnoExpVer "20260710"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -49,8 +49,8 @@ RCTISEDisableFeature=Disable this feature
 RCTISEOSArchARM64=ARM64 architecture OS
 RCTISEAssocFileExtension=Associate %1 file extension
 RCTISEHotfix=Hotfixes (Consideration is needed)
-RCTISERunInstHotfix=Installing Hotfixes. Please wait...
-RCTASEditNotAvailable=Edit Function not available
+RCTISERunInstHotfix=Installing hotfixes. Please wait...
+RCTASEditNotAvailable=Edit function not available
 RCTISEFeatureExpWarn=May be unstable, use with caution!
 RCTISEInstVerChoose=Install version %1
 
