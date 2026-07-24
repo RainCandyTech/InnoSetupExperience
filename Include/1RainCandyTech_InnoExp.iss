@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260710"
+#define RCInnoExpVer "20260725"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -97,7 +97,7 @@ WinDrvSignModeOption=Signature mode %1
 //WDrvDeviceManager=Device Manager
 //WDrvDevMgrOpen=Open Device Manager
 WinDrvHDAudio=HD Audio Driver
-//WinDrvUSBC=USB-C Driver
+WinDrvUSBC=USB-C Driver
 //WDrvPreInstChk=Pre-installation device issue check
 //WDrvPostInstChk=Post-installation device issue check
 //WDrvInstChkDesc=Follow these steps below to check the devices on your computer.

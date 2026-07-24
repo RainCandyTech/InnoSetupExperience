@@ -19,6 +19,9 @@ Windose Installer Experience 安装体验
 * Thanks to [Kira](https://github.com/kira-96/Inno-Setup-Chinese-Simplified-Translation) for the Chinese Simplified translation of Inno Setup.<br>
 感谢 [Kira](https://github.com/kira-96/Inno-Setup-Chinese-Simplified-Translation) 制作的 Inno Setup 安装程序简体中文翻译。
 
+* Thanks to Germanium for proofreading the additional string translations for the Windows Installer.
+感谢 Germanium 对 Windose Installer 的额外字符串的翻译进行的校对工作。
+
 * Thanks to all friends of RainCandy Technology family for the support.<br>
 感谢雨糖科技大家庭的每一位朋友的大力支持与协助。
 

@@ -7,21 +7,21 @@
 //#define MyAppMainName "NVIDIA Graphics Driver"
 #define MyAppMainNameCS " NVIDIA 图形驱动"
 #define MyAppMainNameCT " NVIDIA 圖形驅動"
-#define MyAppVersion "582.53"
+#define MyAppVersion "582.70"
 #define MyAppMajorVersion "32.0"
-#define MyAppMarketVersion "15.8253"
+#define MyAppMarketVersion "15.8270"
 #define MyAppPublisher "RainCandy Technology"
 //#define MyAppPublisher "NVIDIA Corporation"
 #define MyAppURL "http://raincandy.tech/"
 //#define MyAppURL "https://www.nvidia.com/"
-#define WizardImage "WizModernImage-260529"
+#define WizardImage "WizModernImage-260319"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor
 #define MyAppExeName "{#MyAppExeName}"
 #define MyAppOutputName "NVIDIADriver_RCTSE"
 #define MyAppTypeVersion "0"
-#define MyAppRevisionVer "6"
+#define MyAppRevisionVer "0"
 #define MyAppRevisionDate "NextDev"
 #define MyAppSetupBGM "true"
 #define RCBGMAllowNotPlay "true"
@@ -66,6 +66,7 @@
 #include "..\Include\1RainCandyTech_InnoExp.iss"
 #include "..\Include\1RCTInnoExp_LangCS.iss"
 #include "..\Include\1RCTInnoExp_LangCT.iss"
+#include "..\Include\1RCTInnoExp_LangDE.iss"
 #include "..\Include\1RCTInnoExp_LangJP.iss"
 #include "..\Include\1RCTInnoExp_LangRU.iss"
 #include "..\Include\" + RCInnoExpBGMPlugin + ".iss"
@@ -391,12 +392,10 @@ Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion
 ; 驱动签名 1
 Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverSign_1\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: drvsign1;
 Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nv_disp_1.cat"; DestName: "nv_disp.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign1;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nvdisp_1_eac.cat"; DestName: "nvgridsw.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign1;
 
 ; 驱动签名 2
 Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverSign_2\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: drvsign2;
 Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nv_disp_2.cat"; DestName: "nv_disp.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign2;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nvgridsw_2.cat"; DestName: "nvgridsw.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign2;
 
 ; NvFBC 相关文件
 //Source: "{#RCInnoExpProjectDir}\NvFBC\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
@@ -426,6 +425,7 @@ Source: "{#RCInnoExpProjectDir}\yUSBC\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDi
 ; PhysX 组件
 Source: "{#RCInnoExpProjectDir}\PhysX\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\PhysX; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\PhysX\Latest_Maxwell+\*.*"; DestDir: {tmp}\PhysX; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\PhysX\553.74\*.*"; DestDir: {tmp}\PhysX; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 
 ; NVIDIA App 及其组件
 //Source: "{#RCInnoExpProjectDir}\NVIDIAApp\11.0.7.247\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;

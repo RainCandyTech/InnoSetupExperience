@@ -48,6 +48,7 @@
 #include "..\Include\1RainCandyTech_InnoExp.iss"
 #include "..\Include\1RCTInnoExp_LangCS.iss"
 #include "..\Include\1RCTInnoExp_LangCT.iss"
+#include "..\Include\1RCTInnoExp_LangDE.iss"
 #include "..\Include\1RCTInnoExp_LangJP.iss"
 #include "..\Include\1RCTInnoExp_LangRU.iss"
 //#include "..\Include\1RCTInnoExp_LangCS_Legacy.iss"
