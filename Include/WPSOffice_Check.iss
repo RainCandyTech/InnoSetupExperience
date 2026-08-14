@@ -6,9 +6,11 @@
 
 [Code]
 // 全局变量
-//var
+var
   //WPSOfficeVersion: String;
   //WPSPDFStandaloneVersion: String;
+  InstPartDataCfg: String;
+  InstPartDataReg: String;
   
 // 检查是否安装 WPS Office 32 位主程序
 function WPSIA32Main(): Boolean;
@@ -171,29 +173,28 @@ begin
   end;
   // 必要时修复新建菜单项，然后设置系统程序卸载列表中的应用程序名
   NewFileMenuFix;
-  if (WPS{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
-    RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
-  end;
-  if (WPSHKCUMain = true) and (RegValueExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
-    RegWriteStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
-  end;
+  //if (WPS{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
+    //RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
+  //end;
+  //if (WPSHKCUMain = true) and (RegValueExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office', 'DisplayName')) then begin
+    //RegWriteStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft Office','DisplayName', 'WPS Office {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
+  //end;
 end;
 
 // 安装程序完成后执行操作（WPS PDF 独立版）
 procedure AfterInstallWPSPDF();
 begin
   // 检查安装程序完成后，当前电脑是否存在对应版本的程序
-  //if not (KPDF{#MyAppArchRC}Main = true) then begin
-    //MsgBox(CustomMessage('RCTMsgInstNotSuccess'), mbError, MB_OK);
+  if not (KPDF{#MyAppArchRC}Main = true) then begin
+    MsgBox(CustomMessage('RCTMsgInstNotSuccess'), mbError, MB_OK);
+  end;
+  // 设置系统程序卸载列表中的应用程序名
+  //if (KPDF{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
+    //RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
   //end;
-  // 必要时修复新建菜单项，然后设置系统程序卸载列表中的应用程序名
-  NewFileMenuFix;
-  if (KPDF{#MyAppArchRC}Main = true) and (RegValueExists(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
-    RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
-  end;
-  if (KPDFHKCUMain = true) and (RegValueExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
-    RegWriteStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
-  end;
+  //if (KPDFHKCUMain = true) and (RegValueExists(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF', 'DisplayName')) then begin
+    //RegWriteStringValue(HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Kingsoft PDF','DisplayName', 'WPS PDF {#MyAppMarketVersion} 雨糖科技特别版 ({#MyAppRevisionDate}{#MyAppRevisionVer})');
+  //end;
 end;
 
 // 安装程序结束后，清理临时文件
@@ -243,3 +244,36 @@ end;
     //Result := True;
   //end;
 //end;
+
+// 对 OEM 配置添加 AES 加密校验值
+procedure WPSOEMConfSign();
+var
+  MSCryptoGUID: String;
+  CipherResult: integer;
+begin
+  // Extract cipher tool
+  ExtractTemporaryFile('wps-profile-cipher.exe');
+  RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Cryptography', 'MachineGuid', MSCryptoGUID);
+
+  // Reads InstallPartialData from setup.cfg in installation directory
+  InstPartDataCfg := GetIniString('Setup', 'InstallPartialData', '!DEFAULT', ExpandConstant('{reg:HKLM\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\setup.cfg'));
+
+  // Display the retrieved value for debugging
+  //MsgBox('MSCryptoGUID: ' + MSCryptoGUID + #13 + 'InstPartDataCfg: ' + InstPartDataCfg, mbInformation, MB_OK);
+  //if (InstPartDataCfg = '!DEFAULT') then MsgBox('InstPartDataCfg Error!', mbError, MB_OK);
+
+  // Remove KPacket registry key for safety
+  RegDeleteKeyIncludingSubkeys(HKLM32, 'SOFTWARE\Kingsoft\Office\6.0\KPacket');
+  if (IsWin64) then RegDeleteKeyIncludingSubkeys(HKLM64, 'SOFTWARE\Kingsoft\Office\6.0\KPacket');
+ 
+  // Write InstallPartialData to new Setup Config file if replacement is required
+  //SetIniString('Setup', 'InstallPartialData', InstPartDataCfg, ExpandConstant('{tmp}\OemFile\cfgs\setup.cfg'));
+
+  // Define & write InstallPartialData value for registry
+  InstPartDataReg := '0d000721fc1a110';
+  RegWriteStringValue(HKCU, 'SOFTWARE\Kingsoft\Office\6.0\Common', 'InstallPartialData', ExpandConstant(InstPartDataReg));
+  RegWriteStringValue(HKLM{#MyAppArchRCShort}, 'SOFTWARE\Kingsoft\Office\6.0\Common', 'InstallPartialData', ExpandConstant(InstPartDataReg));
+
+  // Execute profile cipher to add AES signature
+  ShellExec('', ExpandConstant('{tmp}\wps-profile-cipher.exe'), 'sign-file --oem-machine-guid ' + MSCryptoGUID + ' --oem-setup-install-partial-data ' + InstPartDataCfg + ' --oem-registry-install-partial-data ' + InstPartDataReg + ' .\oem_setup.ini .\OemFile\cfgs\oem.ini', '', SW_HIDE, ewWaitUntilTerminated, CipherResult);
+end;
