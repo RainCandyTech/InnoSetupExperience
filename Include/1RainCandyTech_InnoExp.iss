@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260729 (a)"
+#define RCInnoExpVer "20260829"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -140,6 +140,7 @@ var // 全局变量
   DoNotPlayBGM: Boolean;
   IsSetupIncludingBGM: Boolean;
   IsSetupBGMAllowNotPlay: Boolean;
+  IsNeedSetUninstName: Boolean;
   AppTargetArch: String;
   CurrentDPI, StandardDPI, MediumDPI, LargeDPI: Integer;
 
@@ -152,7 +153,8 @@ begin
   ProcessName  :=  ExtractFileName(ParamStr(0));
   Log('[Windose Installer] Info: The process name of setup is: "' + ProcessName + '".');
   IsSetupIncludingBGM := {#MyAppSetupBGM};
-  IsSetupBGMAllowNotPlay := {#RCBGMAllowNotPlay}
+  IsSetupBGMAllowNotPlay := {#RCBGMAllowNotPlay};
+  IsNeedSetUninstName := {#RCSetUninstName};
   AppTargetArch := '{#MyAppArchRC}';
   GetWindowsVersionEx(Version);
   RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'InstallationType', WinInstType);

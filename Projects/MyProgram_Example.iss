@@ -39,6 +39,7 @@
 #define RCStoreAppNeedNTMajorVer "6"
 #define RCStoreAppNeedNTMinorVer "2"
 #define RCInnoExpBGMPlugin "ufMOD"
+#define RCSetUninstName "false"
 #define PluginSignMark "_signed"
 #define PluginArchMark "x86"
 //#define SetupArchSettings ""

@@ -32,7 +32,7 @@
 #define MyAppArchRCShort "64"
 #define MyAppIsDebugVersion "false"   ;正式外发版本一定要关闭！！！
 #define MyAppPublishType ""
-//#define MyAppPublishType "_stage"
+//#define MyAppPublishType "_Stage"
 //#define MyAppPublishType "_ReBuild"
 //#define MyAppPublishType "_Experimental"
 #define MyAppShowFreePrevideMsg "true"
@@ -44,6 +44,7 @@
 //#define RCWinDriverType "_Win7Win8"
 //#define RCWinDriverType "_Win10Win11"
 #define RCWinDriverType "_Win10Win11_DCH"
+//#define RCWinDriverType "_Win11_DCH"
 //#define NVDrvPublishType "GameReady"
 //#define NVDrvPublishType "Studio"
 //#define NVDrvPublishType "Quardo"
@@ -57,6 +58,7 @@
 #define NVDrvPatchType "CMPUnlock"
 //#define NVDrvPatchType "CertResign"
 #define RCInnoExpBGMPlugin "ufMOD"
+#define RCSetUninstName "true"
 #define PluginArchMark "x86"
 //#define SetupArchSettings ""
 #define SetupArchSettings "SetupArchitecture=" + PluginArchMark
@@ -350,7 +352,7 @@ function ShouldSkipPage(PageID: Integer): Boolean;
 begin  // 跳过不必要页面
   result := false;
   //if (PageID = wpLicense) then result := true;
-  if (PageID = wpReady) then result := true;
+  //if (PageID = wpReady) then result := true;
   //if (PageID = wpInfoBefore) then result := true;
   //if (PageID = wpInfoAfter) then result := true;
   //if (PageID = wpFinished) then result := true;
@@ -435,9 +437,10 @@ Source: "{#RCInnoExpProjectDir}\PhysX\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDi
 //Source: "{#RCInnoExpProjectDir}\yShadowPlay\{#MyAppVersion}\*.*"; DestDir: {tmp}\ShadowPlay; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 
 ; GRID vGPU 驱动额外组件
-Source: "{#RCInnoExpProjectDir}\yGRIDExtra\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
-//Source: "{#RCInnoExpProjectDir}\yGRIDExtra\Latest_Maxwell+\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
-//Source: "{#RCInnoExpProjectDir}\yGRIDExtra\{#MyAppVersion}\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\yGRIDExtra\1Common\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\yGRIDExtra\1Common_Packed\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\yGRIDExtra\grid-proxy-credentials_{#MyAppVersion}.ps1"; DestName: "grid-proxy-credentials.ps1"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\yGRIDExtra\grid-proxy-credentials_581.91.ps1"; DestName: "grid-proxy-credentials.ps1"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly;
 
 [Run]
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”

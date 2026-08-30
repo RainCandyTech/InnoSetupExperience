@@ -41,6 +41,7 @@
 #define RCStoreAppNeedNTMajorVer "10"
 #define RCStoreAppNeedNTMinorVer "0"
 #define RCInnoExpBGMPlugin "ufMOD"
+#define RCSetUninstName "false"
 #define PluginSignMark ""
 #define PluginArchMark "x86"
 //#define SetupArchSettings ""
@@ -64,7 +65,6 @@
 #include "..\Include\VideoStudio_AddonChk.iss"
 //#include "..\Include\VideoStudio_LangChk.iss"
 //#include "..\Include\MulticamCapture_Check.iss"
-//#include "..\Include\Partner_hy345.iss"
 
 [Setup]
 ; 注: AppId的值为单独标识该应用程序。
@@ -221,7 +221,7 @@ chinesetrad.MOVCompatibility=MOV 格式相容性補丁
 function InitializeSetup: Boolean;
 begin  // 安装程序加载
   NijikaSetupInit;
-  Log('[Windose Installer] Error: Of all my friends on this journey with me, how many of them are still healing from wounds?');
+  //Log('[Windose Installer] Error: Of all my friends on this journey with me, how many of them are still healing from wounds?');
   //Log('[Windose Installer] Error: Of all my friends on this journey with me, how many of them are still waking up?');
   //SkinInitialize;
   Result := True;
@@ -327,14 +327,14 @@ end;
 function ShouldSkipPage(PageID: Integer): Boolean;
 begin  // 跳过不必要页面
   result := false;
-  Log('[Windose Installer] Error: Of all my friends on this journey with me, how many of them are still waking up?');
+  //Log('[Windose Installer] Error: Of all my friends on this journey with me, how many of them are still waking up?');
   if (PageID = wpLicense) then result := true;
   //if (PageID = wpReady) then result := true;
   //if (PageID = wpInfoBefore) then result := true;
   //if (PageID = wpInfoAfter) then result := true;
   //if (PageID = wpFinished) then result := true;
   //if (PageID = wpSelectDir) then result := true;
-  //if (PageID = wpLicense) or (PageID = wpReady) then result := true;
+  //if (PageID = wpSelectComponents) then result := true;
   //if (PageID = wpLicense) or (PageID = wpReady) or (PageID = wpFinished) then result := true;
 end;
 
