@@ -96,7 +96,7 @@ VersionInfoTextVersion={#MyAppCustomVersion}
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoVersion={#MyAppCustomVersion}
 //CreateAppDir=no
-//LicenseFile="..\Documents\license_wps.rtf"
+LicenseFile="..\Documents\license_wps.rtf"
 //InfoBeforeFile=
 InfoAfterFile="..\Documents\credits_wps_umrse.rtf"
 OutputDir="..\Output"
@@ -139,7 +139,7 @@ PrivilegesRequired=admin
 //signtool=CSignTool
 
 [Languages]
-Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl";
+Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; LicenseFile: "..\Documents\license_wps_cn.rtf";
 //Name: "chinesetrad"; MessagesFile: "..\Languages\ChineseTraditional.isl";
 //Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl";
 //Name: "english"; MessagesFile: "compiler:Default.isl";
@@ -263,7 +263,7 @@ procedure InitializeWizard();
 begin  // 安装向导加载
   Log('[Windose Installer] Info: Initializing Wizard...');
   //BackgroundPicInit;
-  //WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
+  WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
 end;
 
 procedure DeinitializeSetup();
@@ -580,6 +580,9 @@ Source: "{#RCInnoExpProjectDir}\yYukiIsaitPatch\msi_{#MyAppArchRC}.dll"; DestNam
 //Source: "{#RCInnoExpProjectDir}\yProfileCipher\wps-profile-cipher_mt_{#MyAppArchRC}.exe"; DestName: "wps-profile-cipher.exe"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly dontcopy;
 Source: "{#RCInnoExpProjectDir}\yYukiIsaitPatch\oem_lock.ps1"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
 
+; 适用于国际版底包的额外配置
+//Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\xaversionextra.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
+
 ; 雨科软件研究项目配置
 Source: "{#RCInnoExpProjectDir}\zMNConfig\MNConfig_{#MyAppMajorVersion}_{#MyAppArchRC}_{#MyAppCustomVersion}.ini"; DestName: "MNConfig.ini"; DestDir: {tmp}\OemFile\cfgs\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\zMNConfig\MNConfig_{#MyAppMajorVersion}_{#MyAppArchRC}_{#MyAppCustomVersion}_Internal.ini"; DestName: "MNConfig.ini"; DestDir: {tmp}\OemFile\cfgs\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
@@ -660,6 +663,7 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\nonetupdtconf.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main\ksorcnonet;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\launchernameedit.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\norecentoptimize.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: experimental\norecentoptimize;
+//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\xaversionextra.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\oem_setup.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /y ""{tmp}\oem.ini"" ""{tmp}\oem_setup.ini"""; Flags: runhidden; Components: main;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\fakehash.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
@@ -704,7 +708,7 @@ Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}
 ; 为安装自定义皮肤将原皮肤删除
 //Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\skins\2019dark'"; Flags: runhidden; Components: experimental\themereplacewpssis;
 
-; 如果底包为个人版 / 商业版，则备份原产品配置
+; 对原来的产品配置进行备份
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c mkdir ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\professional"""; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c copy ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\product_new.dat"" ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\professional\product_new.dat"""; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c mkdir ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\wpsplus"""; Flags: runhidden; Components: main;
@@ -892,7 +896,7 @@ Name: experimental\pdfadvanced; Description: "{cm:RCTISEToEnablePremium, WPS PDF
 Name: experimental\officialdocs; Description: "启用 WPS 文字的公文相关功能"; 
 //Name: experimental\officialdocs\nouof; Description: "不要将公文文档保存为标文通（UOF）格式";
 //Name: experimental\officialdocs\writernouof; Description: "禁用 WPS 文字的 UOF 格式支持以确保能够正常调用公文模板";
-Name: experimental\nixavulpiauth; Description: "适用于 PDF 编辑和 2023 智能公文功能的私有化授权解锁补丁";
+Name: experimental\nixavulpiauth; Description: "PDF 编辑和 2023 智能公文功能私有化授权解锁（不要忘记勾选安装相应功能）";
 ////Name: experimental\wpsshellext; Description: "右键菜单外壳扩展（PDF 合并与批量打印等，启动程序后生效）";
 Name: experimental\disableime; Description: "禁用预输入法（只有当遇到文档编辑时卡顿的时候才应该尝试勾选）";
 //Name: experimental\forceasso; Description: "强制关联 Word / Excel / PPT 格式，尝试解决无法从新建菜单创建文件的问题";

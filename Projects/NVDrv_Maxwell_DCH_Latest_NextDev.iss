@@ -14,7 +14,7 @@
 //#define MyAppPublisher "NVIDIA Corporation"
 #define MyAppURL "http://raincandy.tech/"
 //#define MyAppURL "https://www.nvidia.com/"
-#define WizardImage "WizModernImage-260319"
+#define WizardImage "WizModernImage-260529"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor
@@ -111,7 +111,7 @@ Compression=lzma2
 SolidCompression=yes
 DefaultDirName={autopf}\NVIDIA Corporation
 ArchitecturesAllowed=x64os
-ArchitecturesInstallIn64BitMode=x64
+ArchitecturesInstallIn64BitMode=x64os
 //{#SetupArchSettings}
 Uninstallable=no
 //SetupIconFile="..\Icons\ahoge_nijika.ico"
@@ -270,7 +270,7 @@ begin  // 安装程序加载
   NijikaSetupInit;
   //Log('[Windose Installer] Info: Placeholder Message');
   Result := True;
-  
+
   // 如果检测到静默安装，则弹窗退出
   if (RCTIsSilent = true) then begin
     MsgBox(CustomMessage('RCTMsgNotSupportSilent') + #13#13 + CustomMessage('RCTMsgSetupExit'), mbCriticalError, MB_OK);
@@ -352,7 +352,7 @@ function ShouldSkipPage(PageID: Integer): Boolean;
 begin  // 跳过不必要页面
   result := false;
   //if (PageID = wpLicense) then result := true;
-  //if (PageID = wpReady) then result := true;
+  if (PageID = wpReady) then result := true;
   //if (PageID = wpInfoBefore) then result := true;
   //if (PageID = wpInfoAfter) then result := true;
   //if (PageID = wpFinished) then result := true;

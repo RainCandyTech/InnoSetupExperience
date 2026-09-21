@@ -8,7 +8,7 @@
 #define MyAppMainName "WPS Office"
 #define MyAppMainNameCS " WPS Office "
 #define MyAppMainNameCT " WPS Office "
-#define MyAppVersion "12.1.0.28043"
+#define MyAppVersion "12.1.0.28505"
 #define MyAppCustomVersion MyAppVersion
 //#define MyAppCustomVersion "12.8.2.26899"
 #define MyAppMajorVersion "12"
@@ -18,7 +18,7 @@
 //#define MyAppURL "http://raincandy.tech/"
 #define MyAppURL "https://www.wps.cn/"   ;卡饭论坛不允许作品出现推广链接，故替换为官网链接
 //#define WizardImage "kingsoft_office"
-#define WizardImage "WizModernImage-251225"
+#define WizardImage "WizModernImage-c2_t240920"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor
@@ -29,18 +29,18 @@
 #define MyAppRevisionVer ""
 #define MyAppRevisionDate "NextDev"
 #define MyAppSetupBGM "true"
-#define RCBGMAllowNotPlay "true"
+#define RCBGMAllowNotPlay "false"
 #define MyAppSetupBGMType "xm"
 //#define MyAppSetupStyle "Office2007.cjstyles"
 #define MyAppArchitecture "x86"
 #define MyAppArchRC "IA32"
 #define MyAppArchRCShort "32"
-#define MyAppIsDebugVersion "true"   ;正式外发版本一定要关闭！！！
+#define MyAppIsDebugVersion "false"   ;正式外发版本一定要关闭！！！
 //#define MyAppPublishType "Internal_" + MyAppMajorVersion
-#define MyAppPublishType "Internal_" + MyAppMajorVersion + "_Sherii"
+//#define MyAppPublishType "Internal_" + MyAppMajorVersion + "_Sherii"
 //#define MyAppPublishType "Internal_Personal"
 //#define MyAppPublishType "Production_" + MyAppMajorVersion
-//#define MyAppPublishType "Production_" + MyAppMajorVersion + "_Sherii"
+#define MyAppPublishType "Production_" + MyAppMajorVersion + "_Sherii"
 #define MyAppShowFreePrevideMsg "false"
 #define MyAppIsNeedStoreApp "false"
 #define RCExtraStoreApp ""
@@ -53,7 +53,7 @@
 //#define RCWPSConfFormat "Plain"
 //#define RCWPSConfFormat "Cipher"
 #define RCWPSConfFormat "Sherii"
-#define WPSInstallerType "Unified_Professional_Trial"
+#define WPSInstallerType "Unified_Professional"
 #define IsSupportNT61Svr "true"
 #define PluginArchMark "x86"
 //#define SetupArchSettings ""
@@ -69,8 +69,8 @@
 //#include "..\Include\1RCTInnoExp_LangRU.iss"
 //#include "..\Include\1RCTInnoExp_LangCS_Legacy.iss"
 #include "..\Include\" + RCInnoExpBGMPlugin + ".iss"
-//#include "..\Include\Splash.iss"
-//#include "..\Include\Background.iss"
+#include "..\Include\Splash.iss"
+#include "..\Include\Background.iss"
 //#include "..\Include\ISSkin.iss"
 //#include "..\Include\ISTask.iss"
 //#include "..\Include\MicrosoftStore_SvcChk.iss"
@@ -96,7 +96,7 @@ VersionInfoTextVersion={#MyAppCustomVersion}
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoVersion={#MyAppCustomVersion}
 //CreateAppDir=no
-//LicenseFile="..\Documents\license_wps.rtf"
+LicenseFile="..\Documents\license_wps.rtf"
 //InfoBeforeFile=
 InfoAfterFile="..\Documents\credits_wps_umrse.rtf"
 OutputDir="..\Output"
@@ -139,7 +139,7 @@ PrivilegesRequired=admin
 //signtool=CSignTool
 
 [Languages]
-Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl";
+Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; LicenseFile: "..\Documents\license_wps_cn.rtf";
 //Name: "chinesetrad"; MessagesFile: "..\Languages\ChineseTraditional.isl";
 //Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl";
 //Name: "english"; MessagesFile: "compiler:Default.isl";
@@ -253,8 +253,8 @@ begin  // 安装程序加载
   ExtractTemporaryFile('music.' + BGMusicType);
   BGMLoad_{#RCInnoExpBGMPlugin};
 
-  //if (DoNotPlayBGM = false) then
-  //NijikaSplashInit;
+  if (DoNotPlayBGM = false) then
+  NijikaSplashInit;
 
   Log('[Windose Installer] Info: Prepare Complete...');
 end;
@@ -262,13 +262,13 @@ end;
 procedure InitializeWizard();
 begin  // 安装向导加载
   Log('[Windose Installer] Info: Initializing Wizard...');
-  //BackgroundPicInit;
-  //WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
+  BackgroundPicInit;
+  WizardForm.LICENSEACCEPTEDRADIO.Checked := true;
 end;
 
 procedure DeinitializeSetup();
 begin   // 安装程序退出
-  //Log('[Windose Installer] Info: Deinitializing Setup...');
+  Log('[Windose Installer] Info: Deinitializing Setup...');
   BGMUnload_{#RCInnoExpBGMPlugin};
   if (WPSIA32Main = false) and (WPSAMD64Main = false) and (WPSHKCUMain = false) and (WPSIsOSUnsupport = true) then
   begin   // 检查是否未安装 WPS Office 且为 Win 8 系统，是则清理注册表
@@ -297,17 +297,18 @@ end;
 
 ; Splash 文件
 //Source: "{#RCInnoExpProjectDir}\Splash\*.*"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "{#RCInnoExpProjectDir}\zMisc\Splash_240920Temp\*.*"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; BGM 文件
 //Source: "..\Plugins\1BGM\music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\1BGM\music_wps.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
-//Source: "..\Plugins\1BGM\music_wps_legacy.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\1BGM\music_wps.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\1BGM\music_wps_legacy.{#MyAppSetupBGMType}"; DestName: "music.{#MyAppSetupBGMType}"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; OEM 内容
 Source: "{#RCInnoExpProjectDir}\OEMContents\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\OEMContents_{#MyAppMajorVersion}\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
-//Source: "{#RCInnoExpProjectDir}\OEMExec\oem_{#MyAppArchRC}.exe"; DestName: "oem.exe"; DestDir: {tmp}\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
-Source: "{#RCInnoExpProjectDir}\OEMExec\oem_{#MyAppArchRC}_{#MyAppVersion}.exe"; DestName: "oem.exe"; DestDir: {tmp}\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
+Source: "{#RCInnoExpProjectDir}\OEMExec\oem_{#MyAppArchRC}.exe"; DestName: "oem.exe"; DestDir: {tmp}\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
+//Source: "{#RCInnoExpProjectDir}\OEMExec\oem_{#MyAppArchRC}_{#MyAppVersion}.exe"; DestName: "oem.exe"; DestDir: {tmp}\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\OEMExec\oem_{#MyAppArchRC}_12.1.0.19770.exe"; DestName: "oem.exe"; DestDir: {tmp}\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
 
 ; 国产化版本、公文版本的额外组件安装
@@ -438,7 +439,7 @@ Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\launchernameedit.
 ; 注意：禁止轻办公外壳扩展已在 12.1.0.2586x 中被移除
 Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\noqingshellext.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\noqingshellext or main\ksorcnonet;
 Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\wpsshellext.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: experimental\wpsshellext;
-Source: "{#RCInnoExpProjectDir}\yComponents\KWPSShellExt_12.1.0.28422\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion overwritereadonly; Components: experimental\wpsshellext;
+//Source: "{#RCInnoExpProjectDir}\yComponents\KWPSShellExt_12.1.0.28422\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion overwritereadonly; Components: experimental\wpsshellext;
 //Source: "{#RCInnoExpProjectDir}\yComponents\KWPSPDFShellExt_12.6.0.17183\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion overwritereadonly; Components: experimental\wpsshellext;
 
 ; 登录界面相关参数
@@ -580,6 +581,9 @@ Source: "{#RCInnoExpProjectDir}\yYukiIsaitPatch\msi_{#MyAppArchRC}.dll"; DestNam
 Source: "{#RCInnoExpProjectDir}\yProfileCipher\wps-profile-cipher_mt_{#MyAppArchRC}.exe"; DestName: "wps-profile-cipher.exe"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly dontcopy;
 //Source: "{#RCInnoExpProjectDir}\yYukiIsaitPatch\oem_lock.ps1"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
 
+; 适用于国际版底包的额外配置
+//Source: "{#RCInnoExpProjectDir}\Conf_1Addon_{#RCWPSConfFormat}\xaversionextra.ini"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: main;
+
 ; 雨科软件研究项目配置
 Source: "{#RCInnoExpProjectDir}\zMNConfig\MNConfig_{#MyAppMajorVersion}_{#MyAppArchRC}_{#MyAppCustomVersion}.ini"; DestName: "MNConfig.ini"; DestDir: {tmp}\OemFile\cfgs\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\zMNConfig\MNConfig_{#MyAppMajorVersion}_{#MyAppArchRC}_{#MyAppCustomVersion}_Internal.ini"; DestName: "MNConfig.ini"; DestDir: {tmp}\OemFile\cfgs\oeminfo; Flags: ignoreversion overwritereadonly; Components: main;
@@ -587,8 +591,8 @@ Source: "{#RCInnoExpProjectDir}\zMNConfig\MNConfig_{#MyAppMajorVersion}_{#MyAppA
 ; 主程序安装包
 //Source: "E:\Software\WPS Office\1Extracted\WPS{#MyAppTypeVersion}_{#MyAppVersion}.exe"; DestDir: {tmp}; DestName: "WPSOffice_Setup.exe"; Flags: ignoreversion overwritereadonly nocompression; Components: main;
 //Source: "E:\Software\WPS Office\1Extracted\WPS{#MyAppTypeVersion}_{#MyAppVersion}_{#MyAppArchRC}.exe"; DestDir: {tmp}; DestName: "WPSOffice_Setup.exe"; Flags: ignoreversion overwritereadonly nocompression; Components: main;
-Source: "E:\Software\WPS Office\1Extracted\setup_CN_2052_{#MyAppVersion}_{#WPSInstallerType}.exe"; DestDir: {tmp}; DestName: "WPSOffice_Setup.exe"; Flags: ignoreversion overwritereadonly nocompression; Components: main;
-//Source: "E:\Software\WPS Office\64位测试\WPS_bbs_x64_Beta_17158.exe"; DestDir: {tmp}; DestName: "WPSOffice_Setup.exe"; Flags: ignoreversion overwritereadonly nocompression; Components: main;
+//Source: "E:\Software\WPS Office\1Extracted\setup_CN_2052_{#MyAppVersion}_{#WPSInstallerType}.exe"; DestDir: {tmp}; DestName: "WPSOffice_Setup.exe"; Flags: ignoreversion overwritereadonly nocompression; Components: main;
+Source: "E:\Software\WPS Office\内部测试\202608\setup_CN_2052_12.1.0.28505_Unified_Professional.exe"; DestDir: {tmp}; DestName: "WPSOffice_Setup.exe"; Flags: ignoreversion overwritereadonly nocompression; Components: main;
 
 [Registry]
 ; 本段处理程序在注册表中的键值
@@ -660,6 +664,7 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\nonetupdtconf.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main\ksorcnonet;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\launchernameedit.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\norecentoptimize.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: experimental\norecentoptimize;
+//Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\xaversionextra.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\oem_setup.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /y ""{tmp}\oem.ini"" ""{tmp}\oem_setup.ini"""; Flags: runhidden; Components: main;
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c copy /b ""{tmp}\oem.ini""+""{tmp}\fakehash.ini"" ""{tmp}\oem.ini"""; Flags: runhidden; Components: main;
@@ -704,7 +709,7 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters:
 ; 为安装自定义皮肤将原皮肤删除
 Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\skins\2019dark'"; Flags: runhidden; Components: experimental\themereplacewpssis;
 
-; 如果底包为个人版 / 商业版，则备份原产品配置
+; 对原来的产品配置进行备份
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c mkdir ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\personal"""; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c copy ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\product_new.dat"" ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\personal\product_new.dat"""; Flags: runhidden; Components: main;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c mkdir ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\wpsplus"""; Flags: runhidden; Components: main;
@@ -750,8 +755,8 @@ Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,Inst
 
 ; WPS 主程序 / WPS PDF 独立版外壳扩展注册操作
 //Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-regkwpsshellext admin"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: experimental\wpsshellext; BeforeInstall: SetMarqueeProgress(True);
-Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kwpspdfshellext.dll"""; Flags: 32bit; Components: experimental\wpsshellext;
-Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kwpspdfshellext64.dll"""; Flags: 64bit; Components: experimental\wpsshellext;
+//Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kwpspdfshellext.dll"""; Flags: 32bit; Components: experimental\wpsshellext;
+//Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kwpspdfshellext64.dll"""; Flags: 64bit; Components: experimental\wpsshellext;
 
 ; 手动创建备份目录（12.1.0.280xx+）
 ; 由于安装程序不会在更改备份目录后创建对应子目录，我们需要自己创建一个
@@ -798,7 +803,7 @@ Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,Inst
 
 ; 移除程序启动时的闪屏图片（实验功能）
 //Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\mui\default\resource\splash'"; Flags: runhidden; Components: splash\nosplash;
-Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\mui\zh_CN\resource\splash'"; Flags: runhidden; Components: main;
+Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\mui\zh_CN\resource\splash'"; Flags: runhidden; Components: splash\bluelegacy or splash\bluearchive;
 //Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\mui\zh_CN\resource\splash'"; Flags: runhidden; Components: splash\nosplash;
 //Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\mui\zh_TW\resource\splash'"; Flags: runhidden; Components: splash\nosplash;
 //Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\mui\ja_JP\resource\splash'"; Flags: runhidden; Components: splash\nosplash;
@@ -815,7 +820,7 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters:
 Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/c del ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\qingshellext64.dll"" /Q /F"; Flags: runhidden; Components: extra\noqingshellext or main\ksorcnonet;
 
 ; 取消部分垃圾组件注册并删除
-Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\addons\kaiaccompanywrite'"; check: WPS{#MyAppArchRC}Main; Components: main;
+//Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\addons\kaiaccompanywrite'"; check: WPS{#MyAppArchRC}Main; Components: main;
 //Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregistermessagepush"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Flags: skipifdoesntexist; check: WPS{#MyAppArchRC}Main; Components: main;
 Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\wtoolex\wpsupdate.exe"; Parameters: "-deltasks"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Flags: skipifdoesntexist; check: WPS{#MyAppArchRC}Main; Components: main; 
 Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='wtoolex'"; check: WPS{#MyAppArchRC}Main; Components: main;
@@ -892,7 +897,7 @@ Name: experimental\pdfadvanced\loginonlyfunc; Description: "对在线版本解�
 Name: experimental\officialdocs; Description: "启用 WPS 文字的公文相关功能（必须拥有功能授权才可使用）";
 //Name: experimental\officialdocs\nouof; Description: "不要将公文文档保存为标文通（UOF）格式";
 //Name: experimental\officialdocs\writernouof; Description: "禁用 WPS 文字的 UOF 格式支持以确保能够正常调用公文模板";
-Name: experimental\nixavulpiauth; Description: "适用于 PDF 编辑和 2023 智能公文功能的私有化授权解锁补丁";
+Name: experimental\nixavulpiauth; Description: "PDF 编辑和 2023 智能公文功能私有化授权解锁（不要忘记勾选安装相应功能）";
 Name: experimental\wpsshellext; Description: "右键菜单外壳扩展（PDF 合并与批量打印等，启动程序后生效）";
 Name: experimental\disableime; Description: "禁用预输入法（只有当遇到文档编辑时卡顿的时候才应该尝试勾选）";
 //Name: experimental\forceasso; Description: "强制关联 Word / Excel / PPT 格式，尝试解决无法从新建菜单创建文件的问题";

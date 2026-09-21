@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20260829"
+#define RCInnoExpVer "20260920"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -123,7 +123,7 @@ WDrvDenyUnspecDeviceInstWarning=The device installation service of the operating
 //WDrvChkCode12NextNotice=Once the check is complete, click Next to continue. Then, setup will ask you about your current situation.
 WDrvFMConfErrIGFXNotWorking=This issue will cause integrated graphics and GPU devices without display output support (like NVIDIA P106-100 and CMP 40HX) not working properly.
 WDrvPublisherType=Install %1 driver
-WDrvPolicyDenyXSignNotice=Windows Driver policy is active in enforcement mode, so setup cannot continue. Please delete Windows Driver policy from your operating system.%n%nYou can find more information in the release notes of this project.
+WDrvPolicyDenyXSignNotice=Setup cannot continue because Windows driver policy is active in enforcement mode. Please delete Windows driver policy from your operating system.%n%nYou can find more information in the release notes of this project.
 
 [Run]
 
