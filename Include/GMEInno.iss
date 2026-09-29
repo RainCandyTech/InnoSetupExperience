@@ -1,40 +1,40 @@
-// é›¨ç³–ç§‘æŠ€ Windose Installer å®‰è£…ä½“éªŒè„šæœ¬ - é€‚ç”¨äº Inno Setup çš„ Game_Music_Emu æ’ä»¶å‡½æ•°
-// Made with love by RainCandy Technology - é›¨ç³–ç§‘æŠ€ ä»¥çˆ±æ•¬çŒ®
-// è¯·è½¬åˆ°é›¨ç§‘ GitHub ç»„ç»‡è´¦æˆ·ä¸‹ InnoSetupExperience Repo ä¸­çš„ Contributors.md æ–‡ä»¶æŸ¥çœ‹è´¡çŒ®è€…ä¿¡æ¯ã€‚
+// ÓêÌÇ¿Æ¼¼ Windose Installer °²×°ÌåÑé½Å±¾ - ÊÊÓÃÓÚ Inno Setup µÄ Game_Music_Emu ²å¼şº¯Êı
+// Made with love by RainCandy Technology - ÓêÌÇ¿Æ¼¼ ÒÔ°®¾´Ï×
+// Çë×ªµ½Óê¿Æ GitHub ×éÖ¯ÕË»§ÏÂ InnoSetupExperience Repo ÖĞµÄ Contributors.md ÎÄ¼ş²é¿´¹±Ï×ÕßĞÅÏ¢¡£
 
-// æœ¬æ’ä»¶ç”± KLuoNoYa åŸºäº libgme çš„ Game_Music_Emu é¡¹ç›®åŸºäºäºŒæ¬¡å¼€å‘ã€‚
+// ±¾²å¼şÓÉ KLuoNoYa »ùÓÚ libgme µÄ Game_Music_Emu ÏîÄ¿»ùÓÚ¶ş´Î¿ª·¢¡£
 // https://github.com/KLuoNuoYa/game-music-emu
 
 [Files]
-//Source: "..\Plugins\gme_inno_ia32.dll"; DestName: "gme_inno.dll"; DestDir: "{tmp}"; Flags: dontcopy nocompression noencryption;
-Source: "..\Plugins\gme_inno_ia32{#PluginSignMark}.dll"; DestName: "gme_inno.dll"; DestDir: "{tmp}"; Flags: dontcopy nocompression noencryption;
+Source: "..\Plugins\gme_inno_ia32.dll"; DestName: "gme_inno.dll"; DestDir: "{tmp}"; Flags: dontcopy nocompression noencryption;
+//Source: "..\Plugins\gme_inno_ia32{#PluginSignMark}.dll"; DestName: "gme_inno.dll"; DestDir: "{tmp}"; Flags: dontcopy nocompression noencryption;
 
 [Code]
-// åŠ è½½æ›²ç›®
+// ¼ÓÔØÇúÄ¿
 function GMEInnoOpenFileW(Path: string; SampleRate: Integer): Integer;
   external 'GMEInnoOpenFileW@files:gme_inno.dll stdcall delayload';
-// æŒ‰ç…§éŸ³è½¨åŠ è½½æ›²ç›®
+// °´ÕÕÒô¹ì¼ÓÔØÇúÄ¿
 function GMEInnoOpenFileTrackW(Path: string; SampleRate: Integer; TrackIndex: Integer): Integer;
   external 'GMEInnoOpenFileTrackW@files:gme_inno.dll stdcall delayload';
-// åˆ‡æ¢éŸ³è½¨
+// ÇĞ»»Òô¹ì
 function GMEInnoStartTrack(TrackIndex: Integer): Integer;
   external 'GMEInnoStartTrack@files:gme_inno.dll stdcall delayload';
-// æ’­æ”¾
+// ²¥·Å
 function GMEInnoPlay: Integer;
   external 'GMEInnoPlay@files:gme_inno.dll stdcall delayload';
-// æš‚åœ
+// ÔİÍ£
 procedure GMEInnoPause;
   external 'GMEInnoPause@files:gme_inno.dll stdcall delayload';
-// åœæ­¢
+// Í£Ö¹
 procedure GMEInnoStop;
   external 'GMEInnoStop@files:gme_inno.dll stdcall delayload';
-// å…³é—­
+// ¹Ø±Õ
 procedure GMEInnoClose;
   external 'GMEInnoClose@files:gme_inno.dll stdcall delayload';
-// å¯ç”¨å¾ªç¯
+// ÆôÓÃÑ­»·
 procedure GMEInnoSetLoop(Enabled: Integer);
   external 'GMEInnoSetLoop@files:gme_inno.dll stdcall delayload';
-// è®¾ç½®éŸ³é‡
+// ÉèÖÃÒôÁ¿
 procedure GMEInnoSetVolume(VolumePercent: Integer);
   external 'GMEInnoSetVolume@files:gme_inno.dll stdcall delayload';
 function GMEInnoGetLastErrorW(var Buffer: string; Capacity: Integer): Integer;
@@ -56,11 +56,11 @@ end;
 procedure BGMLoad_GMEInno();
 begin
   if not (DoNotPlayBGM = true) then begin
-    // å¯ç”¨å¾ªç¯
+    // ÆôÓÃÑ­»·
     GMEInnoSetLoop(1);
-    // è®¾ç½®éŸ³é‡
+    // ÉèÖÃÒôÁ¿
     GMEInnoSetVolume(70);
-    // å¼€å§‹æ’­æ”¾
+    // ¿ªÊ¼²¥·Å
     GMEInnoPlay;
   end;
 end;

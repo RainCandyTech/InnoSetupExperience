@@ -9,7 +9,8 @@
 [Files]
 //Source: "..\Plugins\ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 //Source: "..\Plugins\ISTask{#PluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\{#PluginArchMark}\ISTask{#PluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\{#PluginArchMark}\ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\{#PluginArchMark}\ISTask{#PluginSignMark}.dll"; DestName: "ISTask.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 function RunTask(FileName: AnsiString; bFullpath: Boolean): Boolean;

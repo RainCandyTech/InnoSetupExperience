@@ -1,14 +1,15 @@
-// é›¨ç³–ç§‘æŠ€ Windose Installer å®‰è£…ä½“éªŒè„šæœ¬ - é€‚ç”¨äº Inno Setup çš„ Tracker Playback æ’ä»¶å‡½æ•°
-// Made with love by RainCandy Technology - é›¨ç³–ç§‘æŠ€ ä»¥çˆ±æ•¬çŒ®
-// è¯·è½¬åˆ°é›¨ç§‘ GitHub ç»„ç»‡è´¦æˆ·ä¸‹ InnoSetupExperience Repo ä¸­çš„ Contributors.md æ–‡ä»¶æŸ¥çœ‹è´¡çŒ®è€…ä¿¡æ¯ã€‚
+// ÓêÌÇ¿Æ¼¼ Windose Installer °²×°ÌåÑé½Å±¾ - ÊÊÓÃÓÚ Inno Setup µÄ Tracker Playback ²å¼şº¯Êı
+// Made with love by RainCandy Technology - ÓêÌÇ¿Æ¼¼ ÒÔ°®¾´Ï×
+// Çë×ªµ½Óê¿Æ GitHub ×éÖ¯ÕË»§ÏÂ InnoSetupExperience Repo ÖĞµÄ Contributors.md ÎÄ¼ş²é¿´¹±Ï×ÕßĞÅÏ¢¡£
 
-// æœ¬è„šæœ¬ä»£ç ç”¨äº TrackerPlayback-Inno æ’ä»¶çš„ç›¸å…³å‡½æ•° ç”± KLuoNoYa åŸºäº NixaVulpi çš„ Tracker Playback é¡¹ç›®åŸºäºäºŒæ¬¡å¼€å‘ã€‚
-// åœ¨æ­¤å‘ä¸¤ä½è‡´ä»¥ç”±è¡·çš„æ„Ÿè°¢ä¸æ•¬æ„ã€‚
+// ±¾½Å±¾´úÂëÓÃÓÚ TrackerPlayback-Inno ²å¼şµÄÏà¹Øº¯Êı ÓÉ KLuoNoYa »ùÓÚ NixaVulpi µÄ Tracker Playback ÏîÄ¿»ùÓÚ¶ş´Î¿ª·¢¡£
+// ÔÚ´ËÏòÁ½Î»ÖÂÒÔÓÉÖÔµÄ¸ĞĞ»Óë¾´Òâ¡£
 
 [Files]
 //Source: "..\Plugins\TrackerPlayback.dll"; DestName: "TrackerPlayback.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 //Source: "..\Plugins\TrackerPlayback{#PluginSignMark}.dll"; DestName: "TrackerPlayback.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\{#PluginArchMark}\TrackerPlayback{#PluginSignMark}.dll"; DestName: "TrackerPlayback.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\{#PluginArchMark}\TrackerPlayback.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\{#PluginArchMark}\TrackerPlayback{#PluginSignMark}.dll"; DestName: "TrackerPlayback.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 const
@@ -45,7 +46,7 @@ function TrackerPlayback_Inno_GetStatus(): Integer;
 function TrackerPlayback_Inno_GetLastErrorCode(): Integer;
   external 'TrackerPlayback_Inno_GetLastErrorCode@files:TrackerPlayback.dll stdcall loadwithalteredsearchpath';
 
-// æ’ä»¶åŠ è½½ï¼Œå¼€å§‹æ’­æ”¾
+// ²å¼ş¼ÓÔØ£¬¿ªÊ¼²¥·Å
 procedure BGMLoad_TrackerPB();
 var
   ModulePath: String;

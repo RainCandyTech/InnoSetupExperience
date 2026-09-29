@@ -6,8 +6,8 @@
 
 [Files]
 ; 「代码 12」错误检测器 by df1050
-//Source: "..\Plugins\Code12Check.exe"; Flags: dontcopy nocompression;
-Source: "..\Plugins\Code12Check{#PluginSignMark}.exe"; DestName: "Code12Check.exe"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\Code12Check.exe"; Flags: dontcopy nocompression;
+//Source: "..\Plugins\Code12Check{#PluginSignMark}.exe"; DestName: "Code12Check.exe"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; 用于调试的「代码 31」错误检测器
 //Source: "..\Plugins\Code31Check.exe"; DestName:"Code12Check.exe"; Flags: dontcopy nocompression;

@@ -6,8 +6,8 @@
 
 [Files]
 ; 插件本体
-//Source: "..\ISSkin\ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\ISSkinExU{#PluginSignMark}.dll"; DestName: "ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\ISSkin\ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\ISSkinExU{#PluginSignMark}.dll"; DestName: "ISSkinExU.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 ; 视觉效果文件
 Source: "..\Plugins\ISSkin\{#MyAppSetupStyle}"; DestDir: {tmp}; Flags: dontcopy nocompression;

@@ -6,8 +6,8 @@
 // 原项目地址：https://code.google.com/p/inno-json-config/
 
 [Files]
-//Source: "..\Plugins\JSONConfig.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
-Source: "..\Plugins\JSONConfig{#PluginSignMark}.dll"; DestName: "JSONConfig.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+Source: "..\Plugins\JSONConfig.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
+//Source: "..\Plugins\JSONConfig{#PluginSignMark}.dll"; DestName: "JSONConfig.dll"; DestDir: {tmp}; Flags: dontcopy nocompression;
 
 [Code]
 function JSONQueryString(FileName, Section, Key, Default: WideString;
