@@ -31,6 +31,7 @@
 #define MyAppArchRC "IA32"
 #define MyAppArchRCShort "32"
 #define MyAppIsDebugVersion "true"   ;正式外发版本一定要关闭！！！
+#define MyAppIsDebugLogging "no"
 //#define MyAppPublishType ""
 #define MyAppShowFreePrevideMsg "false"
 #define MyAppIsNeedStoreApp "false"
@@ -96,7 +97,7 @@ DisableWelcomePage=false
 //WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //WizardSmallImageFileDynamicDark="..\Artworks\rclogo_inno_modern.png"
-//SetupLogging=yes
+SetupLogging={#MyAppIsDebugLogging}
 //DiskSpanning=true
 //DiskSliceSize=2100000000
 //MinVersion=6.1

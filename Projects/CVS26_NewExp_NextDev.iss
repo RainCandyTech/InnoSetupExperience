@@ -26,13 +26,14 @@
 #define MyAppRevisionVer ""
 #define MyAppRevisionDate "240529"
 #define MyAppSetupBGM "true"
-#define RCBGMAllowNotPlay "false"
+#define RCBGMAllowNotPlay "true"
 #define MyAppSetupBGMType "xm"
 //#define MyAppSetupStyle "Office2007.cjstyles"
 #define MyAppArchitecture "x64"
 #define MyAppArchRC "AMD64"
 #define MyAppArchRCShort "64"
 #define MyAppIsDebugVersion "false"   ;正式外发版本一定要关闭！！！
+#define MyAppIsDebugLogging "no"
 #define MyAppPublishType "placeholder"
 #define MyAppShowFreePrevideMsg "false"
 #define MyAppIsNeedStoreApp "false"
@@ -87,8 +88,7 @@ VersionInfoTextVersion={#MyAppVersion}
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoVersion={#MyAppVersion}
 CreateAppDir=no
-//LicenseFile="..\Documents\license_alludo.rtf"
-//LicenseFile="..\Documents\license_alludo_partner.rtf"
+LicenseFile="..\Documents\license_alludo.rtf"
 //InfoBeforeFile=
 InfoAfterFile="..\Documents\credits_corelvideostudio_umrse.rtf"
 OutputDir="..\Output"
@@ -108,9 +108,10 @@ DisableWelcomePage=false
 WizardImageFile="..\Artworks\{#WizardImage}.bmp"
 //WizardImageFileDynamicDark="..\Artworks\{#WizardImage}.bmp"
 //WizardSmallImageFile="..\Artworks\WizardSmallImage0.bmp"
-WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
+WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
+//WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //WizardSmallImageFileDynamicDark="..\Artworks\rclogo_inno_modern.png"
-//SetupLogging=yes
+SetupLogging={#MyAppIsDebugLogging}
 //DiskSpanning=true
 //DiskSliceSize=2100000000
 MinVersion=6.1sp1
@@ -128,7 +129,7 @@ PrivilegesRequired=admin
 //signtool=CSignTool
 
 [Languages]
-Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl";
+Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; LicenseFile: "..\Documents\license_alludo_cn.rtf";
 Name: "chinesetrad"; MessagesFile: "..\Languages\ChineseTraditional.isl";
 Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl";
 Name: "english"; MessagesFile: "compiler:Default.isl";

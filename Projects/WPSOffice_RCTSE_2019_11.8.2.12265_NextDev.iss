@@ -18,7 +18,7 @@
 //#define MyAppURL "http://raincandy.tech/"
 #define MyAppURL "https://www.wps.cn/"   ;卡饭论坛不允许作品出现推广链接，故替换为官网链接
 //#define WizardImage "kingsoft_office"
-#define WizardImage "WizModernImage-251225"
+#define WizardImage "WizModernImage-b4"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor
@@ -36,6 +36,7 @@
 #define MyAppArchRC "IA32"
 #define MyAppArchRCShort "32"
 #define MyAppIsDebugVersion "true"   ;正式外发版本一定要关闭！！！
+#define MyAppIsDebugLogging "no"
 #define MyAppPublishType "Internal_" + MyAppMajorVersion
 //#define MyAppPublishType "Internal_" + MyAppMajorVersion + "_Sherii"
 //#define MyAppPublishType "Internal_Personal"
@@ -75,7 +76,7 @@
 //#include "..\Include\ISTask.iss"
 //#include "..\Include\MicrosoftStore_SvcChk.iss"
 #include "..\Include\WPSOffice_Check.iss"
-#include "..\Include\Partner_mefcl.iss"
+#include "..\Include\PartnerRelease.iss"
 
 [Setup]
 ; 注: AppId的值为单独标识该应用程序。
@@ -122,7 +123,7 @@ WizardImageFile="..\Artworks\{#WizardImage}.bmp"
 WizardSmallImageFile="..\Artworks\rclogo_inno_modern.bmp"
 //WizardSmallImageFile="..\Artworks\rclogo_inno_modern.png"
 //WizardSmallImageFileDynamicDark="..\Artworks\rclogo_inno_modern.png"
-SetupLogging={#MyAppIsDebugVersion}
+SetupLogging={#MyAppIsDebugLogging}
 MinVersion=6.1
 WizardStyle=modern
 //WizardStyle=modern dynamic Windows11
@@ -496,6 +497,9 @@ Source: "{src}\NijikaWPSExtraConf.ini"; DestName: "ExtraConf.ini"; DestDir: {tmp
 //Source: "{#RCInnoExpProjectDir}\VBA_Installer\VBA_71_MSI_{#MyAppArchRC}\Vba71_2052.msi"; DestDir: {tmp}\VBA\; Flags: ignoreversion overwritereadonly; Components: extra\ksovba\vba71;
 //Source: "{#RCInnoExpProjectDir}\VBA_Installer\VBA_71_MSI_{#MyAppArchRC}\Vba71_3802.msi"; DestDir: {tmp}\VBA\; Flags: ignoreversion overwritereadonly; Components: extra\ksovba\vba71;
 
+; VBA 安装包（Unwake Studio 打包版）
+//Source: "{#RCInnoExpProjectDir}\VBA_Installer\VBA_7.0.1590_UnwakeStudio.exe"; DestName: "VBA_Setup_UnwakeStudio.exe"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Components: extra\ksovba\vba70;
+
 ; VBA 卸载程序
 Source: "{#RCInnoExpProjectDir}\VBA_Installer\VBA_Uninst_{#MyAppArchRC}.exe"; DestName: "VBA_Uninst.exe"; DestDir: {tmp}\oeminfo; Flags: ignoreversion overwritereadonly; Components: extra\ksovba;
 
@@ -569,6 +573,9 @@ Source: "{#RCInnoExpProjectDir}\yComponents\OfficialFont\*.*"; DestDir: {tmp}\Oe
 //Source: "{#RCInnoExpProjectDir}\yComponents\ProTemplates_12.1.0.23542\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\yComponents\Additional_{#MyAppTypeVersion}_{#MyAppVersion}_{#MyAppArchRC}\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
 //Source: "{#RCInnoExpProjectDir}\yComponents\Additional_{#MyAppTypeVersion}_12.1.0.26885_{#MyAppArchRC}\*.*"; DestDir: {tmp}\OemFile\office6; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Components: main;
+
+; 适用于专门版本的临时解决方案
+; PLACEHOLDER
 
 ; 适用于非官方支持系统的安装劫持补丁
 Source: "{#RCInnoExpProjectDir}\W8ClientPatch\wpsw8patch_ia32.dll"; DestName: "wpsw8patch.dll"; DestDir: {sys}; Flags: ignoreversion overwritereadonly 32bit; Check: WPSIsOSUnsupport; Components: main; OnlyBelowVersion: 10.0;
@@ -697,10 +704,10 @@ Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}
 //Filename: "{tmp}\oeminfo\oem.exe"; Parameters: "/regfile=raincandy_productdat-wpsplus.reg"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso;
 
 ; 文件关联相关操作
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoword"; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},Word}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso; BeforeInstall: SetMarqueeProgress(True);
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoexcel"; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},Excel}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso; BeforeInstall: SetMarqueeProgress(True);
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assopowerpnt"; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},PowerPoint}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso; BeforeInstall: SetMarqueeProgress(True);
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unassopdf"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: experimental\pdfdisable; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoword"; Flags: waituntilterminated; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},Word}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoexcel"; Flags: waituntilterminated; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},Excel}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assopowerpnt"; Flags: waituntilterminated; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},PowerPoint}"; check: WPS{#MyAppArchRC}Main; Components: experimental\forceasso; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unassopdf"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: experimental\pdfdisable; BeforeInstall: SetMarqueeProgress(True);
 
 ; 删除功能入口控制的序列号权限配置
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c del ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\addons\kentrycontrol\mui\default\snprivilegecfg.json"" /Q /F"; Flags: runhidden; Components: main;
@@ -722,8 +729,8 @@ Filename: "{tmp}\WPSOffice_Setup.exe"; StatusMsg: "{cm:RCTISERunAppSetupForUser}
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunInstPrepare}"; Parameters: "/c rename ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kbaseconfigcenter64.dll"" kbaseconfigcenter64.dll.BAK"; Flags: runhidden; Components: main;
 
 ; 反注册外壳扩展，移除 WPS 照片右键菜单项目以及 Windows 文件属性中的属性修改选项卡
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregkwpsshellext admin"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main; BeforeInstall: SetMarqueeProgress(True);
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregkwpsshellext admin"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: not experimental\wpsshellext; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregkwpsshellext admin"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregkwpsshellext admin"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: not experimental\wpsshellext; BeforeInstall: SetMarqueeProgress(True);
 Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/u /s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\qingshellext.dll"""; Flags: runhidden 32bit; Components: extra\noqingshellext;
 Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/u /s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\qingshellext64.dll"""; Flags: runhidden 64bit; Components: extra\noqingshellext; Check: IsWin64;
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c powershell.exe ""Get-AppxPackage wpsappext* | Remove-AppxPackage -AllUsers"""; Flags: runhidden; MinVersion: 10.0.19041; Components: not experimental\wpsshellext;
@@ -738,22 +745,25 @@ Filename: "{tmp}\oeminfo\oem.exe"; Parameters: "/copydir=OemFile\oem /ShellVarCo
 Filename: "{tmp}\oeminfo\oem.exe"; Parameters: "/copydir=OemFile\resource-zh_CN /ShellVarContext=current /RelativeDir=INSTDIR /todir='office6\mui\zh_CN\resource'"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main;
 Filename: "{tmp}\oeminfo\oem.exe"; Parameters: "/copydir=OemFile\splash /ShellVarContext=current /RelativeDir=INSTDIR /todir='office6\mui\default\resource\splash'"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main;
 
+; 适用于专门版本的临时解决方案（复制文件后）
+;PLACEHOLDER
+
 ; 当安装在线版本时，切换默认产品配置为私有化版本，以实现不切换授权登录金山办公账号
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c copy /Y ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\intranet\product_new.dat"" ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\cfgs\product_new.dat"""; Flags: runhidden; Components: main\ksorcnet;
 
 ; 建立 OFD 与电子书格式的文件关联
-Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoofd"; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},OFD}"; check: WPS{#MyAppArchRC}Main; Components: extra\ksorcofd\fileassoc; BeforeInstall: SetMarqueeProgress(True);
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoepub"; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},EPUB 和 MOBI}"; check: WPS{#MyAppArchRC}Main; Components: experimental\ebooksupport\fileassoc; BeforeInstall: SetMarqueeProgress(True);
+Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoofd"; Flags: waituntilterminated; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},OFD}"; check: WPS{#MyAppArchRC}Main; Components: extra\ksorcofd\fileassoc; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-assoepub"; Flags: waituntilterminated; StatusMsg: "{cm:AssocingFileExtension,{#MyAppMainName},EPUB 和 MOBI}"; check: WPS{#MyAppArchRC}Main; Components: experimental\ebooksupport\fileassoc; BeforeInstall: SetMarqueeProgress(True);
 
 ; 删除 WpsWakeWnsLogonTask 任务计划
 //Filename: "{sysnative}\schtasks.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/delete /tn ""WpsWakeWnsLogonTask"" /f"; Flags: runhidden; Components: main;
 
 ; 反注册我的电脑中的 WPS 网盘图标
-Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregqingdriveshellext_uninstall"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main\ksorcnonet or extra\noqingembedreg; BeforeInstall: SetMarqueeProgress(True);
-Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregyunpan -forceperusermode"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main\ksorcnonet or extra\noqingembedreg; BeforeInstall: SetMarqueeProgress(True);
+Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregqingdriveshellext_uninstall"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main\ksorcnonet or extra\noqingembedreg; BeforeInstall: SetMarqueeProgress(True);
+Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregyunpan -forceperusermode"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main\ksorcnonet or extra\noqingembedreg; BeforeInstall: SetMarqueeProgress(True);
 
 ; WPS 主程序 / WPS PDF 独立版外壳扩展注册操作
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-regkwpsshellext admin"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: experimental\wpsshellext; BeforeInstall: SetMarqueeProgress(True);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-regkwpsshellext admin"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: experimental\wpsshellext; BeforeInstall: SetMarqueeProgress(True);
 //Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kwpspdfshellext.dll"""; Flags: 32bit; Components: experimental\wpsshellext;
 //Filename: "{sys}\regsvr32.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/s ""{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kwpspdfshellext64.dll"""; Flags: 64bit; Components: experimental\wpsshellext;
 
@@ -762,13 +772,13 @@ Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,Inst
 //Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; Parameters: "/c mkdir ""{reg:HKCU\Software\kingsoft\Office\6.0\Common\Backup,AutoRecoverFilePath}"""; Flags: runhidden; Components: main;
 
 ; 让用户自行选择窗口管理模式
-Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-showallinone"; StatusMsg: "正在等待选择窗口管理模式..."; Flags: skipifdoesntexist skipifsilent; check: not KSOClassicMode; Components: main; BeforeInstall: SetMarqueeProgress(False);
+Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-showallinone"; Flags: waituntilterminated skipifsilent; StatusMsg: "正在等待选择窗口管理模式..."; check: not KSOClassicMode; Components: main; BeforeInstall: SetMarqueeProgress(False);
 
 ; 重建图标，确保文件关联图标正常显示
 Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-rebuildicon"; StatusMsg: "{cm:RCTISERunIconSetup}"; check: WPS{#MyAppArchRC}Main; Components: extra\ksorcofd\fileassoc; BeforeInstall: SetMarqueeProgress(True);
 
 ; 重新注册字体，确保注册公文字体和方正字体
-Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-regmtfont"; StatusMsg: "{cm:RCTISERunRegFonts}"; check: WPS{#MyAppArchRC}Main; Components: main; BeforeInstall: SetMarqueeProgress(True);
+Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-regmtfont"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunRegFonts}"; check: WPS{#MyAppArchRC}Main; Components: main; BeforeInstall: SetMarqueeProgress(True);
 
 ; 导入所需要的注册表
 Filename: "{tmp}\oeminfo\oem.exe"; Parameters: "/regfile=raincandy_delw8patch.reg"; StatusMsg: "{cm:RCTISERunMainAppPrepare}"; check: WPS{#MyAppArchRC}Main; Components: main;
@@ -820,7 +830,9 @@ Filename: "{sys}\cmd.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters:
 
 ; 取消部分垃圾组件注册并删除
 //Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6\addons\kaiaccompanywrite'"; check: WPS{#MyAppArchRC}Main; Components: main;
-//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregistermessagepush"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Flags: skipifdoesntexist; check: WPS{#MyAppArchRC}Main; Components: main;
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregisterwpsphotoautoasso"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunFinishingInst}"; check: WPS{#MyAppArchRC}Main; Components: not (main\ksorcnet and experimental\exfeature\wpsphoto);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unassopic_uninstall_noreport"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunFinishingInst}"; check: WPS{#MyAppArchRC}Main; Components: not (main\ksorcnet and experimental\exfeature\wpsphoto);
+//Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe"; Parameters: "-unregistermessagepush"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunFinishingInst}"; check: WPS{#MyAppArchRC}Main; Components: main;
 //Filename: "{reg:HKLM{#MyAppArchRCShort}\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\wtoolex\wpsupdate.exe"; Parameters: "-deltasks"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Flags: skipifdoesntexist; check: WPS{#MyAppArchRC}Main; Components: main; 
 //Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='wtoolex'"; check: WPS{#MyAppArchRC}Main; Components: main;
 Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Parameters: "/ShellVarContext=current /RelativeDir=INSTDIR /rmdir='office6' /delfile='kcrashdumper.exe,kcrashdumper64.exe'"; check: WPS{#MyAppArchRC}Main; Components: main;
@@ -841,6 +853,9 @@ Filename: "{tmp}\oeminfo\oem.exe"; StatusMsg: "{cm:RCTISERunFinishingInst}"; Par
 //Filename: "{sys}\msiexec.exe"; StatusMsg: "{cm:RCTISERunExtraSetupPrepare, VBA 支持库}"; Parameters: "/i ""{tmp}\VBA\Vba71.msi"" /quiet /norestart"; check: WPS{#MyAppArchRC}Main; Components: extra\ksovba\vba71; BeforeInstall: SetMarqueeProgress(True);
 //Filename: "{sys}\msiexec.exe"; StatusMsg: "{cm:RCTISERunExtraSetupPrepare, VBA 支持库}"; Parameters: "/i ""{tmp}\VBA\Vba71_1033.msi"" /quiet /norestart"; check: WPS{#MyAppArchRC}Main; Components: extra\ksovba\vba71;
 //Filename: "{sys}\msiexec.exe"; StatusMsg: "{cm:RCTISERunExtraSetupPrepare, VBA 支持库}"; Parameters: "/i ""{tmp}\VBA\Vba71_2052.msi"" /quiet /norestart"; check: WPS{#MyAppArchRC}Main; Components: extra\ksovba\vba71; Languages: chinesesimp; 
+
+; 安装 VBA 运行库（Unwake Studio 打包版）
+//Filename: "{tmp}\VBA_Setup_UnwakeStudio.exe"; Parameters: "/S"; Flags: waituntilterminated; StatusMsg: "{cm:RCTISERunExtraSetupPrepare, VBA 支持库}"; check: WPS{#MyAppArchRC}Main; Components: extra\ksovba\vba70;
 
 ; 安装微软 Access 数据库引擎
 //Filename: "{sys}\msiexec.exe"; StatusMsg: "{cm:RCTISERunExtraSetupPrepare,微软 Access 数据库引擎}"; Parameters: "/i ""{tmp}\AceRedist.msi"" /quiet /norestart"; check: WPS{#MyAppArchRC}Main; Components: extra\aceredist; BeforeInstall: SetMarqueeProgress(True);
@@ -869,6 +884,7 @@ Name: main\iscreatenewfile; Description: "在多组件模式下，使程序在�
 //Name: extra\ksovba; Description: "{cm:RCTISEToInst, {cm:RCTISELibrarySupport,VBA}}"; Types: default;
 Name: extra\ksovba; Description: "{cm:RCTISEToInst, {cm:RCTISELibrarySupport,VBA}}"; Types: default; Flags: fixed;
 //Name: extra\ksovba\vba60; Description: "{cm:RCTISEInstVerChoose,6.0}"; Flags: exclusive;
+//Name: extra\ksovba\vba70; Description: "{cm:RCTISEInstVerChoose,7.0}"; Flags: exclusive;
 //Name: extra\ksovba\vba71; Description: "{cm:RCTISEInstVerChoose,7.1}"; Types: default; Flags: exclusive;
 Name: extra\fzfonts; Description: "安装方正字体和常用公文字体"; Types: default; Flags: fixed;
 //Name: extra\fzfonts; Description: "安装方正字体和常用公文字体";
@@ -897,7 +913,7 @@ Name: experimental\officialdocs; Description: "启用 WPS 文字的公文相关�
 //Name: experimental\officialdocs\nouof; Description: "不要将公文文档保存为标文通（UOF）格式";
 //Name: experimental\officialdocs\writernouof; Description: "禁用 WPS 文字的 UOF 格式支持以确保能够正常调用公文模板";
 Name: experimental\nixavulpiauth; Description: "PDF 编辑和 2023 智能公文功能私有化授权解锁（不要忘记勾选安装相应功能）";
-////Name: experimental\wpsshellext; Description: "右键菜单外壳扩展（PDF 合并与批量打印等，启动程序后生效）";
+//Name: experimental\wpsshellext; Description: "右键菜单外壳扩展（PDF 合并与批量打印等，启动程序后生效）";
 Name: experimental\disableime; Description: "禁用预输入法（只有当遇到文档编辑时卡顿的时候才应该尝试勾选）";
 //Name: experimental\forceasso; Description: "强制关联 Word / Excel / PPT 格式，尝试解决无法从新建菜单创建文件的问题";
 //Name: experimental\exfeature; Description: "对在线版本解锁额外应用与特性（非必要不建议勾选）";

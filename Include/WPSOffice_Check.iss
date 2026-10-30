@@ -16,7 +16,8 @@ var
 function WPSIA32Main(): Boolean;
 begin
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  //if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kso.dll'))) then begin
     result:= true;
   end;
 end;
@@ -29,7 +30,8 @@ begin
   result:= false;
   if (IsWin64) then begin
     RegQueryStringValue(HKLM64, 'SOFTWARE\Kingsoft\Office\6.0\Common', 'Architecture', WPSInstArch)
-    if (WPSInstArch = 'x64') and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+    //if (WPSInstArch = 'x64') and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+    if (WPSInstArch = 'x64') and (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\Office\6.0\Common,InstallRoot}\office6\kso.dll'))) then begin
       result:= true;
     end;
   end;
@@ -39,7 +41,8 @@ end;
 function WPSHKCUMain(): Boolean;
 begin
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKCU\Software\kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  //if (FileExists(ExpandConstant('{reg:HKCU\Software\kingsoft\Office\6.0\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKCU\Software\kingsoft\Office\6.0\Common,InstallRoot}\office6\kso.dll'))) then begin
     result:= true;
   end;
 end;
@@ -48,7 +51,8 @@ end;
 function KPDFIA32Main(): Boolean;
 begin
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  //if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKLM32\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\kso.dll'))) then begin
     result:= true;
   end;
 end;
@@ -57,8 +61,11 @@ end;
 function KPDFAMD64Main(): Boolean;
 begin
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
-    result:= true;
+  if (IsWin64) then begin
+    //if (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+    if (FileExists(ExpandConstant('{reg:HKLM64\SOFTWARE\Kingsoft\PDF\Common,InstallRoot}\office6\kso.dll'))) then begin
+      result:= true;
+    end;
   end;
 end;
 
@@ -66,7 +73,8 @@ end;
 function KPDFHKCUMain(): Boolean;
 begin
   result:= false;
-  if (FileExists(ExpandConstant('{reg:HKCU\Software\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  //if (FileExists(ExpandConstant('{reg:HKCU\Software\Kingsoft\PDF\Common,InstallRoot}\office6\ksomisc.exe'))) then begin
+  if (FileExists(ExpandConstant('{reg:HKCU\Software\Kingsoft\PDF\Common,InstallRoot}\office6\kso.dll'))) then begin
     result:= true;
   end;
 end;
