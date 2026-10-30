@@ -1,4 +1,4 @@
-﻿// 雨糖科技 Inno Setup 安装体验脚本 - MathType 程序安装检查
+﻿// 雨糖科技 Windose Installer 安装体验脚本 - MathType 程序安装检查
 // Made with love by RainCandy Technology
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 

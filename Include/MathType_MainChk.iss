@@ -1,4 +1,4 @@
-﻿// 雨糖科技 Inno Setup 安装体验脚本 - MathType 程序安装检查
+﻿// 雨糖科技 Windose Installer 安装体验脚本 - MathType 程序安装检查
 // Made with love by RainCandy Technology
 // 特别感谢：织金旋律
 

@@ -1,4 +1,4 @@
-// 雨糖科技 Inno Setup 安装体验脚本 - 安装过程中 GPU-Z 检查步骤
+// 雨糖科技 Windose Installer 安装体验脚本 - 安装过程中 GPU-Z 检查步骤
 // Made with love by RainCandy Technology - 雨糖科技 以爱敬献
 // 请转到雨科 GitHub 组织账户下 InnoSetupExperience Repo 中的 Contributors.md 文件查看贡献者信息。
 
