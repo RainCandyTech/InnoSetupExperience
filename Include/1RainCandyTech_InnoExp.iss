@@ -4,7 +4,7 @@
 
 // 本脚本代码为雨糖科技安装体验脚本的主要函数。
 
-#define RCInnoExpVer "20261029"
+#define RCInnoExpVer "20260929 (b)"
 
 [Messages]
 // Setup Note in "About" dialog
@@ -277,6 +277,12 @@ begin
   
   { Get the current DPI }
   CurrentDPI  := WizardForm.Font.PixelsPerInch;
+end;
+
+// 一个总是返回 False 的函数，可以用来隐藏可选组件
+function AlwaysFalse(): Boolean;
+begin
+  Result:= False;
 end;
 
 // 程序检查完成后，继续安装体验初始化
