@@ -14,7 +14,7 @@
 //#define MyAppPublisher "NVIDIA Corporation"
 #define MyAppURL "http://raincandy.tech/"
 //#define MyAppURL "https://www.nvidia.com/"
-#define WizardImage "WizModernImage-261012"
+#define WizardImage "WizModernImage-260319"
 #define WizardImageConfig SourcePath + "\..\Artworks\" + WizardImage + ".ini"
 #define WizardImageAuthor str (ReadIni(WizardImageConfig, "WindoseInstaller", "ArtworkInfo", ""))
 #define MyAppExtraInfo WizardImageAuthor
@@ -144,7 +144,7 @@ PrivilegesRequired=admin
 
 [Languages]
 Name: "chinesesimp"; MessagesFile: "..\Languages\ChineseSimplified.isl"; LicenseFile:"..\Documents\license_nvdrv_cn.rtf";
-Name: "chinesetrad"; MessagesFile: "..\Languages\ChineseTraditional.isl"; LicenseFile:"..\Documents\license_nvdrv_cn.rtf";
+Name: "chinesetrad"; MessagesFile: "compiler:Languages\ChineseTraditional.isl"; LicenseFile:"..\Documents\license_nvdrv_cn.rtf";
 Name: "dutch"; MessagesFile: "compiler:Languages\Dutch.isl";
 Name: "english"; MessagesFile: "compiler:Default.isl";
 Name: "french"; MessagesFile: "compiler:Languages\French.isl";
@@ -235,11 +235,11 @@ japanese.SelectTasksDesc=どのように選択すればよいかわからない�
 russian.SelectTasksDesc=Если вы не знаете, что выбрать, просто нажмите кнопку «Далее».
 
 // 20260413_NVDrvCMPUnlock_TasksComment
-SelectTasksLabel2="Signature mode select" allows you to toggle the digital signature of the driver binary files. In case of applications or games don't work properly with the GPU, you can try to reinstall the driver in a different mode (mode 1 by default).%nImportant: You must uninstall the existing NVIDIA drivers before switching the mode.%n%nIf you are using an NVIDIA {#NVDrvLastSupportGPU} GPU for display output, make sure to check the "HD Audio Driver" option to get a better experience when using DP or HDMI port to connect a monitor that supports audio output. If not, you can just ignore it.
-chinesesimp.SelectTasksLabel2=“签名模式选择”允许您切换驱动程序文件附带的数字签名。如果需要调用显卡的程序或游戏无法正常使用，则可以尝试以另一个签名模式重装驱动程序（默认为模式 1），说不定就可以解决问题。%n※ 重要：切换模式前，必须先卸载已经安装的英伟达驱动程序。%n%n如果您正在使用 {#NVDrvLastSupportGPU} 核心的英伟达显卡作为显示输出，请务必勾选“HD 音频驱动”选项，以在使用 DP、HDMI 等接口连接支持音频输出的显示器时获得更好的体验。如果您没有使用另一张英伟达显卡进行显示输出（即非双 N 卡用户）的话则不需要勾选。
-chinesetrad.SelectTasksLabel2=「簽章模式選擇」允許您切換驅動程式檔案附帶的數位簽章。如果需要使用顯示卡的程式或遊戲無法正常使用，請嘗試以另一個簽章模式重新安装驅動程式（預設為模式 1 ），說不定就可以解決問題。%n※ 重要：切換模式前，必須先解除安装已經安装的 NVIDIA 驅動程式。%n%n如果您正在使用 {#NVDrvLastSupportGPU} 核心的 NVIDIA 顯示卡作為顯示輸出，請務必勾選「HD 音訊驅動」選項，以便在使用 DP、HDMI 埠連線支援音訊輸出的顯示器時獲得更好的體驗。如果您沒有使用另一張 NVIDIA 顯示卡進行顯示輸出（即非雙 N 卡使用者）的話則不需要勾選。
-japanese.SelectTasksLabel2=「署名モードの選択」は、ドライバーファイルに含まれるデジタル署名を切り替えることを可能にします。グラフィックカードを呼び出したプログラムまたはゲームが正しく動作しない場合は、ドライバーを別のモード(デフォルトモード 1)で再インストールしてみてください。%n※ 注意: モードを切り替える前に、まず既にインストールされている NVIDIA ドライバーをアンインストールする必要があります。%n%nディスプレイ出力に NVIDIA {#NVDrvLastSupportGPU} GPU を使用している場合は、「HD オーディオドライバー」オプションをチェックしてください。これにより、DP、HDMI などのオーディオ出力をサポートするモニターに接続する際に、より良い体験が得られます。別の NVIDIA のグラフィックスカードを使用してディスプレイ出力を行っていない場合は、このオプションをチェックしなくても問題ありません。
-russian.SelectTasksLabel2=«Выбор режима подписи» позволяет переключать режим подписи двоичных файлов драйвера. Если приложения или игры работают с GPU некорректно, вы можете попробовать переустановить драйвер в другом режиме (по умолчанию используется режим 1).%nВажно: удалите существующие драйверы NVIDIA перед переключением режима.%n%nЕсли вы используете GPU NVIDIA {#NVDrvLastSupportGPU} для вывода изображения, обязательно отметьте опцию «Драйвер HD Audio», чтобы получить лучший опыт при использовании портов DP или HDMI для подключения монитора с поддержкой вывода звука. В противном случае вы можете просто проигнорировать эту опцию.
+//SelectTasksLabel2="Signature mode select" allows you to toggle the digital signature of the driver binary files. In case of applications or games don't work properly with the GPU, you can try to reinstall the driver in a different mode (mode 1 by default).%nImportant: You must uninstall the existing NVIDIA drivers before switching the mode.%n%nIf you are using an NVIDIA {#NVDrvLastSupportGPU} GPU for display output, make sure to check the "HD Audio Driver" option to get a better experience when using DP or HDMI port to connect a monitor that supports audio output. If not, you can just ignore it.
+//chinesesimp.SelectTasksLabel2=“签名模式选择”允许您切换驱动程序文件附带的数字签名。如果需要调用显卡的程序或游戏无法正常使用，则可以尝试以另一个签名模式重装驱动程序（默认为模式 1），说不定就可以解决问题。%n※ 重要：切换模式前，必须先卸载已经安装的英伟达驱动程序。%n%n如果您正在使用 {#NVDrvLastSupportGPU} 核心的英伟达显卡作为显示输出，请务必勾选“HD 音频驱动”选项，以在使用 DP、HDMI 等接口连接支持音频输出的显示器时获得更好的体验。如果您没有使用另一张英伟达显卡进行显示输出（即非双 N 卡用户）的话则不需要勾选。
+//chinesetrad.SelectTasksLabel2=「簽章模式選擇」允許您切換驅動程式檔案附帶的數位簽章。如果需要使用顯示卡的程式或遊戲無法正常使用，請嘗試以另一個簽章模式重新安装驅動程式（預設為模式 1 ），說不定就可以解決問題。%n※ 重要：切換模式前，必須先解除安装已經安装的 NVIDIA 驅動程式。%n%n如果您正在使用 {#NVDrvLastSupportGPU} 核心的 NVIDIA 顯示卡作為顯示輸出，請務必勾選「HD 音訊驅動」選項，以便在使用 DP、HDMI 埠連線支援音訊輸出的顯示器時獲得更好的體驗。如果您沒有使用另一張 NVIDIA 顯示卡進行顯示輸出（即非雙 N 卡使用者）的話則不需要勾選。
+//japanese.SelectTasksLabel2=「署名モードの選択」は、ドライバーファイルに含まれるデジタル署名を切り替えることを可能にします。グラフィックカードを呼び出したプログラムまたはゲームが正しく動作しない場合は、ドライバーを別のモード(デフォルトモード 1)で再インストールしてみてください。%n※ 注意: モードを切り替える前に、まず既にインストールされている NVIDIA ドライバーをアンインストールする必要があります。%n%nディスプレイ出力に NVIDIA {#NVDrvLastSupportGPU} GPU を使用している場合は、「HD オーディオドライバー」オプションをチェックしてください。これにより、DP、HDMI などのオーディオ出力をサポートするモニターに接続する際に、より良い体験が得られます。別の NVIDIA のグラフィックスカードを使用してディスプレイ出力を行っていない場合は、このオプションをチェックしなくても問題ありません。
+//russian.SelectTasksLabel2=«Выбор режима подписи» позволяет переключать режим подписи двоичных файлов драйвера. Если приложения или игры работают с GPU некорректно, вы можете попробовать переустановить драйвер в другом режиме (по умолчанию используется режим 1).%nВажно: удалите существующие драйверы NVIDIA перед переключением режима.%n%nЕсли вы используете GPU NVIDIA {#NVDrvLastSupportGPU} для вывода изображения, обязательно отметьте опцию «Драйвер HD Audio», чтобы получить лучший опыт при использовании портов DP или HDMI для подключения монитора с поддержкой вывода звука. В противном случае вы можете просто проигнорировать эту опцию.
 
 // 20260413_NVDrvCMPUnlock_TasksComment_NoSignatureMode
 //SelectTasksLabel2=If you are using an NVIDIA {#NVDrvLastSupportGPU} GPU for display output, make sure to check the "HD Audio Driver" option to get a better experience when using DP or HDMI port to connect a monitor that supports audio output. If not, you can just ignore it.
@@ -249,12 +249,12 @@ russian.SelectTasksLabel2=«Выбор режима подписи» позво�
 //russian.SelectTasksLabel2=Если вы используете GPU NVIDIA {#NVDrvLastSupportGPU} для вывода изображения, обязательно отметьте опцию «Драйвер HD Audio», чтобы получить лучший опыт при использовании портов DP или HDMI для подключения монитора с поддержкой вывода звука. В противном случае вы можете просто проигнорировать эту опцию.
 
 // 20261009_NVDrvCMPUnlock_TasksComment_NVENC
-//SelectTasksLabel2=If you are using an NVIDIA {#NVDrvLastSupportGPU} GPU for display output, make sure to check the "HD Audio Driver" option to get a better experience when using DP or HDMI port to connect a monitor that supports audio output. If not, you can just ignore it.%n%nThe NVENC & NvFBC unlock patch only applies to CMP 40HX and GeForce series GPUs. Enabling it on unsupported devices may cause unexpected issues such as application crashes.
-//chinesesimp.SelectTasksLabel2=如果您正在使用 {#NVDrvLastSupportGPU} 核心的英伟达显卡作为显示输出，请务必勾选“HD 音频驱动”选项，以在使用 DP、HDMI 等接口连接支持音频输出的显示器时获得更好的体验。如果您没有使用另一张英伟达显卡进行显示输出（即非双 N 卡用户）的话则不需要勾选。%n%nNVENC 与 NvFBC 的解锁补丁仅适用于 CMP 40HX 以及 GeForce 系列的 GPU / 显卡。在不受支持的设备上启用会导致程序崩溃等意外情况。
-//chinesetrad.SelectTasksLabel2=如果您正在使用 {#NVDrvLastSupportGPU} 核心的 NVIDIA 顯示卡作為顯示輸出，請務必勾選「HD 音訊驅動」選項，以便在使用 DP、HDMI 埠連線支援音訊輸出的顯示器時獲得更好的體驗。如果您沒有使用另一張 NVIDIA 顯示卡進行顯示輸出（即非雙 N 卡使用者）的話則不需要勾選。%n%nNVENC 與 NvFBC 解鎖修補程式僅適用於 CMP 40HX 以及 GeForce 系列的 GPU。在不支援的裝置上啟用會導致應用程式崩潰等意外情況。
-//japanese.SelectTasksLabel2=ディスプレイ出力に NVIDIA {#NVDrvLastSupportGPU} GPU を使用している場合は、「HD オーディオドライバー」オプションをチェックしてください。これにより、DP、HDMI などのオーディオ出力をサポートするモニターに接続する際に、より良い体験が得られます。別の NVIDIA のグラフィックスカードを使用してディスプレイ出力を行っていない場合は、このオプションをチェックしなくても問題ありません。%n%nNVENC & NvFBC アンロックパッチは、CMP 40HX および GeForce シリーズの GPU にのみ適用されます。サポートされていないデバイスで有効にすると、アプリケーションのクラッシュなどの予期しない問題が発生する可能性があります。
-//german.SelectTasksLabel2=Wenn Sie eine NVIDIA {#NVDrvLastSupportGPU} GPU für die Bildausgabe verwenden, stellen Sie sicher, dass die Option „HD Audio Driver" aktiviert ist, um eine bessere Erfahrung zu erzielen, wenn Sie einen Monitor, der Audioausgabe unterstützt, über den DP- oder HDMI-Anschluss anschließen. Andernfalls können Sie dies einfach ignorieren.%n%nDer NVENC- & NvFBC-Unlock-Patch gilt nur für CMP 40HX- und GeForce-Serien-GPUs. Das Aktivieren auf nicht unterstützten Geräten kann zu unerwarteten Problemen wie Anwendungsabstürzen führen.
-//russian.SelectTasksLabel2=Если вы используете GPU NVIDIA {#NVDrvLastSupportGPU} для вывода изображения, обязательно отметьте опцию «Драйвер HD Audio», чтобы получить лучший опыт при использовании портов DP или HDMI для подключения монитора с поддержкой вывода звука. В противном случае вы можете просто проигнорировать эту опцию.%n%nПатч разблокировки NVENC и NvFBC применим только к GPU серий CMP 40HX и GeForce. Включение на неподдерживаемых устройствах может привести к непредвиденным проблемам, таким как сбои приложений.
+SelectTasksLabel2=If you are using an NVIDIA {#NVDrvLastSupportGPU} GPU for display output, make sure to check the "HD Audio Driver" option to get a better experience when using DP or HDMI port to connect a monitor that supports audio output. If not, you can just ignore it.%n%nThe NVENC & NvFBC unlock patch only applies to CMP 40HX and GeForce series GPUs. Enabling it on unsupported devices may cause unexpected issues such as application crashes.
+chinesesimp.SelectTasksLabel2=如果您正在使用 {#NVDrvLastSupportGPU} 核心的英伟达显卡作为显示输出，请务必勾选“HD 音频驱动”选项，以在使用 DP、HDMI 等接口连接支持音频输出的显示器时获得更好的体验。如果您没有使用另一张英伟达显卡进行显示输出（即非双 N 卡用户）的话则不需要勾选。%n%nNVENC 与 NvFBC 的解锁补丁仅适用于 CMP 40HX 以及 GeForce 系列的 GPU / 显卡。在不受支持的设备上启用会导致程序崩溃等意外情况。
+chinesetrad.SelectTasksLabel2=如果您正在使用 {#NVDrvLastSupportGPU} 核心的 NVIDIA 顯示卡作為顯示輸出，請務必勾選「HD 音訊驅動」選項，以便在使用 DP、HDMI 埠連線支援音訊輸出的顯示器時獲得更好的體驗。如果您沒有使用另一張 NVIDIA 顯示卡進行顯示輸出（即非雙 N 卡使用者）的話則不需要勾選。%n%nNVENC 與 NvFBC 解鎖修補程式僅適用於 CMP 40HX 以及 GeForce 系列的 GPU。在不支援的裝置上啟用會導致應用程式崩潰等意外情況。
+japanese.SelectTasksLabel2=ディスプレイ出力に NVIDIA {#NVDrvLastSupportGPU} GPU を使用している場合は、「HD オーディオドライバー」オプションをチェックしてください。これにより、DP、HDMI などのオーディオ出力をサポートするモニターに接続する際に、より良い体験が得られます。別の NVIDIA のグラフィックスカードを使用してディスプレイ出力を行っていない場合は、このオプションをチェックしなくても問題ありません。%n%nNVENC & NvFBC アンロックパッチは、CMP 40HX および GeForce シリーズの GPU にのみ適用されます。サポートされていないデバイスで有効にすると、アプリケーションのクラッシュなどの予期しない問題が発生する可能性があります。
+german.SelectTasksLabel2=Wenn Sie eine NVIDIA {#NVDrvLastSupportGPU} GPU für die Bildausgabe verwenden, stellen Sie sicher, dass die Option „HD Audio Driver" aktiviert ist, um eine bessere Erfahrung zu erzielen, wenn Sie einen Monitor, der Audioausgabe unterstützt, über den DP- oder HDMI-Anschluss anschließen. Andernfalls können Sie dies einfach ignorieren.%n%nDer NVENC- & NvFBC-Unlock-Patch gilt nur für CMP 40HX- und GeForce-Serien-GPUs. Das Aktivieren auf nicht unterstützten Geräten kann zu unerwarteten Problemen wie Anwendungsabstürzen führen.
+russian.SelectTasksLabel2=Если вы используете GPU NVIDIA {#NVDrvLastSupportGPU} для вывода изображения, обязательно отметьте опцию «Драйвер HD Audio», чтобы получить лучший опыт при использовании портов DP или HDMI для подключения монитора с поддержкой вывода звука. В противном случае вы можете просто проигнорировать эту опцию.%n%nПатч разблокировки NVENC и NvFBC применим только к GPU серий CMP 40HX и GeForce. Включение на неподдерживаемых устройствах может привести к непредвиденным проблемам, таким как сбои приложений.
 
 // 20251114_NVDrv_EasterEgg
 WelcomeLabel1=Welcome to the Future Tears Setup Wizard
@@ -271,11 +271,11 @@ japanese.FinishedHeadingLabel=Future Tears セットアップウィザードの�
 russian.FinishedHeadingLabel=Завершение Мастера установки Слёзы будущего
 
 [CustomMessages]
-//NVENCUnlockComponent=NVENC & NvFBC unlock patches (For supported GPUs ONLY)
-//chinesesimp.NVENCUnlockComponent=NVENC 与 NvFBC 的解锁补丁（除非 GPU / 显卡支持否则请勿勾选）
-//chinesetrad.NVENCUnlockComponent=NVENC 與 NvFBC 的解锁修補程式（除非 GPU 支持否則請勿勾選）
-//german.NVENCUnlockComponent=NVENC- & NvFBC-Unlock-Patches (NUR für unterstützte GPUs)
-//russian.NVENCUnlockComponent=Патчи разблокировки NVENC и NvFBC (ТОЛЬКО для поддерживаемых GPU)
+NVENCUnlockComponent=NVENC & NvFBC unlock patches (For supported GPUs ONLY)
+chinesesimp.NVENCUnlockComponent=NVENC 与 NvFBC 的解锁补丁（除非 GPU / 显卡支持否则请勿勾选）
+chinesetrad.NVENCUnlockComponent=NVENC 與 NvFBC 的解锁修補程式（除非 GPU 支持否則請勿勾選）
+german.NVENCUnlockComponent=NVENC- & NvFBC-Unlock-Patches (NUR für unterstützte GPUs)
+russian.NVENCUnlockComponent=Патчи разблокировки NVENC и NvFBC (ТОЛЬКО для поддерживаемых GPU)
 
 [Code]
 function InitializeSetup: Boolean;
@@ -372,6 +372,7 @@ begin  // 跳过不必要页面
   //if (PageID = wpInfoAfter) then result := true;
   //if (PageID = wpFinished) then result := true;
   //if (PageID = wpSelectDir) then result := true;
+  //if (PageID = wpSelectTasks) then result := true;
   //if (PageID = wpSelectComponents) then result := true;
   if (NVRequireReboot = true) and ((PageID = wpInfoAfter) or (PageID = wpFinished)) then result := true;
 end;
@@ -390,8 +391,8 @@ Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v2\splash_cn.png"; DestName: "splas
 Source: "{#RCInnoExpProjectDir}\yRCTSESplash_v2\splash_rtl.png"; DestDir: {tmp}\NVI2; Flags: ignoreversion overwritereadonly;
 
 ; NVIDIA Driver EULA
-Source: "{#RCInnoExpProjectDir}\zEULA\EULA.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
-//Source: "{#RCInnoExpProjectDir}\zEULA\EULA_beta.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\zEULA\EULA.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\zEULA\EULA_beta.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\zEULA\EULA_RCT_en-US.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Languages: not (chinesesimp or chinesetrad);
 //Source: "{#RCInnoExpProjectDir}\zEULA\EULA_RCT_zh-CN.txt"; DestName: "EULA.txt"; DestDir: {tmp}; Flags: ignoreversion overwritereadonly; Languages: chinesesimp or chinesetrad;
 
@@ -401,32 +402,32 @@ Source: "{#RCInnoExpProjectDir}\RootCATrust\*.*"; DestDir: {tmp}\RootCATrust; Fl
 
 ; 驱动本体
 Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\1Main\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\2Edited\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\2Edited\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 
 ; 驱动设备配置
-Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverConf\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverConf\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: not nvenc;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverConf_NVENC\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
+//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverConf\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverConf\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: not nvenc;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverConf_NVENC\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
 
 ; 驱动签名 1
-Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverSign_1\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: drvsign1;
-Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nv_disp_1.cat"; DestName: "nv_disp.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign1;
+//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverSign_1\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: drvsign1;
+//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nv_disp_1.cat"; DestName: "nv_disp.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign1;
 
 ; 驱动签名 2
 //Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\DriverSign_2\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: drvsign2;
 //Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\nv_disp_2.cat"; DestName: "nv_disp.cat"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: drvsign2;
 
 ; 不同版本的 NVENC 文件
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVENC_NoPatch\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: not nvenc;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVENC_Patched\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVENC_NoPatch\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: not nvenc;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVENC_Patched\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
 
 ; NvFBC 相关文件
 //Source: "{#RCInnoExpProjectDir}\NvFBCEnable\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
-//Source: "{#RCInnoExpProjectDir}\NvFBCPatch\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: not nvenc;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc64.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: not nvenc;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc.dll"; DestName: "nvfbc_.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: nvenc;
-//Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc64.dll"; DestName:"nvfbc64_.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: nvenc;
+Source: "{#RCInnoExpProjectDir}\NvFBCPatch\*.*"; DestDir: {tmp}; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: nvenc;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: not nvenc;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc64.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: not nvenc;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc.dll"; DestName: "nvfbc_.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: nvenc;
+Source: "{#RCInnoExpProjectDir}\{#NVDrvPatchType}\修改版驱动_{#MyAppVersion}\NVFBC\nvfbc64.dll"; DestName:"nvfbc64_.dll"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly; Tasks: nvenc;
 
 ; HD 音频驱动
 Source: "{#RCInnoExpProjectDir}\HDAudio\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDir: {tmp}\HDAudio; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly; Tasks: hdaudio;
@@ -464,8 +465,8 @@ Source: "{#RCInnoExpProjectDir}\PhysX\Latest_{#NVDrvLastSupportGPU}\*.*"; DestDi
 ; GRID vGPU 驱动额外组件
 Source: "{#RCInnoExpProjectDir}\yGRIDExtra\1Common\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
 //Source: "{#RCInnoExpProjectDir}\yGRIDExtra\1Common_Packed\*.*"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion recursesubdirs createallsubdirs overwritereadonly;
-//Source: "{#RCInnoExpProjectDir}\yGRIDExtra\grid-proxy-credentials_{#MyAppVersion}.ps1"; DestName: "grid-proxy-credentials.ps1"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly;
-Source: "{#RCInnoExpProjectDir}\yGRIDExtra\grid-proxy-credentials_582.78.ps1"; DestName: "grid-proxy-credentials.ps1"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly;
+Source: "{#RCInnoExpProjectDir}\yGRIDExtra\grid-proxy-credentials_{#MyAppVersion}.ps1"; DestName: "grid-proxy-credentials.ps1"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly;
+//Source: "{#RCInnoExpProjectDir}\yGRIDExtra\grid-proxy-credentials_582.78.ps1"; DestName: "grid-proxy-credentials.ps1"; DestDir: {tmp}\Display.Driver; Flags: ignoreversion overwritereadonly;
 
 [Registry]
 ; 本段处理程序在注册表中的键值
@@ -478,7 +479,7 @@ Root:HKLM{#MyAppArchRCShort}; Subkey:"SYSTEM\CurrentControlSet\Services\nvlddmkm
 
 ; 安装根证书
 Filename: "{tmp}\RootCATrust\certmgr.exe"; StatusMsg: "{cm:RCTISERunInstCert}"; Parameters: "/add /all ./RCDrv_Root.cer /r localMachine /s root";
-//Filename: "{tmp}\RootCATrust\certmgr.exe"; StatusMsg: "{cm:RCTISERunInstCert}"; Parameters: "/add /all ./MNet_Root.cer /r localMachine /s root";
+Filename: "{tmp}\RootCATrust\certmgr.exe"; StatusMsg: "{cm:RCTISERunInstCert}"; Parameters: "/add /all ./MNet_Root.cer /r localMachine /s root";
 //Filename: "{tmp}\RootCATrust\certmgr.exe"; StatusMsg: "{cm:RCTISERunInstCert}"; Parameters: "/add /all ./KLuo_Root.cer /r localMachine /s root";
 
 ; 安装受信任的发布者证书
@@ -509,7 +510,7 @@ Name: "default"; Description: "{cm:RCTISEDefaultInstType}"; Flags: iscustom;
 ; 安装程序可选任务
 
 ; 两种签名模式的选择
-Name: "drvsign1"; Description: "{cm:WinDrvSignModeOption,1}"; GroupDescription: "{cm:WinDrvSignModeSelect}"; Flags: exclusive;
+//Name: "drvsign1"; Description: "{cm:WinDrvSignModeOption,1}"; GroupDescription: "{cm:WinDrvSignModeSelect}"; Flags: exclusive;
 //Name: "drvsign2"; Description: "{cm:WinDrvSignModeOption,2}"; GroupDescription: "{cm:WinDrvSignModeSelect}"; Flags: exclusive unchecked;
 
 ; HD 音频驱动选项（考虑到具体用途，472.12、475.15 DCH 驱动默认勾选） 
@@ -520,7 +521,7 @@ Name: "hdaudio"; Description: "{cm:WinDrvHDAudio}"; GroupDescription: "{cm:RCTIS
 //Name: "usbc"; Description: "{cm:WinDrvUSBC}"; GroupDescription: "{cm:RCTISEExtraComponents}"; Flags: unchecked; 
 
 ; NVEnc 解锁选项
-//Name: "nvenc"; Description: "{cm:NVENCUnlockComponent}"; GroupDescription: "{cm:RCTISEExtraComponents}"; Flags: unchecked;
+Name: "nvenc"; Description: "{cm:NVENCUnlockComponent}"; GroupDescription: "{cm:RCTISEExtraComponents}"; Flags: unchecked;
 
 [Icons]
 // 快捷方式创建相关

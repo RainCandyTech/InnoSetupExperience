@@ -152,10 +152,10 @@ chinesesimp.BeveledLabel=雨糖科技 以爱敬献
 chinesetrad.BeveledLabel=雨糖科技 以愛敬獻
 japanese.BeveledLabel=Made with love by RainCandy Technology
 
-// 20260511_Slogan-At-Begin
+// 20260511_SloganAtBegin
 ClickNext=Click Next to continue, or Cancel to exit Setup.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
-chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
-chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
+//chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | The new day has begun.%n%n{#MyAppExtraInfo}
+//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | The new day has begun.%n%n{#MyAppExtraInfo}
 dutch.ClickNext=Klik op Volgende om verder te gaan of op Annuleren om Setup af te sluiten.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 french.ClickNext=Cliquez sur Suivant pour continuer ou sur Annuler pour abandonner l'installation.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
 german.ClickNext="Weiter" zum Fortfahren, "Abbrechen" zum Verlassen.%n%nMade with love by RainCandy Technology%n%n{#MyAppExtraInfo}
@@ -205,13 +205,17 @@ japanese.FinishedRestartLabel=[name] のインストールを完了するため�
 //turkish.FinishedRestartLabel=[name] kurulumunun tamamlanması için, bilgisayarınız yeniden başlatılmalı. Şimdi yeniden başlatmak ister misiniz?%n%n{#MyAppExtraInfo}
 //ukrainian.FinishedRestartLabel=Для завершення встановлення [name] необхідно перезавантажити ваш комп’ютер. Перезавантажити комп’ютер зараз?%n%n{#MyAppExtraInfo}
 
-InstallingLabel=Of all my friends on this journey with me, how many of them are still healing from wounds?
-chinesesimp.InstallingLabel=总想起身边走在路上的朋友，有多少正在疗伤？
-chinesetrad.InstallingLabel=總想起身邊走在路上的朋友，有多少正在療傷？
+//chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 总想起身边走在路上的朋友，有多少正在疗伤？%n%n{#MyAppExtraInfo}
+//chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 總想起身邊走在路上的朋友，有多少正在療傷？%n%n{#MyAppExtraInfo}
+//InstallingLabel=Of all my friends on this journey with me, how many of them are still healing from wounds?
+//chinesesimp.InstallingLabel=总想起身边走在路上的朋友，有多少正在疗伤？
+//chinesetrad.InstallingLabel=總想起身邊走在路上的朋友，有多少正在療傷？
 
-//InstallingLabel=Of all my friends on this journey with me, how many of them are still waking up?
-//chinesesimp.InstallingLabel=总想起身边走在路上的朋友，有多少正在醒来？
-//chinesetrad.InstallingLabel=總想起身邊走在路上的朋友，有多少正在醒來？
+chinesesimp.ClickNext=单击“下一步”继续，或单击“取消”退出安装程序。%n%n雨糖科技 以爱敬献 | 总想起身边走在路上的朋友，有多少正在醒来？%n%n{#MyAppExtraInfo}
+chinesetrad.ClickNext=按 「下一步」 繼續安裝，或按 「取消」 結束安裝程式。%n%n雨糖科技 以愛敬獻 | 總想起身邊走在路上的朋友，有多少正在醒來？%n%n{#MyAppExtraInfo}
+InstallingLabel=Of all my friends on this journey with me, how many of them are still waking up?
+chinesesimp.InstallingLabel=总想起身边走在路上的朋友，有多少正在醒来？
+chinesetrad.InstallingLabel=總想起身邊走在路上的朋友，有多少正在醒來？
 
 [CustomMessages]
 MOVCompatibility=MOV format compatibility hotfix
